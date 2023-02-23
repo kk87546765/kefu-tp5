@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <title>后台管理系统</title>
+    <link rel="stylesheet" href="/assets/vendor/layui/css/layui.css"/>
+    <link rel="stylesheet" href="/assets/model/common/css/style.css"/>
+    <link rel="stylesheet" href="/assets/model/common/css/common.css"/>
+    <script type="text/javascript" src="/assets/vendor/layui/layui.js"></script>
+    <script type="text/javascript" src="/assets/js/jquery-2.2.3.min.js"></script>
+    <!--[if lt IE 9]>
+    <script src="/assets/model/common/js/html5shiv.min.js"></script>
+    <script src="/assets/model/common/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<style>
+    .content{
+        min-width: 800px;
+        min-height: 900px;
+    }
+    .mid{
+        /*background: #2b542c;*/
+        /*width: 42%;*/
+        min-width: 410px;
+        max-width: 25%;
+        display: inline-block;
+        float: left;
+    }
+    .left{
+        /*width: 40%;*/
+        min-width: 500px;
+        max-width: 45%;
+        display: inline-block;
+        min-height: 700px;
+        float: left;
+        margin-right: 40px;
+    }
+    .right{
+        min-width: 100px;
+        max-width: 20%;
+        display: inline-block;
+        float: left;
+    }
+    .marginbottom10{
+        margin-bottom:10px;
+    }
+    .textarea{
+        width: 100%;
+    }
+    .textarea .title{
+        width: 30%;
+        max-width: 120px;
+    }
+    #kf_text{
+        height: 300px;
+    }
+    /*会话相关信息*/
+    .oi_title{
+        font-weight: 600;
+    }
+    .oi_cont{
+        padding-left:15px;
+    }
+    .oi_cont .oi_cont_title{
+        min-width: 100px;
+        text-align: right;
+        padding-right: 5px;
+    }
+    /*列表样式*/
+    .leftInfoTab{
+        width: 200px;
+        height: 50px;
+        background: #fff;
+        border: 1px solid rgba(230,239,249,.98);
+        margin: 10px 0 0 10px;
+        cursor: pointer;
+        padding: 20px 0 10px 10px;
+    }
+    .leftInfoTabActive{
+        background: #edf5fd;
+        border: 1px solid #7ebebe;
+    }
+    .inspection-chat-shadow-layer .zc-inspection-preview-outer .zc-inspection-preview-outer-body .zc-inspection-preview-outer-l-body .preview-outer-l-body-info2 .leftInfoTab .infoDetailTop .infoDate {
+        float: left;
+        font-size: 14px;
+        color: #6d7894;
+    }
+    #leftInfoTab{
+        display: none;
+    }
+
+</style>
+
+<body class="hold-transition skin-blue sidebar-mini">
+<form class="layui-form" action="" style="padding: 20px;">
+    <div class="content search_wrap">
+        <div class="left">
+
+            <div class="left-mid">
+                <div class="layui-row layui-col-space10 marginbottom10">
+                    <!-- <textarea id="kf_text" name="text" style="display: none;">{{info['text']}}</textarea> -->
+                    <textarea id="kf_text" name="text">{{info['text']}}</textarea>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="mid">
+            <div class="layui-row layui-col-space10 marginbottom10">
+                <div id="text_other_info"></div>
+            </div>
+        </div>
+
+        <div class="right">
+            <div class="layui-row layui-col-space10 marginbottom10">
+                <li id="leftInfoTab" class="leftInfoTab"><!-- leftInfoTabActive -->
+                    <div class="infoDetailTop">
+                        <i class="clockIcn"></i>
+                        <p class="infoDate">2021-04-01</p>
+                        <p class="infoDuring">00:06:31</p>
+                    </div>
+                </li>
+                <ul id="contact_list">
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <ul id="jq22" style="display: none;">
+        <!-- <li><img src="img/tibet-1.jpg" alt="图片1"></li>-->
+    </ul>
+</form>
+<script type="text/javascript" charset="utf-8" src="/assets/plug/uediortext/ueditor.config.js?t=2"></script>
+<script type="text/javascript" charset="utf-8" src="/assets/plug/uediortext/ueditor.all.js"> </script>
+<link rel="stylesheet" href="/assets/plug/viewer/viewer.min.css">
+<script type="text/javascript" charset="utf-8" src="/assets/plug/viewer/viewer.min.js"> </script>
+<script>
+// var ue = UE.getEditor('kf_text');
+
+var editor = new UE.ui.Editor({
+    initialFrameHeight:700
+    ,autoHeightEnabled:false
+    ,iframeCssUrl: '/assets/plug/uediortext/common.css?t=3'
+    // ,initialFrameWidth:600
+});
+editor.render("kf_text");
+
+var kf_source = 0;
+var text_id = "";
+
+
+var contact_list = [];
+
+var layui_obj = layui.config({
+    version: true,
+    base: '/assets/model/'
+}).extend({
+    common: 'common/js/common',
+}).use(['common','jquery','form'], function(){
+    var form = layui.form;//初始化表单
+    var $ = layui.jquery;
+    var common = layui.common;
+    var this_id = common.urlParam.id;
+
+    init();
+   
+
+    $('.leftInfoTab').click(function(){
+        var obj = $(this);
+        text_id =obj.attr('attr-text-id');
+        kf_source =obj.attr('attr-kf-source');
+        this_id =obj.attr('attr-id');
+        var this_k =obj.attr('attr-k');
+
+        $('.leftInfoTab').removeClass('leftInfoTabActive');
+
+        obj.addClass('leftInfoTabActive');
+
+        get_conversation_other_info();
+
+        get_contact_list(this_id);
+
+        editor.setContent(contact_list[this_k].text_html);
+    })
+
+
+
+    function get_conversation_other_info(){
+        $('#text_other_info').html('');
+        common.req({
+            url: "Qc/getConversationOtherInfo",
+            data: {'kf_source':kf_source,'text_id':text_id},
+            type: "post",
+            dataType:"json",
+            success:function(res){
+                if( res.code==0 ){
+                    
+                    if(res.data){
+                        var html = '<ul>';
+                        $.each(res.data,function(k,v){
+                            html+='<li class="oi_title">'+v.title+'</li>';
+                            $.each(v.data,function(k1,v1){
+                                html+='<li class="oi_cont"><span class="oi_cont_title">'+v1.title+'：</span>'+v1.val+'</li>';
+                            })
+                        })
+                        html+='</ul>';
+                        $('#text_other_info').html(html);
+                    }
+                }
+            },
+            error:function(data){
+                // layer.alert('错误'+data.msg,{icon:2});
+            }
+        });
+    }
+
+    function init(){
+
+        common.req({
+            url: "Qc/detail",
+            data: {'id':this_id},
+            type: "post",
+            dataType:"json",
+            success:function(res){
+                if( res.code==0 ){
+
+                    kf_source = res.data.kf_source;
+                    text_id = res.data.text_id;
+                    editor.setContent(res.data.text);
+                    get_conversation_other_info();
+                    get_contact_list(this_id);
+                }
+            },
+            error:function(res){
+                // layer.alert('错误'+res.msg,{icon:2});
+            }
+        });
+
+        
+    }
+
+    function get_contact_list(id){
+
+        $('#contact_list').html('');
+
+        common.req({
+            url: "Qc/contactList",
+            data: {'id':id},
+            type: "post",
+            dataType:"json",
+            success:function(res){
+                if( res.code==0 ){
+                    var html = '';
+                    contact_list = res.data;
+                    
+                    $.each(res.data,function(k,v){
+
+                        var clone_obj = $('#leftInfoTab').clone(true,true);
+                        clone_obj.attr('id','');
+                        clone_obj.attr('attr-id',v.id);
+                        clone_obj.attr('attr-k',k);
+                        clone_obj.attr('attr-kf-source',v.kf_source);
+                        clone_obj.attr('attr-text-id',v.text_id);
+                        if(v.id == id){
+                            clone_obj.addClass('leftInfoTabActive');
+                        }
+                        clone_obj.find('.infoDate').html(v.server_start_str);
+                        clone_obj.find('.infoDuring').html(v.server_long+'（min）');
+                        $('#contact_list').append(clone_obj);
+                    })
+                }
+            },
+            error:function(res){
+                // layer.alert('错误'+res.msg,{icon:2});
+            }
+        });
+    }
+
+    
+
+});
+function show_img(e){
+    $('#jq22').html('<li><img id="show_img" src="'+e.src+'" alt="图片1"></li>');
+    // $('#jq22').viewer();
+    var viewer = new Viewer(document.getElementById('jq22'));
+
+    $('#show_img').click();
+}
+
+
+
+</script>
+</body>
+</html>

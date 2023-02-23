@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <title>后台管理系统</title>
+    <link rel="stylesheet" href="/assets/vendor/layui/css/layui.css"/>
+    <link rel="stylesheet" href="/assets/model/common/css/style.css"/>
+    <link rel="stylesheet" href="/assets/model/common/css/common.css"/>
+    <script type="text/javascript" src="/assets/vendor/layui/layui.js"></script>
+    <!-- jQuery 2.2.3 -->
+    <script src="/assets/js/jquery-2.2.3.min.js"></script>
+    <!--[if lt IE 9]>
+    <script src="/assets/model/common/js/html5shiv.min.js"></script>
+    <script src="/assets/model/common/js/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        .layui-col-space15 {
+            /* margin: -7.5px; */
+            margin:-7.5px 0 !important;
+        }
+        .del-btn{
+            margin-left:10px;
+        }
+        .example{
+            display:none
+        }
+        .content{
+            padding-left: 20px;
+        }
+        #param{
+            padding: 20px 0;
+        }
+        .api_list{
+            position: relative;
+        }
+        #api_list_info{
+            position: absolute;
+            left: 330px;
+            top: 0;
+            /*border: 1px solid #000;*/
+            /*padding: 10px;*/
+        }
+        #api_list_info span{
+            /*font-size: 16px;*/
+        }
+        #api_list_info p{
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+
+<div class="layui-btn-group demoTable" style="padding:15px;">
+
+</div>
+<div class="layui-form layui-form-pane" action="" onsubmit="false">
+<div class="layui-row">
+    <div class="layui-form-item api_list">
+        <label class="layui-form-label">api</label>
+        <div class="layui-input-inline">
+            <select name="api_list" lay-filter="api_list" lay-search="" id="api_list">
+                <option value="">其他</option>
+            </select>
+            
+        </div>
+        <div id="api_list_info"></div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">地址</label>
+        <div class="layui-input-inline">
+            <input type="text" name="preurl" value="Test/scriptTest" placeholder="http://www.baidu.com" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">method</label>
+        <div class="layui-input-inline">
+            <select name="premethod" lay-search="">
+                <option value="post" selected>post</option>
+                <option value="get">get</option>
+            </select>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">再次触发（code=0）</label>
+        <div class="layui-input-inline">
+            <select name="is_go_on" lay-search="">
+                <option value="0" selected>否</option>
+                <option value="1">是</option>
+            </select>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">分页自增（page）</label>
+        <div class="layui-input-inline">
+            <select name="is_auto_page" lay-search="">
+                <option value="0" selected>否</option>
+                <option value="1">是</option>
+            </select>
+        </div>
+    </div>
+</div>
+
+<div class="lxx_title">参数</div>
+<div class="content">
+    
+    <div id="param">
+        <div class="layui-row">
+            <div class="layui-inline">
+                <!-- <label class="layui-form-label">key：</label> -->
+                <div class="layui-input-inline" style="width: 100px;">
+                    <input type="text" onchange="keyChange(this)" name="key[]" placeholder="key" value="page" autocomplete="off" class="layui-input keys" id="keys_page">
+                </div>
+                <div class="layui-input-inline" style="width: 150px;">
+                    <input type="text" name="value[]" placeholder="value" value="1" autocomplete="off" class="layui-input values" id="values_page">
+                </div>
+            </div>
+           <!--  <button type="button" class="layui-btn layui-btn-sm del-btn" onclick="del(this)">
+                <i class="layui-icon">&#xe640;</i>
+            </button> -->
+        </div>
+    </div>
+
+    <div class="layui-row">
+        <div class="layui-row example">
+            <div class="layui-inline">
+                <!-- <label class="layui-form-label">key：</label> -->
+                <div class="layui-input-inline" style="width: 100px;">
+                    <input type="text" name="key" placeholder="key" value="" autocomplete="off" class="layui-input">
+                </div>
+                <div class="layui-input-inline" style="width: 150px;">
+                    <input type="text" name="value" placeholder="value" value="" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <button type="button" class="layui-btn layui-btn-sm del-btn" onclick="del(this)">
+                <i class="layui-icon">&#xe640;</i>
+            </button>
+        </div>
+        <button type="button" class="layui-btn layui-btn-sm add" id="add" data-type="param" data-key="param">
+            <i class="layui-icon">&#xe654;</i>
+        </button>
+    </div>
+
+
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit id="submit" lay-filter="formDemo">修改配置</button>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <span class="layui-btn" id="run">发起提交</span>
+        </div>
+    </div>
+
+    <ul id="msg">
+    </ul>
+</div>
+
+</div>
+
+
+<script>
+var api_list ={};
+var data_count = 0;
+var data_arr = [0];
+var p_data = {};
+var url = 'Test/scriptTest';
+var method = 'post';
+var is_auto_page = 0;
+var is_go_on = 0;
+var go_count = 0;
+var is_going = 0;
+
+//注意：选项卡 依赖 element 模块，否则无法进行功能性操作
+var layui_obj = layui.config({
+    version: true,
+    base: '/assets/model/'
+}).extend({
+    common: 'common/js/common',
+}).use(['common','element','form','jquery'], function(){
+    var element = layui.element;
+    var form = layui.form;
+    var common = layui.common;
+    var $ = layui.jquery;
+
+    initData();
+    //隐藏加载框
+    common.isLoading(false);
+
+    //修改配置
+    form.on('submit(formDemo)', function(data){
+        url = data.field.preurl;
+        is_auto_page = data.field.is_auto_page;
+        is_go_on = data.field.is_go_on;
+        method = data.field.premethod;
+        
+        p_data = {};
+        for (var i = data_count; i >= 0; i--) {
+            if(data.field['key['+(i)+']'] != undefined){
+                p_data[data.field['key['+(i)+']']] = data.field['value['+(i)+']'];
+            }    
+        }
+        layer.msg('保存成功',{icon:1});
+        console.log(p_data);
+        return false;
+    });
+
+    form.on('select(api_list)',function(data){
+
+        if(data.value == ''){
+            return false;
+        }
+
+        var this_data = api_list[data.value];
+
+        $('input[name="preurl"]').val(this_data.url);
+        $('select[name="premethod"]').val(this_data.method);
+        $('select[name="is_go_on"]').val(this_data.is_go_on);
+        $('select[name="is_auto_page"]').val(this_data.is_auto_page);
+
+        refresh_api_info(this_data);
+
+        form.render('select');
+
+        console.log(this_data);
+
+    })
+
+    $('#run').click(()=>{
+        if(is_going){
+            layer.msg('正在执行');
+            return;
+        }
+        layer.msg('开始执行');
+        is_going = 1;
+        go();
+    })
+
+
+    function initData(){
+
+        common.req({
+            url:'Test/scriptDetail'
+            ,success:(json)=>{
+                if(json.code == 0){
+                    
+                    api_list = json.data;
+
+                    var api_list_option = {};
+                    api_list_option[''] = '其他';
+                    if(api_list.length>0){
+                        $.each(api_list,(k,v)=>{
+                            api_list_option[k] = v.name;
+                        })
+                    }
+                    common.setOption1(api_list_option,$('#api_list'));
+                    form.render();
+                }else{
+                    layer.alert('错误'+json.msg);
+                }
+            }
+        })
+    }
+
+    //执行
+    function go(){
+        common.req({
+            url: url,
+            data: p_data,
+            type: method,
+            dataType:"json",
+            success:function(res){
+                go_count++;
+                $('#msg').prepend('<li>次数：'+go_count+';回调：'+JSON.stringify(res)+'</li>');
+                if( res.code==0 ){
+                    
+                    if(is_go_on==1){
+
+                        if(is_auto_page==1 && p_data.page != 'undefined'){
+                            p_data.page++;
+                            $('#values_page').val(p_data.page);
+                        }
+                        go();
+                    }else{
+                        is_going = 0;
+
+                    }
+                }else{
+                    is_going = 0;
+                }
+            },
+            error:function(data){
+                is_going = 0;
+                alert('错误'+data.msg);
+            }
+        },'default');
+    }
+
+    function keyChange(e){
+        var this_val = $(e).val();
+        $.each($(e).parent().parent().find('input'),function(k,v){
+            if($(v).hasClass('values')){
+                $(v).attr('id','values_'+this_val);
+            }else{
+                $(v).attr('id','keys_'+this_val);
+            }
+        })
+    }
+
+    function refresh_api_info(d){
+        var html = '';
+        data_count = 0;
+        data_arr = [];
+        $('#param').html('');
+
+        html+='<span>'+d.name+'</span>';
+        if(d.params.length > 0){
+            $.each(d.params,function(k,v){
+                html+= '<p>'+v.title+'( '+v.key+' ): '+v.desc+'</p>'
+                add_one(v.key,v.def_value)
+            })
+        }
+
+        $('#api_list_info').html(html);
+    }
+
+    $('#add').click(function(){
+        add_one('','');
+    })
+
+    // $('#add').click(function(){
+    //     let thisobj = $(this);
+
+    //     let key = 'param';
+
+    //     let example = thisobj.parent().find('.example');
+    //     if(example == undefined ){
+    //         return;
+    //     }
+
+    //     data_count++;
+
+    //     let cont_id = '#'+key;
+
+    //     let example_cp = example.clone(true).removeClass('example');
+
+    //     $.each(example_cp.find('input'),function(k,v){
+    //         var this_v_obj = $(v);
+    //         // this_v_obj.attr('name',this_v_obj.attr('name')+'['+count+']');
+    //         this_v_obj.addClass(this_v_obj.attr('name')+'s');
+    //         this_v_obj.attr('name',this_v_obj.attr('name')+'['+data_count+']');
+            
+    //     })
+    //     data_arr.push(data_count);
+    //     example_cp.appendTo(cont_id);
+
+    // })
+
+    function add_one(def_n,def_v){
+
+        let thisobj = $('#add');
+
+        let key = 'param';
+
+        let example = thisobj.parent().find('.example');
+        if(example == undefined ){
+            return;
+        }
+
+        data_count++;
+
+        let cont_id = '#'+key;
+
+        let example_cp = example.clone(true).removeClass('example');
+
+        $.each(example_cp.find('input'),function(k,v){
+            var this_v_obj = $(v);
+            if(k == 0){
+                this_v_obj.attr('value',def_n)
+            }else if(k==1){
+                this_v_obj.attr('value',def_v)
+            }
+            // this_v_obj.attr('name',this_v_obj.attr('name')+'['+count+']');
+            this_v_obj.addClass(this_v_obj.attr('name')+'s');
+            this_v_obj.attr('name',this_v_obj.attr('name')+'['+data_count+']');
+            
+            
+        })
+        data_arr.push(data_count);
+        example_cp.appendTo(cont_id);
+    }
+});
+
+
+function del(e){
+    $(e).parent().remove();
+    // data_count--;
+}
+
+
+</script>
+</body>
+</html>

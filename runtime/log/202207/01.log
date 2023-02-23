@@ -1,0 +1,1172 @@
+---------------------------------------------------------------
+[ 2022-07-01T16:54:35+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/user/model
+[运行时间：0.225903s] [吞吐率：4.43req/s] [内存消耗：4,861.22kb] [文件加载：194]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'user',
+    2 => 'model',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'content-length' => '0',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NTU4Njk1MzgsImV4cCI6MTY1ODQ2MTUzOCwidWlkIjoxNDN9.YbCv2QvChcBuwl6xOECHGa8iXifOrvihxwSt7uN2uVk',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/user/model' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\User->model[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\User.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002690s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.002717s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.005488s ]
+---------------------------------------------------------------
+[ 2022-07-01T16:54:35+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/user/index
+[运行时间：0.115985s] [吞吐率：8.62req/s] [内存消耗：4,727.58kb] [文件加载：193]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'user',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'content-length' => '0',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NTU4Njk1MzgsImV4cCI6MTY1ODQ2MTUzOCwidWlkIjoxNDN9.YbCv2QvChcBuwl6xOECHGa8iXifOrvihxwSt7uN2uVk',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/user/index' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\User->index[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\User.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010740s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.002180s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.001088s ]
+---------------------------------------------------------------
+[ 2022-07-01T17:32:17+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/user/model
+[运行时间：0.120474s] [吞吐率：8.30req/s] [内存消耗：4,743.18kb] [文件加载：193]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'user',
+    2 => 'model',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'content-length' => '0',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NTU4Njk1MzgsImV4cCI6MTY1ODQ2MTUzOCwidWlkIjoxNDN9.YbCv2QvChcBuwl6xOECHGa8iXifOrvihxwSt7uN2uVk',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/user/model' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\User->model[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\User.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010925s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.001349s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.002913s ]
+---------------------------------------------------------------
+[ 2022-07-01T17:32:17+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/user/index
+[运行时间：0.090766s] [吞吐率：11.02req/s] [内存消耗：4,727.18kb] [文件加载：193]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'user',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'content-length' => '0',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NTU4Njk1MzgsImV4cCI6MTY1ODQ2MTUzOCwidWlkIjoxNDN9.YbCv2QvChcBuwl6xOECHGa8iXifOrvihxwSt7uN2uVk',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/user/index' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\User->index[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\User.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001275s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.001250s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000884s ]
+---------------------------------------------------------------
+[ 2022-07-01T17:32:24+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/keyword/getProductList
+[运行时间：0.094260s] [吞吐率：10.61req/s] [内存消耗：4,749.42kb] [文件加载：195]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'keyword',
+    2 => 'getProductList',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'content-length' => '0',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NTU4Njk1MzgsImV4cCI6MTY1ODQ2MTUzOCwidWlkIjoxNDN9.YbCv2QvChcBuwl6xOECHGa8iXifOrvihxwSt7uN2uVk',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/keyword/getProductList' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Keyword->getProductList[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\Keyword.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001046s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000966s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000787s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_admin_log_n` [ RunTime:0.000751s ]
+[ sql ] [ SQL ] INSERT INTO `gr_admin_log_n` (`ip` , `admin_id` , `url` , `data` , `controller` , `action` , `add_time`) VALUES ('127.0.0.1' , 143 , '/admin/keyword/getProductList' , '\"{\\\"\\\\\\/admin\\\\\\/keyword\\\\\\/getProductList\\\":\\\"\\\"}\"' , 'Keyword' , 'getProductList' , 1656667944) [ RunTime:0.002041s ]
+---------------------------------------------------------------
+[ 2022-07-01T17:32:24+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/keyword/index
+[运行时间：0.119469s] [吞吐率：8.37req/s] [内存消耗：4,823.48kb] [文件加载：200]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'keyword',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '15',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NTU4Njk1MzgsImV4cCI6MTY1ODQ2MTUzOCwidWlkIjoxNDN9.YbCv2QvChcBuwl6xOECHGa8iXifOrvihxwSt7uN2uVk',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/keyword/index' => '',
+  'page' => '1',
+  'limit' => '20',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Keyword->index[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\Keyword.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001113s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.001039s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000921s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_admin_log_n` [ RunTime:0.001555s ]
+[ sql ] [ SQL ] INSERT INTO `gr_admin_log_n` (`ip` , `admin_id` , `url` , `data` , `controller` , `action` , `add_time`) VALUES ('127.0.0.1' , 143 , '/admin/keyword/index' , '\"{\\\"\\\\\\/admin\\\\\\/keyword\\\\\\/index\\\":\\\"\\\",\\\"page\\\":\\\"1\\\",\\\"limit\\\":\\\"20\\\"}\"' , 'Keyword' , 'index' , 1656667944) [ RunTime:0.000823s ]
+---------------------------------------------------------------
+[ 2022-07-01T17:32:27+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/keyword/index
+[运行时间：0.103508s] [吞吐率：9.66req/s] [内存消耗：4,824.11kb] [文件加载：200]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'keyword',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '34',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NTU4Njk1MzgsImV4cCI6MTY1ODQ2MTUzOCwidWlkIjoxNDN9.YbCv2QvChcBuwl6xOECHGa8iXifOrvihxwSt7uN2uVk',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/keyword/index' => '',
+  'page' => '1',
+  'limit' => '20',
+  'game' => '',
+  'keyword' => '',
+  'id' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Keyword->index[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\Keyword.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001051s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.001299s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.001117s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_admin_log_n` [ RunTime:0.001425s ]
+[ sql ] [ SQL ] INSERT INTO `gr_admin_log_n` (`ip` , `admin_id` , `url` , `data` , `controller` , `action` , `add_time`) VALUES ('127.0.0.1' , 143 , '/admin/keyword/index' , '\"{\\\"\\\\\\/admin\\\\\\/keyword\\\\\\/index\\\":\\\"\\\",\\\"page\\\":\\\"1\\\",\\\"limit\\\":\\\"20\\\",\\\"game\\\":\\\"\\\",\\\"keyword\\\":\\\"\\\",\\\"id\\\":\\\"\\\"}\"' , 'Keyword' , 'index' , 1656667947) [ RunTime:0.000375s ]
+---------------------------------------------------------------
+[ 2022-07-01T17:32:31+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/keyword/getProductList
+[运行时间：0.088980s] [吞吐率：11.24req/s] [内存消耗：4,749.82kb] [文件加载：195]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'keyword',
+    2 => 'getProductList',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'content-length' => '0',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NTU4Njk1MzgsImV4cCI6MTY1ODQ2MTUzOCwidWlkIjoxNDN9.YbCv2QvChcBuwl6xOECHGa8iXifOrvihxwSt7uN2uVk',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/keyword/getProductList' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Keyword->getProductList[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\Keyword.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001181s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.001201s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.001140s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_admin_log_n` [ RunTime:0.001478s ]
+[ sql ] [ SQL ] INSERT INTO `gr_admin_log_n` (`ip` , `admin_id` , `url` , `data` , `controller` , `action` , `add_time`) VALUES ('127.0.0.1' , 143 , '/admin/keyword/getProductList' , '\"{\\\"\\\\\\/admin\\\\\\/keyword\\\\\\/getProductList\\\":\\\"\\\"}\"' , 'Keyword' , 'getProductList' , 1656667951) [ RunTime:0.000406s ]
+---------------------------------------------------------------
+[ 2022-07-01T17:32:31+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/keyword/getEditInfo
+[运行时间：0.107245s] [吞吐率：9.32req/s] [内存消耗：4,744.20kb] [文件加载：199]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'keyword',
+    2 => 'getEditInfo',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '7',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NTU4Njk1MzgsImV4cCI6MTY1ODQ2MTUzOCwidWlkIjoxNDN9.YbCv2QvChcBuwl6xOECHGa8iXifOrvihxwSt7uN2uVk',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/keyword/getEditInfo' => '',
+  'id' => '4677',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Keyword->getEditInfo[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\Keyword.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011083s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.001492s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.001214s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_admin_log_n` [ RunTime:0.001549s ]
+[ sql ] [ SQL ] INSERT INTO `gr_admin_log_n` (`ip` , `admin_id` , `url` , `data` , `controller` , `action` , `add_time`) VALUES ('127.0.0.1' , 143 , '/admin/keyword/getEditInfo' , '\"{\\\"\\\\\\/admin\\\\\\/keyword\\\\\\/getEditInfo\\\":\\\"\\\",\\\"id\\\":\\\"4677\\\"}\"' , 'Keyword' , 'getEditInfo' , 1656667951) [ RunTime:0.000454s ]
+---------------------------------------------------------------
+[ 2022-07-01T17:33:14+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/keyword/modiftKeywordList
+[运行时间：0.334312s] [吞吐率：2.99req/s] [内存消耗：4,845.25kb] [文件加载：199]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'keyword',
+    2 => 'modiftKeywordList',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '34',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NTU4Njk1MzgsImV4cCI6MTY1ODQ2MTUzOCwidWlkIjoxNDN9.YbCv2QvChcBuwl6xOECHGa8iXifOrvihxwSt7uN2uVk',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://www.newkefu.com/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/keyword/modiftKeywordList' => '',
+  'page' => '1',
+  'limit' => '20',
+  'game' => '',
+  'keyword' => '',
+  'id' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Keyword->modiftKeywordList[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\Keyword.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000978s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000765s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.001198s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_admin_log_n` [ RunTime:0.000902s ]
+[ sql ] [ SQL ] INSERT INTO `gr_admin_log_n` (`ip` , `admin_id` , `url` , `data` , `controller` , `action` , `add_time`) VALUES ('127.0.0.1' , 143 , '/admin/keyword/modiftKeywordList' , '\"{\\\"\\\\\\/admin\\\\\\/keyword\\\\\\/modiftKeywordList\\\":\\\"\\\",\\\"page\\\":\\\"1\\\",\\\"limit\\\":\\\"20\\\",\\\"game\\\":\\\"\\\",\\\"keyword\\\":\\\"\\\",\\\"id\\\":\\\"\\\"}\"' , 'Keyword' , 'modiftKeywordList' , 1656667994) [ RunTime:0.000400s ]
+---------------------------------------------------------------
+[ 2022-07-01T17:34:47+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/scripts/run
+[运行时间：0.080367s] [吞吐率：12.44req/s] [内存消耗：3,094.99kb] [文件加载：168]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'scripts',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/scripts/run' => '',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\Scripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\Scripts.php ]
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义数组索引: tkey[D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\Scripts.php:126]
+---------------------------------------------------------------
+[ 2022-07-01T17:35:14+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/scripts/run
+[运行时间：0.061172s] [吞吐率：16.35req/s] [内存消耗：2,848.15kb] [文件加载：162]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'scripts',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/scripts/run' => '',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\Scripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\Scripts.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-01T17:35:27+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/scripts/run
+[运行时间：0.067774s] [吞吐率：14.75req/s] [内存消耗：2,938.59kb] [文件加载：162]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'scripts',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/scripts/run' => '',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\Scripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\Scripts.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-01T17:35:32+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/scripts/run
+[运行时间：0.093463s] [吞吐率：10.70req/s] [内存消耗：3,114.79kb] [文件加载：162]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'scripts',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/scripts/run' => '',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\Scripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\Scripts.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-01T17:35:40+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/scripts/run
+[运行时间：0.061994s] [吞吐率：16.13req/s] [内存消耗：3,100.51kb] [文件加载：162]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'scripts',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/scripts/run' => '',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\Scripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\Scripts.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-01T17:37:43+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/scripts/run
+[运行时间：0.071831s] [吞吐率：13.92req/s] [内存消耗：3,072.51kb] [文件加载：162]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'scripts',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/scripts/run' => '',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\Scripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\Scripts.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-01T17:37:55+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/scripts/run
+[运行时间：0.072036s] [吞吐率：13.88req/s] [内存消耗：3,072.57kb] [文件加载：162]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'scripts',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/scripts/run' => '',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\Scripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\Scripts.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-01T17:38:44+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/scripts/run
+[运行时间：0.062007s] [吞吐率：16.13req/s] [内存消耗：3,140.64kb] [文件加载：162]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'scripts',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/scripts/run' => '',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\Scripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\Scripts.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-01T17:44:14+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/scripts/run
+[运行时间：0.072754s] [吞吐率：13.74req/s] [内存消耗：3,141.02kb] [文件加载：162]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'scripts',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/scripts/run' => '',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\Scripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\Scripts.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-01T17:44:19+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/scripts/run
+[运行时间：0.079648s] [吞吐率：12.56req/s] [内存消耗：3,114.83kb] [文件加载：162]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'scripts',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/scripts/run' => '',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\Scripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\Scripts.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-01T17:44:29+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/scripts/run
+[运行时间：0.074850s] [吞吐率：13.36req/s] [内存消耗：3,141.02kb] [文件加载：162]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'scripts',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/scripts/run' => '',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\Scripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\Scripts.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-01T17:44:42+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/scripts/run
+[运行时间：0.067642s] [吞吐率：14.78req/s] [内存消耗：3,094.97kb] [文件加载：168]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'scripts',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/scripts/run' => '',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\Scripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\Scripts.php ]
+[ info ] [ LOG ] INIT File
+[ error ] [2]urldecode() expects parameter 1 to be string, array given[D:\phpstudy_pro\WWW\new_kefu_online\common\server\Scripts\ScriptsServer.php:351]
+---------------------------------------------------------------
+[ 2022-07-01T17:44:54+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/scripts/run
+[运行时间：0.064649s] [吞吐率：15.47req/s] [内存消耗：3,141.08kb] [文件加载：162]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'scripts',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/scripts/run' => '',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\Scripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\Scripts.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-01T17:45:04+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/scripts/run
+[运行时间：0.060938s] [吞吐率：16.41req/s] [内存消耗：2,693.24kb] [文件加载：164]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'scripts',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/scripts/run' => '',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\Scripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\Scripts.php ]
+[ info ] [ LOG ] INIT File
+[ error ] [0]语法解析错误: syntax error, unexpected ';', expecting ')'[D:\phpstudy_pro\WWW\new_kefu_online\common\server\Scripts\ScriptsServer.php:351]
+---------------------------------------------------------------
+[ 2022-07-01T17:45:09+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/scripts/run
+[运行时间：0.061583s] [吞吐率：16.24req/s] [内存消耗：3,141.08kb] [文件加载：162]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'scripts',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/scripts/run' => '',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\Scripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\Scripts.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-01T17:45:19+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/scripts/run
+[运行时间：0.062299s] [吞吐率：16.05req/s] [内存消耗：3,141.02kb] [文件加载：162]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'scripts',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/scripts/run' => '',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\Scripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\Scripts.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-01T17:45:30+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/scripts/run
+[运行时间：0.063606s] [吞吐率：15.72req/s] [内存消耗：3,140.98kb] [文件加载：162]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'scripts',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/scripts/run' => '',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\Scripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\Scripts.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-01T17:45:49+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/scripts/run
+[运行时间：0.063220s] [吞吐率：15.82req/s] [内存消耗：3,140.98kb] [文件加载：162]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'scripts',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/scripts/run' => '',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\Scripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\Scripts.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-01T17:46:21+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/scripts/run
+[运行时间：0.062687s] [吞吐率：15.95req/s] [内存消耗：3,140.98kb] [文件加载：162]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'scripts',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/scripts/run' => '',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\Scripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\Scripts.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-01T17:46:31+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/scripts/run
+[运行时间：0.073598s] [吞吐率：13.59req/s] [内存消耗：3,140.98kb] [文件加载：162]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'scripts',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/scripts/run' => '',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\Scripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\Scripts.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-01T17:46:37+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/scripts/run
+[运行时间：0.062533s] [吞吐率：15.99req/s] [内存消耗：3,141.03kb] [文件加载：162]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'scripts',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/scripts/run' => '',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\Scripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\Scripts.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-01T17:46:43+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/scripts/run
+[运行时间：0.064408s] [吞吐率：15.53req/s] [内存消耗：3,140.98kb] [文件加载：162]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'scripts',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/scripts/run' => '',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\Scripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\Scripts.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-01T17:46:49+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/scripts/run
+[运行时间：0.062365s] [吞吐率：16.03req/s] [内存消耗：3,141.02kb] [文件加载：162]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'scripts',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/scripts/run' => '',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\Scripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\Scripts.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-01T17:47:08+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/scripts/run
+[运行时间：0.065840s] [吞吐率：15.19req/s] [内存消耗：3,072.96kb] [文件加载：162]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'scripts',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/scripts/run' => '',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\Scripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\Scripts.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-01T17:47:14+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/scripts/run
+[运行时间：0.062104s] [吞吐率：16.10req/s] [内存消耗：3,072.96kb] [文件加载：162]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'scripts',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/scripts/run' => '',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\Scripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\Scripts.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-01T17:47:22+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/scripts/run
+[运行时间：0.076954s] [吞吐率：12.99req/s] [内存消耗：3,094.97kb] [文件加载：168]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'scripts',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/scripts/run' => '',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\Scripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\Scripts.php ]
+[ info ] [ LOG ] INIT File
+[ error ] [2]urldecode() expects parameter 1 to be string, array given[D:\phpstudy_pro\WWW\new_kefu_online\common\server\Scripts\ScriptsServer.php:363]
+---------------------------------------------------------------
+[ 2022-07-01T17:47:28+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/scripts/run
+[运行时间：0.064047s] [吞吐率：15.61req/s] [内存消耗：3,073.02kb] [文件加载：162]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'scripts',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/scripts/run' => '',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\Scripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\Scripts.php ]
+[ info ] [ LOG ] INIT File

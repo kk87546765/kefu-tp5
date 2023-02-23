@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <title>后台管理系统</title>
+    <script src="/assets/vendor/layui/layui.js"></script>
+    <link rel="stylesheet" href="/assets/vendor/layui/css/layui.css"/>
+    <link rel="stylesheet" href="/assets/model/common/css/style.css"/>
+    <link rel="stylesheet" href="/assets/model/common/css/common.css"/>
+    <script type="text/javascript" src="/assets/vendor/layui/layui.js"></script>
+    <script type="text/javascript" src="/assets/js/jquery-2.2.3.min.js"></script>
+    <!--[if lt IE 9]>
+    <script src="/assets/model/common/js/html5shiv.min.js"></script>
+    <script src="/assets/model/common/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<style>
+    .content{
+        min-width: 800px;
+        min-height: 900px;
+    }
+    .content .select{
+        max-width: 100px;
+    }
+    .score_num .layui-input-inline{
+        max-width: 55px;
+    }
+    .right{
+        /*background: #2b542c;*/
+        width: 35%;
+        display: inline-block;
+        float: right;
+    }
+    .left{
+        width: 63%;
+        display: inline-block;
+    }
+    .left .left-top{
+        /*background: #00a7d0;*/
+    }
+    .left .left-mid{
+        /*background: #00a65a;*/
+        /*max-width: 65%;*/
+        width: 65%;
+        display: inline-block;
+    }
+    .left .left-right{
+        /*background: #00a65a;*/
+        max-width: 30%;
+        float: right;
+        display: inline-block;
+    }
+    .marginbottom10{
+        margin-bottom:10px;
+    }
+    .textarea{
+        width: 100%;
+    }
+    .textarea .title{
+        width: 30%;
+        max-width: 120px;
+    }
+    .textarea .layui-input-inline{
+        width: 70%;
+        /*max-width: 120px;*/
+    }
+    #kf_text{
+        height: 300px;
+    }
+    .score_btn{
+        color: #1E9FFF;
+    }
+    .with-max100{
+        max-width: 100px;
+    }
+    .score_bg{
+        /*background: #ff00004d;
+        border:1px solid #1e9fff69;
+        border-color: #1E9FFF;*/
+    }
+    .score_bg input{
+        background: #ffffcc;
+        text-align: center;
+    }
+    .min-width75{
+        min-width: 75px;
+        display: inline-block;
+    }
+    .min-width65{
+        min-width: 65px;
+    }
+    .oi_title{
+        font-weight: 600;
+    }
+    .oi_cont{
+        padding-left:15px;
+    }
+    .oi_cont .oi_cont_title{
+        min-width: 100px;
+        text-align: right;
+        /*padding-right: 5px;*/
+        line-height: 30px;
+    }
+    .example{
+        display: none;
+    }
+    .clear{clear:both;}
+</style>
+<div id="add_chat" style="display: none;">
+    <form class="layui-form" action="" style="padding: 20px;">
+        <div class="layui-form-item" >
+            <label class="layui-form-label">类型: </label>
+            <div class="layui-input-inline">
+                <select name="chat_type" lay-filter="chat_type" lay-search="" >
+                    <option value="1" >玩家</option>
+                    <option value="2" >客服</option>
+                </select>
+            </div>
+        </div>
+        <div class="layui-form-item" >
+            <label class="layui-form-label">名称: </label>
+            <div class="layui-input-inline">
+                <input type="text" name="chat_name">
+            </div>
+        </div>
+        <div class="layui-form-item" >
+            <label class="layui-form-label">时间: </label>
+            <div class="layui-input-inline">
+                <input type="text" name="chat_time" id="chat_time">
+            </div>
+        </div>
+        <div class="layui-form-item" >
+            <label class="layui-form-label">对话内容: </label>
+            <div class="layui-input-inline">
+                <textarea name="chat_text"></textarea>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button type="submit" class="layui-btn" lay-submit lay-filter="submit_chat">立即提交</button>
+            </div>
+        </div>
+    </form>
+</div>
+<div id="add_appeal" style="display: none;">
+    <form class="layui-form" action="" style="padding: 20px;">
+
+        <div class="layui-form-item" >
+            <label class="layui-form-label">原因: </label>
+            <div class="layui-input-inline" style="min-width: 400px;">
+                <textarea name="reason" style="min-height: 200px;width: 100%"></textarea>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button type="submit" class="layui-btn" lay-submit lay-filter="submit_appeal">立即提交</button>
+            </div>
+        </div>
+
+    </form>
+</div>
+<div id="do_appeal" style="display: none;">
+    <form class="layui-form" action="" style="padding: 20px;">
+        <div class="layui-form-item" >
+            <label class="layui-form-label">申诉原因: </label>
+            <div class="layui-input-inline" id="appeal_text">
+            </div>
+        </div>
+        <div class="layui-form-item" >
+            <label class="layui-form-label">申诉结果: </label>
+            <div class="layui-input-inline">
+                <select name="val" lay-search="">
+                    <option value="0">申诉驳回</option>
+                    <option value="1">申诉同意</option>
+                </select>
+            </div>
+        </div>
+        <div class="layui-form-item" >
+            <label class="layui-form-label">拒绝原因: </label>
+            <div class="layui-input-inline" style="min-width: 400px;">
+                <textarea name="reason" style="min-height: 200px;width: 100%"></textarea>
+            </div>
+        </div>
+
+        <input type="hidden" name="action" id="do_appeal_action" value="">
+
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button type="submit" class="layui-btn" lay-submit lay-filter="submit_do_appeal">提交</button>
+            </div>
+        </div>
+    </form>
+</div>
+<body class="hold-transition skin-blue sidebar-mini">
+<form class="layui-form" lay-filter="edit-form" action="" style="padding: 20px;">
+    <div class="content search_wrap">
+        <div class="left">
+            <div class="left-top">
+                <div class="layui-row layui-col-space10 marginbottom10">
+
+                    <div class="layui-inline" >
+                        <label class="">姓名: </label>
+                        <div class="layui-input-inline with-max100">
+                            <select name="kf_id" lay-filter="kf_id" required  lay-verify="required" class="select_kf_id" lay-search="">
+                                <option value=""  >请选择</option>
+                            </select>
+                        </div>
+
+                    </div>
+                    <div class="layui-inline" >
+                        <label class="">主体: </label>
+                        <div class="layui-input-inline select with-max100">
+                            <select name="kf_platform" lay-filter="kf_platform" required  lay-verify="required">
+                                <option value="">选择</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="layui-inline" >
+                        <label class="">组别: </label>
+                        <div class="layui-input-inline select with-max100">
+                            <select name="kf_group"  lay-filter="kf_group" required  lay-verify="required" >
+                                <option value="">选择</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="layui-inline" id="qc_num_model">
+                        <label class="">问题编号: </label>
+                        <div class="layui-input-inline">
+                            <input type="text" name="qc_num" required  lay-verify="required" placeholder="请输入问题编号" autocomplete="off" class="layui-input"
+                            value="" 
+                            >
+                        </div>
+                    </div>
+
+                    <div class="layui-inline" >
+                        <label class="">会话来源: </label>
+                        <div class="layui-input-inline select with-max100">
+                            <select name="kf_source" required  lay-verify="required" lay-filter="kf_source" id="kf_source" >
+                                <option value="">选择</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="layui-inline" >
+                        <label class="">评价类型: </label>
+                        <div class="layui-input-inline select with-max100">
+                            <select name="kf_score"  lay-filter="kf_score" id="kf_score" value="1" >
+                                <option value="">未评价</option>
+                            </select>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="left-mid">
+                <div class="layui-row layui-col-space10 marginbottom10">
+                    <textarea id="kf_text" name="text" height="500px"></textarea>
+                </div>
+
+
+                
+                
+            </div>
+            <div class="left-right">
+                <div class="layui-row layui-col-space10 marginbottom10">
+                    <div id="text_other_info"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="right">
+            <div class="layui-row layui-col-space10 marginbottom10">
+
+                <div class="layui-inline" >
+                    <label class="">质检类型:</label>
+                    <div class="layui-input-inline select">
+                        <select name="qc_type" required  lay-verify="required" lay-filter="qc_type" id="qc_type">
+                            <option value="">选择</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="layui-inline" >
+                    <label class="">咨询游戏: </label>
+                    <div class="layui-input-inline select">
+                        <select name="game_type" required  lay-verify="required" lay-filter="game_type" id="game_type">
+                            <option value="">选择</option>
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="layui-row layui-col-space10 marginbottom10">
+
+                <div class="layui-inline" >
+                    <label class="">会话分类: </label>
+                    <div class="layui-input-inline select">
+                        <select name="question_type"  lay-filter="question_type" id="question_type" >
+                            <option value="">选择</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="layui-inline" >
+                    <label class="">添加案例库: </label>
+                    <div class="layui-input-inline">
+                        <div class="layui-input-inline select">
+                            <select name="is_example" lay-filter="is_example" >
+                                <option value="0">否</option>
+                                <option value="1">是</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="qc_score_dec_div">
+                <div class="layui-row layui-col-space10 marginbottom10 qc_score_dec example">
+                    <div class="layui-inline" >
+                        <label><span class="qc_score_dec_reason_name min-width75">扣分原因: </span></label>
+                        <div class="layui-input-inline">
+                            <select name="reason" lay-filter="qc_score_change" class="select_qc_score_dec" lay-search data-val="">
+
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="layui-inline score_num" >
+                        <label class="min-width65">扣分分值: </label>
+                        <div class="layui-input-inline">
+                            <input type="number" name="score" max="0" autocomplete="off" class="layui-input qc_score_num" def-value="">
+                        </div>
+                    </div>
+                    <i class="layui-icon score_btn score_btn_add" >&#xe654;</i>
+                    <i class="layui-icon score_btn" onclick="score_del(this)">&#xe67e;</i>
+                </div>
+            </div>
+
+            <div id="qc_score_inc_div">
+                <div class="layui-row layui-col-space10 marginbottom10 qc_score_inc example">
+
+                    <div class="layui-inline" >
+                        <label class=""><span class="qc_score_dec_reason_name min-width75">加分原因:</span></label>
+                        <div class="layui-input-inline">
+                            <select name="reason" lay-filter="qc_score_change" class="select_qc_score_inc" lay-search data-val="">
+
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="layui-inline score_num" >
+                        <label class=""><span class="min-width65">加分分值:</span></label>
+                        <div class="layui-input-inline">
+                            <input type="number" name="score" mim="0" value="" autocomplete="off" class="layui-input qc_score_num" def-value="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="layui-row layui-col-space10 marginbottom10">
+
+                <div class="layui-inline score_bg" >
+                    <label class="min-width75">质检等级: </label>
+                    <div class="layui-input-inline">
+                        <select name="qc_level" required lay-verify="required" lay-filter="qc_level" id="qc_level" >
+                        </select>
+                    </div>
+                </div>
+
+                <div class="layui-inline score_num score_bg" >
+                    <label class="min-width65">质检成绩: </label>
+                    <div class="layui-input-inline">
+                        <input type="number" name="qc_score" min="0" value="100" autocomplete="off" class="layui-input" value="">
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="layui-row layui-col-space10 marginbottom10">
+
+                <div class="layui-inline" >
+                    <label class="">客服是否解决: </label>
+                    <div class="layui-input-inline select" style="max-width: 60px">
+                        <select name="kf_is_solve" lay-filter="reason_is_solve" class="kf_is_solve">
+                            <option value="0">否</option>
+                            <option value="1">是</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="layui-inline reason_content" >
+                    <label class="title">未解决原因: </label>
+                    <div class="layui-input-inline" style="max-width: 230px">
+                        <select name="kf_nosolve_res" id="kf_nosolve_res" >
+                            <option value="">选择</option>
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="layui-row layui-col-space10 marginbottom10">
+
+                <div class="layui-inline" >
+                    <label class="">问题是否解决: </label>
+                    <div class="layui-input-inline select" style="max-width: 60px">
+                        <select name="question_is_solve"  lay-filter="reason_is_solve" class="kf_is_solve">
+                            <option value="0" >否</option>
+                            <option value="1" >是</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="layui-inline reason_content" >
+                    <label class="title">未解决原因: </label>
+                    <div class="layui-input-inline" style="max-width: 230px">
+                        <select name="question_nosolve_res" id="question_nosolve_res">
+                            <option value="">选择</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="layui-row layui-col-space10 marginbottom10">
+
+                    <div class="layui-inline textarea" >
+                        <label class="title">质检点评:</label>
+                        <div class="layui-input-inline">
+                            <textarea name="qc_comments" rows="2" class="layui-textarea"></textarea>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="layui-row layui-col-space10 marginbottom10">
+
+                    <div class="layui-inline textarea" >
+                        <label class="title">服务亮点:</label>
+                        <div class="layui-input-inline">
+                            <textarea name="kf_adventage" rows="1" class="layui-textarea" style="min-height: 28px;"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <input type="hidden" name="qc_question_id" value="">
+            <input type="hidden" name="id" value="">
+            <div class="layui-form-item">
+                <div class="layui-input-block layui-power" id="Qc-logEdit">
+                    <button type="submit" class="layui-btn" lay-submit="" lay-filter="submit_btn">立即提交</button>
+                </div>
+                <div class="layui-input-block layui-power" id="Qc-logAdd">
+                    <button type="submit" class="layui-btn"  lay-submit="" lay-filter="submit_btn">立即提交</button>
+                </div>
+            </div>
+
+            <div class="layui-form-item layui-power" id="Qc-appeal">
+                <div class="layui-input-block">
+                    <span class="layui-btn layui-btn-dange open_appeal" >申诉</span>
+                </div>
+            </div>
+
+
+
+            <div class="layui-form-item layui-power" id="Qc-doAppealFirst">
+                <div class="layui-input-block">
+                    <span class="layui-btn layui-btn-dange open_do_appeal" attr-val="doAppealFirst">申诉处理</span>
+                </div>
+            </div>
+
+
+            <div class="layui-form-item layui-power" id="Qc-doAppealSecond">
+                <div class="layui-input-block">
+                    <span class="layui-btn layui-power layui-btn-dange open_do_appeal" attr-val="doAppealSecond">申诉处理</span>
+                </div>
+            </div>
+            
+        </div>
+        <div class="clear"></div>
+    </div>
+    <ul id="jq22" style="display: none;">
+        <!-- <li><img src="img/tibet-1.jpg" alt="图片1"></li>-->
+    </ul>
+
+</form>
+<script type="text/javascript" charset="utf-8" src="/assets/plug/uediortext/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="/assets/plug/uediortext/ueditor.all.js"> </script>
+<link rel="stylesheet" href="/assets/plug/viewer/viewer.min.css">
+<script type="text/javascript" charset="utf-8" src="/assets/plug/viewer/viewer.min.js"> </script>
+
+<script>
+var ue = new UE.ui.Editor({
+    initialFrameHeight:700
+    ,autoHeightEnabled:false
+    , toolbars: [[
+        'fullscreen'//全屏
+        , 'source'//源代码
+        , '|'
+        , 'undo'//撤销
+        , 'redo'//重做
+        , '|'
+        ,'bold'//加粗
+        , 'italic'//斜体
+        , 'underline'//下划线
+        , 'fontborder'//字符边框
+        , 'strikethrough'//删除线
+        , 'superscript'//上标
+        , 'subscript'//下标
+        , 'removeformat'//清除格式
+        , 'formatmatch'//格式刷
+        , 'autotypeset'//自动排版
+    ],
+    [
+        '|'
+        ,'customstyle'//自定义标题
+        , 'paragraph'//段落格式
+        , 'fontfamily'//字体
+        , 'fontsize'//字号
+    ]
+    ]
+    ,initialFrameWidth:'100%'
+});
+ue.render("kf_text");
+var kf_source = 0;
+var text_id = "";
+var kf_text_edit;
+var kf_info = {
+    'kf_id':0,
+    'kf_platform':'',
+    'kf_group':'',
+}
+var detail_data = {};
+var id = 0;
+
+var chat_open_index;
+var appeal_open_index,do_appeal_open_index;
+var qc_score_dec_length = 5;
+var show_img_index;
+
+var layui_obj = layui.config({
+    version: true,
+    base: '/assets/model/'
+}).extend({
+    common: 'common/js/common',
+}).use(['common','form','laydate'], function(){
+    var form = layui.form;//初始化表单
+    var laydate = layui.laydate;//初始化富文本
+    var common = layui.common;
+    id = common.urlParam.id;
+    //日期
+    laydate.render({
+        elem: '#chat_time',
+        trigger : 'click',
+        type: 'datetime'
+    });
+
+    if(id > 0){
+        var p_url = 'Qc/logEdit';
+    }else{
+        var p_url = 'Qc/logAdd';
+    }
+
+    init();
+
+    //监听提交
+    form.on('submit(submit_btn)', function(data){
+
+        var text = ue.getContent();
+        data.field.text = text;
+        common.req({
+            url: p_url,
+            data: data.field,
+            type: "post",
+            dataType:"json",
+            success:function(res){
+                if( res.code==0 ){
+                    var index = parent.layer.getFrameIndex(window.name);
+                    window.parent.res_msg(res.msg);
+                    parent.layer.close(index);//关闭当前页
+                    //window.parent.location.reload(); //刷新父窗口
+                }else{
+                    layer.msg(res.msg,{icon:2});
+                }
+            },
+            error:function(res){
+                layer.alert('错误'+res.msg,{icon:2});
+            }
+        });
+        return false;
+    });
+    //监听提交
+    form.on('submit(submit_chat)', function(data){
+        var new_data = {};
+        new_data.name = data.field.chat_name;
+        new_data.type = data.field.chat_type;
+        new_data.time = data.field.chat_time;
+        new_data.text = data.field.chat_text;
+
+        common.req({
+            url: "Qc/setChatText",
+            data: new_data,
+            type: "post",
+            dataType:"json",
+            success:function(res){
+                if( res.code==0 ){
+                    var content = res.data.content;
+
+                    var text = ue.getContent();
+                    text += content;
+                    console.log(text);
+                    // $('#kf_text').html(text);
+
+                    ue.setContent(text);
+                    // layer.close(chat_open_index);//关闭当前页
+                    //window.parent.location.reload(); //刷新父窗口
+                }else{
+                    layer.msg(res.msg,{icon:2});
+                }
+            },
+            error:function(res){
+                layer.alert('错误'+res.msg,{icon:2});
+            }
+        });
+        return false;
+    });
+    //监听提交
+    form.on('submit(submit_appeal)', function(data){
+
+        var new_data = data.field;
+        new_data.id = $('input[name="id"]').val();
+
+        common.req({
+            url: "Qc/appeal",
+            data: new_data,
+            type: "post",
+            dataType:"json",
+            success:function(res){
+                if( res.code==0 ){
+                    // layer.close(appeal_open_index);//关闭当前页
+                    layer.msg(res.msg,{icon:1});
+                    window.location.parent();
+                }else{
+                    layer.msg(res.msg,{icon:2});
+                }
+            },
+            error:function(res){
+                layer.alert('错误'+res.msg,{icon:2});
+            }
+        });
+        return false;
+    });
+    //监听提交
+    form.on('submit(submit_do_appeal)', function(data){
+
+        var new_data = data.field;
+        new_data.id = $('input[name="id"]').val();
+
+        common.req({
+            url: "Qc/"+new_data.action,
+            data: new_data,
+            type: "post",
+            dataType:"json",
+            success:function(res){
+                if( res.code==0 ){
+                    // layer.close(appeal_open_index);//关闭当前页
+                    layer.msg(res.msg,{icon:1});
+                    window.location.reload();
+                }else{
+                    layer.msg(res.msg,{icon:2});
+                }
+            },
+            error:function(res){
+                layer.alert('错误'+res.msg,{icon:2});
+            }
+        });
+        return false;
+    });
+    //是否解决改变原因输入框显隐
+    form.on('select(reason_is_solve)',function (data){
+        let thisobj = $(data.elem);
+        let reason_content = thisobj.parent().parent().parent().find('.reason_content');
+
+        if(data.value==1){
+            reason_content.hide();
+        }else{
+            reason_content.show();
+        }
+    })
+    //会话来源选择联动
+    form.on('select(kf_source)',function (data){
+        let thisobj = $(data.elem);
+        if(kf_source == data.value){
+            return;
+        }
+        //初始化参数
+        kf_source = data.value;//
+        $('.qc_score_num').val(0);
+        $('input[name="qc_score"]').val(100);
+        set_source_info();
+    })
+    //扣、加分原因选择联动
+    form.on('select(qc_score_change)',function (data){
+        let thisobj = $(data.elem);
+        let thisval = data.value;
+        let thisscore = thisobj.find('option:selected').attr('data-score');
+
+        thisobj.parent().parent().parent().find('.score_num').find('input').val(thisscore);
+
+        thisobj.attr('data-val',thisval);
+
+        sum_score();//计算质检分值
+        form.render();
+    })
+
+    form.on('select(kf_id)',function (data){
+        let thisobj = $(data.elem);
+        let thisval = data.value;
+
+        if(thisval == kf_info.kf_id){
+            return;
+        }
+        kf_info.kf_id = thisval;
+
+        check_kf_info();
+
+    })
+
+    $('.open_chat').click(function(){
+        chat_open_index = layer.open({
+          type: 1,
+          area: ['400px', '400px'],
+          content: $('#add_chat') //这里content是一个DOM，注意：最好该元素要存放在body最外层，否则可能被其它的相对元素所影响
+        });
+    })
+
+    $('.open_appeal').click(function(){
+        appeal_open_index = layer.open({
+          type: 1,
+          area: ['600px', '500px'],
+          content: $('#add_appeal') //这里content是一个DOM，注意：最好该元素要存放在body最外层，否则可能被其它的相对元素所影响
+        });
+    })
+
+    $('.open_do_appeal').click(function(){
+        var this_obj = $(this);
+        $('#do_appeal_action').val(this_obj.attr('attr-val'));
+        do_appeal_open_index = layer.open({
+          type: 1,
+          area: ['600px', '500px'],
+          content: $('#do_appeal') //这里content是一个DOM，注意：最好该元素要存放在body最外层，否则可能被其它的相对元素所影响
+        });
+    })
+
+    $('.score_btn_add').click(function(){
+        score_add(this);
+        form.render('select')
+    })
+    
+    $('.qc_score_num').change(function(){
+        sum_score();
+    })
+
+    function check_kf_info(){
+
+        common.req({
+            url: "Qc/checkKfInfo",
+            data: kf_info,
+            type: "post",
+            dataType:"json",
+            success:function(res){
+                if( res.code==0 ){
+
+                    let data = res.data;
+
+                    let kf_platform_obj = $('select[name="kf_platform"]');
+                    let kf_group_obj = $('select[name="kf_group"]');
+                    // let kf_id_obj = $('input[name="kf_id"]');
+
+                    let kf_platform_val = detail_data.kf_platform;
+
+                    kf_group_obj.find('option[selected]').attr('selected',false);
+                    kf_platform_obj.find('option[selected]').attr('selected',false);
+
+                    kf_platform_obj.html('');
+                    kf_group_obj.html('');
+
+                    if(data){
+                        if(data.platform_arr){
+                            $.each(data.platform_arr,function(k,v){
+                                if(kf_platform_val == v.platform_id){
+                                    kf_platform_obj.append(new Option(v.name,v.platform_id,true,true));
+                                }else{
+                                    kf_platform_obj.append(new Option(v.name,v.platform_id));
+                                }
+                            })
+                        }
+                        if(data.user_group_arr){
+                            $.each(data.user_group_arr,function(k,v){
+                                kf_group_obj.append(new Option(v.name,v.id));
+                            })
+                        }
+                    }
+
+                    form.render();//重新渲染 固定写法
+                }
+            },
+            error:function(data){
+                layer.alert('错误'+data.msg,{icon:2});
+            }
+        });
+    }
+
+    //计算质检分值
+    function  sum_score(){
+        let def_num = 100;
+        $.each($('.qc_score_num'),function (k,v){
+            let thisnum = $(v).val();
+            if(thisnum){
+                thisnum = parseInt(thisnum);
+            }else{
+                thisnum = 0;
+            }
+            // console.log(thisnum);
+            def_num+=thisnum;
+        })
+        if(def_num<0) def_num=0;
+
+        $('input[name="qc_score"]').val(def_num);
+    }
+
+    function set_source_info(){
+
+        common.req({
+            url: "Qc/getSourceConfig",
+            data: {'kf_source':kf_source},
+            type: "post",
+            dataType:"json",
+            success:function(res){
+                if( res.code==0 ){
+
+                    $.each(res.data, function (k, v) {
+                        if(k === 'qc_score_dec' || k === 'qc_score_inc'){
+                            let class_name = '.select_'+k;
+                            $(class_name).html('<option value="" data-score="0">请选择</option>');
+                            $.each(v,function (k1,v1){
+                                $.each($(class_name),function (k,v){
+                                    let thisdataval = $(v).attr('data-val');
+                                    if(v1.reason === thisdataval){
+                                        // $(v).append(new Option(v1.reason,v1.score,true,true));
+                                        $(v).append('<option value="'+v1.reason+'" data-score="'+v1.score+'" selected>'+v1.reason+'</option>');
+                                        var this_score_input_obj = $(v).parent().parent().parent().find('.score_num').find('input');
+                                        this_score_input_obj.val(this_score_input_obj.attr('def-value'));
+                                    }else{
+                                        $(v).append('<option value="'+v1.reason+'" data-score="'+v1.score+'">'+v1.reason+'</option>');
+                                    }
+
+                                })
+                            })
+                        }else{
+                            let this_id_obj = $('#'+k);
+                            this_id_obj.html('<option value="">请选择</option>');
+                            $.each(v,function (k1,v1){
+                                // let thisdataval = this_id_obj.attr('data-val');
+                                let thisdataval = detail_data[k];
+                                if(v1 === thisdataval){
+                                    this_id_obj.append('<option value="'+v1+'" data-score="'+v1+'" selected>'+v1+'</option>');
+                                }else{
+                                    this_id_obj.append('<option value="'+v1+'" data-score="'+v1+'">'+v1+'</option>');
+                                }
+                            })
+                        }
+                        
+                    });
+                    form.render("select");//重新渲染 固定写法
+                    sum_score();
+                }
+            },
+            error:function(data){
+                layer.alert('错误'+data.msg,{icon:2});
+            }
+        });
+    }
+
+    function get_conversation_other_info(){
+
+        common.req({
+            url: "Qc/getConversationOtherInfo",
+            data: {'kf_source':kf_source,'text_id':text_id},
+            type: "post",
+            dataType:"json",
+            success:function(res){
+                if( res.code==0 ){
+                    
+                    if(res.data){
+                        var html = '<ul>';
+                        $.each(res.data,function(k,v){
+                            html+='<li class="oi_title">'+v.title+'</li>';
+                            $.each(v.data,function(k1,v1){
+                                html+='<li class="oi_cont"><span class="oi_cont_title">'+v1.title+'：</span>'+v1.val+'</li>';
+                            })
+                        })
+                        html+='</ul>';
+                        $('#text_other_info').html(html);
+                    }
+                }
+            },
+            error:function(data){
+                // layer.alert('错误'+data.msg,{icon:2});
+            }
+        });
+    }
+
+    function init(){
+
+        var p = new Promise((reslove,reject)=>{
+            common.req({
+                url: 'Qc/logDetail',
+                data: common.urlParam,
+                type: "post",
+                dataType:"json",
+                success:function(res){
+                    console.log(res);
+                    if( res.code==0 ){
+
+                        setConfigData(res.config);
+                        common.initPowerShow(res.config.action)
+                        
+                        if(id>0 || (res.data && res.data.qc_question_id  > 0)){//有会话信息的
+                            $('#appeal_text').html(res.data.appeal_reason);
+                            kf_source = res.data.kf_source;
+                            text_id = res.data.text_id;
+                            kf_info.kf_id = res.data.kf_id;
+                            ue.setContent(res.data.text);
+                            $('#qc_num_model').show();
+                        }else{
+                            //没有会话信息的
+                            $('#qc_num_model').hide();
+                            $('#qc_num_model').remove();
+                        }
+
+                        reslove(res.data);
+                    }else{
+                        reject(res.msg);
+                    }
+                    
+                },
+                error:function(res){
+                     layer.alert('错误'+res.msg,{icon:2});
+                }
+            });
+        })
+
+        p.then((res)=>{
+            detail_data = res;
+            //联动客服信息
+            check_kf_info();
+            //会话来源关联质检评分数据
+            set_source_info();
+
+            form.val('edit-form',res);
+            //初始化问题是否解决显隐
+            $.each($('.kf_is_solve'),function(k,v){
+                let thisobj = $(v);
+                let reason_content = thisobj.parent().parent().parent().find('.reason_content');
+
+                if(thisobj.val()==1){
+                    reason_content.hide();
+                }else{
+                    reason_content.show();
+                }
+            })
+            //客服评分1-3星 默认选中 不满意抽检
+            var kf_score = $('select[name="kf_score"]').val();
+            var qc_type_obj = $('select[name="qc_type"]');
+
+            if(kf_score>=1 && kf_score <=3 && qc_type_obj.val()==''){
+
+               qc_type_obj.val('不满意抽检');
+            }
+
+            
+            get_conversation_other_info();
+
+        }).catch(function(error) {
+            layer.alert(error);
+        });
+    }
+
+    function setConfigData(base_config){
+        $.each(base_config.admin_list,function(k,v){
+            $('select[name=kf_id]').append('<option value="'+v.id+'">'+v.realname+'</option>');
+        });
+
+        $.each(base_config.kf_source_arr,function(k,v){
+            $('select[name=kf_source]').append('<option value="'+k+'">'+v+'</option>');
+        });
+
+        $.each(base_config.kf_score_arr,function(k,v){
+            $('select[name=kf_score]').append('<option value="'+k+'">'+v+'</option>');
+        });
+
+        $.each(base_config.config.game_type,function(k,v){
+            $('select[name=game_type]').append('<option value="'+v+'">'+v+'</option>');
+        });
+        
+        $.each(base_config.config.qc_level,function(k,v){
+            $('select[name=qc_level]').append('<option value="'+v+'">'+v+'</option>');
+        });
+
+        $.each(base_config.dec_score_arr,function(k,v){
+            var clone_obj = $('#qc_score_dec_div .example').clone(true);
+            clone_obj.removeClass('example');
+            clone_obj.find('.qc_score_dec_reason_name').html('扣分原因'+(k+1)+':');
+
+            // clone_obj.find('select[name=reason]').val(v.reason);
+            clone_obj.find('select[name=reason]').attr('data-val',v.reason);
+            clone_obj.find('select[name=reason]').attr('name','qc_score_dec['+k+'][reason]');
+
+            clone_obj.find('input[name=score]').val(v.score);
+            clone_obj.find('input[name=score]').attr('def-value',v.score);
+            clone_obj.find('input[name=score]').attr('name','qc_score_dec['+k+'][score]');
+
+             $('#qc_score_dec_div').append(clone_obj);
+        });
+
+        $.each(base_config.inc_score_arr,function(k,v){
+            var clone_obj = $('#qc_score_inc_div .example').clone(true);
+            clone_obj.removeClass('example');
+            clone_obj.find('.qc_score_dec_reason_name').html('加分原因'+(k+1)+':');
+
+            // clone_obj.find('select[name=reason]').val(v.reason);
+            clone_obj.find('select[name=reason]').attr('data-val',v.reason);
+            clone_obj.find('select[name=reason]').attr('name','qc_score_inc['+k+'][reason]');
+
+            clone_obj.find('input[name=score]').val(v.score);
+            clone_obj.find('input[name=score]').attr('def-value',v.score);
+            clone_obj.find('input[name=score]').attr('name','qc_score_inc['+k+'][score]');
+
+            $('#qc_score_inc_div').append(clone_obj);
+        });   
+    }
+});
+
+function score_del(e){
+    var thisobj = $(e);
+    var limit = 5;
+    var now_length = $('.qc_score_dec').length;
+    if(now_length<=limit){
+        return;
+    }
+    // console.log(now_length);return;
+    thisobj.parent().remove();
+}
+
+function score_add(e){
+    var thisobj = $(e);
+    qc_score_dec_length ++;
+
+    var new_obj = thisobj.parent().clone(true,true);
+    
+    new_obj.find('.qc_score_dec_reason_name').html('扣分原因'+qc_score_dec_length+':');
+
+    new_obj.find('select').attr('name','qc_score_dec['+qc_score_dec_length+'][reason]');
+    new_obj.find('select').attr('data-val','');
+    new_obj.find('select').attr('value','');
+    new_obj.find('input').attr('name','qc_score_dec['+qc_score_dec_length+'][score]');
+    new_obj.find('input').attr('value','0');
+    $('#qc_score_dec_div').append(new_obj);
+    // console.log(now_length);return;
+}
+
+function show_img(e){
+    $('#jq22').html('<li><img id="show_img" src="'+e.src+'" alt="图片1"></li>');
+    // $('#jq22').viewer();
+    var viewer = new Viewer(document.getElementById('jq22'));
+
+    $('#show_img').click();
+}
+
+function bigimg(obj){
+    var zoom = parseInt(obj.style.zoom,10)||100;
+    zoom += event.wheelDelta / 12;
+    if(zoom > 0 )
+    obj.style.zoom=zoom+'%';
+    return false;
+}
+
+</script>
+</body>
+</html>

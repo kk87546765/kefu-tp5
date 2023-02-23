@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <title>后台管理系统</title>
+    <link rel="stylesheet" href="/assets/vendor/layui/css/layui.css"/>
+    <link rel="stylesheet" href="/assets/model/common/css/style.css"/>
+    <link rel="stylesheet" href="/assets/model/common/css/common.css"/>
+    <!--[if lt IE 9]>
+    <script src="/assets/model/common/js/html5shiv.min.js"></script>
+    <script src="/assets/model/common/js/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        .layui-col-space15 {
+            /* margin: -7.5px; */
+            margin:-7.5px 0 !important;
+        }
+    </style>
+</head>
+<body>
+<div style="padding: 12px;"  class="search_wrap">
+    <form class="layui-form" id='search_form' action="">
+
+        <div class="layui-inline" style="margin-bottom: 6px;">
+            <label class="layui-form-label">平台: </label>
+            <div class="layui-input-inline">
+                <select name="platform_id"  lay-filter="platform_id" id="platform_id" lay-search="">
+
+
+                </select>
+            </div>
+        </div>
+
+        <div class="layui-inline" style="margin-bottom: 6px;">
+            <label class="layui-form-label">充值产品: </label>
+            <div class="layui-input-inline">
+                <div id="select_product_id" class="xm-select-demo" style="min-width: 210px"></div>
+            </div>
+        </div>
+
+
+        <div class="layui-inline" style="margin-bottom: 6px;">
+            <label class="layui-form-label">充值游戏: </label>
+            <div class="layui-input-inline">
+                <div id="p_game_id" class="xm-select-demo" style="min-width: 210px"></div>
+            </div>
+        </div>
+
+        <div class="layui-inline" style="margin-bottom: 6px;">
+            <label class="layui-form-label">首登游戏: </label>
+            <div class="layui-input-inline">
+                <div id="first_login_game_id" class="xm-select-demo" style="min-width: 210px"></div>
+            </div>
+        </div>
+
+        <div class="layui-inline" style="margin-bottom: 6px;">
+            <label class="layui-form-label">充值账号: </label>
+            <div class="layui-input-inline">
+                <input type="text" name="user_name" id="user_name"  class="layui-input" >
+            </div>
+        </div>
+
+        <div class="layui-inline" style="margin-bottom: 6px;">
+            <label class="layui-form-label">用户ID: </label>
+            <div class="layui-input-inline">
+                <input type="text" name="uid"  id="uid"  class="layui-input" >
+            </div>
+        </div>
+
+        <div class="layui-inline" style="margin-bottom: 6px;">
+            <label class="layui-form-label">角色名: </label>
+            <div class="layui-input-inline">
+                <input type="text" name="role_name" id="role_name"  class="layui-input" >
+            </div>
+        </div>
+
+        <div class="layui-inline" style="margin-bottom: 6px;">
+            <label class="layui-form-label">角色ID: </label>
+            <div class="layui-input-inline">
+                <input type="text" name="role_id" id="role_id"  class="layui-input" >
+            </div>
+        </div>
+
+        <div class="layui-inline" style="margin-bottom: 6px;">
+            <label class="layui-form-label">注册包ID: </label>
+            <div class="layui-input-inline">
+                <input type="text" name="reg_channel" id="reg_channel"  class="layui-input" >
+            </div>
+        </div>
+
+        <div class="layui-inline" style="margin-bottom: 6px;">
+            <label class="layui-form-label">充值包ID: </label>
+            <div class="layui-input-inline">
+                <input type="text" name="pay_channel" id="pay_channel"  class="layui-input" >
+            </div>
+        </div>
+
+        <div class="layui-inline" style="margin-bottom: 6px;">
+            <label class="layui-form-label">订单号: </label>
+            <div class="layui-input-inline">
+                <input type="text" name="order_id" id="order_id"  class="layui-input" >
+            </div>
+        </div>
+
+        <div class="layui-inline" style="margin-bottom: 6px;">
+            <label class="layui-form-label">第三方订单: </label>
+            <div class="layui-input-inline">
+                <input type="text" name="third_party_order_id" id="third_party_order_id"  class="layui-input" >
+            </div>
+        </div>
+
+        <div class="layui-inline" style="margin-bottom: 6px;">
+            <label class="layui-form-label">充值方式: </label>
+            <div class="layui-input-inline">
+                <input type="text" name="payment" id="payment"  class="layui-input" >
+            </div>
+        </div>
+
+        <div class="layui-inline" style="margin-bottom: 6px;">
+            <label class="layui-form-label">元宝状态: </label>
+            <div class="layui-input-inline">
+                <select name="yuanbao_status"  lay-filter="yuanbao_status" id="yuanbao_status" lay-search="">
+                        <option value="-1">请选择</option>
+                        <option value="0" >未发放</option>
+                        <option value="-1">已发放</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="layui-inline" style="margin-bottom: 6px;">
+            <label class="layui-form-label">充值日期: </label>
+            <div class="layui-input-inline">
+                <div class="layui-input-inline" style="width: 200px;">
+                    <input type="text" name="s_pay_time" id="s_pay_time" lay-verify="s_pay_time" placeholder="YYYY-MM-dd HH:mm:ss" autocomplete="off" class="layui-input" lay-key="1" value="">
+                </div>
+                <div class="layui-input-inline" style="width: 200px;">
+                    <input type="text" name="e_pay_time" id="e_pay_time" lay-verify="e_pay_time" placeholder="YYYY-MM-dd HH:mm:ss" autocomplete="off" class="layui-input" lay-key="2" value="">
+                </div>
+            </div>
+        </div>
+
+        <div class="layui-inline" style="margin-bottom: 6px;">
+            <label class="layui-form-label">首登时间: </label>
+            <div class="layui-input-inline">
+                <div class="layui-input-inline" style="width: 200px;">
+                    <input type="text" name="s_first_login_game_time" id="s_first_login_game_time" lay-verify="s_first_login_game_time" placeholder="YYYY-MM-dd HH:mm:ss" autocomplete="off" class="layui-input" lay-key="3" value="">
+                </div>
+                <div class="layui-input-inline" style="width: 200px;">
+                    <input type="text" name="e_first_login_game_time" id="e_first_login_game_time" lay-verify="e_first_login_game_time" placeholder="YYYY-MM-dd HH:mm:ss" autocomplete="off" class="layui-input" lay-key="4" value="">
+                </div>
+            </div>
+        </div>
+
+        <div class="layui-inline" style="margin-bottom: 6px;">
+            <label class="layui-form-label">注册日期: </label>
+            <div class="layui-input-inline">
+
+                <div class="layui-input-inline" style="width: 200px;">
+                    <input type="text" name="s_reg_date" id="s_reg_date" lay-verify="s_reg_date" placeholder="YYYY-MM-dd HH:mm:ss" autocomplete="off" class="layui-input" lay-key="5" value="">
+                </div>
+                <div class="layui-input-inline" style="width: 200px;">
+                    <input type="text" name="e_reg_date" id="e_reg_date" lay-verify="e_reg_date" placeholder="YYYY-MM-dd HH:mm:ss" autocomplete="off" class="layui-input" lay-key="6" value="">
+                </div>
+
+            </div>
+        </div>
+
+
+
+        <div class="layui-inline" style="margin-bottom: 6px;">
+            <label class="layui-form-label">充值金额: </label>
+            <div class="layui-input-inline">
+                <input type="text" name="amount" id="amount"  class="layui-input" >
+            </div>
+        </div>
+
+        <div class="layui-inline" style="margin-bottom: 6px;">
+            <label class="layui-form-label">排序列: </label>
+            <div class="layui-input-inline">
+                <select name="order"  lay-filter="order" id="order" lay-search="">
+                    <option value="pay_time">充值时间</option>
+
+                </select>
+            </div>
+        </div>
+
+        <div class="layui-inline" style="margin-bottom: 6px;">
+            <label class="layui-form-label">排序: </label>
+            <div class="layui-input-inline">
+
+                <input type="radio" name="order_type" lay-filter='order_type' value="1" title="升序" checked="" />
+                <input type="radio" name="order_type" lay-filter='order_type' value="2" title="降序" />
+
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="layui-btn-group demoTable" style="padding: 0 15px; ">
+    <button class="layui-btn layui-btn-sm" data-type="search">搜索</button>
+    <button type="button" id="refresh" class="layui-btn  layui-btn-sm">
+        <i class="layui-icon layui-icon-refresh"></i>
+    </button>
+</div>
+
+<div class="table_wrap" style="padding: 0 15px;">
+    <table id="demo" class='layui-table' lay-filter="demo"></table>
+
+    </table>
+</div>
+<script type="text/javascript" src="/assets/vendor/layui/layui.js"></script>
+<script>
+
+    var where = {};
+    var product_p_data = {};
+    var game_p_data = {};
+    var product_list = [];
+    var product_id_data = [];
+    layui.config({
+        version: true,
+        base: '/assets/model/'
+    }).extend({
+        common: 'common/js/common',
+    }).use(['form','laydate','jquery','table','common','xmSelect'], function(){
+        var table   = layui.table,
+            form  = layui.form,
+            xmSelect  = layui.xmSelect,
+            $  = layui.jquery,
+            common  = layui.common,
+            laydate = layui.laydate;
+
+
+
+        //第一个实例
+        table.render({
+            elem: '#demo',
+            headers:common.getHeader()
+            ,height: 'full-150'
+            ,url: common.apiUrl+'pay_order_search/index' //数据接口
+            ,page: true //开启分页
+            ,cols: [[ //表头
+                {field: 'order_id', title: '订单号', width:80, sort: true, fixed: 'left'}
+                ,{field: 'user_name', title: '充值账号', width:80}
+                ,{field: 'uid', title: '用户ID', width:100, sort: true}
+                ,{field: 'amount', title: '充值金额', width:100}
+                ,{field: 'pay_time', title: '充值成功日期', width: 120}
+                ,{field: 'first_login_game_time', title: '首登时间', width: 150, sort: true}
+                ,{field: 'first_login_game_name', title: '首登游戏', width: 150, sort: true}
+                ,{field: 'third_party_order_id', title: '第三方订单号', width: 150}
+                ,{field: 'product_name', title: '充值产品', width: 150, sort: true}
+                ,{field: 'platform', title: '平台', width: 150, sort: true}
+                ,{field: 'game_name', title: '充值游戏', width: 100, sort: true}
+                ,{field: 'reg_channel', title: '首登注册包ID', width: 100, sort: true}
+                ,{field: 'yuanbao_status', title: '元宝发放', width: 100, sort: true}
+                ,{field: 'payment', title: '充值方式', width: 100, sort: true}
+                ,{field: 'server_id', title: '充值游戏区服', width: 120, sort: true}
+                ,{field: 'role_name', title: '角色名称', width: 120, sort: true}
+                ,{field: 'role_id', title: '角色ID', width: 120, sort: true}
+                ,{field: 'role_level', title: '角色等级', width: 120, sort: true}
+            ]]
+        });
+
+
+
+        common.req({
+            url:'ajax/getPlatformList'
+            ,success:function(json)
+            {
+                if(json.code == 0){
+                    let html = '';
+                    $.each(json.data,function(k,v){
+
+                        html ='<option value="'+v.platform_id+'">'+v.name+'</option>';
+                        $('#platform_id').append(html)
+                    })
+
+                    form.render('select');
+
+
+                }else {
+                    layer.msg(json.msg,{icon:2});
+                }
+            }
+        })
+
+
+        laydate.render({
+            elem: '#s_pay_time',
+            type: 'datetime',
+            value: new Date(Date.parse(new Date())-86400000)
+        });
+
+        laydate.render({
+            elem: '#e_pay_time',
+            type: 'datetime',
+            value: new Date(Date.parse(new Date()))
+        });
+
+        laydate.render({
+            elem: '#s_reg_date',
+            type: 'datetime',
+            value: new Date(Date.parse(new Date())-86400000)
+        });
+
+        laydate.render({
+            elem: '#e_reg_date',
+            type: 'datetime',
+            value: new Date(Date.parse(new Date()))
+        });
+
+        laydate.render({
+            elem: '#s_first_login_game_time',
+            type: 'datetime',
+            value: new Date(Date.parse(new Date())-86400000)
+        });
+
+        laydate.render({
+            elem: '#e_first_login_game_time',
+            type: 'datetime',
+            value: new Date(Date.parse(new Date()))
+        });
+
+
+        var select_demo = xmSelect.render({
+            el: '#p_game_id',
+            filterable: true,
+            data: [],
+            name:'p_game_id'
+        });
+
+
+        var select_demo1 = xmSelect.render({
+            el: '#first_login_game_id',
+            filterable: true,
+            data: [],
+            name:'first_login_game_id'
+        });
+
+
+        // $.each(product_list,function(k,v){
+        //     var this_data = {};
+        //     this_data.name = v.product_platform_name;
+        //     this_data.value =v.p_p;
+        //     product_id_data.push(this_data);
+        // });
+
+
+        form.on('select(platform_id)', function(data){
+
+
+
+            product_p_data.platform_id = data.value;
+
+
+            set_product_info();
+
+        });
+
+        function set_product_info(){
+            common.req({
+                url: "ajax/getProductList",
+                data: product_p_data,
+                success:function(res){
+                    var this_list = [];
+                    if( res.code==0 ){
+                        $.each(res.data,function(k,v){
+                            var this_data = {};
+                            this_data.name = v.product_name;
+                            this_data.value = v.p_p;
+                            this_list.push(this_data);
+                        });
+                    }
+                    select_product_id.update({
+                        data: this_list,
+                        // autoRow: true,
+                    })
+                },
+                error:function(data){
+                    layer.alert('错误'+data.msg,{icon:2});
+                }
+            })
+        }
+
+
+        form.on('select(p_product_str)', function(data){
+
+            $.getJSON("ajax/getPlatformGameByPlatformAndProduct?p_product_id="+data.value, function(data){
+                var select_demo = xmSelect.render({
+                    el: '#p_game_id',
+                    //文字背景颜色
+                    theme: {
+                        color: '#1cbbb4',
+                    },
+                    filterable: true, //是否开启搜索
+                    //全选清空辅助按钮
+                    toolbar: {
+                        show: true,
+                        list: [
+                            'ALL', //全选
+                            'CLEAR', //清空
+                            'REVERSE', //反选
+                        ],
+                    },
+                    //分页
+                    paging: true,
+                    pageSize: 10,
+                    height: 'auto',
+
+                    data: data.data,
+                    //自定义数据匹配key名称
+
+                    //提交的name名
+                    name:'p_game_id'
+                })
+
+                var select_demo1 = xmSelect.render({
+                    el: '#first_login_game_id',
+                    //文字背景颜色
+                    theme: {
+                        color: '#1cbbb4',
+                    },
+                    data: data.data,
+                    //自定义数据匹配key名称
+
+                    //提交的name名
+                    name:'first_login_game_id'
+                })
+            });
+        });
+
+
+        var select_product_id = xmSelect.render({
+            el: '#select_product_id',
+            radio: true,
+            filterable: true,
+            toolbar: {
+                show: true,
+                list: [ 'ALL', 'CLEAR', 'REVERSE' ]
+            },
+            data: product_id_data,
+            name:'p_product_id',
+            on:(data)=>{
+                var this_info = common.getSelectVal(data.arr);
+                game_p_data.p_p = this_info;
+                set_game_info();
+            },
+        })
+
+
+        function set_game_info(){
+            common.req({
+                url: "ajax/getGameList",
+                data: game_p_data,
+                type: "post",
+                dataType:"json",
+                success:function(res){
+                    var this_list = [];
+                    if( res.code==0 ){
+                        $.each(res.data,function(k,v){
+                            var this_data = {};
+                            this_data.name = v.game_name;
+                            this_data.value = v.p_g;
+                            this_list.push(this_data);
+                        });
+                    }
+                    select_demo.update({
+                        data: this_list,
+                        // autoRow: true,
+                    })
+                    select_demo1.update({
+                        data: this_list,
+                        // autoRow: true,
+                    })
+                },
+                error:function(data){
+                    layer.alert('错误'+data.msg,{icon:2});
+                }
+            });
+        }
+
+        $('.demoTable .layui-btn').on('click', function(){
+            var type = $(this).data('type');
+            if( type=='search' ){
+
+                let form_data = $('#search_form').serializeArray();
+                $.each(form_data,function(k,v){
+                    where[v.name] = v.value;
+                })
+
+                table.reload('demo', {
+                    // url: common.apiUrl+'pay_order_search/index', //数据接口
+                    method: 'post'
+                    ,where: where
+                    ,page: {
+                        curr: 1
+                    },
+                });
+            }
+        });
+    });
+    //给子级调用
+    function res_msg(msg){
+        layer.msg(msg,{icon:1});
+        setTimeout(function(){
+            window.location.reload();
+        },1000);
+    }
+
+
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,159 @@
+---------------------------------------------------------------
+[ 2023-01-30T15:34:13+08:00 ] 127.0.0.1 GET api.newkefu.com/api/getBaseInfo/userRole?role_type=2&platform=youyu
+[运行时间：0.570482s] [吞吐率：1.75req/s] [内存消耗：4,490.71kb] [文件加载：184]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'getBaseInfo',
+    2 => 'userRole',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:108.0) Gecko/20100101 Firefox/108.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/api/getBaseInfo/userRole' => '',
+  'role_type' => '2',
+  'platform' => 'youyu',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\api\controller\GetBaseInfo->userRole[ D:\phpstudy_pro\WWW\new_kefu_online\application\api\controller\GetBaseInfo.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002894s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+---------------------------------------------------------------
+[ 2023-01-30T15:34:26+08:00 ] 127.0.0.1 GET api.newkefu.com/api/getBaseInfo/userRole?role_type=2&platform=youyu
+[运行时间：0.090590s] [吞吐率：11.04req/s] [内存消耗：3,030.45kb] [文件加载：163]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'getBaseInfo',
+    2 => 'userRole',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:108.0) Gecko/20100101 Firefox/108.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/api/getBaseInfo/userRole' => '',
+  'role_type' => '2',
+  'platform' => 'youyu',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\api\controller\GetBaseInfo->userRole[ D:\phpstudy_pro\WWW\new_kefu_online\application\api\controller\GetBaseInfo.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2023-01-30T17:52:48+08:00 ] 127.0.0.1 GET api.newkefu.com/api/getBaseInfo/userRole?role_type=2&platform=youyu
+[运行时间：0.368905s] [吞吐率：2.71req/s] [内存消耗：4,490.31kb] [文件加载：184]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'getBaseInfo',
+    2 => 'userRole',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:108.0) Gecko/20100101 Firefox/108.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/api/getBaseInfo/userRole' => '',
+  'role_type' => '2',
+  'platform' => 'youyu',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\api\controller\GetBaseInfo->userRole[ D:\phpstudy_pro\WWW\new_kefu_online\application\api\controller\GetBaseInfo.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002347s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+---------------------------------------------------------------
+[ 2023-01-30T17:53:13+08:00 ] 127.0.0.1 GET api.newkefu.com/api/getBaseInfo/userRole?role_type=2&platform=youyu
+[运行时间：0.226704s] [吞吐率：4.41req/s] [内存消耗：3,098.38kb] [文件加载：163]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'getBaseInfo',
+    2 => 'userRole',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:108.0) Gecko/20100101 Firefox/108.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/api/getBaseInfo/userRole' => '',
+  'role_type' => '2',
+  'platform' => 'youyu',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\api\controller\GetBaseInfo->userRole[ D:\phpstudy_pro\WWW\new_kefu_online\application\api\controller\GetBaseInfo.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2023-01-30T17:55:06+08:00 ] 127.0.0.1 GET api.newkefu.com/api/getBaseInfo/userRole?role_type=1&platform=youyu
+[运行时间：0.403963s] [吞吐率：2.48req/s] [内存消耗：4,915.55kb] [文件加载：173]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'getBaseInfo',
+    2 => 'userRole',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:108.0) Gecko/20100101 Firefox/108.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/api/getBaseInfo/userRole' => '',
+  'role_type' => '1',
+  'platform' => 'youyu',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\api\controller\GetBaseInfo->userRole[ D:\phpstudy_pro\WWW\new_kefu_online\application\api\controller\GetBaseInfo.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File

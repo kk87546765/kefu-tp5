@@ -1,0 +1,1647 @@
+---------------------------------------------------------------
+[ 2022-12-13T15:18:37+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/ajax/getGameProduct
+[运行时间：0.184672s] [吞吐率：5.42req/s] [内存消耗：5,099.74kb] [文件加载：197]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'ajax',
+    2 => 'getGameProduct',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'content-length' => '0',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NzA4MTgyOTEsImV4cCI6MTY3MzQxMDI5MSwidWlkIjoxNDN9.HBrhoKBxrB6YE3JwYDICuExMamRnXL88wI7-3qOzCLU',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:107.0) Gecko/20100101 Firefox/107.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/ajax/getGameProduct' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Ajax->getGameProduct[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\Ajax.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001624s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_user_group` [ RunTime:0.000972s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17,10,11,5,14,8,9,7,16) [ RunTime:0.000444s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000684s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.003770s ]
+---------------------------------------------------------------
+[ 2022-12-13T15:18:38+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/ajax/getPlatformList
+[运行时间：0.112572s] [吞吐率：8.88req/s] [内存消耗：4,895.88kb] [文件加载：195]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'ajax',
+    2 => 'getPlatformList',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'content-length' => '0',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NzA4MTgyOTEsImV4cCI6MTY3MzQxMDI5MSwidWlkIjoxNDN9.HBrhoKBxrB6YE3JwYDICuExMamRnXL88wI7-3qOzCLU',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:107.0) Gecko/20100101 Firefox/107.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/ajax/getPlatformList' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Ajax->getPlatformList[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\Ajax.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001134s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_user_group` [ RunTime:0.000775s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17,10,11,5,14,8,9,7,16) [ RunTime:0.000369s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000639s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000910s ]
+---------------------------------------------------------------
+[ 2022-12-13T15:18:39+08:00 ] 127.0.0.1 GET api.newkefu.com/admin/elastic_search_chat/index?page=1&limit=20
+[运行时间：0.105894s] [吞吐率：9.44req/s] [内存消耗：5,000.70kb] [文件加载：197]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'elastic_search_chat',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NzA4MTgyOTEsImV4cCI6MTY3MzQxMDI5MSwidWlkIjoxNDN9.HBrhoKBxrB6YE3JwYDICuExMamRnXL88wI7-3qOzCLU',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:107.0) Gecko/20100101 Firefox/107.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/elastic_search_chat/index' => '',
+  'page' => '1',
+  'limit' => '20',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\ElasticSearchChat->index[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\ElasticSearchChat.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001250s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_user_group` [ RunTime:0.000663s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17,10,11,5,14,8,9,7,16) [ RunTime:0.000372s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.001057s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.001411s ]
+---------------------------------------------------------------
+[ 2022-12-13T15:18:39+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/elastic_search_chat/getTypes
+[运行时间：0.149785s] [吞吐率：6.68req/s] [内存消耗：4,896.05kb] [文件加载：196]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'elastic_search_chat',
+    2 => 'getTypes',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'content-length' => '0',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NzA4MTgyOTEsImV4cCI6MTY3MzQxMDI5MSwidWlkIjoxNDN9.HBrhoKBxrB6YE3JwYDICuExMamRnXL88wI7-3qOzCLU',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:107.0) Gecko/20100101 Firefox/107.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/elastic_search_chat/getTypes' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\ElasticSearchChat->getTypes[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\ElasticSearchChat.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001256s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_user_group` [ RunTime:0.000722s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17,10,11,5,14,8,9,7,16) [ RunTime:0.000370s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000667s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000963s ]
+---------------------------------------------------------------
+[ 2022-12-13T15:19:37+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/ajax/getGameProduct
+[运行时间：0.110534s] [吞吐率：9.05req/s] [内存消耗：4,982.15kb] [文件加载：196]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'ajax',
+    2 => 'getGameProduct',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'content-length' => '0',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NzA4MTgyOTEsImV4cCI6MTY3MzQxMDI5MSwidWlkIjoxNDN9.HBrhoKBxrB6YE3JwYDICuExMamRnXL88wI7-3qOzCLU',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:107.0) Gecko/20100101 Firefox/107.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/ajax/getGameProduct' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Ajax->getGameProduct[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\Ajax.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001307s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_user_group` [ RunTime:0.000712s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17,10,11,5,14,8,9,7,16) [ RunTime:0.000398s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000672s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.001113s ]
+---------------------------------------------------------------
+[ 2022-12-13T15:19:37+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/elastic_search_chat/getTypes
+[运行时间：0.111179s] [吞吐率：8.99req/s] [内存消耗：4,895.03kb] [文件加载：196]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'elastic_search_chat',
+    2 => 'getTypes',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'content-length' => '0',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NzA4MTgyOTEsImV4cCI6MTY3MzQxMDI5MSwidWlkIjoxNDN9.HBrhoKBxrB6YE3JwYDICuExMamRnXL88wI7-3qOzCLU',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:107.0) Gecko/20100101 Firefox/107.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/elastic_search_chat/getTypes' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\ElasticSearchChat->getTypes[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\ElasticSearchChat.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001388s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_user_group` [ RunTime:0.000865s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17,10,11,5,14,8,9,7,16) [ RunTime:0.000387s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000804s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000984s ]
+---------------------------------------------------------------
+[ 2022-12-13T15:19:38+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/ajax/getPlatformList
+[运行时间：0.108898s] [吞吐率：9.18req/s] [内存消耗：4,895.48kb] [文件加载：195]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'ajax',
+    2 => 'getPlatformList',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'content-length' => '0',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NzA4MTgyOTEsImV4cCI6MTY3MzQxMDI5MSwidWlkIjoxNDN9.HBrhoKBxrB6YE3JwYDICuExMamRnXL88wI7-3qOzCLU',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:107.0) Gecko/20100101 Firefox/107.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/ajax/getPlatformList' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Ajax->getPlatformList[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\Ajax.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010655s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_user_group` [ RunTime:0.000694s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17,10,11,5,14,8,9,7,16) [ RunTime:0.000394s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000716s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000943s ]
+---------------------------------------------------------------
+[ 2022-12-13T15:19:38+08:00 ] 127.0.0.1 GET api.newkefu.com/admin/elastic_search_chat/index?page=1&limit=20
+[运行时间：0.131793s] [吞吐率：7.59req/s] [内存消耗：5,000.30kb] [文件加载：197]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'elastic_search_chat',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NzA4MTgyOTEsImV4cCI6MTY3MzQxMDI5MSwidWlkIjoxNDN9.HBrhoKBxrB6YE3JwYDICuExMamRnXL88wI7-3qOzCLU',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:107.0) Gecko/20100101 Firefox/107.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/elastic_search_chat/index' => '',
+  'page' => '1',
+  'limit' => '20',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\ElasticSearchChat->index[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\ElasticSearchChat.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010964s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_user_group` [ RunTime:0.000842s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17,10,11,5,14,8,9,7,16) [ RunTime:0.000391s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000623s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000875s ]
+---------------------------------------------------------------
+[ 2022-12-13T15:20:45+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/ajax/getGameProduct
+[运行时间：0.134407s] [吞吐率：7.44req/s] [内存消耗：4,982.15kb] [文件加载：196]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'ajax',
+    2 => 'getGameProduct',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'content-length' => '0',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NzA4MTgyOTEsImV4cCI6MTY3MzQxMDI5MSwidWlkIjoxNDN9.HBrhoKBxrB6YE3JwYDICuExMamRnXL88wI7-3qOzCLU',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:107.0) Gecko/20100101 Firefox/107.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/ajax/getGameProduct' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Ajax->getGameProduct[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\Ajax.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001283s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_user_group` [ RunTime:0.000637s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17,10,11,5,14,8,9,7,16) [ RunTime:0.000413s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000671s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000988s ]
+---------------------------------------------------------------
+[ 2022-12-13T15:20:45+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/ajax/getPlatformList
+[运行时间：0.155559s] [吞吐率：6.43req/s] [内存消耗：4,895.48kb] [文件加载：195]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'ajax',
+    2 => 'getPlatformList',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'content-length' => '0',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NzA4MTgyOTEsImV4cCI6MTY3MzQxMDI5MSwidWlkIjoxNDN9.HBrhoKBxrB6YE3JwYDICuExMamRnXL88wI7-3qOzCLU',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:107.0) Gecko/20100101 Firefox/107.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/ajax/getPlatformList' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Ajax->getPlatformList[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\Ajax.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010737s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_user_group` [ RunTime:0.000725s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17,10,11,5,14,8,9,7,16) [ RunTime:0.000342s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000791s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000839s ]
+---------------------------------------------------------------
+[ 2022-12-13T15:20:46+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/elastic_search_chat/getTypes
+[运行时间：0.109636s] [吞吐率：9.12req/s] [内存消耗：4,894.95kb] [文件加载：196]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'elastic_search_chat',
+    2 => 'getTypes',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'content-length' => '0',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NzA4MTgyOTEsImV4cCI6MTY3MzQxMDI5MSwidWlkIjoxNDN9.HBrhoKBxrB6YE3JwYDICuExMamRnXL88wI7-3qOzCLU',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:107.0) Gecko/20100101 Firefox/107.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/elastic_search_chat/getTypes' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\ElasticSearchChat->getTypes[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\ElasticSearchChat.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001156s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_user_group` [ RunTime:0.000639s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17,10,11,5,14,8,9,7,16) [ RunTime:0.000400s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000707s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000939s ]
+---------------------------------------------------------------
+[ 2022-12-13T15:20:46+08:00 ] 127.0.0.1 GET api.newkefu.com/admin/elastic_search_chat/index?page=1&limit=20
+[运行时间：0.108713s] [吞吐率：9.20req/s] [内存消耗：5,000.23kb] [文件加载：197]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'elastic_search_chat',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NzA4MTgyOTEsImV4cCI6MTY3MzQxMDI5MSwidWlkIjoxNDN9.HBrhoKBxrB6YE3JwYDICuExMamRnXL88wI7-3qOzCLU',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:107.0) Gecko/20100101 Firefox/107.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/elastic_search_chat/index' => '',
+  'page' => '1',
+  'limit' => '20',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\ElasticSearchChat->index[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\ElasticSearchChat.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001103s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_user_group` [ RunTime:0.000597s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17,10,11,5,14,8,9,7,16) [ RunTime:0.000304s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000656s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000885s ]
+---------------------------------------------------------------
+[ 2022-12-13T15:20:52+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/elastic_search_chat/index
+[运行时间：0.111578s] [吞吐率：8.96req/s] [内存消耗：5,002.89kb] [文件加载：197]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'elastic_search_chat',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '203',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NzA4MTgyOTEsImV4cCI6MTY3MzQxMDI5MSwidWlkIjoxNDN9.HBrhoKBxrB6YE3JwYDICuExMamRnXL88wI7-3qOzCLU',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:107.0) Gecko/20100101 Firefox/107.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/elastic_search_chat/index' => '',
+  'page' => '1',
+  'limit' => '20',
+  'tkey' => 'bx',
+  'game' => 'dxcq2',
+  'type' => '',
+  'keyword' => '',
+  'uid' => '',
+  'uname' => '',
+  'sid' => '',
+  'ip' => '',
+  'imei' => '',
+  'money_min' => '',
+  'money_max' => '',
+  'sdate' => '2022-12-13 00:00:00',
+  'edate' => '2022-12-14 00:00:00',
+  'level_min' => '',
+  'level_max' => '',
+  'sid_min' => '',
+  'sid_max' => '',
+  'ext' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\ElasticSearchChat->index[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\ElasticSearchChat.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001194s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_user_group` [ RunTime:0.000652s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17,10,11,5,14,8,9,7,16) [ RunTime:0.000340s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000579s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000986s ]
+---------------------------------------------------------------
+[ 2022-12-13T15:20:57+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/elastic_search_chat/index
+[运行时间：0.127890s] [吞吐率：7.82req/s] [内存消耗：5,002.89kb] [文件加载：197]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'elastic_search_chat',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '211',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NzA4MTgyOTEsImV4cCI6MTY3MzQxMDI5MSwidWlkIjoxNDN9.HBrhoKBxrB6YE3JwYDICuExMamRnXL88wI7-3qOzCLU',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:107.0) Gecko/20100101 Firefox/107.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/elastic_search_chat/index' => '',
+  'page' => '1',
+  'limit' => '20',
+  'tkey' => 'youyu',
+  'game' => 'nbcq2youyu',
+  'type' => '',
+  'keyword' => '',
+  'uid' => '',
+  'uname' => '',
+  'sid' => '',
+  'ip' => '',
+  'imei' => '',
+  'money_min' => '',
+  'money_max' => '',
+  'sdate' => '2022-12-13 00:00:00',
+  'edate' => '2022-12-14 00:00:00',
+  'level_min' => '',
+  'level_max' => '',
+  'sid_min' => '',
+  'sid_max' => '',
+  'ext' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\ElasticSearchChat->index[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\ElasticSearchChat.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001189s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_user_group` [ RunTime:0.001069s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17,10,11,5,14,8,9,7,16) [ RunTime:0.000381s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000663s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000867s ]
+---------------------------------------------------------------
+[ 2022-12-13T15:21:22+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/elastic_search_chat/index
+[运行时间：0.118832s] [吞吐率：8.42req/s] [内存消耗：5,045.71kb] [文件加载：200]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'elastic_search_chat',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '206',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NzA4MTgyOTEsImV4cCI6MTY3MzQxMDI5MSwidWlkIjoxNDN9.HBrhoKBxrB6YE3JwYDICuExMamRnXL88wI7-3qOzCLU',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:107.0) Gecko/20100101 Firefox/107.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/elastic_search_chat/index' => '',
+  'page' => '1',
+  'limit' => '20',
+  'tkey' => 'youyu',
+  'game' => 'jzxjz',
+  'type' => '',
+  'keyword' => '',
+  'uid' => '',
+  'uname' => '',
+  'sid' => '',
+  'ip' => '',
+  'imei' => '',
+  'money_min' => '',
+  'money_max' => '',
+  'sdate' => '2022-12-13 00:00:00',
+  'edate' => '2022-12-14 00:00:00',
+  'level_min' => '',
+  'level_max' => '',
+  'sid_min' => '',
+  'sid_max' => '',
+  'ext' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\ElasticSearchChat->index[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\ElasticSearchChat.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011249s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_user_group` [ RunTime:0.000771s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17,10,11,5,14,8,9,7,16) [ RunTime:0.000428s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000829s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000955s ]
+[ error ] [2]Illegal string offset 'time'[D:\phpstudy_pro\WWW\new_kefu_online\common\server\ElasticSearchChat\ElasticSearchChatServer.php:131]
+---------------------------------------------------------------
+[ 2022-12-13T15:21:25+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/elastic_search_chat/index
+[运行时间：0.108173s] [吞吐率：9.24req/s] [内存消耗：5,045.98kb] [文件加载：200]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'elastic_search_chat',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '206',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NzA4MTgyOTEsImV4cCI6MTY3MzQxMDI5MSwidWlkIjoxNDN9.HBrhoKBxrB6YE3JwYDICuExMamRnXL88wI7-3qOzCLU',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:107.0) Gecko/20100101 Firefox/107.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/elastic_search_chat/index' => '',
+  'page' => '1',
+  'limit' => '20',
+  'tkey' => 'youyu',
+  'game' => 'jzxjz',
+  'type' => '',
+  'keyword' => '',
+  'uid' => '',
+  'uname' => '',
+  'sid' => '',
+  'ip' => '',
+  'imei' => '',
+  'money_min' => '',
+  'money_max' => '',
+  'sdate' => '2022-12-13 00:00:00',
+  'edate' => '2022-12-14 00:00:00',
+  'level_min' => '',
+  'level_max' => '',
+  'sid_min' => '',
+  'sid_max' => '',
+  'ext' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\ElasticSearchChat->index[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\ElasticSearchChat.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001049s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_user_group` [ RunTime:0.000703s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17,10,11,5,14,8,9,7,16) [ RunTime:0.000343s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000689s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000888s ]
+[ error ] [2]Illegal string offset 'time'[D:\phpstudy_pro\WWW\new_kefu_online\common\server\ElasticSearchChat\ElasticSearchChatServer.php:131]
+---------------------------------------------------------------
+[ 2022-12-13T15:21:37+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/elastic_search_chat/index
+[运行时间：0.154785s] [吞吐率：6.46req/s] [内存消耗：9,228.54kb] [文件加载：205]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'elastic_search_chat',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '206',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NzA4MTgyOTEsImV4cCI6MTY3MzQxMDI5MSwidWlkIjoxNDN9.HBrhoKBxrB6YE3JwYDICuExMamRnXL88wI7-3qOzCLU',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:107.0) Gecko/20100101 Firefox/107.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/elastic_search_chat/index' => '',
+  'page' => '1',
+  'limit' => '20',
+  'tkey' => 'youyu',
+  'game' => 'jzxjz',
+  'type' => '',
+  'keyword' => '',
+  'uid' => '',
+  'uname' => '',
+  'sid' => '',
+  'ip' => '',
+  'imei' => '',
+  'money_min' => '',
+  'money_max' => '',
+  'sdate' => '2022-12-13 00:00:00',
+  'edate' => '2022-12-14 00:00:00',
+  'level_min' => '',
+  'level_max' => '',
+  'sid_min' => '',
+  'sid_max' => '',
+  'ext' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\ElasticSearchChat->index[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\ElasticSearchChat.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011500s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_user_group` [ RunTime:0.000639s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17,10,11,5,14,8,9,7,16) [ RunTime:0.000360s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000924s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.001019s ]
+[ error ] [8]未定义数组索引: total[D:\phpstudy_pro\WWW\new_kefu_online\common\server\ElasticSearchChat\ElasticSearchChatServer.php:153]
+---------------------------------------------------------------
+[ 2022-12-13T15:22:03+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/elastic_search_chat/index
+[运行时间：0.127965s] [吞吐率：7.81req/s] [内存消耗：9,185.72kb] [文件加载：202]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'elastic_search_chat',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '206',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NzA4MTgyOTEsImV4cCI6MTY3MzQxMDI5MSwidWlkIjoxNDN9.HBrhoKBxrB6YE3JwYDICuExMamRnXL88wI7-3qOzCLU',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:107.0) Gecko/20100101 Firefox/107.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/elastic_search_chat/index' => '',
+  'page' => '1',
+  'limit' => '20',
+  'tkey' => 'youyu',
+  'game' => 'jzxjz',
+  'type' => '',
+  'keyword' => '',
+  'uid' => '',
+  'uname' => '',
+  'sid' => '',
+  'ip' => '',
+  'imei' => '',
+  'money_min' => '',
+  'money_max' => '',
+  'sdate' => '2022-12-13 00:00:00',
+  'edate' => '2022-12-14 00:00:00',
+  'level_min' => '',
+  'level_max' => '',
+  'sid_min' => '',
+  'sid_max' => '',
+  'ext' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\ElasticSearchChat->index[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\ElasticSearchChat.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011401s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_user_group` [ RunTime:0.000726s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17,10,11,5,14,8,9,7,16) [ RunTime:0.000378s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000658s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000941s ]
+---------------------------------------------------------------
+[ 2022-12-13T15:22:24+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/block/blockUser
+[运行时间：0.112563s] [吞吐率：8.88req/s] [内存消耗：4,791.73kb] [文件加载：192]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'block',
+    2 => 'blockUser',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '64',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NzA4MTgyOTEsImV4cCI6MTY3MzQxMDI5MSwidWlkIjoxNDN9.HBrhoKBxrB6YE3JwYDICuExMamRnXL88wI7-3qOzCLU',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:107.0) Gecko/20100101 Firefox/107.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/block/blockUser' => '',
+  'a_ids' => 
+  array (
+    0 => '2108252232397298',
+  ),
+  'block_time' => '3600',
+  'uids' => 
+  array (
+    0 => '17302133',
+  ),
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Block->blockUser[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\Block.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001289s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_user_group` [ RunTime:0.000700s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17,10,11,5,14,8,9,7,16) [ RunTime:0.000381s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000661s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000907s ]
+---------------------------------------------------------------
+[ 2022-12-13T15:22:49+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/block/blockUser
+[运行时间：0.130727s] [吞吐率：7.65req/s] [内存消耗：4,924.22kb] [文件加载：197]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'block',
+    2 => 'blockUser',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '64',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NzA4MTgyOTEsImV4cCI6MTY3MzQxMDI5MSwidWlkIjoxNDN9.HBrhoKBxrB6YE3JwYDICuExMamRnXL88wI7-3qOzCLU',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:107.0) Gecko/20100101 Firefox/107.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/block/blockUser' => '',
+  'a_ids' => 
+  array (
+    0 => '2108252232397298',
+  ),
+  'block_time' => '3600',
+  'uids' => 
+  array (
+    0 => '17302133',
+  ),
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Block->blockUser[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\Block.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001198s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_user_group` [ RunTime:0.000628s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17,10,11,5,14,8,9,7,16) [ RunTime:0.000331s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000691s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000860s ]
+---------------------------------------------------------------
+[ 2022-12-13T15:23:00+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/block/blockUser
+[运行时间：0.158903s] [吞吐率：6.29req/s] [内存消耗：5,184.27kb] [文件加载：204]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'block',
+    2 => 'blockUser',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '64',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NzA4MTgyOTEsImV4cCI6MTY3MzQxMDI5MSwidWlkIjoxNDN9.HBrhoKBxrB6YE3JwYDICuExMamRnXL88wI7-3qOzCLU',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:107.0) Gecko/20100101 Firefox/107.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/block/blockUser' => '',
+  'a_ids' => 
+  array (
+    0 => '2108252232397298',
+  ),
+  'block_time' => '3600',
+  'uids' => 
+  array (
+    0 => '17302133',
+  ),
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Block->blockUser[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\Block.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010959s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_user_group` [ RunTime:0.000744s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17,10,11,5,14,8,9,7,16) [ RunTime:0.000326s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000671s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000973s ]
+---------------------------------------------------------------
+[ 2022-12-13T15:23:23+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/block/blockUser
+[运行时间：0.123344s] [吞吐率：8.11req/s] [内存消耗：5,538.14kb] [文件加载：206]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'block',
+    2 => 'blockUser',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '64',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NzA4MTgyOTEsImV4cCI6MTY3MzQxMDI5MSwidWlkIjoxNDN9.HBrhoKBxrB6YE3JwYDICuExMamRnXL88wI7-3qOzCLU',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:107.0) Gecko/20100101 Firefox/107.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/block/blockUser' => '',
+  'a_ids' => 
+  array (
+    0 => '2108252232397298',
+  ),
+  'block_time' => '3600',
+  'uids' => 
+  array (
+    0 => '17302133',
+  ),
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Block->blockUser[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\Block.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001235s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_user_group` [ RunTime:0.000669s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17,10,11,5,14,8,9,7,16) [ RunTime:0.000345s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000608s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000850s ]
+---------------------------------------------------------------
+[ 2022-12-13T15:24:03+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/block/blockUser
+[运行时间：0.120302s] [吞吐率：8.31req/s] [内存消耗：5,358.16kb] [文件加载：205]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'block',
+    2 => 'blockUser',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '64',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NzA4MTgyOTEsImV4cCI6MTY3MzQxMDI5MSwidWlkIjoxNDN9.HBrhoKBxrB6YE3JwYDICuExMamRnXL88wI7-3qOzCLU',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:107.0) Gecko/20100101 Firefox/107.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/block/blockUser' => '',
+  'a_ids' => 
+  array (
+    0 => '2108252232397298',
+  ),
+  'block_time' => '3600',
+  'uids' => 
+  array (
+    0 => '17302133',
+  ),
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Block->blockUser[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\Block.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001320s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_user_group` [ RunTime:0.000616s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17,10,11,5,14,8,9,7,16) [ RunTime:0.000317s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000677s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000828s ]
+---------------------------------------------------------------
+[ 2022-12-13T15:24:37+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/block/blockUser
+[运行时间：0.139210s] [吞吐率：7.18req/s] [内存消耗：5,266.39kb] [文件加载：205]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'block',
+    2 => 'blockUser',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '64',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NzA4MTgyOTEsImV4cCI6MTY3MzQxMDI5MSwidWlkIjoxNDN9.HBrhoKBxrB6YE3JwYDICuExMamRnXL88wI7-3qOzCLU',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:107.0) Gecko/20100101 Firefox/107.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/block/blockUser' => '',
+  'a_ids' => 
+  array (
+    0 => '2108252232397298',
+  ),
+  'block_time' => '3600',
+  'uids' => 
+  array (
+    0 => '17302133',
+  ),
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Block->blockUser[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\Block.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011259s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_user_group` [ RunTime:0.000685s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17,10,11,5,14,8,9,7,16) [ RunTime:0.000357s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000590s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000825s ]
+---------------------------------------------------------------
+[ 2022-12-13T15:48:55+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/scripts/run
+[运行时间：0.091008s] [吞吐率：10.99req/s] [内存消耗：2,971.32kb] [文件加载：163]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'scripts',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:107.0) Gecko/20100101 Firefox/107.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/scripts/run' => '',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\Scripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\Scripts.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-12-13T16:56:00+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/scripts/run
+[运行时间：0.126784s] [吞吐率：7.89req/s] [内存消耗：4,187.65kb] [文件加载：176]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'scripts',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:107.0) Gecko/20100101 Firefox/107.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/scripts/run' => '',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\scripts\controller\Scripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\Scripts.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-12-13T16:56:36+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/scripts/run
+[运行时间：0.072989s] [吞吐率：13.70req/s] [内存消耗：2,971.32kb] [文件加载：163]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'scripts',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:107.0) Gecko/20100101 Firefox/107.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/scripts/run' => '',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\Scripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\Scripts.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-12-13T16:56:51+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/scripts/run
+[运行时间：0.089268s] [吞吐率：11.20req/s] [内存消耗：2,971.32kb] [文件加载：163]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'scripts',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:107.0) Gecko/20100101 Firefox/107.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/scripts/run' => '',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\Scripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\Scripts.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-12-13T16:57:15+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/scripts/run
+[运行时间：0.096025s] [吞吐率：10.41req/s] [内存消耗：4,284.38kb] [文件加载：175]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'scripts',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:107.0) Gecko/20100101 Firefox/107.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/scripts/run' => '',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\Scripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\Scripts.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-12-13T16:57:47+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/scripts/run
+[运行时间：0.080145s] [吞吐率：12.48req/s] [内存消耗：2,971.32kb] [文件加载：163]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'scripts',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:107.0) Gecko/20100101 Firefox/107.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/scripts/run' => '',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\Scripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\Scripts.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-12-13T16:57:51+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/scripts/run
+[运行时间：0.097895s] [吞吐率：10.22req/s] [内存消耗：4,281.76kb] [文件加载：175]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'scripts',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:107.0) Gecko/20100101 Firefox/107.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/scripts/run' => '',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\Scripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\Scripts.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-12-13T16:57:58+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/scripts/run
+[运行时间：0.071345s] [吞吐率：14.02req/s] [内存消耗：2,968.82kb] [文件加载：163]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'scripts',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:107.0) Gecko/20100101 Firefox/107.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/scripts/run' => '',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\Scripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\Scripts.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-12-13T17:20:06+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/block/blockUser
+[运行时间：0.151671s] [吞吐率：6.59req/s] [内存消耗：5,345.66kb] [文件加载：207]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'block',
+    2 => 'blockUser',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '64',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NzA4MTgyOTEsImV4cCI6MTY3MzQxMDI5MSwidWlkIjoxNDN9.HBrhoKBxrB6YE3JwYDICuExMamRnXL88wI7-3qOzCLU',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:107.0) Gecko/20100101 Firefox/107.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/block/blockUser' => '',
+  'a_ids' => 
+  array (
+    0 => '2108252232397298',
+  ),
+  'block_time' => '3600',
+  'uids' => 
+  array (
+    0 => '17302133',
+  ),
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Block->blockUser[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\Block.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001254s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_user_group` [ RunTime:0.000781s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17,10,11,5,14,8,9,7,16) [ RunTime:0.000465s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000660s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.003363s ]
+---------------------------------------------------------------
+[ 2022-12-13T17:20:29+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/block/blockUser
+[运行时间：0.112235s] [吞吐率：8.91req/s] [内存消耗：5,345.66kb] [文件加载：207]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'block',
+    2 => 'blockUser',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '64',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NzA4MTgyOTEsImV4cCI6MTY3MzQxMDI5MSwidWlkIjoxNDN9.HBrhoKBxrB6YE3JwYDICuExMamRnXL88wI7-3qOzCLU',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:107.0) Gecko/20100101 Firefox/107.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/block/blockUser' => '',
+  'a_ids' => 
+  array (
+    0 => '2108252232397298',
+  ),
+  'block_time' => '3600',
+  'uids' => 
+  array (
+    0 => '17302133',
+  ),
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Block->blockUser[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\Block.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001153s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_user_group` [ RunTime:0.000706s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17,10,11,5,14,8,9,7,16) [ RunTime:0.000333s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000694s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.001076s ]
+---------------------------------------------------------------
+[ 2022-12-13T17:21:07+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/block/blockUser
+[运行时间：0.122371s] [吞吐率：8.17req/s] [内存消耗：5,415.73kb] [文件加载：209]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'block',
+    2 => 'blockUser',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '64',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NzA4MTgyOTEsImV4cCI6MTY3MzQxMDI5MSwidWlkIjoxNDN9.HBrhoKBxrB6YE3JwYDICuExMamRnXL88wI7-3qOzCLU',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:107.0) Gecko/20100101 Firefox/107.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/block/blockUser' => '',
+  'a_ids' => 
+  array (
+    0 => '2108252232397298',
+  ),
+  'block_time' => '3600',
+  'uids' => 
+  array (
+    0 => '17302133',
+  ),
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Block->blockUser[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\Block.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001087s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_user_group` [ RunTime:0.000635s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17,10,11,5,14,8,9,7,16) [ RunTime:0.000322s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000744s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000943s ]
+---------------------------------------------------------------
+[ 2022-12-13T17:21:24+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/block/blockUser
+[运行时间：0.109839s] [吞吐率：9.10req/s] [内存消耗：5,489.90kb] [文件加载：209]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'block',
+    2 => 'blockUser',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '64',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NzA4MTgyOTEsImV4cCI6MTY3MzQxMDI5MSwidWlkIjoxNDN9.HBrhoKBxrB6YE3JwYDICuExMamRnXL88wI7-3qOzCLU',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:107.0) Gecko/20100101 Firefox/107.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/block/blockUser' => '',
+  'a_ids' => 
+  array (
+    0 => '2108252232397298',
+  ),
+  'block_time' => '3600',
+  'uids' => 
+  array (
+    0 => '17302133',
+  ),
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Block->blockUser[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\Block.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001419s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_user_group` [ RunTime:0.000754s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17,10,11,5,14,8,9,7,16) [ RunTime:0.000378s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000607s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000870s ]
+---------------------------------------------------------------
+[ 2022-12-13T17:21:45+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/block/blockUser
+[运行时间：0.161287s] [吞吐率：6.20req/s] [内存消耗：5,489.90kb] [文件加载：209]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'block',
+    2 => 'blockUser',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '64',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NzA4MTgyOTEsImV4cCI6MTY3MzQxMDI5MSwidWlkIjoxNDN9.HBrhoKBxrB6YE3JwYDICuExMamRnXL88wI7-3qOzCLU',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:107.0) Gecko/20100101 Firefox/107.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/block/blockUser' => '',
+  'a_ids' => 
+  array (
+    0 => '2108252232397298',
+  ),
+  'block_time' => '3600',
+  'uids' => 
+  array (
+    0 => '17302133',
+  ),
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Block->blockUser[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\Block.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001111s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_user_group` [ RunTime:0.000812s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17,10,11,5,14,8,9,7,16) [ RunTime:0.000391s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000698s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000895s ]

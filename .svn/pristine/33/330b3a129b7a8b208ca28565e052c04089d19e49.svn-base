@@ -1,0 +1,139 @@
+<?php
+/**
+ * 系统
+ */
+namespace common\server\Vip;
+
+use common\base\BasicServer;
+use common\model\db_customer\LossUser;
+use common\model\db_customer\LossUserSub;
+use common\server\CustomerPlatform\CommonServer;
+use common\server\SysServer;
+
+class LossUserServer extends BasicServer
+{
+
+    public static function unionUserByCache($platform_id,$limit = 10)
+    {
+        $code = [
+            0=>'success',1=>'平台id不存在',2=>'平台信息不存在',3=>'没有用户数据'
+        ];
+
+        if(!$platform_id){
+            return ['code'=>1,'msg'=>$code[1]];
+        }
+
+        $platform_list = SysServer::getPlatformList();
+
+        $platform_info = [];
+        foreach ($platform_list as $item){
+            if($item['platform_id'] == $platform_id){
+                $platform_info = $item;
+                break;
+            }
+        }
+
+        if(empty($platform_info)){
+            return ['code'=>2,'msg'=>$code[2]];
+        }
+
+        $memberModel = CommonServer::getPlatformModel('KefuCommonMember',$platform_info['suffix']);
+
+        $cache_name_last_user_id = 'unionUserLastId'.'_'.$platform_id;
+
+        $last_user_id = cache($cache_name_last_user_id);
+
+        $where = [];
+        if($last_user_id){
+            $where['id'] = ['>',$last_user_id];
+        }
+
+        $where['mobile'] = ['<>',''];
+
+        $field = '
+            id
+            ,uid
+            ,user_name AS username
+            ,mobile AS phone
+            ,udid
+            ,reg_date
+        ';
+
+        $user_list = $memberModel->field($field)->where($where)->order('id asc')->limit($limit)->select()->toArray();
+
+        if(!$user_list){
+            return ['code'=>3,'msg'=>$code[3]];
+        }
+
+        $lossUserModel = new LossUser();
+
+        $lossUserSubModel = new LossUserSub();
+
+        foreach ($user_list as $item){
+            $last_user_id = $item['id'];
+            if(!$item['udid']){
+                continue;
+            }
+
+            if(preg_match('/^0{6}/',$item['udid'])){
+                continue;
+            }
+
+            $this_loss_user_info = $lossUserModel->where([
+                'platform_id'=>$platform_id,
+                'udid'=>$item['udid'],
+                'phone'=>$item['phone'],
+            ])->find();
+
+            if($this_loss_user_info){
+                continue;
+            }
+
+            $lossUserModel->create([
+                'platform_id'=>$platform_id,
+                'udid'=>$item['udid'],
+                'phone'=>$item['phone'],
+                'reg_time'=>$item['reg_date'],
+            ]);
+
+            $where = [];
+            $where['udid'] = $item['udid'];
+
+
+            $this_user_list = $memberModel->field($field)->where($where)->select()->toArray();
+
+            if(!$this_user_list){
+                continue;
+            }
+
+            $this_loss_user_sub_add = [];
+
+            $this_loss_user_sub_arr = $lossUserSubModel->where([
+                'platform_id'=>$platform_id,
+                'udid'=>$item['udid'],
+            ])->column('uid');
+
+            foreach ($this_user_list as $tul){
+                if(in_array($tul['uid'],$this_loss_user_sub_arr)){
+                    continue;
+                }
+                $this_loss_user_sub_add[] = [
+                    'platform_id'=>$platform_id,
+                    'uid'=>$tul['uid'],
+                    'username'=>$tul['username'],
+                    'udid'=>$tul['udid'],
+                    'phone'=>$tul['phone']?$tul['phone']:$item['phone'],
+                ];
+            }
+
+            if($this_loss_user_sub_add){
+                $lossUserSubModel->saveAll($this_loss_user_sub_add);
+            }
+        }
+
+         cache($cache_name_last_user_id,$last_user_id,3600);
+
+        return ['code'=>0,'msg'=>$code[0],'data'=>['id'=>$last_user_id]];
+    }
+
+}

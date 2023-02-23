@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <title>后台管理系统</title>
+    <link rel="stylesheet" href="/assets/vendor/layui/css/layui.css"/>
+    <link rel="stylesheet" href="/assets/model/common/css/style.css"/>
+    <link rel="stylesheet" href="/assets/model/common/css/common.css"/>
+    <script type="text/javascript" src="/assets/vendor/layui/layui.js"></script>
+    <!--[if lt IE 9]>
+    <script src="/assets/model/common/js/html5shiv.min.js"></script>
+    <script src="/assets/model/common/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<style>
+    .layui-form-label{
+        min-width: 130px;
+    }
+</style>
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="page-loading">
+    <div class="ball-loader">
+        <span></span><span></span><span></span><span></span>
+    </div>
+</div>
+<div>
+    <form class="layui-form" lay-filter="edit-form" action="" style="padding: 20px;">
+        <div class="layui-form-item">
+            <label class="layui-form-label">平台ID</label>
+            <div class="layui-input-inline" >
+                <input type="number" name="platform_id" lay-verify="required" value="" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">名称</label>
+            <div class="layui-input-inline">
+                <input type="text" name="platform_name" lay-verify="required" value="" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">后缀</label>
+            <div class="layui-input-inline">
+                <input type="text" name="platform_suffix" lay-verify="required" value="" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item p_lev1">
+            <label class="layui-form-label">状态</label>
+            <div class="layui-input-inline">
+                <input type="radio" name="static" value="1" title="开启" >
+                <input type="radio" name="static" value="2" title="不启用">
+            </div>
+        </div>
+
+        <div class="layui-inline " style="margin-bottom: 6px;">
+            <label class="layui-form-label">短信平台: </label>
+            <div class="layui-input-inline">
+                <select name="config[sms]"  lay-filter="sms" id="sms" lay-search="" class="config">
+                    <option value="">选择或搜索</option>
+
+                </select>
+            </div>
+        </div>
+
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">注册信息接口</label>
+            <div class="layui-input-inline" style="width:400px;">
+                <input type="text" name="config[user_register]"  value="" autocomplete="off" placeholder="http://" class="layui-input config">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">登录信息接口</label>
+            <div class="layui-input-inline" style="width:400px;">
+                <input type="text" name="config[user_login]"  value="" autocomplete="off" placeholder="http://" class="layui-input config">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">支付信息接口</label>
+            <div class="layui-input-inline" style="width:400px;">
+                <input type="text" name="config[user_pay]"  value="" autocomplete="off" placeholder="http://" class="layui-input config">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">行为接口</label>
+            <div class="layui-input-inline" style="width:400px;">
+                <input type="text" name="config[action]"  value="" autocomplete="off" placeholder="http://" class="layui-input config">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">平台封禁接口</label>
+            <div class="layui-input-inline" style="width:400px;">
+                <input type="text" name="config[ban_url]"  value="" autocomplete="off" placeholder="http://" class="layui-input config">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">平台解禁接口</label>
+            <div class="layui-input-inline" style="width:400px;">
+                <input type="text" name="config[unban_url]"  value="" autocomplete="off" placeholder="http://" class="layui-input config" >
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">游戏列表接口</label>
+            <div class="layui-input-inline" style="width:400px;">
+                <input type="text" name="config[game_list]"  value="" autocomplete="off" placeholder="http://" class="layui-input config">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">游戏产品接口</label>
+            <div class="layui-input-inline" style="width:400px;">
+                <input type="text" name="config[game_product_list]"  value="" autocomplete="off" placeholder="http://" class="layui-input config">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">游戏唯一产品接口</label>
+            <div class="layui-input-inline" style="width:400px;">
+                <input type="text" name="config[unique_product_list]"  value="" autocomplete="off" placeholder="http://" class="layui-input config">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">查询用户状态接口</label>
+            <div class="layui-input-inline" style="width:400px;">
+                <input type="text" name="config[check_user_status]"  value="" autocomplete="off" placeholder="http://" class="layui-input config">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">角色信息接口</label>
+            <div class="layui-input-inline" style="width:400px;">
+                <input type="text" name="config[get_user_role]"  value="" autocomplete="off" placeholder="http://" class="layui-input config">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">游戏包接口</label>
+            <div class="layui-input-inline" style="width:400px;">
+                <input type="text" name="config[get_channel_info]"  value="" autocomplete="off" placeholder="http://" class="layui-input config">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">支付方式接口</label>
+            <div class="layui-input-inline" style="width:400px;">
+                <input type="text" name="config[get_payment]"  value="" autocomplete="off" placeholder="http://" class="layui-input config">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">平台修改密码接口</label>
+            <div class="layui-input-inline" style="width:400px;">
+                <input type="text" name="config[change_password]"  value="" autocomplete="off" placeholder="http://" class="layui-input config">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">平台修改手机（换绑）接口</label>
+            <div class="layui-input-inline" style="width:400px;">
+                <input type="text" name="config[change_mobile]"  value="" autocomplete="off" placeholder="http://" class="layui-input config">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">平台直冲下单接口</label>
+            <div class="layui-input-inline" style="width:400px;">
+                <input type="text" name="config[send_orders]"  value="" autocomplete="off" placeholder="http://" class="layui-input config">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">接口KEY</label>
+            <div class="layui-input-inline" style="width:400px;">
+                <input type="text" name="config[url_key]"  value="" autocomplete="off" placeholder="http://" class="layui-input config">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">游戏查看列表</label>
+            <div class="layui-input-inline" style="width:400px;">
+                <input type="text" name="config[see_game_limit]"  value="" autocomplete="off" placeholder="http://" class="layui-input config">
+            </div>
+        </div>
+
+        <input type="hidden" name="id" value="">
+
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+              <button type="submit" class="layui-btn layui-power" id="Sysmanage-platformAdd" lay-submit="" lay-filter="submit_btn">立即提交</button>
+              <button type="submit" class="layui-btn layui-power" id="Sysmanage-platformEdit" lay-submit="" lay-filter="submit_btn">保存</button>
+            </div>
+        </div>
+    </form>
+</div>
+<script>
+    var layui_obj = layui.config({
+        version: true,
+        base: '/assets/model/'
+    }).extend({
+        common: 'common/js/common',
+    }).use(['common','form','jquery'], function(){
+        var form = layui.form;
+        var common = layui.common;
+        var $ = layui.jquery;
+        var id = common.urlParam.id;
+        var p_url = 'Sysmanage/platformAdd';
+        var detail_url = 'Sysmanage/platformDetail';
+        
+        if(id > 0){
+            p_url = 'Sysmanage/platformEdit';
+            //初始化权限显示
+            common.initPowerShow(['Sysmanage-platformEdit']);
+        }else{
+            //初始化权限显示
+            common.initPowerShow(['Sysmanage-platformAdd']);
+        }
+
+        common.req({
+            url:'ajax/getSmsList'
+            ,success:function(json)
+            {
+                if(json.code == 0){
+                    console.log(json)
+                    let html = '';
+                    $.each(json.data,function(k,v){
+
+                        html ='<option value="'+v.code+'">'+v.name+'</option>';
+                        $('#sms').append(html)
+                    })
+
+                    form.render('select');
+
+
+                }else {
+                    layer.msg(json.msg,{icon:2});
+                }
+            }
+        })
+
+
+        //初始化页面数据
+        initData();
+
+
+
+
+        //监听提交
+        form.on('submit(submit_btn)', function(data){
+            common.req({
+                url: p_url,
+                data: data.field,
+                type: "post",
+                dataType:"json",
+                success:function(res){
+                    console.log(res);
+                    if( res.code==0 ){
+                        var index = parent.layer.getFrameIndex(window.name);
+                        window.parent.res_msg(res.msg);
+                        parent.layer.close(index);//关闭当前页
+                        //window.parent.location.reload(); //刷新父窗口
+                    }
+                },
+                error:function(res){
+                    layer.alert('错误'+res.msg,{icon:2});
+                }
+            });
+            return false;
+        });
+
+
+        function initData(){
+
+            if(id>0){
+                common.req({
+                    url: detail_url,
+                    data: {'id':id},
+                    type: "post",
+                    dataType:"json",
+                    success:function(res){
+
+                        if( res.code==0 ){
+
+                            common.isLoading(false);
+
+                            // res.data
+                            form.val('edit-form',res.data);
+
+                            var new_key_arr = {};
+                            var re = /(?<=\[)[^\]]+/;
+                            // console.log( res.data);
+                            $.each($(".config"),(k,v)=>{
+
+                                 new_key_arr[$(v).attr('name')] = res.data['config'][$(v).attr('name').match(re)[0]]
+
+                            })
+
+                            form.val('edit-form',new_key_arr);
+
+
+                        }else{
+                            layer.alert('错误'+res.msg,{icon:2});
+                        }
+                    },
+                    error:function(res){
+                        layer.alert('错误'+res.msg,{icon:2});
+                    }
+                });
+            }else{
+                common.isLoading(false);
+            }
+            
+        }
+
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <title>后台管理系统</title>
+    <link rel="stylesheet" href="/assets/vendor/layui/css/layui.css"/>
+    <link rel="stylesheet" href="/assets/model/common/css/style.css"/>
+    <link rel="stylesheet" href="/assets/model/common/css/common.css"/>
+    <script type="text/javascript" src="/assets/vendor/layui/layui.js"></script>
+    <!--[if lt IE 9]>
+    <script src="/assets/model/common/js/html5shiv.min.js"></script>
+    <script src="/assets/model/common/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<!-- 加载动画 -->
+<div class="page-loading">
+    <div class="ball-loader">
+        <span></span><span></span><span></span><span></span>
+    </div>
+</div>
+<!-- Main content -->
+<div style="padding: 10px 20px;" id="role_name">
+
+</div>
+<div class="layui-form" lay-filter="edit-form">
+    <div class="layui-form-item">
+        <label class="layui-form-label">复制权限</label>
+        <div class="layui-input-inline">
+            <select name="cp_role_id" lay-filter="cp_role_id" lay-search="">
+                <option value="">选择或搜索</option>
+            </select>
+        </div>
+    </div>
+</div>
+<div id="menu_list" class="demo-tree demo-tree-box" style="padding: 20px; margin: 0 15px; border: 1px solid #aaa;"></div>
+<div class="layui-btn-container" style="margin: 16px;">
+    <button type="button" class="layui-btn layui-btn-sm" lay-demo="getChecked">确定</button>
+</div>
+<script>
+    var menus = {};
+    var role_id = 0; 
+
+    var layui_obj = layui.config({
+        version: true,
+        base: '/assets/model/'
+    }).extend({
+        common: 'common/js/common',
+    }).use(['common','jquery','tree','util','form'], function(){
+        var tree = layui.tree,
+            util = layui.util;
+        var form = layui.form;
+        var common = layui.common;
+        var $ = layui.jquery;
+        var role_id = common.urlParam.role_id;
+
+        initData();
+
+        //提交事件
+        util.event('lay-demo', {
+            getChecked: function(othis){
+                var checkedData = tree.getChecked('tree_a'); //获取选中节点的数据
+                var menu_ids = [];
+                for( var i=0; i<checkedData.length; i++ ){
+                    menu_ids.push( checkedData[i]['id'] );
+                    var children = checkedData[i]['children'];
+                    for( var j=0; j<children.length; j++ ){
+                        menu_ids.push( children[j]['id'] );
+                        if( children[j]['children'] ){
+                            for( var k=0; k<children[j]['children'].length; k++ ){
+                                menu_ids.push( children[j]['children'][k]['id'] );
+                            }
+                        }
+                    }
+                }
+                common.req({
+                    url:  "Sysmanage/roleSetPermission",
+                    data: { role_id:role_id, menu_ids:menu_ids },
+                    type: 'post',
+                    dataType: 'json',
+                    success: function(res){
+                        if( res.code==0 ){
+                            window.parent.res_msg(res.msg);
+                        }else{
+                            layer.msg(res.msg,{icon:2});
+                        }
+                    },
+                    error: function(res){
+                        layer.alert('错误'+res.msg, {icon: 2});
+                    }
+                });
+            }
+        });
+
+        form.on('select(cp_role_id)',function(data){
+            var this_val = data.value;
+            console.log(this_val);
+            roleGetPermission(this_val);
+        })
+
+        function initData(){
+            getConfig();
+            roleGetPermission(role_id);
+        }
+
+        function getConfig(){
+            common.req({
+                url:  "Sysmanage/roleGetPermissionConfig",
+                data: {},
+                type: 'post',
+                dataType: 'json',
+                success: function(res){
+                    if( res.code==0 ){
+                        $.each(res.data.admin_role_list,function(k,v){
+                            $('select[name="cp_role_id"]').append('<option value="'+v.role_id+'">'+v.role_name+'</option>')
+                        })
+                        // form.render();
+                        form.val('edit-form',{'cp_role_id':role_id});
+                    }
+                },
+                error: function(res){
+                    layer.alert('错误'+res.msg, {icon: 2});
+                }
+            });
+        }
+
+        function roleGetPermission(id){
+            common.req({
+                url:  "Sysmanage/roleGetPermission",
+                data: { 'role_id':id},
+                type: 'post',
+                dataType: 'json',
+                success: function(res){
+                    if( res.code==0 ){
+                        common.isLoading(false);
+                        if(id == role_id){//复制权限这部分不重用
+                            $('#role_name').html(res.data.role_name);
+                        }
+                        tree.render({
+                            elem: '#menu_list'
+                            ,id: 'tree_a'
+                            ,data: res.config.role_menus
+                            ,showCheckbox: true
+                        });
+
+                    }else{
+                        layer.msg(res.msg,{icon:2});
+                    }
+                },
+                error: function(res){
+                    layer.alert('错误'+res.msg, {icon: 2});
+                }
+            });
+        }
+    });
+</script>
+</body>
+</html>

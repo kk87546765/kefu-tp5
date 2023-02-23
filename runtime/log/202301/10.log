@@ -1,0 +1,43 @@
+---------------------------------------------------------------
+[ 2023-01-10T12:40:51+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/role_name_keyword/index
+[运行时间：0.197870s] [吞吐率：5.05req/s] [内存消耗：5,154.34kb] [文件加载：202]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'role_name_keyword',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '15',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NzMyMzQ4NDEsImV4cCI6MTY3NTgyNjg0MSwidWlkIjoxNDN9.AEJGXxkClRY6VC4tvkdIYNmJfRMDGP6jYVqGLbTlRdI',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:108.0) Gecko/20100101 Firefox/108.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/role_name_keyword/index' => '',
+  'page' => '1',
+  'limit' => '20',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\RoleNameKeyword->index[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\RoleNameKeyword.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001818s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_user_group` [ RunTime:0.001008s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17,10,11,5,14,8,9,7,16) [ RunTime:0.000589s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000812s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.003669s ]

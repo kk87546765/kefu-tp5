@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <title>后台管理系统</title>
+    <link rel="stylesheet" href="/assets/vendor/layui/css/layui.css"/>
+    <link rel="stylesheet" href="/assets/model/common/css/style.css"/>
+    <link rel="stylesheet" href="/assets/model/common/css/common.css"/>
+    <script type="text/javascript" src="/assets/vendor/layui/layui.js"></script>
+    <!--[if lt IE 9]>
+    <script src="/assets/model/common/js/html5shiv.min.js"></script>
+    <script src="/assets/model/common/js/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        .layui-col-space15 {
+            /* margin: -7.5px; */
+            margin:-7.5px 0 !important;
+        }
+    </style>
+</head>
+<style>
+.del-btn{
+    margin-left:10px;
+}
+.sobot_company_list{
+    padding-left: 20px;
+    padding-bottom: 20px;
+}
+.sobot_company_header{
+
+}
+.sobot_company_list_child{
+    position: relative;
+    padding-right: 100px;
+}
+.sobot_company_list_child .del-btn{
+    position: absolute;
+    right: 10px;
+    bottom: 5px;
+}
+.example{
+    display:none
+}
+</style>
+<body>
+<div class="page-loading">
+    <div class="ball-loader">
+        <span></span><span></span><span></span><span></span>
+    </div>
+</div>
+
+<form class="layui-form" lay-filter="edit-form" action="">
+    <div class="layui-tab">
+        <ul class="layui-tab-title">
+            <li class="layui-this">通用</li>
+            <li>质检</li>
+            <li>接口(api)</li>
+            <li>预警</li>
+        </ul>
+        <div class="layui-tab-content">
+            <!-- 通用基础 -->
+            <div class="layui-tab-item layui-show" alt="通用">
+                <div class="layui-collapse" lay-accordion>
+                    <div class="layui-colla-item">
+                        <h2 class="layui-colla-title">用户分组类型(逗号分开不能删除、不能随意插位、只能往后添加数据项。注：这块不要随意改动，要改动请联系技术进行修改)</h2>
+                        <div class="layui-colla-content layui-show">
+                            <input type="text" name="user_group_type" value=""  placeholder="请输入" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-colla-item">
+                        <h2 class="layui-colla-title">用户职位等级(逗号分开、不能删除、不能随意插位、只能往后添加数据项。注：这块不要随意改动，要改动请联系技术进行修改)</h2>
+                        <div class="layui-colla-content layui-show">
+                            <input type="text" name="position_grade_arr" value=""  placeholder="请输入" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-colla-item">
+                        <h2 class="layui-colla-title">版本号</h2>
+                        <div class="layui-colla-content layui-show">
+                            <input type="text" name="admin_version" value=""  placeholder="请输入" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-colla-item">
+                        <h2 class="layui-colla-title">其他</h2>
+                        <!-- <div class="layui-colla-content layui-show">
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">每日游戏订单统计日期</label>
+                                <div class="layui-input-block">
+                                   <input type="text" name="game_product_statistic_day" value="{{config['game_product_statistic_day']}}"  placeholder="请输入" autocomplete="off" class="layui-input">
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+                
+            </div>
+            <!-- 质检 -->
+            <div class="layui-tab-item" alt="质检">
+                <div class="layui-collapse" lay-accordion>
+                    <div class="layui-colla-item">
+                        <h2 class="layui-colla-title">智齿控制</h2>
+                        <div class="layui-colla-content layui-show">
+                            
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">接口开关</label>
+                                <div class="layui-input-block">
+                                    <select name="sobot[open]">
+                                        <option value="0" >关</option>
+                                        <option value="1" >开</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">脚本开关</label>
+                                <div class="layui-input-block">
+                                    <select name="sobot[script_open]">
+                                        <option value="0" >关</option>
+                                        <option value="1" >开</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">接口检验</label>
+                                <div class="layui-input-block">
+                                    <select name="sobot[check_sign]">
+                                        <option value="0" >关</option>
+                                        <option value="1" >开</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">推送日志</label>
+                                <div class="layui-input-block">
+                                    <select name="sobot[set_log]">
+                                        <option value="0" >关</option>
+                                        <option value="1" >开</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="lxx_title">
+                                公司配置
+                            </div>
+                            <div class="sobot_company_list" id="sobot_company_list">
+                                
+
+                            </div>
+                        </div>
+                        <div class="sobot_company_list">
+                            <div class="example sobot_company_list_child" id="sobot_company_list_child">
+                                <hr>
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">公司id</label>
+                                    <div class="layui-input-block">
+                                       <input type="text" name="company_id" value=""  placeholder="请输入" autocomplete="off" class="layui-input">
+                                    </div>
+                                </div>
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">密匙</label>
+                                    <div class="layui-input-block">
+                                       <input type="text" name="app_key" value=""  placeholder="请输入" autocomplete="off" class="layui-input">
+                                    </div>
+                                </div>
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">会话来源</label>
+                                    <div class="layui-input-block">
+                                       <select name="source_id">
+                                        </select>
+                                    </div>
+                                </div>
+                                <button type="button" class="layui-btn layui-btn-sm del-btn" onclick="del(this)">
+                                    <i class="layui-icon">&#xe640;</i>
+                                </button>
+                            </div>
+                            <button id="sobot_company_list_add" type="button" class="layui-btn layui-btn-sm add" 
+                                data-type="sobot_company_list" 
+                                data-key="sobot[company_list]" 
+                                data-count="0">
+                                <i class="layui-icon">&#xe654;</i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="layui-colla-item">
+                        <h2 class="layui-colla-title">其他</h2>
+                        <div class="layui-colla-content layui-show">
+
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+
+            <!-- 接口 -->
+            <div class="layui-tab-item" alt="接口">
+                <div class="layui-collapse" lay-accordion>
+                    <div class="layui-colla-item">
+                        <h2 class="layui-colla-title">IP白名单(逗号分开)</h2>
+                        <div class="layui-colla-content layui-show">
+                            <input type="radio" name="api_ip_write_open" value="1" title="开启">
+                            <input type="radio" name="api_ip_write_open" value="0" title="关闭" checked>
+                        </div>
+                    </div>
+                    <div class="layui-colla-item">
+                        <h2 class="layui-colla-title">IP白名单(逗号分开)</h2>
+                        <div class="layui-colla-content layui-show">
+                            <textarea name="api_ip_write" placeholder="请输入内容" class="layui-textarea"></textarea>
+                        </div>
+                    </div>
+                    <div class="layui-colla-item">
+                        <h2 class="layui-colla-title">IP黑名单检测</h2>
+                        <div class="layui-colla-content layui-show">
+                            <input type="radio" name="api_ip_black_open" value="1" title="开启">
+                            <input type="radio" name="api_ip_black_open" value="0" title="关闭" checked>
+                        </div>
+                    </div>
+                    <div class="layui-colla-item">
+                        <h2 class="layui-colla-title">IP黑名单(逗号分开)</h2>
+                        <div class="layui-colla-content layui-show">
+                            <textarea name="api_ip_black" placeholder="请输入内容" class="layui-textarea"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="layui-colla-item">
+                        <h2 class="layui-colla-title">召回接口控制</h2>
+                        <div class="layui-colla-content layui-show">
+                            
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">接口开关</label>
+                                <div class="layui-input-block">
+                                    <select name="platform_recall[open]">
+                                        <option value="0">关</option>
+                                        <option value="1">开</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">脚本开关</label>
+                                <div class="layui-input-block">
+                                    <select name="platform_recall[script_open]">
+                                        <option value="0">关</option>
+                                        <option value="1">开</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">接口检验</label>
+                                <div class="layui-input-block">
+                                    <select name="platform_recall[check_sign]">
+                                        <option value="0">关</option>
+                                        <option value="1">开</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">推送日志</label>
+                                <div class="layui-input-block">
+                                    <select name="platform_recall[set_log]">
+                                        <option value="0">关</option>
+                                        <option value="1">开</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="layui-colla-item">
+                        <h2 class="layui-colla-title">其他</h2>
+                        <!-- <div class="layui-colla-content layui-show">
+                            <div class="layui-form-item">
+                                <label class="layui-form-label">每日游戏订单统计日期</label>
+                                <div class="layui-input-block">
+                                   <input type="text" name="game_product_statistic_day" value="{{config['game_product_statistic_day']}}"  placeholder="请输入" autocomplete="off" class="layui-input">
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+                
+            </div>
+
+            <!-- 接口 -->
+            <div class="layui-tab-item" alt="预警">
+                <div class="layui-collapse" lay-accordion>
+                    <div class="layui-colla-item">
+                        <h2 class="layui-colla-title">封禁预警类型</h2>
+                        <div class="layui-colla-content layui-show block_waring_checkbox" >
+                            <input type="checkbox" name="block_waring_type[]" id='block_waring_type_block' value="block" title="封禁"  checked>
+                            <input type="checkbox" name="block_waring_type[]" id='block_waring_type_chat' value="chat" title="禁言" >
+                        </div>
+                    </div>
+                </div>
+
+                <div class="layui-collapse" lay-accordion>
+                    <div class="layui-colla-item">
+                        <h2 class="layui-colla-title">封禁预警金额（达到预警金额转为人工处理）</h2>
+                        <div class="layui-colla-content layui-show">
+                            <input type="text" name="block_waring_money" value=""  placeholder="请输入金额" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- 提交按钮 -->
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+<script>
+var dec_kf_source = 0;
+var inc_kf_source = 0;
+
+
+function del(e){
+    e.parentNode.parentNode.removeChild(e.parentNode);
+}
+
+//注意：选项卡 依赖 element 模块，否则无法进行功能性操作
+var layui_obj = layui.config({
+    version: true,
+    base: '/assets/model/'
+}).extend({
+    common: 'common/js/common',
+}).use(['common','element','form','jquery'], function(){
+    var element = layui.element;
+    var form = layui.form;
+    var common = layui.common;
+    var $ = layui.jquery;
+
+    //初始化数据
+    initData();
+    //隐藏加载框
+    common.isLoading(false);
+
+    //监听提交
+    form.on('submit(formDemo)', function(data){
+        // console.log(data.field)
+        // layer.msg(JSON.stringify(data.field));
+        common.req({
+            url: "Sysmanage/commonConfigSave",
+            data: data.field,
+            type: "post",
+            dataType:"json",
+            success:function(res){
+                if( res.code==0 ){
+                    layer.msg(res.msg,{icon:1});
+                }else{
+                    layer.msg(res.msg,{icon:2});
+                }
+            },
+            error:function(data){
+                layer.alert('错误'+data.msg,{icon:2});
+            }
+        });
+        return false;
+    });
+    $('.add').click(function(){
+        let thisobj = $(this);
+        let type = thisobj.attr('data-type');
+        let key = thisobj.attr('data-key');
+        let count = thisobj.attr('data-count');
+        let example = thisobj.parent().find('.example');
+        if(example == undefined ){
+            return;
+        }
+        let cont_id = '#'+type;
+
+        let example_cp = example.clone(true).removeClass('example');
+
+        if(type === 'sobot_company_list'){
+
+            let thislen = count;
+            count++;
+            thisobj.attr('data-count',count);
+            $.each(example_cp.find('input'),function (k,v){
+                let thisname = $(v).attr('name');
+                $(v).attr('name',key+'['+thislen+']['+thisname+']');
+                // console.log(thisname)
+            })
+        }else{
+            example_cp.find('input').attr('name',key+'[]');
+        }
+
+        example_cp.appendTo(cont_id);
+        form.render('select');
+    })
+
+
+    function initData(){
+        common.req({
+            url:'Sysmanage/commonConfigList'
+            ,data:{}
+            ,success:(json)=>{
+                if(json.code == 0){
+                    
+                    detail_info = json.data;
+                    form_data = json.form_data;
+                    config = json.config;
+                    var detail_info_new = {};
+
+                    common.setOption1(config.kf_source_arr,$('select[name="source_id"]'));
+
+                    $.each(detail_info,(k,v)=>{
+                        if(k == 'sobot'){
+                            $.each(v,(k1,v1)=>{
+                                if(k1 == 'company_list'){
+                                    if(v1.length>0){
+                                        $('#sobot_company_list_add').attr('data-count',v1.length);
+
+                                        $.each(v1,(k2,v2)=>{
+                                            setCompanyList(k2,v2);
+                                            $.each(v2,(k3,v3)=>{
+                                                detail_info_new[k+"["+k1+"]"+"["+k2+"]"+"["+k3+"]"] = v3;
+                                            })
+                                        })
+                                    }
+                                }else{
+                                    detail_info_new[k+"["+k1+"]"] = v1;
+                                }
+                            })
+                        }else if(k == 'block_waring_type'){
+                            // if(v.length>0){
+
+                                var child = $(".block_waring_checkbox input[type='checkbox']" )
+                                child.each(function(k5,v5){
+                                    v5.checked = ''
+                                    $.each(v,function(k4,v4){
+                                        if(v5['value'] == v4){
+                                            v5.checked = true;
+                                        }
+
+                                    })
+
+                                })
+
+
+                            // }
+                        }else{
+                            detail_info_new[k] = v;
+                        }
+                    })
+
+                    form.val('edit-form',form_data)
+                    
+                }else{
+                    layer.alert('错误'+json.msg);
+                }
+            }
+        })
+    }
+
+
+    function setCompanyList(len,v){
+        let cont_id = '#sobot_company_list';
+
+        let example = $('#sobot_company_list_child')
+
+        let example_cp = example.clone(true).removeClass('example').attr('id','');
+
+        $.each(example_cp.find('input'),function (k,v){
+            let thisname = $(v).attr('name');
+            $(v).attr('name','sobot[company_list]'+'['+len+']['+thisname+']');
+
+        })
+        $.each(example_cp.find('select'),function (k,v){
+            let thisname = $(v).attr('name');
+            $(v).attr('name','sobot[company_list]'+'['+len+']['+thisname+']');
+
+        })
+
+        example_cp.appendTo(cont_id);
+    }
+
+});
+
+
+
+</script>
+</body>
+</html>

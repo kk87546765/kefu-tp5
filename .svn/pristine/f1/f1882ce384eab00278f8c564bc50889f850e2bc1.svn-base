@@ -1,0 +1,96 @@
+<?php
+
+
+use extend\GamekeySign\GamekeySignBase;
+
+class yscqios extends GamekeySignBase
+{
+
+    public $from = 'zhangWan';
+    public $secret = 'skHVv95EI7DG1sAzdNZZxlFDyG3IKCre';
+
+    public $uid_to_sdkid_url =  "http://data-service.693975.com/customerService/user-info/search-uid";
+    public $sdkid_to_uid_url = "http://data-service.693975.com/customerService/user-info/search-openid";
+
+	public function __construct(){
+
+    }
+
+    #根据平台自身的uid换cp给的聚合uid，用于调用cp封禁、禁言接口
+    public function uid_to_sdkid_url($sdkid){
+
+	    if(empty($sdkid)){
+	        return false;
+        }
+
+
+	    $time = time();
+	    $sign = md5($this->secret.$time);
+	    $data['openid_list'] = json_encode([$sdkid]);
+	    $data['from'] = $this->from;
+	    $data['ts'] = $time;
+	    $data['sign'] = $sign;
+        $url = $this->uid_to_sdkid_url.'?'.urldecode(http_build_query($data));
+
+        $res = $this->fetchUrl($url);
+
+
+        $res = json_decode($res,1);
+
+        if(isset($res['code']) && $res['code'] == 200){
+            return $res['data'][$sdkid];
+        }else{
+            return false;
+        }
+
+    }
+
+
+    #根据cp给的聚合uid换成平台自身的uid，用于信息推送时候替换成自己平台的uid
+    public function sdkid_to_uid_url($sdkid){
+
+        if(empty($sdkid)){
+            return false;
+        }
+        $time = time();
+        $sign = md5($this->secret.$time);
+        $data['uid_list']= json_encode([$sdkid]);
+        $data['from'] = $this->from;
+        $data['ts'] = $time;
+        $data['sign'] = $sign;
+        $url = $this->sdkid_to_uid_url.'?'.urldecode(http_build_query($data));
+
+        $res = $this->fetchUrl($url);
+        $res = json_decode($res,1);
+
+        if($res['code'] == 200){
+            if(isset($res['data'][$sdkid])){
+                return $res['data'][$sdkid];
+            }else{
+                return false;
+            }
+
+        }else{
+            return false;
+        }
+
+    }
+
+
+    public function filterUid($data)
+    {
+
+        if(is_array($data)){
+            $return = $data;
+        }else{
+            $return = $data;
+        }
+
+        return $return;
+    }
+
+
+
+
+
+}

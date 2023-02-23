@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <title>后台管理系统</title>
+    <link rel="stylesheet" href="/assets/vendor/layui/css/layui.css"/>
+    <link rel="stylesheet" href="/assets/model/common/css/style.css"/>
+    <link rel="stylesheet" href="/assets/model/common/css/common.css"/>
+    <script type="text/javascript" src="/assets/vendor/layui/layui.js"></script>
+    <!--[if lt IE 9]>
+    <script src="/assets/model/common/js/html5shiv.min.js"></script>
+    <script src="/assets/model/common/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<style type="text/css">
+.layui-form-pane .layui-form-label{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+</style>
+
+
+<body class="hold-transition skin-blue sidebar-mini">
+<div id="progress_div" style="display: none;">
+    <div id="progress_content" lay-filter="progress_content" class="layui-progress layui-progress-big"  lay-showPercent="true">
+        <div id="progress" class="layui-progress-bar layui-bg-red" lay-percent="0%"></div>
+    </div>
+</div>
+<form class="layui-form" lay-filter="edit-form" action="" style="padding: 20px;">
+    <div class="layui-form-item">
+        <label class="layui-form-label">游戏</label>
+        <div class="layui-input-inline">
+            <div id="select_demo" class="xm-select-demo"></div>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">销售专员</label>
+        <div class="layui-input-inline">
+            <select name="admin_user_id" lay-verify="required" lay-search="">
+                <option value="">请选择</option>
+            </select>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">区服前缀</label>
+        <div class="layui-input-inline">
+            <input type="text" name="server_prefix"  value=""  class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">区服后缀</label>
+        <div class="layui-input-inline">
+            <input type="text" name="server_suffix"  value=""  class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">特殊区服</label>
+        <div class="layui-input-inline">
+            <input type="text" name="special_server_id"  value=""  class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">区服开始</label>
+        <div class="layui-input-inline">
+            <input type="number" min="0" name="start_server_id" lay-verify="min0" value="" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">结束区服</label>
+        <div class="layui-input-inline">
+            <input type="number" min="0" name="end_server_id" lay-verify="min0" value="" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item p_menu p_lev1">
+        <label class="layui-form-label">区服余数</label>
+        <div class="layui-input-inline">
+            <select name="is_server_remainder"  lay-filter="is_server_remainder" id="is_server_remainder" lay-search="">
+                <option value=0>全部</option>
+                <option value=1>单数</option>
+                <option value=2>双数</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="layui-form-item" pane="">
+        <label class="layui-form-label">排除区服</label>
+        <div class="layui-input-inline">
+            <textarea placeholder="添加排除掉的区服（用英文逗号,隔开）可手动输入，如 123,456,789" name="remove_server_id" class="layui-textarea"></textarea>
+        </div>
+    </div>
+  
+    <input type="hidden" name="id" value="">
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button type="submit" class="layui-btn" lay-submit="" lay-filter="submit_btn">立即提交</button>
+        </div>
+    </div>
+</form>
+
+<script>
+    var propress_all = 1;
+    var propress_page = 1;
+    var propress_index ='';
+    var select_demo = {};
+    
+    var layui_obj = layui.config({
+        //version: true,
+        base: '/assets/model/'
+    }).extend({
+        common: 'common/js/common',
+        search: 'common/js/search',
+    }).use(['common','jquery','search','form','xmSelect','element'], function(){
+        var form = layui.form;
+        var xmSelect = layui.xmSelect;
+        var element = layui.element;
+        var $ = layui.jquery;
+        var common = layui.common;
+        var search = layui.search;
+        var urlParam = common.urlParam;
+        var id = 0;
+        var detail_url = 'vip_config/serverManageAdd';
+
+        initData();
+
+        //监听提交
+        form.on('submit(submit_btn)', function(data){
+
+            var game_product_list_obj = select_demo.getValue();
+            if(game_product_list_obj.length < 1){
+                layer.alert('请选择游戏');
+            }
+            var flag = 0;
+            var error_msg = '';
+
+            $.each(game_product_list_obj,function(k,v){
+                data.field.vip_game_product_id = v.value;
+                common.req({
+                    url: detail_url,
+                    data: data.field,
+                    type: "post",
+                    dataType:"json",
+                    async:true,
+                    success:function(res){
+                        if( res.code==0 ){
+                            propress_page = 1;
+                            propress_all = res.data.count;
+                            if(propress_index==''){
+                                propress_index = layer.open({
+                                    type: 1,
+                                    maxmin: true,
+                                    shadeClose: true, //点击遮罩关闭层
+                                    area : ['60%' , '18px'],
+                                    title:false,
+                                    closeBtn:false,
+                                    shadeClose:false,
+                                    maxmin:false,
+                                    resize:false,
+                                    // content: str
+                                    content:$('#progress_div')
+                                });
+                            }
+                            
+                            adminGameServerDo(res.data.id);
+                        }else {
+                            error_msg+=','+res.msg;
+                        }
+                    },
+                    error:function(res){
+                        // layer.alert('错误'+res.msg,{icon:10});
+                    }
+                });
+            })
+            
+            return false;
+        });
+
+        function initData(){
+
+            var id = urlParam.id;
+
+            common.req({
+                url: 'vip_config/serverManageDetail' //获取游戏名称
+                ,data:{id:id}
+                ,success:function(json)
+                {
+                    var base_config = json.data.config;
+                    var form_data = json.data.detail;
+
+                    $.each(base_config.admin_list,function(k,v){
+                        $('select[name=admin_user_id]').append('<option value="'+v.id+'">'+v.name+'</option>');
+                    });
+
+                    var select_demo_obj = {
+                        el: '#select_demo',
+                        filterable: true,
+                        data: base_config.game_product_list,
+                        name:'vip_game_product_id',
+                    }
+
+                    if(id>0){
+                        select_demo_obj.radio = true;
+                        detail_url = 'vip_config/serverManageEdit';
+                    }
+                    select_demo = xmSelect.render(select_demo_obj);
+
+                    form.val('edit-form',form_data)
+                    form.render();
+                }
+            });
+
+            
+        }
+
+        function adminGameServerDo(id){
+            common.req({
+                url: "Ajax/adminGameServerDo",
+                data: {ags_id:id},
+                type: "post",
+                dataType:"json",
+                async:true,
+                success:function(res){
+                    if( res.code==0 ){
+                        propress_page++;
+                        var this_str = Math.floor((propress_page/propress_all)*100)+'%';
+                        // var this_str = propress_page+'/'+propress_all;
+                        element.progress('progress_content', this_str);
+                        adminGameServerDo(id);
+                    }else if(res.code == 1){
+                        propress_page = 1;
+                        propress_all = 0;
+                        layer.close(propress_index);
+                        propress_index = '';
+                        layer.msg('完成');
+                    }else{
+                        layer.close(propress_index);
+                        propress_index = '';
+                    }
+                },
+                error:function(res){
+                    // layer.alert('错误'+res.msg,{icon:10});
+                }
+            });
+        }
+
+        form.verify({
+            min0: [
+                /^[\d]*$/
+                ,'必须为正数'
+            ]
+        });
+    });
+</script>
+</body>
+</html>

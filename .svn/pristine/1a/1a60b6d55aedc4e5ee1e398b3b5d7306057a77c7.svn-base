@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <title>后台管理系统</title>
+    <link rel="stylesheet" href="/assets/vendor/layui/css/layui.css"/>
+    <link rel="stylesheet" href="/assets/model/common/css/style.css"/>
+    <link rel="stylesheet" href="/assets/model/common/css/common.css"/>
+    <script type="text/javascript" src="/assets/vendor/layui/layui.js"></script>
+    <!--[if lt IE 9]>
+    <script src="/assets/model/common/js/html5shiv.min.js"></script>
+    <script src="/assets/model/common/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<style>
+    .laytable-cell-checkbox .layui-disabled.layui-form-checked i {
+        background: #fff !important;
+    }
+</style>
+<body>
+
+<div style="padding: 12px;"  class="search_wrap">
+    <form class="layui-form" action="" lay-filter="search_form">
+
+        <span id="common_search"></span>
+
+        <div class="layui-inline">
+            <label class="layui-form-label">状态: </label>
+            <div class="layui-input-inline">
+                <select name="static" lay-verify="required" lay-search="">
+                    <option value="0">全部</option>
+                    <option value="1">启用</option>
+                    <option value="2">关闭</option>
+                </select>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="layui-btn-group demoTable" style="padding: 0 30px; float: right;">
+    <button class="layui-btn layui-btn-sm layui-power" id="VipConfig-becomeVipStandardList" data-type="search">搜索</button>
+    <button class="layui-btn layui-btn-sm layui-power" id="VipConfig-becomeVipStandardAdd" data-type="add">添加</button>
+</div>
+<div class="table_wrap" style="padding: 0 15px;">
+    <table id="idTest" lay-filter="demo" class="layui-table"></table>
+</div>
+
+
+
+<script>
+    var pdata = {};
+    var layui_obj = layui.config({
+        version: true,
+        base: '/assets/model/'
+    }).extend({
+        common: 'common/js/common',
+        search: 'common/js/search',
+    }).use(['common','jquery','search','table','form'], function(){
+        var table   = layui.table;
+        var form = layui.form;
+        var $ = layui.jquery;
+        var common = layui.common;
+        var search = layui.search;
+
+        initData();
+
+        //监听工具条
+        table.on('tool(demo)', function(obj){
+            var data = obj.data;
+            if(obj.event === 'detail'){
+                var title='编辑';
+                var url = 'become_vip_standard_detail.html?id='+data.id;
+
+                layer.open({
+                    type: 2,
+                    title: title+'详情',
+                    maxmin: true,
+                    shadeClose: true, //点击遮罩关闭层
+                    area : ['70%' , '70%'],
+                    content: url
+                });
+            }
+        });
+
+        $('.demoTable .layui-btn').on('click', function(){
+            var type = $(this).data('type');
+            if( type=='add' ){
+                //添加
+                layer.open({
+                    type: 2,
+                    title: "添加",
+                    maxmin: true,
+                    shadeClose: true, //点击遮罩关闭层
+                    area : ['70%' , '70%'],
+                    content: "become_vip_standard_detail.html"
+                });
+            }else if( type=='search' ){
+                //搜索
+                pdata = form.val("search_form");
+                // pdata.vip_game_product_id     = $('select[name="vip_game_product_id"]').val();              
+                table.reload('idTest', {
+                    method: 'post'
+                    ,where: pdata
+                    ,page: {
+                        curr: 1
+                    }
+                });
+            }
+        });
+
+        form.on("checkbox(siam_all)", function () {
+            var status = $(this).prop("checked");
+            $.each($("input[name=siam_one]"), function (i, value) {
+                $(this).prop("checked", status);
+            });
+            form.render();
+        });
+
+        function initData(){
+
+            common.initPowerShow([
+                'VipConfig-becomeVipStandardList'
+                ,'VipConfig-becomeVipStandardAdd'
+            ]);
+
+            common.req({
+                url: 'vip_config/becomeVipStandardListConfig' //获取游戏名称
+                ,success:function(json)
+                {
+
+                    var kf_source_data = [];
+
+                    var base_config = json.data;
+
+                    search.init('common_search',base_config.search_config);
+
+                    // 数据表格
+                    table.render({
+                        elem: '#idTest'
+                        ,height: 'full-120'
+                        ,url: common.getUrl('vip_config/becomeVipStandardList') //数据接口
+                        ,headers:common.getHeader()
+                        ,page: true
+                        ,limits:[20,50,100,200,500]
+                        ,limit:20
+                        ,minWidth:1000
+                        ,autoWidth:true
+                        ,method:'POST'
+                        ,cols: [[ //表头
+                            {field:'id', width:50, sort: true, title:'ID'}
+                            ,{field:'product_name', minWidth:183, title:'产品'}
+                            ,{field:'game_id_str', minWidth:150, title:'游戏'}
+                            ,{field:'day_pay', minWidth:80, title:'单日充值金额'}
+                            ,{field:'thirty_day_pay', minWidth:80, title:'近30天充值金额'}
+                            ,{field:'total_pay', minWidth:80, title:'累充金额'}
+                            ,{field:'static_str', minWidth:50, title:'状态'}
+                            ,{field:'add_admin_id_name', minWidth:50, title:'添加人'}
+                            ,{field:'add_time', minWidth:150, title:'添加时间'}
+                            ,{field:'edit_admin_id_name', minWidth:50, title:'最后修改人'}
+                            ,{field:'edit_time', minWidth:150, title:'最后修改时间'}
+                            ,{minWidth:80, align:'center', fixed: 'right', title:'操作'
+                            ,templet:function(d){
+                                    let str = '';
+                                    if(d.action && d.action.length>0){
+                                        $.each(d.action,function(k,v){
+                                            str+= action(v);
+                                        })
+                                    }
+                                    return str;
+                                }
+                            }
+                        ]]
+                        ,done:function(a,b,c){
+                            lay_page = b;
+                            if(c > 0){
+
+                            }
+                        }
+                    });
+                    form.render();
+                }
+            });
+        }
+
+        
+    });
+    //给子级调用
+    function res_msg(msg){
+        layer.msg(msg,{icon:1});
+        setTimeout(function(){
+            window.location.reload();
+        },1000);
+    }
+
+    function action(action,data){
+        let str = '';
+        switch (action) {
+            case 'becomeVipStandardDetail':
+                str = '<a class="layui-btn layui-btn-xs" lay-event="detail">详情</a>';
+                break;
+            
+            default:
+
+                break;
+        }
+
+        return str;
+    }
+</script>
+</body>
+</html>

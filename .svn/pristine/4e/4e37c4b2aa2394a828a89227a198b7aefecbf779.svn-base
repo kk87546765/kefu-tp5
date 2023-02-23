@@ -1,0 +1,42 @@
+{% include 'common/header_layui.volt' %}
+<body>
+
+<table lay-filter="parse-table-demo">
+    <thead>
+    <tr>
+        <th lay-data="{field:'date', minWidth:120}">日期</th>
+{#        <th lay-data="{field:'uname', minWidth:150}">用户名</th>#}
+        <th lay-data="{field:'money', minWidth:120}">充值金额</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    {% for  k,v in result %}
+    <tr>
+        <td>{{v['date']}}</td>
+        <td>{{v['money']}}</td>
+
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+
+
+<script>
+
+    layui.use(['table'], function(){
+        var table   = layui.table
+
+        table.init('parse-table-demo', { //转化静态表格
+            //height: 'full-500'
+            limit: 500
+
+        });
+
+    });
+
+
+</script>
+</body>
+</html>

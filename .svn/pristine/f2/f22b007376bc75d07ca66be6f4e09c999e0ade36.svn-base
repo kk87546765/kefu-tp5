@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <title>后台管理系统</title>
+    <link rel="stylesheet" href="/assets/vendor/layui/css/layui.css"/>
+    <link rel="stylesheet" href="/assets/model/common/css/style.css"/>
+    <link rel="stylesheet" href="/assets/model/common/css/common.css"/>
+    <script type="text/javascript" src="/assets/vendor/layui/layui.js"></script>
+    <!--[if lt IE 9]>
+    <script src="/assets/model/common/js/html5shiv.min.js"></script>
+    <script src="/assets/model/common/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<style type="text/css">
+    /*.layui-input-inline{
+        max-width: 150px;
+    }*/
+    .laytable-cell-checkbox .layui-disabled.layui-form-checked i {
+        background: #fff !important;
+    }
+</style>
+<body>
+<div style="padding: 12px;"  class="search_wrap">
+    <form class="layui-form" action="" id="search_form">
+
+        <div class="layui-inline">
+           <label class="layui-form-label">问题编号：</label>
+
+           <div class="layui-input-inline">
+               <input type="text" name="qc_num" autocomplete="off" class="layui-input">
+           </div>
+
+        </div>
+
+        <span id="common_search"></span>
+
+        <div class="layui-inline" style="margin-bottom: 6px;">
+            <label class="layui-form-label">用户分组：</label>
+            <div class="layui-input-inline">
+                <select name="group_id" lay-search="">
+                    <option value="">选择或搜索</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="layui-inline" style="margin-bottom: 6px;">
+            <label class="layui-form-label">申诉状态：</label>
+            <div class="layui-input-inline">
+                <div id="select_status" class="xm-select-demo" style="min-width: 210px"></div>
+            </div>
+        </div>
+
+        <div class="layui-inline" style="margin-bottom: 6px;">
+            <label class="layui-form-label">质检员：</label>
+            <div class="layui-input-inline">
+                <select name="admin_id" lay-search="">
+                    <option value="">选择或搜索</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="layui-inline">
+           <label class="layui-form-label">质检时间：</label>
+
+           <div class="layui-input-inline" style="width: 150px;">
+               <input type="text" name="start" id="sdate" placeholder="开始时间" autocomplete="off" class="layui-input">
+           </div>
+           -
+           <div class="layui-input-inline" style="width: 150px;">
+               <input type="text" name="end" id="edate"  placeholder="结束时间" autocomplete="off" class="layui-input">
+           </div>
+
+       </div>
+
+        <div class="layui-inline">
+           <label class="layui-form-label">内容搜索：</label>
+
+           <div class="layui-input-inline">
+               <input type="text" name="text" autocomplete="off" class="layui-input">
+           </div>
+
+       </div>
+
+    </form>
+</div>
+
+<div class="layui-btn-group demoTable" style="padding: 0 15px;">
+    <button class="layui-btn layui-btn-sm" data-type="search">搜索</button>
+</div>
+
+<div class="table_wrap" style="padding: 0 15px;">
+    <table id="idTest" lay-filter="demo" class="layui-table"></table>
+</div>
+
+<script>
+    var rejectappeal_open_index;
+    var lay_page = 1;
+    var p_data = {'list_type':'appeal'};
+    var layui_obj = layui.config({
+        version: true,
+        base: '/assets/model/'
+    }).extend({
+        common: 'common/js/common',
+        search: 'common/js/search',
+    }).use(['common','jquery','table','laydate','form','xmSelect','search'], function(){
+        var table   = layui.table,
+            form = layui.form,
+            laydate = layui.laydate;
+        var xmSelect = layui.xmSelect;
+        var $ = layui.jquery;
+        var common = layui.common;
+        var search = layui.search;
+        //日期
+        laydate.render({
+            elem: '#sdate',
+            trigger : 'click',
+            type: 'datetime'
+        });
+        laydate.render({
+            elem: '#edate',
+            trigger : 'click',
+            type: 'datetime'
+        });
+        laydate.render({
+            elem: '#server_date',
+            trigger : 'click',
+            // type: 'datetime'
+        });
+
+        initData();
+        
+        //监听工具条
+        table.on('tool(demo)', function(obj){
+            var data = obj.data;
+            if(obj.event === 'detail'){
+                //添加
+                let thisindex = layer.open({
+                    type: 2,
+                    title: "编辑质检",
+                    maxmin: true,
+                    shadeClose: true, //点击遮罩关闭层
+                    area : ['70%' , '70%'],
+                    content: "log_detail.html?id="+data.id
+                });
+                layer.full(thisindex);
+            }
+        });
+
+        $('.demoTable .layui-btn').on('click', function(){
+            var type = $(this).data('type');
+            if( type=='search' ){
+                //搜索
+                let form_data = $('#search_form').serializeArray();
+                // console.log(form_data);return;
+                $.each(form_data,function(k,v){
+                    p_data[v.name] = v.value;
+                })
+                table.reload('idTest', {
+                    method: 'post'
+                    ,where: p_data
+                    ,page: {
+                        curr: lay_page
+                    }
+                    ,done:function(a,b,c){
+                        lay_page = b;
+                       
+                    }
+                });
+            }
+        });
+
+        function initData(){
+
+            var search_config_def = {
+                'platform':{
+                    'status':1
+                    ,'name':'platform_id'
+                }
+                ,'admin':{
+                    'status':1
+                    ,'p_data':{group_type:[1,4,5]}
+                    ,'title':'客服'
+                    ,'name':'kf_id'
+                    ,'radio':true
+                }
+            };
+
+            search.init('common_search',search_config_def);
+
+            common.req({
+                url: 'Qc/appealLogConfig' //获取游戏名称
+                ,async:false
+                ,success:function(json)
+                {
+                    var status_data = [];
+                    var kf_source_data = [];
+
+                    var base_config = json.data;
+
+                    $.each(base_config.status_arr,function(k,v){
+                        var this_data = {};
+                        this_data.name = v;
+                        this_data.value = k;
+                        status_data.push(this_data);
+                    });
+
+                    $.each(base_config.kf_source_arr,function(k,v){
+                        var this_data = {};
+                        this_data.name = v;
+                        this_data.value = k;
+                        kf_source_data.push(this_data);
+                    });
+
+                    $.each(base_config.user_group_list,function(k,v){
+                        $('select[name=group_id]').append('<option value="'+v.id+'">'+v.name+'</option>');
+                    });
+                    $.each(base_config.admin_list_manager,function(k,v){
+                        $('select[name=admin_id]').append('<option value="'+v.id+'">'+v.name+'</option>');
+                    });
+                    
+                    var select_kf_source = xmSelect.render({
+                        el: '#select_kf_source',
+                        // prop:{
+                        //     name:'reason',
+                        //     value:'reason',
+                        // },
+                        toolbar: {
+                            show: true,
+                            list: [ 'ALL', 'CLEAR', 'REVERSE' ]
+                        },
+                        data: kf_source_data,
+                        name:'kf_source',
+                        on: function(data){
+                            //arr:  当前多选已选中的数据
+                            var arr = data.arr;
+                            //change, 此次选择变化的数据,数组
+                            var change = data.change;
+                            //isAdd, 此次操作是新增还是删除
+                            var isAdd = data.isAdd;
+
+                            if(arr.length!=0){
+                                set_source_info(arr[0].value);
+                            }
+
+                            //可以return一个数组, 代表想选中的数据
+                            //return []
+                        },
+                    })
+
+                    var select_status = xmSelect.render({
+                        el: '#select_status',
+                        // prop:{
+                        //     name:'reason',
+                        //     value:'reason',
+                        // },
+                        toolbar: {
+                            show: true,
+                            list: [ 'ALL', 'CLEAR', 'REVERSE' ]
+                        },
+                        data: status_data,
+                        name:'status',
+                        on: function(data){
+                            //arr:  当前多选已选中的数据
+                            var arr = data.arr;
+                            //change, 此次选择变化的数据,数组
+                            var change = data.change;
+                            //isAdd, 此次操作是新增还是删除
+                            var isAdd = data.isAdd;
+
+                            if(arr.length!=0){
+                                set_source_info(arr[0].value);
+                            }
+
+                            //可以return一个数组, 代表想选中的数据
+                            //return []
+                        },
+                    })
+                    
+
+                    form.render();
+                }
+            });
+            
+            table.render({
+                elem: '#idTest'
+                ,height: 'full-120'
+                ,url: common.getUrl('Qc/appealLogList') //数据接口
+                ,headers: common.getHeader()
+                ,autoWidth: true
+                ,page: true
+                ,limits:[20,50,100,200,500]
+                ,limit:20
+                ,minWidth:1000
+                ,where:p_data
+                ,cols: [[ //表头
+                    {field:'id', minWidth:80, sort: true, title:'ID'}
+                    ,{field:'kf_name', minWidth:90, title:'客服姓名'}
+                    ,{field:'platform_id_str', minWidth:135, title:'主体'}
+                    ,{field:'group_id_str', minWidth:88, title:'组别'}
+                    ,{field:'appeal_time', minWidth:141, title:'申诉时间'}
+                    ,{field:'create_time_str', minWidth:141, title:'质检时间'}
+                    ,{field:'admin_id_str', minWidth:88, title:'质检员'}
+                    ,{field:'status_str', minWidth:88, title:'申诉状态'}
+                    ,{field:'do_appeal_time', minWidth:141, title:'申诉处理时间'}
+                    ,{field:'do_appeal_reason', minWidth:88, title:'结果原因'}
+                    ,{minWidth:80, align:'center', fixed: 'right', title:'操作'
+                    ,templet:function(d){
+                            let str = '';
+                            if(d.action){
+                                $.each(d.action,function(k,v){
+                                    str+= action(v,d);
+                                })
+                            }
+                            return str;
+                        }
+                    }
+                ]]
+                ,done:function(a,b,c){
+                    lay_page = b;
+                    // console.log(a,b,c);
+                    // console.log(b);
+                    // console.log(c);
+                    // console.log(c);
+                }
+            });
+        }
+
+        function set_source_info(kf_source){
+            $.ajax({
+                url: "/admin/{{controller}}/getSourceConfig",
+                data: {'kf_source':kf_source,keys:'question_type,qc_type'},
+                type: "post",
+                dataType:"json",
+                success:function(res){
+                    if( res.code==0 ){
+
+                        $.each(res.data, function (k, v) {
+                            if(k === 'qc_score_dec' || k === 'qc_score_inc'){
+                                let class_name = '.select_'+k;
+                                $(class_name).html('<option value="" data-score="0">请选择</option>');
+                                $.each(v,function (k1,v1){
+                                    $.each($(class_name),function (k,v){
+                                        let thisdataval = $(v).attr('data-val');
+                                        if(v1.reason === thisdataval){
+                                            // $(v).append(new Option(v1.reason,v1.score,true,true));
+                                            $(v).append('<option value="'+v1.reason+'" data-score="'+v1.score+'" selected>'+v1.reason+'</option>');
+                                            var this_score_input_obj = $(v).parent().parent().parent().find('.score_num').find('input');
+                                            this_score_input_obj.val(this_score_input_obj.attr('def-value'));
+                                        }else{
+                                            $(v).append('<option value="'+v1.reason+'" data-score="'+v1.score+'">'+v1.reason+'</option>');
+                                        }
+
+                                    })
+                                })
+                            }else{
+                                let this_id_obj = $('#'+k);
+                                this_id_obj.html('<option value="">请选择</option>');
+                                $.each(v,function (k1,v1){
+                                    let thisdataval = this_id_obj.attr('data-val');
+                                    if(v1 === thisdataval){
+                                        this_id_obj.append('<option value="'+v1+'"  selected>'+v1+'</option>');
+                                    }else{
+                                        this_id_obj.append('<option value="'+v1+'" >'+v1+'</option>');
+                                    }
+                                })
+                            }
+                            
+                        });
+                        layui.form.render("select");//重新渲染 固定写法
+                    }
+                },
+                error:function(data){
+                    layer.alert('错误'+data.msg,{icon:2});
+                }
+            });
+        }
+    });
+    //给子级调用
+    function res_msg(msg){
+        layer.msg(msg,{icon:1});
+        setTimeout(function(){
+            // window.location.reload();
+            layui_obj.table.reload('idTest', {
+                method: 'post'
+                ,where: p_data
+                ,page: {
+                    curr: lay_page
+                }
+            });
+        },1000);
+    }
+    function action(action,data){
+        let str = '';
+        switch (action) {
+            case 'logDetail':
+                str = '<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="detail">详细</a>';
+                break;
+            default:
+
+                break;
+        }
+
+        return str;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <title>后台管理系统</title>
+    <link rel="stylesheet" href="/assets/vendor/layui/css/layui.css"/>
+    <link rel="stylesheet" href="/assets/model/common/css/style.css"/>
+    <link rel="stylesheet" href="/assets/model/common/css/common.css"/>
+    <script type="text/javascript" src="/assets/vendor/layui/layui.js"></script>
+    <!--[if lt IE 9]>
+    <script src="/assets/model/common/js/html5shiv.min.js"></script>
+    <script src="/assets/model/common/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<style type="text/css">
+    .order_screen_capture_item {
+        width: 90px;
+        float: left;
+        text-align: center;
+        padding-left: 10px;
+        padding-bottom: 10px;
+    }
+</style>
+<div class="page-loading">
+    <div class="ball-loader">
+        <span></span><span></span><span></span><span></span>
+    </div>
+</div>
+<body class="hold-transition skin-blue sidebar-mini">
+    <div class="layui-tab-item layui-form layui-show"  lay-filter="form_text" id="form_text" style="padding-top: 20px;">
+        <input type="hidden" name="id" value="">
+        <input type="hidden" name="work_sheet_id" value="">
+        <div class="layui-form-item">
+            <label class="layui-form-label">内容</label>
+            <div class="layui-input-block">
+                <textarea id="demo" name="content" placeholder="请输入" class="layui-textarea" style="width: 70%;"></textarea>
+            </div>
+        </div>
+
+        <div class="layui-form-item order_screen_capture_module">
+            <label class="layui-form-label">
+                <span class="layui-form-label-title">附件</span>
+            </label>
+            <div class="layui-input-block">
+                <div class="layui-input-inline">
+                    <div class="layui-upload-drag" id="test10">
+                        <i class="layui-icon"></i>
+                        <p>点击上传，或将文件拖拽到此处</p>
+                    </div>
+                    <blockquote class="layui-elem-quote layui-quote-nm" style="margin-top: 10px;width: 500px;float: left">
+                        预览图：
+                        <div class="layui-upload-list order_screen_capture_list"></div>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+              <button type="submit" class="layui-btn layui-power" id="WorkSheet-logAdd" lay-submit="" lay-filter="submit_btn">添加</button>
+              <button type="submit" class="layui-btn layui-power" id="WorkSheet-logEdit" lay-submit="" lay-filter="submit_btn">修改</button>
+            </div>
+        </div>
+
+    </div>
+
+<script>
+var pic_len = 0;
+var imgUploadUrl = 'common/fileUploadOne';//图片上传
+
+var layui_obj = layui.config({
+    version: true,
+    base: '/assets/model/'
+}).extend({
+    common: 'common/js/common',
+    search: 'common/js/search',
+}).use(['common','jquery','form','upload'], function(){
+    var form = layui.form;
+    var upload = layui.upload;
+    var $ = layui.jquery;
+    var common = layui.common;
+    var urlParam = common.urlParam;
+    var detail_url = 'work_sheet/logAdd';
+
+    initData();
+
+    // 多图片上传(指定的订单截图)
+    var order_screen_capture = upload.render({
+        elem: '#test10'
+        ,url: common.getUrl(imgUploadUrl)
+        ,headers:common.getHeader()
+        ,multiple: true
+        ,exts: 'gif|jpg|jpeg|bmp|png|swf'
+        ,before: function(){
+            layer.load(); //上传loading
+        }
+        ,allDone: function(obj){
+            // 结束上传
+            layer.closeAll('loading');
+            layer.msg('一共选择'+obj.total+'个图片，成功'+obj.successful+'个，失败'+obj.aborted+'个');
+        }
+        ,done: function(res){
+            //上传完毕
+            if(res.code == 0) {
+                addImgHtml(res.data);
+                
+            }
+        }
+    });
+
+    // 图片预览
+    $(document).on('click','img',function(obj){
+        layer.photos({
+            photos:  {"data": [{"src": obj.target.currentSrc}]}
+        })
+    });
+    //监听提交
+    form.on('submit(submit_btn)', function(data){
+        common_submit(data);                
+        return false;
+    });
+
+    
+
+    function initData(){
+        var id = urlParam.id==undefined?0:urlParam.id;
+        if(id>0){
+            detail_url = 'work_sheet/logEdit';
+            common.initPowerShow([
+                'WorkSheet-logEdit'
+            ]);
+        }else{
+            common.initPowerShow([
+                'WorkSheet-logAdd'
+            ]);
+        }
+        common.req({
+            url: "work_sheet/logDetail",
+            data: urlParam,
+            type: "post",
+            dataType:"json",
+            success:function(res){
+
+                if( res.code==0 ){
+                    form.val('form_text', res.data);
+                    if(res.data.id>0){
+                        if(res.data.file_data != '' 
+                            && res.data.file_data != {}
+                            && res.data.file_data.length > 0
+                        ){
+
+                            $.each(res.data.file_data,(k,v)=>{
+                                addImgHtml(v)
+                            })
+                        }
+                    }
+                    form.render();
+                }
+                common.isLoading(false);
+            },
+            error:function(res){
+                layer.alert('错误'+res.msg,{icon:2});
+            }
+        });
+
+    }
+
+
+    function common_submit(data){
+        common.req({
+            url: detail_url,
+            data: data.field,
+            type: "post",
+            dataType:"json",
+            success:function(res){
+
+                if( res.code==0 ){
+                    layer.msg(res.msg)
+                    var index = parent.layer.getFrameIndex(window.name);
+                    window.parent.res_msg(res.msg);
+                    parent.layer.close(index);//关闭当前页
+                    //window.parent.location.reload(); //刷新父窗口
+                }
+                layer.msg(res.msg,{icon:2})
+            },
+            error:function(res){
+                layer.alert('错误'+res.msg,{icon:2});
+            }
+        });
+    }
+
+    function addImgHtml(data){
+
+        let str = '<div class="order_screen_capture_item">\n' +
+            '                                <img style="width: 90px; height: 120px; padding-right: 10px; padding-bottom: 10px;" src="'+data.http_url+'" class="layui-upload-img">\n' +
+            '                                <input type="hidden" name="file_data['+pic_len+']" value="'+data.url+'" class="layui-input"/>\n' +
+            '                                <a class="layui-btn layui-btn-danger layui-btn-xs delImgClass">删除</a>\n'+
+            '                            </div>';
+        $('.order_screen_capture_list').append(str);
+
+        //监听图片删除按钮
+        $(".delImgClass").click(function () {
+            $(this).parent('div').remove();//删除div
+        });
+        pic_len++;
+    }
+
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,852 @@
+---------------------------------------------------------------
+[ 2022-07-11T15:30:10+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/GetBaseInfo/run?p[action]=register&p[platform]=bx
+[运行时间：0.164638s] [吞吐率：6.07req/s] [内存消耗：3,869.58kb] [文件加载：170]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101 Firefox/102.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/GetBaseInfo/run' => '',
+  'p' => 
+  array (
+    'action' => 'register',
+    'platform' => 'bx',
+  ),
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\GetBaseInfo.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-11T15:30:24+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/GetBaseInfo/run?p[action]=register&p[platform]=bx
+[运行时间：0.057988s] [吞吐率：17.24req/s] [内存消耗：2,618.08kb] [文件加载：159]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101 Firefox/102.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/GetBaseInfo/run' => '',
+  'p' => 
+  array (
+    'action' => 'register',
+    'platform' => 'bx',
+  ),
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\GetBaseInfo.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-11T15:30:32+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/GetBaseInfo/run?p[action]=register&p[platform]=bx
+[运行时间：0.083743s] [吞吐率：11.94req/s] [内存消耗：2,618.08kb] [文件加载：159]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101 Firefox/102.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/GetBaseInfo/run' => '',
+  'p' => 
+  array (
+    'action' => 'register',
+    'platform' => 'bx',
+  ),
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\GetBaseInfo.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-11T15:31:03+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/GetBaseInfo/run?p[action]=register&p[platform]=bx
+[运行时间：0.067670s] [吞吐率：14.78req/s] [内存消耗：2,619.75kb] [文件加载：159]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101 Firefox/102.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/GetBaseInfo/run' => '',
+  'p' => 
+  array (
+    'action' => 'register',
+    'platform' => 'bx',
+  ),
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\GetBaseInfo.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-11T15:31:31+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/GetBaseInfo/run?p[action]=register&p[platform]=bx
+[运行时间：0.057910s] [吞吐率：17.27req/s] [内存消耗：2,620.77kb] [文件加载：159]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101 Firefox/102.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/GetBaseInfo/run' => '',
+  'p' => 
+  array (
+    'action' => 'register',
+    'platform' => 'bx',
+  ),
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\GetBaseInfo.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-11T15:31:39+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/GetBaseInfo/run?p[action]=register&p[platform]=bx
+[运行时间：0.055187s] [吞吐率：18.12req/s] [内存消耗：2,620.77kb] [文件加载：159]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101 Firefox/102.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/GetBaseInfo/run' => '',
+  'p' => 
+  array (
+    'action' => 'register',
+    'platform' => 'bx',
+  ),
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\GetBaseInfo.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-11T15:31:47+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/GetBaseInfo/run?p[action]=register&p[platform]=bx
+[运行时间：0.056742s] [吞吐率：17.62req/s] [内存消耗：2,620.77kb] [文件加载：159]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101 Firefox/102.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/GetBaseInfo/run' => '',
+  'p' => 
+  array (
+    'action' => 'register',
+    'platform' => 'bx',
+  ),
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\GetBaseInfo.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-11T15:32:06+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/GetBaseInfo/run?p[action]=register&p[platform]=bx
+[运行时间：0.056957s] [吞吐率：17.56req/s] [内存消耗：2,619.79kb] [文件加载：159]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101 Firefox/102.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/GetBaseInfo/run' => '',
+  'p' => 
+  array (
+    'action' => 'register',
+    'platform' => 'bx',
+  ),
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\GetBaseInfo.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-11T15:37:59+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/GetBaseInfo/run?p[action]=register_zw&p[platform]=zw
+[运行时间：0.068485s] [吞吐率：14.60req/s] [内存消耗：2,620.80kb] [文件加载：159]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101 Firefox/102.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/GetBaseInfo/run' => '',
+  'p' => 
+  array (
+    'action' => 'register_zw',
+    'platform' => 'zw',
+  ),
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\GetBaseInfo.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-11T15:38:09+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/GetBaseInfo/run?p[action]=register_zw&p[platform]=zw
+[运行时间：0.091083s] [吞吐率：10.98req/s] [内存消耗：3,821.73kb] [文件加载：169]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101 Firefox/102.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/GetBaseInfo/run' => '',
+  'p' => 
+  array (
+    'action' => 'register_zw',
+    'platform' => 'zw',
+  ),
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\GetBaseInfo.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002635s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.006641s ]
+[ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_GetBaseInfo' , 'userRegisterzw' , '{\"action\":\"register_zw\",\"platform\":\"zw\"}' , 1657525089 , 1657525089) [ RunTime:0.002837s ]
+---------------------------------------------------------------
+[ 2022-07-11T15:38:54+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/GetBaseInfo/run?p[action]=register_zw&p[platform]=zw
+[运行时间：0.072541s] [吞吐率：13.79req/s] [内存消耗：3,821.73kb] [文件加载：169]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101 Firefox/102.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/GetBaseInfo/run' => '',
+  'p' => 
+  array (
+    'action' => 'register_zw',
+    'platform' => 'zw',
+  ),
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\GetBaseInfo.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001508s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.002751s ]
+[ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_GetBaseInfo' , 'userRegisterzw' , '{\"action\":\"register_zw\",\"platform\":\"zw\"}' , 1657525134 , 1657525134) [ RunTime:0.000900s ]
+---------------------------------------------------------------
+[ 2022-07-11T15:40:48+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/GetBaseInfo/run?p[action]=register_zw&p[platform]=zw
+[运行时间：0.093415s] [吞吐率：10.70req/s] [内存消耗：3,911.23kb] [文件加载：174]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101 Firefox/102.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/GetBaseInfo/run' => '',
+  'p' => 
+  array (
+    'action' => 'register_zw',
+    'platform' => 'zw',
+  ),
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\GetBaseInfo.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003871s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.002262s ]
+[ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_GetBaseInfo' , 'userRegisterzw' , '{\"action\":\"register_zw\",\"platform\":\"zw\"}' , 1657525248 , 1657525248) [ RunTime:0.000952s ]
+[ error ] [0]致命错误: Call to private method app\scripts\controller\GetBaseInfo::userRegisterzw() from context 'app\scripts\controller\Base'[D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\library\traits\controller\lxxScript.php:231]
+---------------------------------------------------------------
+[ 2022-07-11T15:41:28+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/GetBaseInfo/run?p[action]=register_zw&p[platform]=zw
+[运行时间：0.402808s] [吞吐率：2.48req/s] [内存消耗：4,243.84kb] [文件加载：173]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101 Firefox/102.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/GetBaseInfo/run' => '',
+  'p' => 
+  array (
+    'action' => 'register_zw',
+    'platform' => 'zw',
+  ),
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\GetBaseInfo.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001449s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.004959s ]
+[ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_GetBaseInfo' , 'userRegisterzw' , '{\"action\":\"register_zw\",\"platform\":\"zw\"}' , 1657525288 , 1657525288) [ RunTime:0.000899s ]
+---------------------------------------------------------------
+[ 2022-07-11T15:44:48+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/GetBaseInfo/run?p[action]=pay_zw
+[运行时间：0.513357s] [吞吐率：1.95req/s] [内存消耗：4,322.59kb] [文件加载：173]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101 Firefox/102.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/GetBaseInfo/run' => '',
+  'p' => 
+  array (
+    'action' => 'pay_zw',
+  ),
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\GetBaseInfo.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001955s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.006097s ]
+[ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_GetBaseInfo' , 'userPayzw' , '{\"action\":\"pay_zw\"}' , 1657525487 , 1657525487) [ RunTime:0.002145s ]
+---------------------------------------------------------------
+[ 2022-07-11T15:56:16+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/GetBaseInfo/run?p[action]=pay_zw
+[运行时间：0.535904s] [吞吐率：1.87req/s] [内存消耗：4,383.30kb] [文件加载：173]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101 Firefox/102.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/GetBaseInfo/run' => '',
+  'p' => 
+  array (
+    'action' => 'pay_zw',
+  ),
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\GetBaseInfo.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003115s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.002348s ]
+[ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_GetBaseInfo' , 'userPayzw' , '{\"action\":\"pay_zw\"}' , 1657526176 , 1657526176) [ RunTime:0.000929s ]
+---------------------------------------------------------------
+[ 2022-07-11T15:58:07+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/GetBaseInfo/run?p[action]=pay_zw
+[运行时间：0.513349s] [吞吐率：1.95req/s] [内存消耗：4,423.55kb] [文件加载：181]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101 Firefox/102.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/GetBaseInfo/run' => '',
+  'p' => 
+  array (
+    'action' => 'pay_zw',
+  ),
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\GetBaseInfo.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001647s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.004093s ]
+[ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_GetBaseInfo' , 'userPayzw' , '{\"action\":\"pay_zw\"}' , 1657526286 , 1657526286) [ RunTime:0.000874s ]
+[ error ] [10501]SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '4294967295' for key 'PRIMARY'[D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\library\think\db\Connection.php:453]
+---------------------------------------------------------------
+[ 2022-07-11T15:59:19+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/GetBaseInfo/run?p[action]=pay_zw
+[运行时间：0.069944s] [吞吐率：14.30req/s] [内存消耗：2,667.38kb] [文件加载：161]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101 Firefox/102.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/GetBaseInfo/run' => '',
+  'p' => 
+  array (
+    'action' => 'pay_zw',
+  ),
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\GetBaseInfo.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-11T15:59:54+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/GetBaseInfo/run?p[action]=pay_zw
+[运行时间：0.078482s] [吞吐率：12.74req/s] [内存消耗：2,667.38kb] [文件加载：161]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101 Firefox/102.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/GetBaseInfo/run' => '',
+  'p' => 
+  array (
+    'action' => 'pay_zw',
+  ),
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\GetBaseInfo.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-07-11T16:00:09+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/GetBaseInfo/run?p[action]=pay_zw
+[运行时间：0.523228s] [吞吐率：1.91req/s] [内存消耗：4,559.29kb] [文件加载：174]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101 Firefox/102.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/GetBaseInfo/run' => '',
+  'p' => 
+  array (
+    'action' => 'pay_zw',
+  ),
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\GetBaseInfo.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011169s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.001754s ]
+[ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_GetBaseInfo' , 'userPayzw' , '{\"action\":\"pay_zw\"}' , 1657526408 , 1657526408) [ RunTime:0.001131s ]
+---------------------------------------------------------------
+[ 2022-07-11T16:00:50+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/GetBaseInfo/run?p[action]=pay_zw&p[no_cache]=1
+[运行时间：0.420877s] [吞吐率：2.38req/s] [内存消耗：4,489.47kb] [文件加载：174]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101 Firefox/102.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/GetBaseInfo/run' => '',
+  'p' => 
+  array (
+    'action' => 'pay_zw',
+    'no_cache' => '1',
+  ),
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\GetBaseInfo.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010237s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.001994s ]
+[ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_GetBaseInfo' , 'userPayzw' , '{\"action\":\"pay_zw\",\"no_cache\":\"1\"}' , 1657526450 , 1657526450) [ RunTime:0.000885s ]
+---------------------------------------------------------------
+[ 2022-07-11T16:01:20+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/GetBaseInfo/run?p[action]=pay_zw&p[no_cache]=1
+[运行时间：0.423774s] [吞吐率：2.36req/s] [内存消耗：4,513.82kb] [文件加载：174]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101 Firefox/102.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/GetBaseInfo/run' => '',
+  'p' => 
+  array (
+    'action' => 'pay_zw',
+    'no_cache' => '1',
+  ),
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\GetBaseInfo.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003390s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.001764s ]
+[ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_GetBaseInfo' , 'userPayzw' , '{\"action\":\"pay_zw\",\"no_cache\":\"1\"}' , 1657526480 , 1657526480) [ RunTime:0.000783s ]
+---------------------------------------------------------------
+[ 2022-07-11T16:01:29+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/GetBaseInfo/run?p[action]=pay_zw&p[no_cache]=1
+[运行时间：0.496233s] [吞吐率：2.02req/s] [内存消耗：4,254.66kb] [文件加载：174]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101 Firefox/102.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/GetBaseInfo/run' => '',
+  'p' => 
+  array (
+    'action' => 'pay_zw',
+    'no_cache' => '1',
+  ),
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\GetBaseInfo.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001185s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.002366s ]
+[ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_GetBaseInfo' , 'userPayzw' , '{\"action\":\"pay_zw\",\"no_cache\":\"1\"}' , 1657526488 , 1657526488) [ RunTime:0.000912s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_run_log` WHERE  `id` = 283 LIMIT 1 [ RunTime:0.000465s ]
+[ sql ] [ SQL ] UPDATE `gr_run_log`  SET `update_time`=1657526489,`status`=1,`out_param`='[]'  WHERE  `id` = 283 [ RunTime:0.001318s ]
+---------------------------------------------------------------
+[ 2022-07-11T18:03:17+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/GetBaseInfo/run?p[action]=pay_youyu&p[no_cache]=1
+[运行时间：0.394369s] [吞吐率：2.54req/s] [内存消耗：4,448.28kb] [文件加载：176]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101 Firefox/102.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/GetBaseInfo/run' => '',
+  'p' => 
+  array (
+    'action' => 'pay_youyu',
+    'no_cache' => '1',
+  ),
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\GetBaseInfo.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001869s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.001359s ]
+[ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_GetBaseInfo' , 'userPayyouyu' , '{\"action\":\"pay_youyu\",\"no_cache\":\"1\"}' , 1657533797 , 1657533797) [ RunTime:0.001631s ]
+---------------------------------------------------------------
+[ 2022-07-11T18:04:03+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/GetBaseInfo/run?p[action]=pay_youyu&p[no_cache]=1
+[运行时间：0.324185s] [吞吐率：3.08req/s] [内存消耗：4,230.76kb] [文件加载：174]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101 Firefox/102.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/GetBaseInfo/run' => '',
+  'p' => 
+  array (
+    'action' => 'pay_youyu',
+    'no_cache' => '1',
+  ),
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\GetBaseInfo.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001618s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.002804s ]
+[ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_GetBaseInfo' , 'userPayyouyu' , '{\"action\":\"pay_youyu\",\"no_cache\":\"1\"}' , 1657533843 , 1657533843) [ RunTime:0.000910s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_run_log` WHERE  `id` = 285 LIMIT 1 [ RunTime:0.000427s ]
+[ sql ] [ SQL ] UPDATE `gr_run_log`  SET `status`=1,`out_param`='[]',`update_time`=1657533843  WHERE  `id` = 285 [ RunTime:0.001726s ]

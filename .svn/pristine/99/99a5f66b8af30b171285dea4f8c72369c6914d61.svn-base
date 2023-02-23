@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <title>后台管理系统</title>
+    <link rel="stylesheet" href="/assets/vendor/layui/css/layui.css"/>
+    <link rel="stylesheet" href="/assets/model/common/css/style.css"/>
+    <link rel="stylesheet" href="/assets/model/common/css/common.css"/>
+    <!--[if lt IE 9]>
+    <script src="/assets/model/common/js/html5shiv.min.js"></script>
+    <script src="/assets/model/common/js/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        .layui-col-space15 {
+            /* margin: -7.5px; */
+            margin:-7.5px 0 !important;
+        }
+    </style>
+</head>
+
+<body>
+<!-- 页面加载loading -->
+<div class="page-loading">
+    <div class="ball-loader">
+        <span></span><span></span><span></span><span></span>
+    </div>
+</div>
+<!-- 正文开始 -->
+
+<div class="layui-fluid">
+    <div class="layui-card">
+        <div class="layui-card-body table-tool-mini">
+            <div class="layui-form toolbar">
+                <div class="layui-form-item">
+                    <blockquote class="layui-elem-quote">
+
+                        <div class="layui-inline">
+                            <label class="layui-form-label w-auto">登录时间：</label>
+                            <div class="layui-input-inline">
+                                <input type="text" class="layui-input" id="login_date" name="login_date" value="" placeholder=" - " autocomplete="off">
+                            </div>
+                        </div>
+
+
+                        <button class="layui-btn icon-btn table-search-btn" style="margin-top: -5px;" lay-filter="table-search" lay-submit>
+                            <i class="layui-icon">&#xe615;</i>查询
+                        </button>
+                            <!-- <button type="button" class="layui-btn" style="margin-top: -5px;" id="downLoadExcle">导出</button> -->
+                            <!-- <button type="button" class="layui-btn" id="downLoadFileList">导出列表</button> -->
+
+                    </blockquote>
+                </div>
+            </div>
+
+            <div id="extra_info">
+                
+            </div>
+            <table class="layui-hide" id="table-list" lay-filter="table-list"></table>
+
+            <div class="layui-fluid">
+                <div class="layui-fluid" style="text-align: center">
+                    <div id="tablePage"></div>
+                </div>
+            </div>
+
+            <!--用于导出的不展示的列表-->
+            <div style="display: none;">
+                <table id="downLoad1">
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="/assets/vendor/layui/layui.js"></script>
+<script>
+    // var config_admin_list = '{{config["admin_list"]|json_encode}}';
+    //
+    // var get_scheet_type_config_url = '/admin/{{controller}}/get_scheet_type_config';//获取角色信息
+    //
+    // config_admin_list = eval('('+config_admin_list+')');
+
+    layui.config({
+        version: true,
+        base: '/assets/model/'
+    }).extend({
+        common: 'common/js/common',
+    }).use(['form','laydate','jquery','table','common'], function () {
+        var $ = layui.jquery,
+            form = layui.form,
+            table = layui.table,
+            common = layui.common,
+            laydate = layui.laydate;
+
+        var pdata = common.urlParam;
+
+
+        // 搜索
+        form.on('submit(table-search)', function(data){
+
+
+            $.each(data.field,function(k,v){
+                pdata[k] = v;
+            })
+            table.reload('table-list', {
+                method: 'post'
+                ,where: pdata
+                ,page: {
+                    curr: 1
+                }
+            });
+            // tableDataInit(true);
+        });
+
+        //日期范围
+        laydate.render({
+            elem: '#login_date',
+            range: true,
+        });
+
+        // 表格请求初始化
+        var cols = [[
+            ,{'title':'用户UID','minWidth':98,'field':'uid'}
+            ,{'title':'账号','minWidth':100,'field':'uname'}
+            ,{'field':'game_name','title':'登录的游戏','minWidth':100}
+            ,{'field':'login_ip','title':'登录IP','minWidth':150}
+            ,{'field':'ip_address','title':'登录IP地址','minWidth':120}
+            ,{'field':'login_date','title':'登录时间','minWidth':80}
+            ,{'field':'type','title':'设备','minWidth':80}
+            ,{'field':'idfa','title':'idfa','minWidth':100}
+            ,{'field':'imei','title':'imei','minWidth':100}
+        ]];
+
+        table.render({
+            elem: '#table-list'
+            ,height: 'full-120'
+            ,headers:common.getHeader()
+            ,url: common.apiUrl+'account_search/userLoginLog' //数据接口
+            ,page: true //开启分页
+            ,limits:[20,50,100,200,500]
+            ,limit:20
+            ,minWidth:1000
+            ,cols: cols
+            ,method:'POST'
+            ,where:pdata
+            ,done:function(a,b,c){
+
+                console.log(a)
+                console.log(b)
+                console.log(c)
+                lay_page = b;
+                if(c > 0){
+
+                }
+//隐藏加载框
+                common.isLoading(false);
+
+
+                var extra_str = '';
+                extra_str+= '登录最多的：'+a.max_name+', 次数是：'+a.max;
+
+                $('#extra_info').html(extra_str)
+            }
+        });
+
+       
+       
+    });
+
+</script>
+
+</body>
+</html>

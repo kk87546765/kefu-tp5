@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <title>后台管理系统</title>
+    <link rel="stylesheet" href="/assets/vendor/layui/css/layui.css"/>
+    <link rel="stylesheet" href="/assets/model/common/css/style.css"/>
+    <link rel="stylesheet" href="/assets/model/common/css/common.css"/>
+    <script type="text/javascript" src="/assets/vendor/layui/layui.js"></script>
+    <script type="text/javascript" src="/assets/js/jquery-2.2.3.min.js"></script>
+    <!--[if lt IE 9]>
+    <script src="/assets/model/common/js/html5shiv.min.js"></script>
+    <script src="/assets/model/common/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<style>
+.del-btn{
+    margin-left:10px;
+}
+.score .layui-form-label{
+    width: 50px;
+    padding: 0;
+    height: 30px;
+    line-height: 30px;
+}
+.score .layui-input-block{
+    margin-left:55px;
+}
+.score .layui-input-block .input-score{
+    /*width:60px;*/
+}
+.example{
+    display:none
+}
+</style>
+<body>
+
+<div class="layui-btn-group demoTable" style="padding: 0 15px;">
+<!--     <button class="layui-btn layui-btn-sm" data-type="search">搜索</button> -->
+
+</div>
+<div class="layui-form layui-form-pane" lay-filter="edit-form" action="">
+    <div class="layui-tab">
+        <ul class="layui-tab-title" id="layui-tab-title">
+            <!-- <li>name</li> -->
+        </ul>
+        <div class="layui-tab-content">
+
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="" style="">
+    <div class="layui-tab-item tab-item-example1">
+        <div class="tab-item-content" id="">
+
+        </div>
+        <div class="layui-row">
+            <div class="layui-row example">
+                <div class="layui-form-item layui-col-sm6">
+                    <div class="">
+                        <input type="text" name="" value="" placeholder="请输入" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <button type="button" class="layui-btn layui-btn-sm del-btn" onclick="del(this)">
+                    <i class="layui-icon">&#xe640;</i>
+                </button>
+            </div>
+
+            <button type="button" class="layui-btn layui-btn-sm add" data-type="" data-key="" data-count="0">
+                <i class="layui-icon">&#xe654;</i>
+            </button>
+        </div>
+
+    </div>
+
+    <div class="layui-tab-item tab-item-example2">
+        <div class="layui-row">
+            <div class="layui-form-item">
+                <label class="layui-form-label">会话来源</label>
+                <div class="layui-input-block">
+                    <select name="kf_source" lay-filter="kf_source_change" class="kf_source_change" data-key="v.key">
+                        <option value=""></option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="tab-item-content" id="v.key">
+        </div>
+
+        <div class="layui-row">
+
+            <div class="layui-row score example">
+                <div class="rule-input-div">
+                    
+                </div>
+                <button type="button" class="layui-btn layui-btn-sm del-btn" onclick="del(this)">
+                    <i class="layui-icon">&#xe640;</i>
+                </button>
+            </div>
+
+            <button type="button" class="layui-btn layui-btn-sm add" data-type="{{v['type']}}" data-key="{{v['key']}}" data-count="{{ config[v['key']]|length }}">
+                <i class="layui-icon">&#xe654;</i>
+            </button>
+        </div>
+    </div>
+
+    <div class="layui-tab-item tab-item-example3">
+       <div class="layui-row">
+            <div class="layui-form-item">
+                <label class="layui-form-label">会话来源</label>
+                <div class="layui-input-block">
+                    <select name="kf_source" lay-filter="kf_source_change" class="kf_source_change" data-key="">
+                        <option value=""></option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="tab-item-content" id="">
+        </div>
+
+        <div class="layui-row">
+
+            <div class="layui-row example">
+                <div class="layui-form-item layui-col-sm6">
+                    <div class="">
+                        <input type="text" name="" value="" placeholder="请输入" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <button type="button" class="layui-btn layui-btn-sm del-btn" onclick="del(this)">
+                    <i class="layui-icon">&#xe640;</i>
+                </button>
+            </div>
+
+            <button type="button" class="layui-btn layui-btn-sm add" data-type="" data-key="" data-count="">
+                <i class="layui-icon">&#xe654;</i>
+            </button>
+        </div>
+
+    </div>
+</div>
+
+<script>
+var dec_kf_source = 0;
+var inc_kf_source = 0;
+
+var source_data = {
+    qc_type:0
+    ,question_type:0
+    ,kf_nosolve_res:0
+    ,question_nosolve_res:0
+};
+
+
+//注意：选项卡 依赖 element 模块，否则无法进行功能性操作
+var layui_obj = layui.config({
+    version: true,
+    base: '/assets/model/'
+}).extend({
+    common: 'common/js/common',
+}).use(['common','element','form'], function(){
+    var element = layui.element;
+    var form = layui.form;
+    var common = layui.common;
+
+    initData();
+
+    //监听提交
+    form.on('submit(formDemo)', function(data){
+
+        common.req({
+            url: "Qc/configSave",
+            data: data.field,
+            type: "post",
+            dataType:"json",
+            success:function(res){
+                if( res.code==0 ){
+                    layer.msg(res.msg,{icon:1});
+                }else{
+                    layer.msg(res.msg,{icon:2});
+                }
+            },
+            error:function(data){
+                layer.alert('错误'+data.msg,{icon:2});
+            }
+        });
+        return false;
+    });
+
+    form.on('select(kf_source_change)', function(data){
+        // console.log(data.elem); //得到select原始DOM对象
+        // console.log(data.value); //得到被选中的值
+        // console.log(data.othis); //得到美化后的DOM对象
+
+        let thisobj = $(data.elem);
+        let key = $(thisobj).attr('data-key');
+        let thisval = data.value;
+        let cont_id = '#'+key;
+        let pdata = {};
+        pdata.key = key;
+        pdata.kf_source = thisval;
+        // console.log(pdata);
+        /*初始化dom*/
+        if(key === 'qc_score_dec'){
+            if(dec_kf_source == thisval){
+                return;
+            }
+            dec_kf_source = thisval;
+        }else if(key === 'qc_score_inc'){
+            if(inc_kf_source == thisval){
+                return;
+            }
+            inc_kf_source = thisval;
+        }else if(key === 'qc_type'
+            ||key === 'question_type'
+            ||key === 'kf_nosolve_res'
+            ||key === 'question_nosolve_res'
+        ){
+            if(source_data[key] == thisval){
+                return;
+            }
+            source_data[key] = thisval;
+        }
+        $(cont_id).html('');
+        common.req({
+            url: "Qc/getScoreConfig",
+            data: pdata,
+            type: "post",
+            dataType:"json",
+            success:function(res){
+                if( res.code==0 ){
+                    let example = $('#'+key).parent().find('.example');
+
+                    if(example == undefined ){
+                        return;
+                    }
+                    if(key === 'qc_score_dec' || key === 'qc_score_inc'){
+                        $.each(res.data,function (k,v){
+                            let example_cp = example.clone(true).removeClass('example');
+                            $.each(v,function (k1,v1){
+                                let thisinput = example_cp.find('input[name="'+k1+'"]');
+                                $(thisinput).attr('name',key+'['+k+']['+k1+']');
+                                $(thisinput).attr('value',v1);
+                                // console.log(thisname)
+                            })
+
+                            example_cp.appendTo(cont_id);
+                        })
+                    }else{
+                        $.each(res.data,function (k,v){
+                            let example_cp = example.clone(true).removeClass('example');
+                            let thisinput = example_cp.find('input');
+                            $(thisinput).attr('name',key+'[]');
+                            $(thisinput).attr('value',v);
+
+                            example_cp.appendTo(cont_id);
+                        })
+                    }
+                    
+
+                    $(cont_id).parent().find('.add').attr('data-count',res.data.length);
+
+                }
+            },
+            error:function(data){
+                layer.alert('错误'+data.msg,{icon:2});
+            }
+        });
+    });
+
+    function initData(){
+        common.req({
+            url: "Qc/qcConfigList",
+            type: "post",
+            dataType:"json",
+            success:function(res){
+                $.each(res.data.kf_source_arr,function(k,v){
+                    $('select[name=kf_source]').append('<option value="'+k+'">'+v+'</option>');
+                });
+
+                configHtml(res.data.config_arr,res.data.config);
+                configOtherHtml(res.data.config_other_arr);
+                form.render();
+            },
+            error:function(data){
+                layer.alert('错误'+data.msg,{icon:2});
+            }
+        });
+    }
+    //栏目内容生成-普通
+    function configHtml(arr,config){
+
+        $.each(arr,function(k,v){
+            if(k == 0){
+                tabTitle(v.name,1);
+            }else{
+                tabTitle(v.name);
+            }
+            var clone_content = $('.tab-item-example1').clone(true);//
+            var this_key = v.key;
+            clone_content.removeClass('tab-item-example1');
+            if(k == 0){
+                clone_content.addClass('layui-show');
+            }
+            clone_content.find('.tab-item-content').attr('id',this_key);
+            clone_content.find('.add').attr('data-type',v.type);
+            clone_content.find('.add').attr('data-key',this_key);
+
+            // if(config.hasOwnProperty('this_key')){
+            if(config[this_key]!=undefined){
+                clone_content.find('.add').attr('data-count',config[this_key].length);
+
+                $.each(config[this_key],function(k1,v1){
+                    var clone_item = clone_content.find('.example').clone();
+                    clone_item.removeClass('example');
+                    clone_item.find('input').attr('name',this_key+'[]');
+                    clone_item.find('input').attr('value',v1);
+                    clone_content.find('.tab-item-content').append(clone_item);
+                })
+
+            }else{
+                clone_content.find('.add').attr('data-count',0);
+            }
+
+            $('.layui-tab-content').append(clone_content);
+        })
+        // $('.tab-item-example1').remove();
+    }
+
+    function configOtherHtml(arr){
+        $.each(arr,function(k,v){
+            tabTitle(v.name);
+            if(v.type == 'score'){
+                
+                var clone_content = $('.tab-item-example2').clone(true);//
+                var this_key = v.key;
+                clone_content.removeClass('tab-item-example2');
+                clone_content.find('select[name=kf_source]').attr('name','kf_source_'+this_key).attr('data-key',this_key);
+                clone_content.find('.tab-item-content').attr('id',this_key);
+                clone_content.find('.add').attr('data-type',v.type).attr('data-key',this_key).attr('data-count',0);
+
+                $.each(v.rule.val,function(k1,v1){
+                    var str ='<div class="'+v1.class+'">';
+                        str +='<label class="layui-form-label">'+v1.name+'</label>';
+                        str +='<div class="layui-input-block">';
+                        str +='    <input';
+                        str +='            type="'+v1.type+'"';
+                        str +='            name="'+v1.key+'"';
+                        str +='            value=""';
+                        str +='            placeholder="请输入"';
+                        str +='            autocomplete="off"';
+                        str +='            class="layui-input input-'+v1.key+'"';
+                        if(v1.min !=undefined){
+                            str +='            min="'+v1.min+'"';
+                        }
+                        if(v1.max !=undefined){
+                            str +='            max="'+v1.max+'"';
+                        }
+                        str +='    >';
+                        str +='</div>';
+                        str +='</div>';
+
+                        clone_content.find('.rule-input-div').append(str);
+                })
+
+                $('.layui-tab-content').append(clone_content);
+            }else{
+                var clone_content = $('.tab-item-example3').clone(true);//
+                var this_key = v.key;
+                clone_content.removeClass('tab-item-example3');
+                clone_content.find('select[name=kf_source]').attr('name','kf_source_'+this_key).attr('data-key',this_key);
+                clone_content.find('.tab-item-content').attr('id',this_key);
+                clone_content.find('.add').attr('data-type',v.type).attr('data-key',this_key).attr('data-count',0);
+
+                var example = clone_content.find('.example');
+                example.find('input').attr('name',this_key+'[]');
+                // clone_content.find('.tab-item-content').append(example);
+
+                $('.layui-tab-content').append(clone_content);
+            }
+        })
+    }
+    // 栏目标题生成
+    function tabTitle(titile,flag=0){
+        if(flag){
+            $('#layui-tab-title').append('<li class="layui-this" >'+titile+'</li>')
+        }else{
+            $('#layui-tab-title').append('<li>'+titile+'</li>')
+        }
+    }
+});
+
+$('.del-btn1').on('click',function(){
+    let e = $(this);
+    e.parent().remove();
+})
+
+function del(e){
+    $(e).parent().remove();
+}
+
+$('.add').click(function(){
+    let thisobj = $(this);
+    let type = thisobj.attr('data-type');
+    let key = thisobj.attr('data-key');
+    let count = thisobj.attr('data-count');
+    let example = thisobj.parent().find('.example');
+    if(example == undefined ){
+        return;
+    }
+    let cont_id = '#'+key;
+
+    let example_cp = example.clone(true).removeClass('example');
+
+    if(type === 'score'){
+        let this_kf_source = 0;
+        if(key === 'qc_score_dec'){
+            this_kf_source = dec_kf_source;
+        }else if(key === 'qc_score_inc'){
+            this_kf_source = inc_kf_source;
+        }
+
+        if(this_kf_source == 0){
+            layer.msg('请先选择会话来源')
+            return;
+        }
+
+        let thislen = count;
+        count++;
+        thisobj.attr('data-count',count);
+        $.each(example_cp.find('input'),function (k,v){
+            let thisname = $(v).attr('name');
+            $(v).attr('name',key+'['+thislen+']['+thisname+']');
+            // console.log(thisname)
+        })
+    }else if(type === 'source'){
+        let this_kf_source = 0;
+        this_kf_source = source_data[key];
+
+        if(this_kf_source == 0){
+            layer.msg('请先选择会话来源')
+            return;
+        }
+
+        let thislen = count;
+        count++;
+        thisobj.attr('data-count',count);
+        example_cp.find('input').attr('name',key+'[]');
+    }else{
+        example_cp.find('input').attr('name',key+'[]');
+    }
+
+    example_cp.appendTo(cont_id);
+})
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,2182 @@
+---------------------------------------------------------------
+[ 2022-09-16T15:11:08+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/inner_account/getOne
+[运行时间：0.281237s] [吞吐率：3.56req/s] [内存消耗：5,038.37kb] [文件加载：199]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'inner_account',
+    2 => 'getOne',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'content-length' => '0',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NjMxNDA0NzUsImV4cCI6MTY2NTczMjQ3NSwidWlkIjoxNDN9.Bmhe0j7Bg2CyMQygKqI62qEuDGBKyVEfg84VoBhRlEw',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:104.0) Gecko/20100101 Firefox/104.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/inner_account/getOne' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\InnerAccount->getOne[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\InnerAccount.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001417s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_user_group` [ RunTime:0.002827s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17,10,11,5,14,8,9,7,16) [ RunTime:0.001410s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000848s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.003980s ]
+---------------------------------------------------------------
+[ 2022-09-16T15:11:08+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/inner_account/getAdminDepartment
+[运行时间：0.106429s] [吞吐率：9.40req/s] [内存消耗：4,794.81kb] [文件加载：194]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'inner_account',
+    2 => 'getAdminDepartment',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'content-length' => '0',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NjMxNDA0NzUsImV4cCI6MTY2NTczMjQ3NSwidWlkIjoxNDN9.Bmhe0j7Bg2CyMQygKqI62qEuDGBKyVEfg84VoBhRlEw',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:104.0) Gecko/20100101 Firefox/104.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/inner_account/getAdminDepartment' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\InnerAccount->getAdminDepartment[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\InnerAccount.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001417s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_user_group` [ RunTime:0.001682s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17,10,11,5,14,8,9,7,16) [ RunTime:0.000345s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.001081s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000861s ]
+---------------------------------------------------------------
+[ 2022-09-16T15:11:08+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/Ajax/getPlatformList
+[运行时间：0.158468s] [吞吐率：6.31req/s] [内存消耗：4,844.03kb] [文件加载：194]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Ajax',
+    2 => 'getPlatformList',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'content-length' => '0',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NjMxNDA0NzUsImV4cCI6MTY2NTczMjQ3NSwidWlkIjoxNDN9.Bmhe0j7Bg2CyMQygKqI62qEuDGBKyVEfg84VoBhRlEw',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:104.0) Gecko/20100101 Firefox/104.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/Ajax/getPlatformList' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Ajax->getPlatformList[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\Ajax.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001294s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_user_group` [ RunTime:0.001510s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17,10,11,5,14,8,9,7,16) [ RunTime:0.000556s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000869s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000841s ]
+---------------------------------------------------------------
+[ 2022-09-16T15:11:09+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/inner_account/getAdmin
+[运行时间：0.312626s] [吞吐率：3.20req/s] [内存消耗：4,977.94kb] [文件加载：194]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'inner_account',
+    2 => 'getAdmin',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '13',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NjMxNDA0NzUsImV4cCI6MTY2NTczMjQ3NSwidWlkIjoxNDN9.Bmhe0j7Bg2CyMQygKqI62qEuDGBKyVEfg84VoBhRlEw',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:104.0) Gecko/20100101 Firefox/104.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/inner_account/getAdmin' => '',
+  'platform_id' => '0',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\InnerAccount->getAdmin[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\InnerAccount.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001232s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_user_group` [ RunTime:0.000932s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17,10,11,5,14,8,9,7,16) [ RunTime:0.000469s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000989s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000960s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000983s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000301s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000269s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000372s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (12) [ RunTime:0.000306s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000241s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (7) [ RunTime:0.000316s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (8) [ RunTime:0.000248s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (7) [ RunTime:0.000239s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000257s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (7) [ RunTime:0.000297s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (7) [ RunTime:0.000251s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (7) [ RunTime:0.000269s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (8) [ RunTime:0.000230s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000223s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10,11,8,9,7) [ RunTime:0.000303s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (9) [ RunTime:0.000283s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17) [ RunTime:0.000290s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (9) [ RunTime:0.000297s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (9) [ RunTime:0.000270s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (9) [ RunTime:0.000304s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (9) [ RunTime:0.000287s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17) [ RunTime:0.000310s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (9) [ RunTime:0.000288s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10,11,5,14,8,9,7,16) [ RunTime:0.000378s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (9) [ RunTime:0.000311s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (9) [ RunTime:0.000247s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (9) [ RunTime:0.000251s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (9) [ RunTime:0.000226s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (9) [ RunTime:0.000220s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (9) [ RunTime:0.000231s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000220s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000230s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17,11,5,9,7) [ RunTime:0.000260s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000311s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (13) [ RunTime:0.000314s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000301s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (13) [ RunTime:0.000297s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (13) [ RunTime:0.000251s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000223s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000236s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000218s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000260s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000273s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000260s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000307s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000242s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000313s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000291s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (9) [ RunTime:0.000293s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (9) [ RunTime:0.000337s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (9) [ RunTime:0.000288s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000297s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000284s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (9) [ RunTime:0.000286s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000280s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (12) [ RunTime:0.000299s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (12) [ RunTime:0.000271s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000243s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000237s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000237s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000276s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (7) [ RunTime:0.000269s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (7) [ RunTime:0.000235s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000270s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17,10,11,5,14,8,9,7,16) [ RunTime:0.000295s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (8) [ RunTime:0.000251s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000247s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (7,8) [ RunTime:0.000442s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (8) [ RunTime:0.000241s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (8) [ RunTime:0.000259s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (8) [ RunTime:0.000234s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (8) [ RunTime:0.000278s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (8) [ RunTime:0.000235s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (8) [ RunTime:0.000247s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (9) [ RunTime:0.000377s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (7,8) [ RunTime:0.000281s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (8) [ RunTime:0.000239s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (7,9) [ RunTime:0.000275s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (9) [ RunTime:0.000275s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (7,8) [ RunTime:0.000301s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (5) [ RunTime:0.000428s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (13) [ RunTime:0.000329s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17) [ RunTime:0.000319s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10,11,5,14,8,9,7,16) [ RunTime:0.000346s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (14) [ RunTime:0.000353s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (14) [ RunTime:0.000290s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (9) [ RunTime:0.000320s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (9) [ RunTime:0.000280s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (8) [ RunTime:0.000279s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (9) [ RunTime:0.000245s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (13) [ RunTime:0.000241s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (9) [ RunTime:0.000258s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (9) [ RunTime:0.000257s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (9) [ RunTime:0.000255s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (5,8,9,17) [ RunTime:0.000268s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (13) [ RunTime:0.000263s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (9) [ RunTime:0.000234s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (8) [ RunTime:0.000249s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (7) [ RunTime:0.000249s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (9) [ RunTime:0.000225s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (8) [ RunTime:0.000283s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (8) [ RunTime:0.000233s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (8) [ RunTime:0.000259s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (9) [ RunTime:0.000242s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (9) [ RunTime:0.000277s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000243s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000241s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000300s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000317s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000308s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000311s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000275s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000325s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000296s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000357s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (8) [ RunTime:0.000363s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (7,8) [ RunTime:0.000287s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17) [ RunTime:0.000272s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000233s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (14) [ RunTime:0.000258s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (5,14,8,9) [ RunTime:0.000265s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (13,17,5,14,8,9,7,16) [ RunTime:0.000296s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10,14,8,16) [ RunTime:0.000290s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17) [ RunTime:0.000237s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17) [ RunTime:0.000222s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000293s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (9) [ RunTime:0.000220s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17,11,5,9,7) [ RunTime:0.000258s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000238s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17) [ RunTime:0.000272s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000235s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (9) [ RunTime:0.000241s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (8) [ RunTime:0.000239s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (8) [ RunTime:0.000236s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (9) [ RunTime:0.000246s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (5,8,9,7,16) [ RunTime:0.000261s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (5) [ RunTime:0.000225s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (9) [ RunTime:0.000221s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000223s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000217s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (13) [ RunTime:0.000273s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (13,17,5,14,8,9,7,16) [ RunTime:0.000314s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (7,9) [ RunTime:0.000339s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (7,9) [ RunTime:0.000250s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000238s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (9) [ RunTime:0.000227s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (5,9,7,16) [ RunTime:0.000282s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (9) [ RunTime:0.000237s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17) [ RunTime:0.000273s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (9) [ RunTime:0.000233s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17) [ RunTime:0.000237s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (8) [ RunTime:0.000237s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000226s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000298s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000257s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (14) [ RunTime:0.000251s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (8) [ RunTime:0.000227s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (8) [ RunTime:0.000266s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (8) [ RunTime:0.000241s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000348s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000396s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000420s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (5,7,9,11,17) [ RunTime:0.001034s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000370s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000322s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000286s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.001512s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.001313s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000532s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000627s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (14) [ RunTime:0.000405s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (14,7,16) [ RunTime:0.000333s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000327s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000273s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (13) [ RunTime:0.000342s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000274s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (8) [ RunTime:0.000241s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (8) [ RunTime:0.000231s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.006771s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000565s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000362s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000372s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000307s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.010798s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (8) [ RunTime:0.000465s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000428s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000391s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.006976s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17) [ RunTime:0.000359s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000352s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000316s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000293s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17) [ RunTime:0.000268s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000234s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (8) [ RunTime:0.000223s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000343s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000340s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000310s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (8) [ RunTime:0.005952s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (5,14,8,9,7,16) [ RunTime:0.001378s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (8) [ RunTime:0.000992s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (13) [ RunTime:0.000375s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000644s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.001461s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (13) [ RunTime:0.000497s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000307s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000345s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000335s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000320s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000286s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (8) [ RunTime:0.000292s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (14,16,8,10,13) [ RunTime:0.000297s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (13) [ RunTime:0.007358s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (8) [ RunTime:0.003011s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.005736s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (13) [ RunTime:0.000448s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000367s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000290s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (9) [ RunTime:0.000293s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (8) [ RunTime:0.000338s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000323s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000376s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000308s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.001010s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (14) [ RunTime:0.000344s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000407s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000297s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000317s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000390s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000282s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17) [ RunTime:0.000269s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (13,17,10,11,5,14,8,9) [ RunTime:0.000392s ]
+---------------------------------------------------------------
+[ 2022-09-16T15:13:31+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/inner_account/getAdmin
+[运行时间：0.100761s] [吞吐率：9.92req/s] [内存消耗：4,811.54kb] [文件加载：194]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'inner_account',
+    2 => 'getAdmin',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '13',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NjMxNDA0NzUsImV4cCI6MTY2NTczMjQ3NSwidWlkIjoxNDN9.Bmhe0j7Bg2CyMQygKqI62qEuDGBKyVEfg84VoBhRlEw',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:104.0) Gecko/20100101 Firefox/104.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/inner_account/getAdmin' => '',
+  'platform_id' => '4',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\InnerAccount->getAdmin[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\InnerAccount.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001171s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_user_group` [ RunTime:0.000772s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17,10,11,5,14,8,9,7,16) [ RunTime:0.000346s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000729s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000881s ]
+---------------------------------------------------------------
+[ 2022-09-16T15:13:42+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/inner_account/getOne
+[运行时间：0.102328s] [吞吐率：9.77req/s] [内存消耗：4,922.08kb] [文件加载：198]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'inner_account',
+    2 => 'getOne',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'content-length' => '0',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NjMxNDA0NzUsImV4cCI6MTY2NTczMjQ3NSwidWlkIjoxNDN9.Bmhe0j7Bg2CyMQygKqI62qEuDGBKyVEfg84VoBhRlEw',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:104.0) Gecko/20100101 Firefox/104.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/inner_account/getOne' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\InnerAccount->getOne[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\InnerAccount.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001001s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_user_group` [ RunTime:0.000730s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17,10,11,5,14,8,9,7,16) [ RunTime:0.000329s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000681s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.001883s ]
+---------------------------------------------------------------
+[ 2022-09-16T15:13:42+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/inner_account/getAdminDepartment
+[运行时间：0.099057s] [吞吐率：10.10req/s] [内存消耗：4,795.32kb] [文件加载：194]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'inner_account',
+    2 => 'getAdminDepartment',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'content-length' => '0',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NjMxNDA0NzUsImV4cCI6MTY2NTczMjQ3NSwidWlkIjoxNDN9.Bmhe0j7Bg2CyMQygKqI62qEuDGBKyVEfg84VoBhRlEw',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:104.0) Gecko/20100101 Firefox/104.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/inner_account/getAdminDepartment' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\InnerAccount->getAdminDepartment[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\InnerAccount.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000945s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_user_group` [ RunTime:0.000806s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17,10,11,5,14,8,9,7,16) [ RunTime:0.000324s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000690s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000850s ]
+---------------------------------------------------------------
+[ 2022-09-16T15:13:42+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/inner_account/getAdmin
+[运行时间：0.092188s] [吞吐率：10.85req/s] [内存消耗：4,827.54kb] [文件加载：194]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'inner_account',
+    2 => 'getAdmin',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '13',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NjMxNDA0NzUsImV4cCI6MTY2NTczMjQ3NSwidWlkIjoxNDN9.Bmhe0j7Bg2CyMQygKqI62qEuDGBKyVEfg84VoBhRlEw',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:104.0) Gecko/20100101 Firefox/104.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/inner_account/getAdmin' => '',
+  'platform_id' => '0',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\InnerAccount->getAdmin[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\InnerAccount.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001294s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_user_group` [ RunTime:0.000985s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17,10,11,5,14,8,9,7,16) [ RunTime:0.000427s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000764s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000848s ]
+---------------------------------------------------------------
+[ 2022-09-16T15:14:21+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/inner_account/getOne
+[运行时间：0.092231s] [吞吐率：10.84req/s] [内存消耗：4,922.08kb] [文件加载：198]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'inner_account',
+    2 => 'getOne',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'content-length' => '0',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NjMxNDA0NzUsImV4cCI6MTY2NTczMjQ3NSwidWlkIjoxNDN9.Bmhe0j7Bg2CyMQygKqI62qEuDGBKyVEfg84VoBhRlEw',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:104.0) Gecko/20100101 Firefox/104.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/inner_account/getOne' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\InnerAccount->getOne[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\InnerAccount.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000992s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_user_group` [ RunTime:0.000736s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17,10,11,5,14,8,9,7,16) [ RunTime:0.000335s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000853s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000926s ]
+---------------------------------------------------------------
+[ 2022-09-16T15:14:21+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/Ajax/getPlatformList
+[运行时间：0.091128s] [吞吐率：10.97req/s] [内存消耗：4,844.03kb] [文件加载：194]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Ajax',
+    2 => 'getPlatformList',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'content-length' => '0',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NjMxNDA0NzUsImV4cCI6MTY2NTczMjQ3NSwidWlkIjoxNDN9.Bmhe0j7Bg2CyMQygKqI62qEuDGBKyVEfg84VoBhRlEw',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:104.0) Gecko/20100101 Firefox/104.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/Ajax/getPlatformList' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Ajax->getPlatformList[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\Ajax.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000916s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_user_group` [ RunTime:0.001037s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17,10,11,5,14,8,9,7,16) [ RunTime:0.000362s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000660s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000917s ]
+---------------------------------------------------------------
+[ 2022-09-16T15:14:21+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/inner_account/getAdminDepartment
+[运行时间：0.089097s] [吞吐率：11.22req/s] [内存消耗：4,795.32kb] [文件加载：194]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'inner_account',
+    2 => 'getAdminDepartment',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'content-length' => '0',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NjMxNDA0NzUsImV4cCI6MTY2NTczMjQ3NSwidWlkIjoxNDN9.Bmhe0j7Bg2CyMQygKqI62qEuDGBKyVEfg84VoBhRlEw',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:104.0) Gecko/20100101 Firefox/104.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/inner_account/getAdminDepartment' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\InnerAccount->getAdminDepartment[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\InnerAccount.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000919s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_user_group` [ RunTime:0.000930s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17,10,11,5,14,8,9,7,16) [ RunTime:0.000303s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000568s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000798s ]
+---------------------------------------------------------------
+[ 2022-09-16T15:14:22+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/inner_account/getAdmin
+[运行时间：0.116848s] [吞吐率：8.56req/s] [内存消耗：4,827.54kb] [文件加载：194]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'inner_account',
+    2 => 'getAdmin',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '13',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NjMxNDA0NzUsImV4cCI6MTY2NTczMjQ3NSwidWlkIjoxNDN9.Bmhe0j7Bg2CyMQygKqI62qEuDGBKyVEfg84VoBhRlEw',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:104.0) Gecko/20100101 Firefox/104.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/inner_account/getAdmin' => '',
+  'platform_id' => '0',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\InnerAccount->getAdmin[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\InnerAccount.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010954s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_user_group` [ RunTime:0.000724s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17,10,11,5,14,8,9,7,16) [ RunTime:0.000341s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000612s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000809s ]
+---------------------------------------------------------------
+[ 2022-09-16T15:16:58+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/inner_account/getAdmin
+[运行时间：0.103080s] [吞吐率：9.70req/s] [内存消耗：4,795.54kb] [文件加载：194]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'inner_account',
+    2 => 'getAdmin',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '13',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NjMxNDA0NzUsImV4cCI6MTY2NTczMjQ3NSwidWlkIjoxNDN9.Bmhe0j7Bg2CyMQygKqI62qEuDGBKyVEfg84VoBhRlEw',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:104.0) Gecko/20100101 Firefox/104.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/inner_account/getAdmin' => '',
+  'platform_id' => '7',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\InnerAccount->getAdmin[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\InnerAccount.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000887s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_user_group` [ RunTime:0.000712s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17,10,11,5,14,8,9,7,16) [ RunTime:0.000317s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.002331s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000986s ]
+---------------------------------------------------------------
+[ 2022-09-16T15:17:45+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/inner_account/edit
+[运行时间：0.091785s] [吞吐率：10.90req/s] [内存消耗：4,826.63kb] [文件加载：198]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'inner_account',
+    2 => 'edit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '72',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NjMxNDA0NzUsImV4cCI6MTY2NTczMjQ3NSwidWlkIjoxNDN9.Bmhe0j7Bg2CyMQygKqI62qEuDGBKyVEfg84VoBhRlEw',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:104.0) Gecko/20100101 Firefox/104.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/inner_account/edit' => '',
+  'account_platform_id' => '7',
+  'admin_department_id' => '1',
+  'admin_id' => '112',
+  'account' => '123',
+  'id' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\InnerAccount->edit[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\InnerAccount.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000984s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_user_group` [ RunTime:0.002692s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17,10,11,5,14,8,9,7,16) [ RunTime:0.000330s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000575s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000844s ]
+---------------------------------------------------------------
+[ 2022-09-16T15:17:46+08:00 ] 127.0.0.1 GET api.newkefu.com/admin/inner_account/index?page=1&limit=20
+[运行时间：0.114513s] [吞吐率：8.73req/s] [内存消耗：4,968.73kb] [文件加载：202]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'inner_account',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NjMxNDA0NzUsImV4cCI6MTY2NTczMjQ3NSwidWlkIjoxNDN9.Bmhe0j7Bg2CyMQygKqI62qEuDGBKyVEfg84VoBhRlEw',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:104.0) Gecko/20100101 Firefox/104.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/inner_account/index' => '',
+  'page' => '1',
+  'limit' => '20',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\InnerAccount->index[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\InnerAccount.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000904s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_user_group` [ RunTime:0.001001s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17,10,11,5,14,8,9,7,16) [ RunTime:0.000331s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.001047s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000938s ]
+[ error ] [10501]SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'IS NULL LIMIT 0,20' at line 1[D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\library\think\db\Connection.php:385]
+---------------------------------------------------------------
+[ 2022-09-16T15:17:46+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/account_registration/getAdminDepartment
+[运行时间：0.112708s] [吞吐率：8.87req/s] [内存消耗：4,844.66kb] [文件加载：195]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'account_registration',
+    2 => 'getAdminDepartment',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'content-length' => '0',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NjMxNDA0NzUsImV4cCI6MTY2NTczMjQ3NSwidWlkIjoxNDN9.Bmhe0j7Bg2CyMQygKqI62qEuDGBKyVEfg84VoBhRlEw',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:104.0) Gecko/20100101 Firefox/104.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/account_registration/getAdminDepartment' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\AccountRegistration->getAdminDepartment[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\AccountRegistration.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001417s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_user_group` [ RunTime:0.001004s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17,10,11,5,14,8,9,7,16) [ RunTime:0.000344s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000910s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000790s ]
+---------------------------------------------------------------
+[ 2022-09-16T15:22:40+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/inner_account/getOne
+[运行时间：0.107888s] [吞吐率：9.27req/s] [内存消耗：4,922.17kb] [文件加载：198]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'inner_account',
+    2 => 'getOne',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'content-length' => '0',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NjMxNDA0NzUsImV4cCI6MTY2NTczMjQ3NSwidWlkIjoxNDN9.Bmhe0j7Bg2CyMQygKqI62qEuDGBKyVEfg84VoBhRlEw',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:104.0) Gecko/20100101 Firefox/104.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/inner_account/getOne' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\InnerAccount->getOne[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\InnerAccount.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000997s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_user_group` [ RunTime:0.000658s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17,10,11,5,14,8,9,7,16) [ RunTime:0.000316s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000647s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000925s ]
+---------------------------------------------------------------
+[ 2022-09-16T15:22:40+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/Ajax/getPlatformList
+[运行时间：0.090480s] [吞吐率：11.05req/s] [内存消耗：4,844.03kb] [文件加载：194]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'Ajax',
+    2 => 'getPlatformList',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'content-length' => '0',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NjMxNDA0NzUsImV4cCI6MTY2NTczMjQ3NSwidWlkIjoxNDN9.Bmhe0j7Bg2CyMQygKqI62qEuDGBKyVEfg84VoBhRlEw',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:104.0) Gecko/20100101 Firefox/104.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/Ajax/getPlatformList' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Ajax->getPlatformList[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\Ajax.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000989s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_user_group` [ RunTime:0.000731s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17,10,11,5,14,8,9,7,16) [ RunTime:0.000377s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000674s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000858s ]
+---------------------------------------------------------------
+[ 2022-09-16T15:22:40+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/inner_account/getAdminDepartment
+[运行时间：0.116635s] [吞吐率：8.57req/s] [内存消耗：4,795.41kb] [文件加载：194]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'inner_account',
+    2 => 'getAdminDepartment',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'content-length' => '0',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NjMxNDA0NzUsImV4cCI6MTY2NTczMjQ3NSwidWlkIjoxNDN9.Bmhe0j7Bg2CyMQygKqI62qEuDGBKyVEfg84VoBhRlEw',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:104.0) Gecko/20100101 Firefox/104.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/inner_account/getAdminDepartment' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\InnerAccount->getAdminDepartment[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\InnerAccount.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001042s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_user_group` [ RunTime:0.000677s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17,10,11,5,14,8,9,7,16) [ RunTime:0.000322s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000709s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000819s ]
+---------------------------------------------------------------
+[ 2022-09-16T15:22:41+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/inner_account/getAdmin
+[运行时间：0.209180s] [吞吐率：4.78req/s] [内存消耗：4,978.54kb] [文件加载：194]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'inner_account',
+    2 => 'getAdmin',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '13',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NjMxNDA0NzUsImV4cCI6MTY2NTczMjQ3NSwidWlkIjoxNDN9.Bmhe0j7Bg2CyMQygKqI62qEuDGBKyVEfg84VoBhRlEw',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:104.0) Gecko/20100101 Firefox/104.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/inner_account/getAdmin' => '',
+  'platform_id' => '0',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\InnerAccount->getAdmin[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\InnerAccount.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000933s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_user_group` [ RunTime:0.000698s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17,10,11,5,14,8,9,7,16) [ RunTime:0.000313s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000783s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000880s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000381s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000273s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000241s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000226s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (12) [ RunTime:0.000219s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000241s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (7) [ RunTime:0.000224s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (8) [ RunTime:0.000216s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (7) [ RunTime:0.000251s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000218s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (7) [ RunTime:0.000225s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (7) [ RunTime:0.000407s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (7) [ RunTime:0.000235s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (8) [ RunTime:0.000222s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000221s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10,11,8,9,7) [ RunTime:0.000251s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (9) [ RunTime:0.000232s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17) [ RunTime:0.000225s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (9) [ RunTime:0.000219s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (9) [ RunTime:0.000230s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (9) [ RunTime:0.000214s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (9) [ RunTime:0.000233s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17) [ RunTime:0.000229s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (9) [ RunTime:0.000213s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10,11,5,14,8,9,7,16) [ RunTime:0.000250s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (9) [ RunTime:0.000219s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (9) [ RunTime:0.000286s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (9) [ RunTime:0.000258s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (9) [ RunTime:0.000362s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (9) [ RunTime:0.000390s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (9) [ RunTime:0.000277s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000276s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000237s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17,11,5,9,7) [ RunTime:0.000341s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000226s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (13) [ RunTime:0.000234s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000227s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (13) [ RunTime:0.000220s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (13) [ RunTime:0.000224s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000215s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000219s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000215s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000214s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000225s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000216s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000214s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000249s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000230s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000238s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (9) [ RunTime:0.000217s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (9) [ RunTime:0.000224s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (9) [ RunTime:0.000238s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000288s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000295s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (9) [ RunTime:0.000276s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000250s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (12) [ RunTime:0.000225s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (12) [ RunTime:0.000257s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000225s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000221s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000253s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000239s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (7) [ RunTime:0.000227s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (7) [ RunTime:0.000234s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000294s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17,10,11,5,14,8,9,7,16) [ RunTime:0.000480s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (8) [ RunTime:0.000271s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000249s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (7,8) [ RunTime:0.000239s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (8) [ RunTime:0.000219s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (8) [ RunTime:0.000216s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (8) [ RunTime:0.000214s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (8) [ RunTime:0.000302s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (8) [ RunTime:0.000221s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (8) [ RunTime:0.000220s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (9) [ RunTime:0.000215s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (7,8) [ RunTime:0.000234s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (8) [ RunTime:0.000217s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (7,9) [ RunTime:0.000259s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (9) [ RunTime:0.000221s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (7,8) [ RunTime:0.000227s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (5) [ RunTime:0.000221s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (13) [ RunTime:0.000213s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17) [ RunTime:0.000226s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10,11,5,14,8,9,7,16) [ RunTime:0.000282s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (14) [ RunTime:0.000253s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (14) [ RunTime:0.000225s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (9) [ RunTime:0.000218s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (9) [ RunTime:0.000212s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (8) [ RunTime:0.000213s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (9) [ RunTime:0.000223s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (13) [ RunTime:0.000215s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (9) [ RunTime:0.000237s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (9) [ RunTime:0.000213s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (9) [ RunTime:0.000218s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (5,8,9,17) [ RunTime:0.000231s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (13) [ RunTime:0.000215s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (9) [ RunTime:0.000216s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (8) [ RunTime:0.000213s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (7) [ RunTime:0.000258s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (9) [ RunTime:0.000264s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (8) [ RunTime:0.000288s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (8) [ RunTime:0.000279s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (8) [ RunTime:0.000270s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (9) [ RunTime:0.000231s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (9) [ RunTime:0.000229s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000221s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000220s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000221s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000217s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000218s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000210s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000330s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000223s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000244s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000226s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (8) [ RunTime:0.000219s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (7,8) [ RunTime:0.000300s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17) [ RunTime:0.000247s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000266s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (14) [ RunTime:0.000301s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (5,14,8,9) [ RunTime:0.000319s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (13,17,5,14,8,9,7,16) [ RunTime:0.000347s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10,14,8,16) [ RunTime:0.000335s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17) [ RunTime:0.000284s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17) [ RunTime:0.000274s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000243s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (9) [ RunTime:0.000241s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17,11,5,9,7) [ RunTime:0.000276s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000226s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17) [ RunTime:0.000227s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000216s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (9) [ RunTime:0.000278s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (8) [ RunTime:0.000216s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (8) [ RunTime:0.000258s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (9) [ RunTime:0.000246s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (5,8,9,7,16) [ RunTime:0.000342s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (5) [ RunTime:0.000299s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (9) [ RunTime:0.000274s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000258s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000236s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (13) [ RunTime:0.000224s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (13,17,5,14,8,9,7,16) [ RunTime:0.000264s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (7,9) [ RunTime:0.000239s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (7,9) [ RunTime:0.000263s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000233s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (9) [ RunTime:0.000265s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (5,9,7,16) [ RunTime:0.000266s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (9) [ RunTime:0.000227s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17) [ RunTime:0.000224s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (9) [ RunTime:0.000219s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17) [ RunTime:0.000298s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (8) [ RunTime:0.000259s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000264s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000248s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000228s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (14) [ RunTime:0.000220s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (8) [ RunTime:0.000224s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (8) [ RunTime:0.000226s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (8) [ RunTime:0.000215s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000232s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000220s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000212s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (5,7,9,11,17) [ RunTime:0.000254s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000218s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000214s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000215s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000232s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000215s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000212s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000215s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (14) [ RunTime:0.000214s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (14,7,16) [ RunTime:0.000264s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000231s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000229s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (13) [ RunTime:0.000217s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000252s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (8) [ RunTime:0.000251s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (8) [ RunTime:0.000241s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000243s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000219s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000225s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000221s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000227s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000245s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (8) [ RunTime:0.000262s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000281s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000227s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000261s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17) [ RunTime:0.000231s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000228s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000220s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000225s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17) [ RunTime:0.000225s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000236s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (8) [ RunTime:0.000219s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000231s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000216s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000228s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (8) [ RunTime:0.000216s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (5,14,8,9,7,16) [ RunTime:0.000277s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (8) [ RunTime:0.000229s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (13) [ RunTime:0.000252s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000233s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000219s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (13) [ RunTime:0.000217s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000214s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000219s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000256s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000229s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000265s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (8) [ RunTime:0.000225s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (14,16,8,10,13) [ RunTime:0.000259s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (13) [ RunTime:0.000222s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (8) [ RunTime:0.000216s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000215s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (13) [ RunTime:0.000222s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000213s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000213s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (9) [ RunTime:0.000274s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (8) [ RunTime:0.000358s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000253s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000228s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000240s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000221s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (14) [ RunTime:0.000231s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000218s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000243s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000219s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (10) [ RunTime:0.000216s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (11) [ RunTime:0.000225s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17) [ RunTime:0.000215s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (13,17,10,11,5,14,8,9) [ RunTime:0.000270s ]
+---------------------------------------------------------------
+[ 2022-09-16T15:22:43+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/inner_account/getAdmin
+[运行时间：0.085335s] [吞吐率：11.72req/s] [内存消耗：4,795.63kb] [文件加载：194]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'inner_account',
+    2 => 'getAdmin',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '13',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NjMxNDA0NzUsImV4cCI6MTY2NTczMjQ3NSwidWlkIjoxNDN9.Bmhe0j7Bg2CyMQygKqI62qEuDGBKyVEfg84VoBhRlEw',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:104.0) Gecko/20100101 Firefox/104.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/inner_account/getAdmin' => '',
+  'platform_id' => '7',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\InnerAccount->getAdmin[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\InnerAccount.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000913s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_user_group` [ RunTime:0.000661s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17,10,11,5,14,8,9,7,16) [ RunTime:0.000309s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000514s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000784s ]
+---------------------------------------------------------------
+[ 2022-09-16T15:22:55+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/inner_account/edit
+[运行时间：0.083530s] [吞吐率：11.97req/s] [内存消耗：4,756.93kb] [文件加载：195]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'inner_account',
+    2 => 'edit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '71',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NjMxNDA0NzUsImV4cCI6MTY2NTczMjQ3NSwidWlkIjoxNDN9.Bmhe0j7Bg2CyMQygKqI62qEuDGBKyVEfg84VoBhRlEw',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:104.0) Gecko/20100101 Firefox/104.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/inner_account/edit' => '',
+  'account_platform_id' => '7',
+  'admin_department_id' => '1',
+  'admin_id' => '99',
+  'account' => '123',
+  'id' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\InnerAccount->edit[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\InnerAccount.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000922s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_user_group` [ RunTime:0.000676s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17,10,11,5,14,8,9,7,16) [ RunTime:0.000342s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000607s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000803s ]
+---------------------------------------------------------------
+[ 2022-09-16T15:23:34+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/inner_account/getAdmin
+[运行时间：0.087558s] [吞吐率：11.42req/s] [内存消耗：4,811.63kb] [文件加载：194]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'inner_account',
+    2 => 'getAdmin',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NjMxNDA0NzUsImV4cCI6MTY2NTczMjQ3NSwidWlkIjoxNDN9.Bmhe0j7Bg2CyMQygKqI62qEuDGBKyVEfg84VoBhRlEw',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '13',
+  'referer' => 'http://www.newkefu.com/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:104.0) Gecko/20100101 Firefox/104.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/inner_account/getAdmin' => '',
+  'platform_id' => '4',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\InnerAccount->getAdmin[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\InnerAccount.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000999s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_user_group` [ RunTime:0.000674s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17,10,11,5,14,8,9,7,16) [ RunTime:0.000299s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000519s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000793s ]
+---------------------------------------------------------------
+[ 2022-09-16T15:23:39+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/inner_account/getAdmin
+[运行时间：0.093031s] [吞吐率：10.75req/s] [内存消耗：4,811.63kb] [文件加载：194]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'inner_account',
+    2 => 'getAdmin',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NjMxNDA0NzUsImV4cCI6MTY2NTczMjQ3NSwidWlkIjoxNDN9.Bmhe0j7Bg2CyMQygKqI62qEuDGBKyVEfg84VoBhRlEw',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '13',
+  'referer' => 'http://www.newkefu.com/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:104.0) Gecko/20100101 Firefox/104.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/inner_account/getAdmin' => '',
+  'platform_id' => '4',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\InnerAccount->getAdmin[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\InnerAccount.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000880s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_user_group` [ RunTime:0.000973s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17,10,11,5,14,8,9,7,16) [ RunTime:0.000322s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000566s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000806s ]
+---------------------------------------------------------------
+[ 2022-09-16T15:23:42+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/inner_account/edit
+[运行时间：0.090902s] [吞吐率：11.00req/s] [内存消耗：4,741.16kb] [文件加载：194]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'inner_account',
+    2 => 'edit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NjMxNDA0NzUsImV4cCI6MTY2NTczMjQ3NSwidWlkIjoxNDN9.Bmhe0j7Bg2CyMQygKqI62qEuDGBKyVEfg84VoBhRlEw',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '71',
+  'referer' => 'http://www.newkefu.com/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:104.0) Gecko/20100101 Firefox/104.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/inner_account/edit' => '',
+  'account_platform_id' => '7',
+  'admin_department_id' => '1',
+  'admin_id' => '99',
+  'account' => '123',
+  'id' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\InnerAccount->edit[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\InnerAccount.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000823s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_user_group` [ RunTime:0.000993s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17,10,11,5,14,8,9,7,16) [ RunTime:0.000355s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000541s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000796s ]
+---------------------------------------------------------------
+[ 2022-09-16T15:24:01+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/inner_account/edit
+[运行时间：0.082407s] [吞吐率：12.13req/s] [内存消耗：4,741.16kb] [文件加载：194]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'inner_account',
+    2 => 'edit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NjMxNDA0NzUsImV4cCI6MTY2NTczMjQ3NSwidWlkIjoxNDN9.Bmhe0j7Bg2CyMQygKqI62qEuDGBKyVEfg84VoBhRlEw',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '71',
+  'referer' => 'http://www.newkefu.com/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:104.0) Gecko/20100101 Firefox/104.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/inner_account/edit' => '',
+  'account_platform_id' => '7',
+  'admin_department_id' => '1',
+  'admin_id' => '99',
+  'account' => '123',
+  'id' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\InnerAccount->edit[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\InnerAccount.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000847s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_user_group` [ RunTime:0.000585s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17,10,11,5,14,8,9,7,16) [ RunTime:0.000321s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000505s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000776s ]
+---------------------------------------------------------------
+[ 2022-09-16T15:24:24+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/inner_account/edit
+[运行时间：0.098715s] [吞吐率：10.13req/s] [内存消耗：4,726.81kb] [文件加载：191]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'inner_account',
+    2 => 'edit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NjMxNDA0NzUsImV4cCI6MTY2NTczMjQ3NSwidWlkIjoxNDN9.Bmhe0j7Bg2CyMQygKqI62qEuDGBKyVEfg84VoBhRlEw',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '71',
+  'referer' => 'http://www.newkefu.com/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:104.0) Gecko/20100101 Firefox/104.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/inner_account/edit' => '',
+  'account_platform_id' => '7',
+  'admin_department_id' => '1',
+  'admin_id' => '99',
+  'account' => '123',
+  'id' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\InnerAccount->edit[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\InnerAccount.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010905s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_user_group` [ RunTime:0.000772s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17,10,11,5,14,8,9,7,16) [ RunTime:0.000381s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000766s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000824s ]
+---------------------------------------------------------------
+[ 2022-09-16T15:24:34+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/inner_account/edit
+[运行时间：0.083991s] [吞吐率：11.91req/s] [内存消耗：4,726.81kb] [文件加载：191]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'inner_account',
+    2 => 'edit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NjMxNDA0NzUsImV4cCI6MTY2NTczMjQ3NSwidWlkIjoxNDN9.Bmhe0j7Bg2CyMQygKqI62qEuDGBKyVEfg84VoBhRlEw',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '71',
+  'referer' => 'http://www.newkefu.com/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:104.0) Gecko/20100101 Firefox/104.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/inner_account/edit' => '',
+  'account_platform_id' => '7',
+  'admin_department_id' => '1',
+  'admin_id' => '99',
+  'account' => '123',
+  'id' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\InnerAccount->edit[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\InnerAccount.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000942s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_user_group` [ RunTime:0.000713s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_user_group` WHERE  `id` IN (17,10,11,5,14,8,9,7,16) [ RunTime:0.000314s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000720s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000791s ]
+---------------------------------------------------------------
+[ 2022-09-16T15:36:08+08:00 ] 127.0.0.1 GET api.newkefu.com/api/test/changenb?uid=573467723
+[运行时间：0.107529s] [吞吐率：9.30req/s] [内存消耗：4,033.17kb] [文件加载：176]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'test',
+    2 => 'changenb',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:104.0) Gecko/20100101 Firefox/104.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/api/test/changenb' => '',
+  'uid' => '573467723',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\api\controller\Test->changenb[ D:\phpstudy_pro\WWW\new_kefu_online\application\api\controller\Test.php ]
+[ info ] [ LOG ] INIT File
+[ error ] [0]致命错误: Class 'app\api\controller\nbcq2youyu' not found[D:\phpstudy_pro\WWW\new_kefu_online\application\api\controller\Test.php:403]
+---------------------------------------------------------------
+[ 2022-09-16T15:36:35+08:00 ] 127.0.0.1 GET api.newkefu.com/api/test/changenb?uid=573467723
+[运行时间：0.057184s] [吞吐率：17.49req/s] [内存消耗：2,707.86kb] [文件加载：158]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'test',
+    2 => 'changenb',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:104.0) Gecko/20100101 Firefox/104.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/api/test/changenb' => '',
+  'uid' => '573467723',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\api\controller\Test->changenb[ D:\phpstudy_pro\WWW\new_kefu_online\application\api\controller\Test.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-09-16T15:37:23+08:00 ] 127.0.0.1 GET api.newkefu.com/api/test/changenb?uid=573467723
+[运行时间：0.476067s] [吞吐率：2.10req/s] [内存消耗：2,730.34kb] [文件加载：160]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'test',
+    2 => 'changenb',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:104.0) Gecko/20100101 Firefox/104.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/api/test/changenb' => '',
+  'uid' => '573467723',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\api\controller\Test->changenb[ D:\phpstudy_pro\WWW\new_kefu_online\application\api\controller\Test.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-09-16T15:38:36+08:00 ] 127.0.0.1 GET api.newkefu.com/api/test/changenb?uid=21393561
+[运行时间：0.350581s] [吞吐率：2.85req/s] [内存消耗：2,730.52kb] [文件加载：160]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'test',
+    2 => 'changenb',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:104.0) Gecko/20100101 Firefox/104.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/api/test/changenb' => '',
+  'uid' => '21393561',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\api\controller\Test->changenb[ D:\phpstudy_pro\WWW\new_kefu_online\application\api\controller\Test.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-09-16T15:39:17+08:00 ] 127.0.0.1 GET api.newkefu.com/api/test/changenb?uid=21393561
+[运行时间：0.056774s] [吞吐率：17.61req/s] [内存消耗：2,731.41kb] [文件加载：160]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'test',
+    2 => 'changenb',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:104.0) Gecko/20100101 Firefox/104.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/api/test/changenb' => '',
+  'uid' => '21393561',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\api\controller\Test->changenb[ D:\phpstudy_pro\WWW\new_kefu_online\application\api\controller\Test.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-09-16T15:44:30+08:00 ] 127.0.0.1 GET api.newkefu.com/api/test/changenb?uid=21393561
+[运行时间：0.214170s] [吞吐率：4.67req/s] [内存消耗：2,731.90kb] [文件加载：160]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'test',
+    2 => 'changenb',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:104.0) Gecko/20100101 Firefox/104.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/api/test/changenb' => '',
+  'uid' => '21393561',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\api\controller\Test->changenb[ D:\phpstudy_pro\WWW\new_kefu_online\application\api\controller\Test.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-09-16T15:45:14+08:00 ] 127.0.0.1 GET api.newkefu.com/api/test/changenb?uid=21393561
+[运行时间：0.279204s] [吞吐率：3.58req/s] [内存消耗：2,732.71kb] [文件加载：160]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'test',
+    2 => 'changenb',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:104.0) Gecko/20100101 Firefox/104.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/api/test/changenb' => '',
+  'uid' => '21393561',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\api\controller\Test->changenb[ D:\phpstudy_pro\WWW\new_kefu_online\application\api\controller\Test.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-09-16T15:46:02+08:00 ] 127.0.0.1 GET api.newkefu.com/api/test/changenb?uid=573467723&type=1
+[运行时间：0.602285s] [吞吐率：1.66req/s] [内存消耗：2,730.91kb] [文件加载：160]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'test',
+    2 => 'changenb',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:104.0) Gecko/20100101 Firefox/104.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/api/test/changenb' => '',
+  'uid' => '573467723',
+  'type' => '1',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\api\controller\Test->changenb[ D:\phpstudy_pro\WWW\new_kefu_online\application\api\controller\Test.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-09-16T15:46:14+08:00 ] 127.0.0.1 GET api.newkefu.com/api/test/changenb?uid=21393561
+[运行时间：0.282862s] [吞吐率：3.54req/s] [内存消耗：2,730.88kb] [文件加载：160]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'test',
+    2 => 'changenb',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:104.0) Gecko/20100101 Firefox/104.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/api/test/changenb' => '',
+  'uid' => '21393561',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\api\controller\Test->changenb[ D:\phpstudy_pro\WWW\new_kefu_online\application\api\controller\Test.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-09-16T15:48:11+08:00 ] 127.0.0.1 GET api.newkefu.com/api/test/changenb?uid=573467723
+[运行时间：0.438164s] [吞吐率：2.28req/s] [内存消耗：2,730.93kb] [文件加载：160]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'test',
+    2 => 'changenb',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:104.0) Gecko/20100101 Firefox/104.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/api/test/changenb' => '',
+  'uid' => '573467723',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\api\controller\Test->changenb[ D:\phpstudy_pro\WWW\new_kefu_online\application\api\controller\Test.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-09-16T15:48:29+08:00 ] 127.0.0.1 GET api.newkefu.com/api/test/changenb?uid=21393561&uid_to_openid=0
+[运行时间：0.290662s] [吞吐率：3.44req/s] [内存消耗：2,730.95kb] [文件加载：160]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'test',
+    2 => 'changenb',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:104.0) Gecko/20100101 Firefox/104.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/api/test/changenb' => '',
+  'uid' => '21393561',
+  'uid_to_openid' => '0',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\api\controller\Test->changenb[ D:\phpstudy_pro\WWW\new_kefu_online\application\api\controller\Test.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-09-16T15:48:56+08:00 ] 127.0.0.1 GET api.newkefu.com/api/test/changenb?uid=21393561&uid_to_openid=0
+[运行时间：0.307609s] [吞吐率：3.25req/s] [内存消耗：2,732.78kb] [文件加载：160]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'test',
+    2 => 'changenb',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:104.0) Gecko/20100101 Firefox/104.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/api/test/changenb' => '',
+  'uid' => '21393561',
+  'uid_to_openid' => '0',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\api\controller\Test->changenb[ D:\phpstudy_pro\WWW\new_kefu_online\application\api\controller\Test.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-09-16T15:49:32+08:00 ] 127.0.0.1 GET api.newkefu.com/api/test/changenb?uid=21393561&uid_to_openid=0
+[运行时间：0.420567s] [吞吐率：2.38req/s] [内存消耗：2,737.55kb] [文件加载：166]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'test',
+    2 => 'changenb',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:104.0) Gecko/20100101 Firefox/104.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/api/test/changenb' => '',
+  'uid' => '21393561',
+  'uid_to_openid' => '0',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\api\controller\Test->changenb[ D:\phpstudy_pro\WWW\new_kefu_online\application\api\controller\Test.php ]
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义数组索引: uid[D:\phpstudy_pro\WWW\new_kefu_online\extend\GamekeySign\nbcq2youyu.php:42]
+---------------------------------------------------------------
+[ 2022-09-16T15:49:49+08:00 ] 127.0.0.1 GET api.newkefu.com/api/test/changenb?uid=21393561&uid_to_openid=0
+[运行时间：0.248920s] [吞吐率：4.02req/s] [内存消耗：2,732.78kb] [文件加载：160]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'test',
+    2 => 'changenb',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:104.0) Gecko/20100101 Firefox/104.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/api/test/changenb' => '',
+  'uid' => '21393561',
+  'uid_to_openid' => '0',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\api\controller\Test->changenb[ D:\phpstudy_pro\WWW\new_kefu_online\application\api\controller\Test.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-09-16T15:52:05+08:00 ] 127.0.0.1 GET api.newkefu.com/api/test/changenb?uid=21393561&uid_to_openid=0
+[运行时间：0.391589s] [吞吐率：2.55req/s] [内存消耗：2,730.95kb] [文件加载：160]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'test',
+    2 => 'changenb',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:104.0) Gecko/20100101 Firefox/104.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/api/test/changenb' => '',
+  'uid' => '21393561',
+  'uid_to_openid' => '0',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\api\controller\Test->changenb[ D:\phpstudy_pro\WWW\new_kefu_online\application\api\controller\Test.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-09-16T15:52:14+08:00 ] 127.0.0.1 GET api.newkefu.com/api/test/changenb?uid=573467723&uid_to_openid=1
+[运行时间：0.262127s] [吞吐率：3.81req/s] [内存消耗：2,730.95kb] [文件加载：160]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'test',
+    2 => 'changenb',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:104.0) Gecko/20100101 Firefox/104.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/api/test/changenb' => '',
+  'uid' => '573467723',
+  'uid_to_openid' => '1',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\api\controller\Test->changenb[ D:\phpstudy_pro\WWW\new_kefu_online\application\api\controller\Test.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-09-16T15:52:20+08:00 ] 127.0.0.1 GET api.newkefu.com/api/test/changenb?uid=21393561&uid_to_openid=0
+[运行时间：0.259133s] [吞吐率：3.86req/s] [内存消耗：2,730.95kb] [文件加载：160]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'test',
+    2 => 'changenb',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:104.0) Gecko/20100101 Firefox/104.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/api/test/changenb' => '',
+  'uid' => '21393561',
+  'uid_to_openid' => '0',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\api\controller\Test->changenb[ D:\phpstudy_pro\WWW\new_kefu_online\application\api\controller\Test.php ]
+[ info ] [ LOG ] INIT File

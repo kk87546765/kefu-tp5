@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <title>后台管理系统</title>
+    <link rel="stylesheet" href="/assets/vendor/layui/css/layui.css"/>
+    <link rel="stylesheet" href="/assets/model/common/css/style.css"/>
+    <!--[if lt IE 9]>
+    <script src="/assets/model/common/js/html5shiv.min.js"></script>
+    <script src="/assets/model/common/js/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        .layui-col-space15 {
+            /* margin: -7.5px; */
+            margin:-7.5px 0 !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="layui-row layui-col-space15">
+        <div class="layui-col-md12">
+            <div class="layui-card">
+                <div class="layui-card-body" id="search_tag" style="height: 50px;">
+                    <div class="layui-form toolbar">
+                        <div class="layui-form-item">
+                            <div class="layui-inline">
+                                <label class="layui-form-label w-auto">产品：</label>
+                                <div class="layui-input-inline">
+                                    <select name="productId" id="product_id_search" lay-filter="product_id_search">
+                                        <option value="">全部</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="layui-inline">
+                                <label class="layui-form-label w-auto">游戏名称：</label>
+                                <div class="layui-input-inline">
+                                    <select name="gameId" id="game_id_search" lay-filter="game_id_search">
+                                        <option value="">全部</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <button type="button" id="briefingIndex" class="layui-btn">今日简报</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="layui-fluid" >
+        <div class="layui-row layui-col-space15" id="pcTab">
+                <div class="layui-col-md3">
+                    <div class="layui-card">
+                        <div class="layui-card-header">今天注册</div>
+                        <div class="layui-card-body">
+                            <div class="lay-big-font" id="pcTabtodayRegister"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-md3">
+                    <div class="layui-card">
+                        <div class="layui-card-header">新用户充值</div>
+                        <div class="layui-card-body">
+                            <div class="lay-big-font" id="pcTabnewUserPay"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-md3">
+                    <div class="layui-card">
+                        <div class="layui-card-header">今天充值</div>
+                        <div class="layui-card-body">
+                            <div class="lay-big-font" id="pcTabtodayPay"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-col-md3">
+                    <div class="layui-card">
+                        <div class="layui-card-header">总充值</div>
+                        <div class="layui-card-body">
+                            <div class="lay-big-font" id="pcTabsumPay"></div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+        <div class="layui-row layui-col-space15" id="webTab">
+            <div class="layui-col-md12">
+                <table class="layui-table layui-text">
+                    <tbody>
+                    <tr style="border-bottom-style: hidden">
+                        <td>今天注册</td>
+                        <td>新用户充值</td>
+                    </tr>
+                    <tr>
+                        <td id="webTabtodayRegister" style="font-size: 20px">0</td>
+                        <td id="webTabnewUserPay" style="font-size: 20px">0</td>
+                    </tr>
+                    <tr style="border-bottom-style: hidden">
+                        <td>今天充值</td>
+                        <td>总充值</td>
+                    </tr>
+                    <tr>
+                        <td id="webTabtodayPay" style="font-size: 20px">0</td>
+                        <td id="webTabsumPay" style="font-size: 20px">0</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="layui-row layui-col-space15">
+            <div class="layui-col-md12">
+                <div class="layui-card">
+                    <div class="layui-card-body">
+                        <div id="lineData"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="layui-row layui-col-space15">
+            <div class="layui-col-md4">
+                <div class="layui-card">
+                    <div class="layui-card-header">注册</div>
+                    <div class="layui-card-body">
+                        <table class="layui-table layui-text">
+                            <!--                            <colgroup><col width="100"><col></colgroup>-->
+                            <tbody>
+                            <tr>
+                                <td>今天</td>
+                                <td id="todayRegNum">0</td>
+                                <td>本周</td>
+                                <td id="weekRegNum">0</td>
+                            </tr>
+                            <tr>
+                                <td>昨天</td>
+                                <td id="yesterdayRegNum">0</td>
+                                <td>上周</td>
+                                <td id="lastWeekRegNum">0</td>
+                            </tr>
+                            <tr>
+                                <td>本月</td>
+                                <td id="monthRegNum">0</td>
+                                <td>历史</td>
+                                <td id="sumRegNum">0</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="layui-col-md4">
+                <div class="layui-card">
+                    <div class="layui-card-header">充值</div>
+                    <div class="layui-card-body">
+                        <table class="layui-table layui-text">
+                            <tbody>
+                            <tr>
+                                <td>今天</td>
+                                <td id="todayMoney">0</td>
+                                <td>本周</td>
+                                <td id="weekMoney">0</td>
+                            </tr>
+                            <tr>
+                                <td>昨天</td>
+                                <td id="yesterdayMoney">0</td>
+                                <td>上周</td>
+                                <td id="lastWeekMoney">0</td>
+                            </tr>
+                            <tr>
+                                <td>本月</td>
+                                <td id="monthMoney">0</td>
+                                <td>历史</td>
+                                <td id="sumMoney">0</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="layui-col-md4">
+                <div class="layui-card">
+                    <div class="layui-card-header">投放</div>
+                    <div class="layui-card-body">
+                        <table class="layui-table layui-text">
+                            <tbody>
+                            <tr>
+                                <td>今天</td>
+                                <td id="todayCost">0</td>
+                                <td>本周</td>
+                                <td id="weekCost">0</td>
+                            </tr>
+                            <tr>
+                                <td>昨天</td>
+                                <td id="yesterdayCost">0</td>
+                                <td>上周</td>
+                                <td id="lastWeekCost">0</td>
+                            </tr>
+                            <tr>
+                                <td>本月</td>
+                                <td id="monthCost">0</td>
+                                <td>历史</td>
+                                <td id="sumCost">0</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<!-- 加载动画 -->
+<div class="page-loading">
+    <div class="ball-loader">
+        <span></span><span></span><span></span><span></span>
+    </div>
+</div>
+
+</body>
+<script type="text/javascript" src="/assets/vendor/layui/layui.js"></script>
+<script type="text/javascript" src="/assets/model/echarts.min.js"></script>
+<script>
+	layui.config({
+	    version: true,
+	    base: '/assets/model/'
+	}).extend({
+	    common: 'common/js/common',
+	}).use(['common','jquery','form','common'], function () {
+        var $ = layui.jquery;
+        var form = layui.form;
+        var common = layui.common;
+
+        var sUserAgent = navigator.userAgent;
+        var is_phone = false;
+        var tpl = 'pcTab';
+        if(sUserAgent.indexOf('Android') > -1 || sUserAgent.indexOf('iPhone') > -1 || sUserAgent.indexOf('iPad') > -1 || sUserAgent.indexOf('iPod') > -1 || sUserAgent.indexOf('Symbian') > -1 || window.innerWidth < 800)
+        {
+            is_phone = true;
+            tpl = 'webTab';
+        }
+
+        if (is_phone) {
+            //是手机端
+            $('#webTab').show();
+            $('#pcTab').hide();
+            $('#lineData').attr('style', 'width:auto;height:200px;');
+            $('#search_tag').attr('style', 'height:200px;');
+        } else {
+            $('#webTab').hide();
+            $('#pcTab').show();
+            $('#lineData').attr('style', 'width: auto;height:400px;');
+        }
+
+        if (!common.hasPower('home_index/briefing')) {
+            setTimeout(function () {
+                if (!common.hasPower('home_index/briefing')) {
+                    $('#briefingIndex').remove();
+                    return false;
+                }
+            }, 2000)
+        }
+
+        if (!common.hasPower('home_index/operationaldata') || !common.hasPower('home_index/lineoperationaldata') || !common.hasPower('home_index/getgame')) {
+            //缓存中没值，则过一段时间再取，防止缓存不同步
+            setTimeout(function () {
+                if (!common.hasPower('home_index/operationaldata') || !common.hasPower('home_index/lineoperationaldata') || !common.hasPower('home_index/getgame')) {
+                    $('body').html('');
+                    return false;
+                }
+
+                //有值则进行数据渲染
+                loadFunc();
+            }, 2000)
+        } else {
+            //有值则进行数据渲染
+            loadFunc();
+        }
+
+        //监听跳转按钮
+        $('#briefingIndex').click(function () {
+            var content = '/view/bloc/index/briefing_index.html';
+
+            //添加新选项卡
+            if (parent.layui.$("li[lay-id='"+content+"']").length == 0) {
+                window.parent.layui.element.tabAdd('admin-pagetabs', {
+                    title:'今日简报',
+                    content:"<iframe lay-id='"+content+"' class='admin-iframe' src='"+content+"' frameborder='0' ></iframe>",
+                    id: content
+                });
+            }
+
+            window.parent.layui.element.tabChange('admin-pagetabs', content);//切换选项卡
+        });
+
+        //渲染数据
+        function loadFunc() {
+            getSelect();
+            getOperationalData();//获取运营数据
+            getLineData();//获取折线图数据
+
+            common.isLoading(false);
+
+            //监听游戏下拉菜单
+            form.on('select(game_id_search)', function(data){
+                var paramData = getSearch();
+                getLineData(paramData);
+                getOperationalData(paramData);
+                return false;
+            });
+
+            //监听产品下拉菜单
+            form.on('select(product_id_search)', function(data){
+                getGamesByProduct(data.value);
+                var paramData = getSearch();
+                getLineData(paramData);
+                getOperationalData(paramData);
+                return false;
+            });
+        }
+
+        function getSelect() {
+            common.req({
+                url: 'Home_Index/getGame' //获取游戏名称
+                ,success:function(json)
+                {
+                    if (json.code == 1) {
+                        var product_str = '';
+
+                        //循环产品类型
+                        $.each(json.data, function (i, t) {
+                            product_str += '<option value="' + t.gameId + '">' + t.gameName + '</option>';
+                        });
+
+                        if (product_str) {
+                            $('#game_id_search').append(product_str);
+                        } else {
+                            $('#game_id_search').parents('.layui-inline').hide();
+                        }
+                    }
+
+                    form.render();
+                }
+            });
+
+            common.req({
+                url: 'ajax/product_list' //获取产品名称
+                ,success:function(json)
+                {
+                    if (json.code == 1) {
+                        var product_str = '';
+
+                        //循环产品类型
+                        $.each(json.data, function (i, t) {
+                            product_str += '<option value="' + i + '">' + t + '</option>';
+                        });
+
+                        if (product_str) {
+                            $('#product_id_search').append(product_str);
+                        } else {
+                            $('#product_id_search').parents('.layui-inline').hide();
+                        }
+                        form.render();
+                    } else {
+                        layer.msg(json.msg, {icon: 2});
+                    }
+                }
+            });
+        }
+
+        //获取产品所属游戏
+        function getGamesByProduct(productId) {
+            common.req({
+                url: 'ajax/get_games_by_product' //获取产品名称
+                ,data:{productId:productId}
+                ,success:function(json)
+                {
+                    if (json.code == 1) {
+                        var product_str = '<option value="">全部</option>';
+
+                        //循环产品类型
+                        $.each(json.data, function (i, t) {
+                            product_str += '<option value="' + i + '">' + t + '</option>';
+                        });
+
+                        if (product_str) {
+                            $('#game_id_search').html(product_str);
+                        } else {
+                            $('#game_id_search').parents('.layui-inline').hide();
+                        }
+                        form.render();
+                    } else {
+                        layer.msg(json.msg, {icon: 2});
+                    }
+                }
+            });
+        }
+
+        form.render();
+
+        //获取运营数据
+        function getOperationalData(data)
+        {
+            common.req({
+                url:'Home_Index/operationalData'
+                ,async:false
+                ,data: data
+                ,success:function(json)
+                {
+                    if(json.code == 1)
+                    {
+                        var ifr = $('.layui-fluid');
+                        ifr.find('#'+tpl+'todayRegister').html(json.data.todayRegister);
+                        ifr.find('#'+tpl+'newUserPay').html(json.data.newUserPay);
+                        ifr.find('#'+tpl+'todayPay').html(json.data.todayPay);
+                        ifr.find('#'+tpl+'sumPay').html(json.data.sumPay);
+                    }
+                }
+            });
+        }
+
+        //获取搜索栏数据
+        function getSearch() {
+            var paramData = {};
+            paramData.gameId = $('#game_id_search').val();
+            paramData.productId = $('#product_id_search').val();
+
+            return paramData;
+        }
+
+        //获取折线图和相关运营数据
+        function getLineData(data)
+        {
+            layer.load(2);
+            common.req({
+                url:'Home_Index/lineOperationalData'
+                ,async:false
+                ,data: data
+                ,success:function(json)
+                {
+                    if (json.code == 1) {
+                        var myChart = echarts.init(document.getElementById("lineData"));
+
+                        var option = {
+                            title: {
+                                text: ''
+                            },
+                            tooltip: {
+                                trigger: 'axis',
+                                axisPointer: {
+                                    type: 'cross',
+                                    label: {
+                                        backgroundColor: '#6a7985'
+                                    }
+
+                                }
+                                , transitionDuration:0
+                            },
+                            legend: {
+                                data: ['注册（人）', '充值（元）']
+                            },
+                            toolbox: {
+                                feature: {
+                                    saveAsImage: {}
+                                }
+                            },
+                            grid: {
+                                left: '3%',
+                                right: '4%',
+                                bottom: '3%',
+                                containLabel: true
+                            },
+                            xAxis: [
+                                {
+                                    type: 'category',
+                                    boundaryGap: false,
+                                    data: json.data.dayArr
+                                }
+                            ],
+                            yAxis: [
+                                {
+                                    type: 'value'
+                                }
+                            ],
+                            series: [
+                                {
+                                    name: '注册（人）',
+                                    type: 'line',
+                                    stack: '总量',
+                                    areaStyle: {},
+                                    data: json.data.RegValArr
+                                },
+                                {
+                                    name: '充值（元）',
+                                    type: 'line',
+                                    stack: '总量',
+                                    areaStyle: {},
+                                    data: json.data.moneyValArr
+                                },
+                            ],
+                            color: ['#5fb878', '#a6dbff'],
+                        };
+
+
+                        myChart.setOption(option, true);
+
+                        var ifr = $('.layui-fluid');
+                        ifr.find('#todayRegNum').html(json.data.todayRegNum);
+                        ifr.find('#yesterdayRegNum').html(json.data.yesterdayRegNum);
+                        ifr.find('#weekRegNum').html(json.data.weekRegNum);
+                        ifr.find('#lastWeekRegNum').html(json.data.lastWeekRegNum);
+                        ifr.find('#todayMoney').html(json.data.todayMoney);
+                        ifr.find('#yesterdayMoney').html(json.data.yesterdayMoney);
+                        ifr.find('#weekMoney').html(json.data.weekMoney);
+                        ifr.find('#lastWeekMoney').html(json.data.lastWeekMoney);
+
+                        ifr.find('#todayCost').html(json.data.todayCost);
+                        ifr.find('#yesterdayCost').html(json.data.yesterdayCost);
+                        ifr.find('#weekCost').html(json.data.weekCost);
+                        ifr.find('#lastWeekCost').html(json.data.lastWeekCost);
+
+                        ifr.find('#monthRegNum').html(json.data.monthRegNum);
+                        ifr.find('#monthMoney').html(json.data.monthMoney);
+                        ifr.find('#monthCost').html(json.data.monthCost);
+
+                        ifr.find('#sumRegNum').html(json.data.sumRegNum);
+                        ifr.find('#sumMoney').html(json.data.sumMoney);
+                        ifr.find('#sumCost').html(json.data.sumCost);
+
+                        layer.closeAll('loading');
+                    } else {
+                        layer.msg('请求失败', {icon: 2, time: 1500});
+                        layer.closeAll('loading');
+                    }
+                }
+            });
+        }
+
+
+	});
+
+</script>
+</html>

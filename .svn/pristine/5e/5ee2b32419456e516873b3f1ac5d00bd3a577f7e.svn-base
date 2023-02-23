@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <title>后台管理系统</title>
+    <link rel="stylesheet" href="/assets/vendor/layui/css/layui.css"/>
+    <link rel="stylesheet" href="/assets/model/common/css/style.css"/>
+    <link rel="stylesheet" href="/assets/model/common/css/common.css"/>
+    <script type="text/javascript" src="/assets/vendor/layui/layui.js"></script>
+    <!--[if lt IE 9]>
+    <script src="/assets/model/common/js/html5shiv.min.js"></script>
+    <script src="/assets/model/common/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+    <!-- 页面加载loading -->
+    <div class="page-loading">
+        <div class="ball-loader">
+            <span></span><span></span><span></span><span></span>
+        </div>
+    </div>
+    <div class="layui-tab" lay-filter="form_input">
+        <ul class="layui-tab-title" >
+            <li class="layui-this" lay-id="text">文本框</li>
+            <li lay-id="textarea">多行文本框</li>
+            <li lay-id="radio">单选框</li>
+            <li lay-id="checkbox">多选框</li>
+            <!-- <li lay-id="upload">文件上传</li> -->
+        </ul>
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-form layui-show"  lay-filter="form_text">
+                <input type="hidden" name="type" value="text">
+                <input type="hidden" name="upload_type" value="0">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">名称</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="info" lay-verify="required" value="" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">字段变量</label>
+                    
+                    <div class="layui-input-inline">
+                        <input type="text" name="menu_name" lay-verify="required" value="" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+
+                <div class="layui-form-item">
+                    <label class="layui-form-label">默认值</label>
+                    
+                    <div class="layui-input-inline">
+                        <input type="text" name="value" value="0" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">状态</label>
+                    <div class="layui-input-inline">
+                        <input type="radio" name="status" value="1" title="显示" checked>
+                        <input type="radio" name="status" value="2" title="隐藏">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-input-block">
+                      <button type="submit" class="layui-btn layui-power WorkSheet-typeInputAdd" lay-submit="" lay-filter="submit_btn">添加</button>
+                      <button type="submit" class="layui-btn layui-power WorkSheet-typeInputEdit" lay-submit="" lay-filter="submit_btn">修改</button>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-tab-item layui-form" lay-filter="form_textarea">
+                <input type="hidden" name="type" value="textarea">
+                <input type="hidden" name="upload_type" value="0">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">名称</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="info" lay-verify="required" value="" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">字段变量</label>
+                    
+                    <div class="layui-input-inline">
+                        <input type="text" name="menu_name" lay-verify="required" value="" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+
+                <div class="layui-form-item">
+                    <label class="layui-form-label">默认值</label>
+                    
+                    <div class="layui-input-inline">
+                        <input type="text" name="value" value="" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">状态</label>
+                    <div class="layui-input-inline">
+                        <input type="radio" name="status" value="1" title="显示" checked>
+                        <input type="radio" name="status" value="2" title="隐藏">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-input-block">
+                      <button type="submit" class="layui-btn layui-power WorkSheet-typeInputAdd" lay-submit="" lay-filter="submit_btn">添加</button>
+                      <button type="submit" class="layui-btn layui-power WorkSheet-typeInputEdit" lay-submit="" lay-filter="submit_btn">修改</button>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-tab-item layui-form" lay-filter="form_radio">
+                <input type="hidden" name="type" value="radio">
+                <input type="hidden" name="upload_type" value="0">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">名称</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="info" lay-verify="required" value="" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">字段变量</label>
+                    
+                    <div class="layui-input-inline">
+                        <input type="text" name="menu_name" lay-verify="required" value="" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">字段变量</label>
+                    
+                    <div class="layui-input-block">
+
+<textarea name="parameter" autocomplete="off"  placeholder="参数方式(值=>名称) 例如:
+1=>男,2=>女,3=>保密 "rows="2"class="layui-textarea"></textarea>
+                    </div>
+                </div>
+                
+
+                <div class="layui-form-item">
+                    <label class="layui-form-label">默认值</label>
+                    
+                    <div class="layui-input-inline">
+                        <input type="text" name="value" value="" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">状态</label>
+                    <div class="layui-input-inline">
+                        <input type="radio" name="status" value="1" title="显示" checked>
+                        <input type="radio" name="status" value="2" title="隐藏">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-input-block">
+                      <button type="submit" class="layui-btn layui-power WorkSheet-typeInputAdd" lay-submit="" lay-filter="submit_btn">添加</button>
+                      <button type="submit" class="layui-btn layui-power WorkSheet-typeInputEdit" lay-submit="" lay-filter="submit_btn">修改</button>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-tab-item layui-form" lay-filter="form_checkbox">
+                <input type="hidden" name="type" value="checkbox">
+                <input type="hidden" name="upload_type" value="0">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">名称</label>
+                    <div class="layui-input-inline">
+                        <input type="text" name="info" lay-verify="required" value="" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">字段变量</label>
+                    
+                    <div class="layui-input-inline">
+                        <input type="text" name="menu_name" lay-verify="required" value="" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">字段变量</label>
+                    
+                    <div class="layui-input-block">
+<textarea name="parameter" autocomplete="off"  placeholder="参数方式(值=>名称) 例如:
+1=>白色,2=>黑色,3=>红色" rows="2" class="layui-textarea"></textarea>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">默认值</label>
+                    
+                    <div class="layui-input-inline">
+                        <input type="text" name="value" value="" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">状态</label>
+                    <div class="layui-input-inline">
+                        <input type="radio" name="status" value="1" title="显示" checked>
+                        <input type="radio" name="status" value="2" title="隐藏">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-input-block">
+                      <button type="submit" class="layui-btn layui-power WorkSheet-typeInputAdd" lay-submit="" lay-filter="submit_btn">添加</button>
+                      <button type="submit" class="layui-btn layui-power WorkSheet-typeInputEdit" lay-submit="" lay-filter="submit_btn">修改</button>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-tab-item layui-form">文件上传</div>
+        </div>
+    </div>
+
+<script>
+var id = 0;
+var work_sheet_type_id = 0;
+var info = {};
+
+var layui_obj = layui.config({
+    version: true,
+    base: '/assets/model/'
+}).extend({
+    common: 'common/js/common',
+    search: 'common/js/search',
+}).use(['common','jquery','form','element'], function(){
+    var form = layui.form;
+    var element = layui.element;
+    var $ = layui.jquery;
+    var common = layui.common;
+    var urlParam = common.urlParam;
+    var detail_url = 'work_sheet/typeInputAdd';
+
+    initData();
+
+    //监听提交
+    form.on('submit(submit_btn)', function(data){
+        common_submit(data);                
+        return false;
+    });
+
+    function initData(){
+        common.req({
+            url: 'work_sheet/typeInputDetail',
+            data: common.urlParam,
+            type: "post",
+            dataType:"json",
+            success:function(res){
+                if( res.code==0 ){
+                    info = res.data;
+                    id = info.id;
+
+                    if(id>0){
+                        detail_url = 'work_sheet/typeInputEdit';
+                        common.initPowerShow([
+                            'WorkSheet-typeInputEdit'
+                        ],1);
+                    }else{
+                        common.initPowerShow([
+                            'WorkSheet-typeInputAdd'
+                        ],1);
+                    }
+
+                    work_sheet_type_id = info.work_sheet_type_id;
+                    var layid = location.hash.replace(/^#form_input=/, '');
+                    element.tabChange('form_input', info.type);
+                    form.val('form_'+info.type,info);
+                }else{
+                    layer.msg(res.msg,{icon:2})
+                }
+
+                common.isLoading();
+            },
+            error:function(res){
+                layer.alert('错误'+res.msg,{icon:2});
+            }
+        });
+    }
+
+    function common_submit(data){
+        data.field.id = id;
+        data.field.work_sheet_type_id = work_sheet_type_id;
+        common.req({
+            url: detail_url,
+            data: data.field,
+            type: "post",
+            dataType:"json",
+            success:function(res){
+                if( res.code==0 ){
+                    layer.msg(res.msg)
+                    var index = parent.layer.getFrameIndex(window.name);
+                    window.parent.res_msg(res.msg);
+                    parent.layer.close(index);//关闭当前页
+                    //window.parent.location.reload(); //刷新父窗口
+                }else{
+                    layer.msg(res.msg,{icon:2})
+                }
+            },
+            error:function(res){
+                layer.alert('错误'+res.msg,{icon:2});
+            }
+        });
+    }
+});
+</script>
+</body>
+</html>

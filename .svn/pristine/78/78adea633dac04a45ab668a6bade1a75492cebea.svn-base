@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <title>后台管理系统</title>
+    <link rel="stylesheet" href="/assets/vendor/layui/css/layui.css"/>
+    <link rel="stylesheet" href="/assets/model/common/css/style.css"/>
+    <link rel="stylesheet" href="/assets/model/common/css/common.css"/>
+    <script type="text/javascript" src="/assets/vendor/layui/layui.js"></script>
+    <!--[if lt IE 9]>
+    <script src="/assets/model/common/js/html5shiv.min.js"></script>
+    <script src="/assets/model/common/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<style>
+    .laytable-cell-checkbox .layui-disabled.layui-form-checked i {
+        background: #fff !important;
+    }
+    .statistic{
+        padding-left: 20px;
+        padding-top: 15px;
+    }
+    .statistic li{
+        display: inline-block;
+        margin-right: 10px;
+    }
+    .layui-inline{
+        margin-bottom: 6px;
+    }
+</style>
+<body>
+<div style="padding: 12px;" class="search_wrap">
+    <form class="layui-form" lay-filter="edit-form" action="" id="search_form">
+
+        <div class="layui-inline">
+            <label class="layui-form-label">工单类型: </label>
+            <div class="layui-input-inline">
+                <select name="type" lay-verify="required">
+                    <option value="">全部</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="layui-inline">
+            <label class="layui-form-label">销售类型: </label>
+            <div class="layui-input-inline">
+                <select name="sell_type" lay-verify="required">
+                    <option value="">全部</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="layui-inline">
+            <label class="layui-form-label">审核状态: </label>
+            <div class="layui-input-inline">
+                <div id="select_status" class="xm-select-demo" style="min-width: 210px"></div>
+            </div>
+        </div>
+
+        <span id="common_search"></span>
+
+        <div class="layui-inline">
+            <label class="layui-form-label">区服: </label>
+            <div class="layui-input-inline" style="width: 100px;">
+                <input type="text" name="server_id_start" autocomplete="off" class="layui-input" value="">
+            </div>
+            -
+            <div class="layui-input-inline" style="width: 100px;">
+                <input type="text" name="server_id_end" autocomplete="off" class="layui-input" value="">
+            </div>
+        </div>
+
+        <div class="layui-inline">
+            <label class="layui-form-label">账号: </label>
+            <div class="layui-input-inline" >
+                <input type="text" name="username" autocomplete="off" class="layui-input" value="">
+            </div>
+        </div>
+
+        <div class="layui-inline">
+            <label class="layui-form-label">订单金额: </label>
+            <div class="layui-input-inline" style="width: 100px;">
+                <input type="text" name="sell_amount_start" autocomplete="off" class="layui-input" value="">
+            </div>
+            -
+            <div class="layui-input-inline" style="width: 100px;">
+                <input type="text" name="sell_amount_end" autocomplete="off" class="layui-input" value="">
+            </div>
+        </div>
+
+        <!-- <div class="layui-inline">
+            <label class="layui-form-label">分组: </label>
+            <div class="layui-input-inline">
+                <select name="group_id" lay-verify="required">
+                    <option value="">全部</option>
+                </select>
+            </div>
+        </div> -->
+
+        <div class="layui-inline">
+            <label class="layui-form-label">工单ID: </label>
+            <div class="layui-input-inline" >
+                <input type="text" name="id" autocomplete="off" class="layui-input" value="">
+            </div>
+        </div>
+
+        <div class="layui-inline">
+            <label class="layui-form-label">初审人员: </label>
+            <div class="layui-input-inline">
+                <div id="qc_first_admin_id" class="xm-select-demo" style="min-width: 210px"></div>
+            </div>
+        </div>
+
+        <div class="layui-inline">
+            <label class="layui-form-label">复审人员: </label>
+            <div class="layui-input-inline">
+                <div id="qc_second_admin_id" class="xm-select-demo" style="min-width: 210px"></div>
+            </div>
+        </div>
+        
+        <div class="layui-inline">
+            <label class="layui-form-label">录单时间</label>
+            <div class="layui-input-inline" style="width: 150px;">
+                <input type="text" name="add_time_start"  value="" id="add_time_start" autocomplete="off" class="layui-input">
+            </div>
+            <div class="layui-input-inline" style="width: 150px;">
+                <input type="text" name="add_time_end"  value="" id="add_time_end" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-inline">
+            <label class="layui-form-label">成交时间</label>
+            <div class="layui-input-inline" style="width: 150px;">
+                <input type="text" name="pay_time_start"  value="" id="pay_time_start" autocomplete="off" class="layui-input">
+            </div>
+            <div class="layui-input-inline" style="width: 150px;">
+                <input type="text" name="pay_time_end"  value="" id="pay_time_end" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-inline">
+            <label class="layui-form-label">初审时间</label>
+            <div class="layui-input-inline" style="width: 150px;">
+                <input type="text" name="qc_first_time_start"  value="" id="qc_first_time_start" autocomplete="off" class="layui-input">
+            </div>
+            <div class="layui-input-inline" style="width: 150px;">
+                <input type="text" name="qc_first_time_end"  value="" id="qc_first_time_end" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-inline">
+            <label class="layui-form-label">复审时间</label>
+            <div class="layui-input-inline" style="width: 150px;">
+                <input type="text" name="qc_second_time_start"  value="" id="qc_second_time_start" autocomplete="off" class="layui-input">
+            </div>
+            <div class="layui-input-inline" style="width: 150px;">
+                <input type="text" name="qc_second_time_end"  value="" id="qc_second_time_end" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-inline">
+            <label class="layui-form-label">排序字段</label>
+            <div class="layui-input-inline">
+                <select name="sort_field"  lay-filter="sort_field" id="sort_field" lay-search="">
+                    <option value=''>自增</option>
+                    <option value='add_time'>录单时间</option>
+                </select>
+            </div>
+        </div>
+        <div class="layui-inline">
+            <label class="layui-form-label">排序</label>
+            <div class="layui-input-inline">
+                <select name="sort" lay-filter="sort" id="sort" lay-search="">
+                    <option value='desc'>降序</option>
+                    <option value='asc'>升序</option>
+                </select>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="layui-btn-group demoTable" style="padding: 0 30px; float: right;">
+    <button class="layui-btn layui-btn-sm layui-power" id="Vip-sellWorkOrderList" data-type="search">搜索</button>
+    <button type="button" class="layui-btn layui-btn-sm layui-power layui-btn-warm" id="Vip-sellWorkOrderListExcel" data-type="excel">
+        <i class="layui-icon"></i>导出Excel
+    </button>
+</div>
+<div>
+    <ul class="statistic">
+        <li id="count">搜索工单数：<span>0</span></li>
+        <li id="sum_sell_amount">销售总金额：<span>0</span></li>
+        <li id="pass_sell_amount">过审金额：<span>0</span></li>
+        <li id="no_sell_amount">待审金额：<span>0</span></li>
+        <li id="count_uid">人数：<span>0</span></li>
+    </ul>
+</div>
+<div class="table_wrap" style="padding: 0 15px;">
+    <table id="idTest" lay-filter="demo" class="layui-table"></table>
+</div>
+
+
+
+<script>
+    var qc_index;
+    var lay_page = 1;
+    var p_data = {};
+    var product_p_data = {};
+
+    var layui_obj = layui.config({
+        //version: true,
+        base: '/assets/model/'
+    }).extend({
+        common: 'common/js/common',
+        search: 'common/js/search',
+    }).use(['common','jquery','search','table','form','laydate','xmSelect','excel'], function(){
+        var table   = layui.table;
+        var form = layui.form;
+        var laydate = layui.laydate;
+        var xmSelect = layui.xmSelect;
+
+        var $ = layui.jquery;
+        var common = layui.common;
+        var search = layui.search;
+
+         //日期
+        laydate.render({
+            elem: '#add_time_start',
+            trigger : 'click',
+            type: 'datetime'
+        });
+
+        //日期
+        laydate.render({
+            elem: '#add_time_end',
+            trigger : 'click',
+            type: 'datetime'
+        });
+
+        laydate.render({
+            elem: '#qc_first_time_start',
+            trigger : 'click',
+            type: 'datetime'
+        });
+
+        //日期
+        laydate.render({
+            elem: '#qc_first_time_end',
+            trigger : 'click',
+            type: 'datetime'
+        });
+
+        laydate.render({
+            elem: '#qc_second_time_start',
+            trigger : 'click',
+            type: 'datetime'
+        });
+
+        //日期
+        laydate.render({
+            elem: '#qc_second_time_end',
+            trigger : 'click',
+            type: 'datetime'
+        });
+
+        laydate.render({
+            elem: '#pay_time_start',
+            trigger : 'click',
+            type: 'datetime'
+        });
+
+        //日期
+        laydate.render({
+            elem: '#pay_time_end',
+            trigger : 'click',
+            type: 'datetime'
+        });
+
+        var select_status = xmSelect.render({
+            el: '#select_status',
+            // radio: true,
+            toolbar: {
+                show: true,
+                list: [ 'ALL', 'CLEAR', 'REVERSE' ]
+            },
+            data: [],
+            name:'status',
+            on:(data)=>{
+
+            },
+        })
+
+        // 一审专员
+        var select_qc_first_admin_id = xmSelect.render({
+            el: '#qc_first_admin_id',
+            radio: true,
+            filterable: true,
+            // toolbar: {
+            //     show: true,
+            //     list: [ 'ALL', 'CLEAR', 'REVERSE' ]
+            // },
+            data: [],
+            name:'qc_first_admin_id',
+        })
+        // 二审专员
+        var select_qc_second_admin_id = xmSelect.render({
+            el: '#qc_second_admin_id',
+            radio: true,
+            filterable: true,
+            // toolbar: {
+            //     show: true,
+            //     list: [ 'ALL', 'CLEAR', 'REVERSE' ]
+            // },
+            data: [],
+            name:'qc_second_admin_id',
+        })
+
+        set_qc_admin_info();
+
+        initData();
+
+        //监听工具条
+        table.on('tool(demo)', function(obj){
+            var data = obj.data;
+            if(obj.event === 'detail'){
+                var title='编辑';
+                var url = 'sell_work_order_detail.html?id='+data.id;
+
+                var this_index = layer.open({
+                    type: 2,
+                    title: title+'详情',
+                    maxmin: true,
+                    shadeClose: true, //点击遮罩关闭层
+                    area : ['70%' , '70%'],
+                    content: url
+                });
+
+                layer.full(this_index);
+            }
+        });
+
+
+
+        $('.demoTable .layui-btn').on('click', function(){
+            var type = $(this).data('type');
+            if( type=='search' ){
+                //搜索
+                let form_data = $('#search_form').serializeArray();
+                // console.log(form_data);return;
+                $.each(form_data,function(k,v){
+                    p_data[v.name] = v.value;
+                })
+                table.reload('idTest', {
+                    method: 'post'
+                    ,where: p_data
+                    ,page: {
+                        curr: 1
+                    }
+                });
+            }else if( type=='excel' ){
+                loading = layer.load(1, {shade: [0.3, '#fff']});
+                var excel = layui.excel;
+                //搜索
+                let form_data = $('#search_form').serializeArray();
+
+                var this_where = {
+                    limit:0
+                };
+                $.each(form_data,function(k,v){
+                    this_where[v.name] = v.value;
+                })
+                common.req({
+                    url: 'vip/sellWorkOrderListExcel',
+                    dataType: 'json',
+                    type: "post",
+                    data: this_where,
+                    success: function(res) {
+                        layer.close(loading);
+                        layer.msg(res.msg);
+                        // 假如返回的 res.data 是需要导出的列表数据
+                        // 1. 数组头部新增表头
+                        if (res.code == 0) {
+
+                            var excel_field = {
+                                id:'ID'
+                                ,type_str:'工单类型'
+                                ,sell_type_str:'销售类型'
+                                ,kf_id_str:'VIP专员'
+                                ,user_name:'玩家账号'
+                                ,server_id:'区服'
+                                ,product_id_str:'游戏'
+                                ,status_str:'审核状态'
+                                ,sell_amount:'订单金额'
+                                ,pay_time_str:'成交时间'
+                                ,add_time_str:'录单时间'
+                                ,qc_first_time_str:'初审时间'
+                                ,qc_second_time_str:'复审时间'
+                                ,reason:'拒审原因'
+                                ,chum_reason:'流失原因'
+                            };
+                            var excel_field_arr = [];
+                            
+                            $.each(excel_field,function(k,v){
+                                excel_field_arr.push(k);
+                            })
+
+                            var data = excel.filterExportData(res.data, excel_field_arr);
+                            
+                            data.unshift(excel_field);
+                            // 3. 执行导出函数，系统会弹出弹框
+                            excel.exportExcel({
+                                sheet1: data
+                            }, res.name+'.xlsx', 'xlsx');
+                        }
+                    },
+                    error:function(res){
+                        layer.close(loading);
+                        layer.msg(res.msg);
+                    }
+                });
+            }
+        });
+
+        function initData(){
+
+            common.initPowerShow([
+                'Vip-sellWorkOrderList'
+                ,'Vip-sellWorkOrderListExcel'
+            ]);
+
+            common.req({
+                url: 'vip/sellWorkOrderListConfig' //获取游戏名称
+                ,success:function(json)
+                {
+
+                    var kf_source_data = [];
+
+                    var base_config = json.data.config;
+                    var form_data = json.data.form_data;
+
+                    search.init('common_search',base_config.search_config);
+
+                    var status_data = [];
+
+                    $.each(base_config.status_arr,function(k,v){
+                        var this_data = {};
+                        this_data.name = v;
+                        this_data.value =k;
+                        status_data.push(this_data);
+                    });
+
+                    select_status.update({
+                        data: status_data,
+                    })
+
+                    $.each(base_config.type_arr,function(k,v){
+                        $('select[name=type]').append('<option value="'+k+'">'+v+'</option>');
+                    });
+
+                    $.each(base_config.sell_type_arr,function(k,v){
+                        $('select[name=sell_type]').append('<option value="'+k+'">'+v+'</option>');
+                    });
+
+                    // $.each(base_config.group_list,function(k,v){
+                    //     $('select[name=group_id]').append('<option value="'+v.id+'">'+v.name+'</option>');
+                    // });
+                    
+                    table.render({
+                        elem: '#idTest'
+                        ,height: 'full-120'
+                        ,url: common.getUrl('vip/sellWorkOrderList') //数据接口
+                        ,headers:common.getHeader()
+                        ,page: true
+                        ,limits:[20,50,100,200,500]
+                        ,limit:20
+                        ,minWidth:1000
+                        ,autoWidth:true
+                        ,cols: [[ //表头
+                            {field:'id', minWidth:80, sort: true, title:'ID'}
+                            ,{field:'type_str', minWidth:90, title:'工单类型'}
+                            ,{field:'sell_type_str', minWidth:90, title:'销售类型'}
+                            ,{field:'kf_id_str', minWidth:90, title:'VIP专员'}
+                            ,{field:'user_name', minWidth:130, title:'玩家账号'}
+                            ,{field:'total_pay', minWidth:120, title:'玩家累计充值'}
+                            ,{field:'server_id', minWidth:100, title:'区服'}
+                            ,{field:'product_id_str', minWidth:150, title:'游戏'}
+                            ,{field:'status_str', minWidth:90, title:'审核状态'}
+                            ,{field:'sell_amount', minWidth:90, title:'订单金额'}
+                            ,{field:'pay_time_str', minWidth:150, title:'成交时间'}
+                            ,{field:'add_time', minWidth:150, title:'录单时间'}
+                            ,{field:'qc_first_time_str', minWidth:150, title:'初审时间'}
+                            ,{field:'qc_first_admin_id_str', minWidth:90, title:'初审人'}
+                            ,{field:'qc_second_time_str', minWidth:150, title:'复审时间'}
+                            ,{field:'qc_second_admin_id_str', minWidth:90, title:'复审人'}
+                            ,{minWidth:120, align:'center', fixed: 'right', title:'操作'
+                            ,templet:function(d){
+                                    let str = '';
+                                    if(d.action && d.action.length>0){
+                                        $.each(d.action,function(k,v){
+                                            str+= action(v);
+                                        })
+                                    }
+                                    return str;
+                                }
+                            }
+                        ]]
+                        ,done:function(a,b,c){
+                            lay_page = b;
+                            if(c > 0){
+                                var count_res = a.count_res;
+                                $('#count span').html(count_res.count);
+                                $('#sum_sell_amount span').html(count_res.sum_sell_amount);
+                                $('#pass_sell_amount span').html(count_res.pass_sell_amount);
+                                $('#no_sell_amount span').html(count_res.no_sell_amount);
+                                $('#count_uid span').html(count_res.count_uid);
+                            }else{
+                                $('#count span').html(0);
+                                $('#sum_sell_amount span').html(0);
+                                $('#pass_sell_amount span').html(0);
+                                $('#no_sell_amount span').html(0);
+                                $('#count_uid span').html(0);
+                            }
+                            console.log(a,b,c);
+                        }
+                    });
+                    
+                    form.render();
+                    form.val('edit-form',form_data);
+                }
+            });
+        }
+
+        // 获取专员数据
+        function set_qc_admin_info(p_data){
+            var this_p_data = {
+                'group_type':3
+            };
+            this_p_data.c_action = 'Vip-sellWorkOrderQcFirst';
+            common.req({
+                url: "ajax/getUserListByPlatformId",
+                data: this_p_data,
+                type: "post",
+                dataType:"json",
+                success:function(res){
+                    var this_list = [];
+                    if( res.code==0 ){
+                        $.each(res.data,function(k,v){
+                            var this_data = {};
+                            this_data.name = v.name;
+                            this_data.value = v.id;
+                            this_list.push(this_data);
+                        });
+                    }
+                    select_qc_first_admin_id.update({
+                        data: this_list,
+                    })
+                },
+                error:function(data){
+                    layer.alert('错误'+data.msg,{icon:2});
+                }
+            });
+            this_p_data.c_action = 'Vip-sellWorkOrderQcSecond';
+            common.req({
+                url: "ajax/getUserListByPlatformId",
+                data: this_p_data,
+                type: "post",
+                dataType:"json",
+                success:function(res){
+                    var this_list = [];
+                    if( res.code==0 ){
+                        $.each(res.data,function(k,v){
+                            var this_data = {};
+                            this_data.name = v.name;
+                            this_data.value = v.id;
+                            this_list.push(this_data);
+                        });
+                    }
+                    select_qc_second_admin_id.update({
+                        data: this_list,
+                        // autoRow: true,
+                    })
+                },
+                error:function(data){
+                    layer.alert('错误'+data.msg,{icon:2});
+                }
+            });
+        }
+        
+    });
+    //给子级调用
+    function res_msg(msg){
+        layer.msg(msg,{icon:1});
+        setTimeout(function(){
+            // window.location.reload();
+            lay_obj.table.reload('idTest', {
+                method: 'post'
+                ,where: p_data
+                ,page: {
+                    curr: lay_page
+                }
+            });
+        },1000);
+    }
+
+    function action(action,data){
+        let str = '';
+        switch (action) {
+            case 'sellWorkOrderDetail':
+                str = '<a class="layui-btn layui-btn-xs" lay-event="detail">详情</a>';
+                break;
+            default:
+
+                break;
+        }
+
+        return str;
+    }
+</script>
+</body>
+</html>

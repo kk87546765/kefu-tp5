@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <title>后台管理系统</title>
+    <link rel="stylesheet" href="/assets/vendor/layui/css/layui.css"/>
+    <link rel="stylesheet" href="/assets/model/common/css/style.css"/>
+    <link rel="stylesheet" href="/assets/model/common/css/common.css"/>
+    <script type="text/javascript" src="/assets/vendor/layui/layui.js"></script>
+    <!--[if lt IE 9]>
+    <script src="/assets/model/common/js/html5shiv.min.js"></script>
+    <script src="/assets/model/common/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+<!-- 加载动画 -->
+<div class="page-loading">
+    <div class="ball-loader">
+        <span></span><span></span><span></span><span></span>
+    </div>
+</div>
+
+
+
+<div id="up_user_group" style="display: none;">
+    <form class="layui-form" action="" style="padding: 20px;">
+        <div class="layui-inline" >
+            <!-- <label class="layui-form-label">分组: </label> -->
+            <div class="layui-input-inline">
+                <input type="text" name="group_name" readonly="" value="" class="layui-input">
+            </div>
+        </div>
+        <input type="hidden" name="group_id" value="0">
+        <div class="layui-inline" style="margin-left: 30px;">
+            <div class="layui-input-inline">
+                <button type="submit" id="Sysmanage-setAdminIdsByGroupId1" class="layui-btn layui-power" lay-submit lay-filter="up_user_group">立即提交</button>
+            </div>
+        </div>
+
+        <div class="layui-form-item" style="margin-top: 20px">
+            <div id="test1" class="demo-transfer"></div>
+        </div>
+    </form>
+</div>
+
+<div class="layui-card">
+    <div style="padding: 12px;"  class="search_wrap">
+        <form class="layui-form" action="" id="search_form">
+            <div class="layui-inline" style="margin-bottom: 6px;">
+                <label class="layui-form-label">名称: </label>
+                <div class="layui-input-inline">
+                    <input class="layui-input" type="input" name="name" placeholder="请输入">
+                </div>
+            </div>
+            <div class="layui-inline" style="margin-bottom: 6px;">
+                <label class="layui-form-label">类型: </label>
+                <div class="layui-input-inline">
+                    <select name="type">
+                        <option value="">全部</option>
+                    </select>
+                </div>
+            </div>
+            <div class="layui-inline" style="margin-bottom: 6px;">
+                <label class="layui-form-label">状态: </label>
+                <div class="layui-input-inline">
+                    <select name="status">
+                        <option value="">全部</option>
+                    </select>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="layui-btn-group demoTable" style="padding: 0 15px;">
+        <button class="layui-btn layui-btn-sm layui-power" id="Sysmanage-userGroupList" data-type="search">搜索</button>
+        <button class="layui-btn layui-btn-sm layui-power" id="Sysmanage-userGroupAdd" data-type="add">添加</button>
+    </div>
+    <div class="table_wrap" style="padding: 0 15px;">
+        <table id="idTest" lay-filter="demo" class="layui-table"></table>
+    </div>
+</div>
+<script>
+    var group_open_index;
+    var user_list = {};
+    var pdata = {};
+    var lay_page = 1;
+    var layui_obj = layui.config({
+        version: true,
+        base: '/assets/model/'
+    }).extend({
+        common: 'common/js/common',
+    }).use(['common','table','transfer','form','jquery'], function(){
+        var table   = layui.table;
+        var form = layui.form;
+        var transfer = layui.transfer;
+        var common = layui.common;
+        var $ = layui.jquery;
+
+
+        //初始化权限显示
+        common.initPowerShow([
+            'Sysmanage-userGroupAdd'
+            ,'Sysmanage-userGroupList'
+            ,'Sysmanage-setAdminIdsByGroupId'
+        ]);
+        //初始化页面数据
+        initData();
+
+        //保存用户分组
+        form.on('submit(up_user_group)',function(data){
+            if(!data.field.group_id || data.field.group_id == 0){
+                layer.alert('请选择-分组');
+                return false;
+            }
+            var getData = transfer.getData('user_list1'); //获取右侧数据
+
+            var uids = [];
+
+            if(getData.length > 0){
+                $.each(getData,function(k,v){
+                    uids.push(v.value);
+                })
+            }
+
+            data.field.uids = uids;
+
+            common.req({
+                url: "Sysmanage/setAdminIdsByGroupId"
+                ,data:data.field
+                ,type:'post'
+                ,dataType:'json'
+                ,success:function(res){
+                    if( res.code==0 ){
+                        layer.msg(res.msg,{icon:1});
+                    }else{
+                        layer.msg(res.msg,{icon:2});
+                    }
+                }
+                ,error:function(res){
+                    layer.alert('错误'+res.msg,{icon:2});
+                }
+            })
+            return false;
+        })
+
+        //监听工具条
+        table.on('tool(demo)', function(obj){
+            var data = obj.data;
+            if(obj.event === 'del'){
+                layer.confirm('真的删除行么', function(index){
+                    layer.close(index);
+                    common.req({
+                        url: "Sysmanage/userGroupdel",
+                        data: { ids: data.id },
+                        type: "post",
+                        dataType:"json",
+                        success:function(res){
+                            if( res.code==0 ){
+                                obj.del();
+                                layer.msg(res.msg,{icon:1});
+                            }else{
+                                layer.msg(res.msg,{icon:2});
+                            }
+                        },
+                        error:function(data){
+                            layer.alert('错误'+data.msg,{icon:2});
+                        }
+                    });
+
+                });
+            }else if(obj.event === 'userGroupDetail'){
+                var title='编辑';
+                var url = '/view/sysmanage/user_group_detail.html?id='+data.id;
+
+                layer.open({
+                    type: 2,
+                    title: title+'详情',
+                    maxmin: true,
+                    shadeClose: true, //点击遮罩关闭层
+                    area : ['70%' , '70%'],
+                    content: url
+                });
+            }else if(obj.event === 'getAdminIdsByGroupId'){
+                var group_id = data.id;
+                $('input[name="group_id"]').val(group_id);
+                $('input[name="group_name"]').val(data.name);
+                
+                common.req({
+                    url: "Sysmanage/getAdminIdsByGroupId"
+                    ,data:{group_id:group_id}
+                    ,type:'post'
+                    ,dataType:'json'
+                    ,success:function(res){
+                        if( res.code==0 ){
+                            // reolad_user(res.data);
+                            set_user(res.data);
+                            group_open_index = layer.open({
+                                title:'用户修改',
+                                type: 1,
+                                area: ['600px', '600px'],
+                                content: $('#up_user_group') //这里content是一个DOM，注意：最好该元素要存放在body最外层，否则可能被其它的相对元素所影响
+                            });
+                        }else{
+                            layer.msg(res.msg,{icon:2});
+                        }
+                    }
+                    ,error:function(res){
+                        layer.alert('错误'+res.msg,{icon:2});
+                    }
+                })
+                // form.render();
+                
+            }
+
+        });
+
+        $('.demoTable .layui-btn').on('click', function(){
+            var type = $(this).data('type');
+            if( type=='add' ){
+                //添加
+                layer.open({
+                    type: 2,
+                    title: "添加",
+                    maxmin: true,
+                    shadeClose: true, //点击遮罩关闭层
+                    area : ['70%' , '70%'],
+                    content: "/view/sysmanage/user_group_detail.html"
+                });
+            }else if( type=='search' ){
+                let form_data = $('#search_form').serializeArray();
+                // console.log(form_data);return false;
+                $.each(form_data,function(k,v){
+                    pdata[v.name] = v.value;
+                })
+
+                table.reload('idTest', {
+                    method: 'post'
+                    ,where: pdata
+                    ,page: {
+                        curr: 1
+                    }
+                });
+            }
+        });
+
+        function initData(){
+            //初始化配置数据
+            common.req({
+                url: "Sysmanage/userGroupListConfig"
+                ,type:'post'
+                ,dataType:'json'
+                ,success:function(res){
+                    if( res.code==0 ){
+                        user_list = res.data.admin_list;
+                        res.data.type_list[''] = '全部';
+                        res.data.status_arr[''] = '全部';
+                        common.setOption1(res.data.type_list,$('select[name="type"]'));
+                        common.setOption1(res.data.status_arr,$('select[name="status"]'));
+                        form.render();
+                    }
+                }
+                ,error:function(res){
+                    layer.alert('错误'+res.msg,{icon:2});
+                }
+            })
+            // return false;
+            //初始化数据表
+            table.render({
+                elem: '#idTest'
+                ,height: 'full-120'
+                ,url: common.apiUrl+'Sysmanage/userGroupList' //数据接口
+                ,headers: common.getHeader() //数据接口
+                ,page: true //开启分页
+                ,limits:[2,20,50,100,200,500]
+                ,limit:20
+                ,minWidth:1000
+                ,method:'post'
+                ,cols: [[ //表头
+                    {field:'id', width:90, sort: true, title:'ID'}
+                    ,{field:'name', minWidth:150, title:'名称'}
+                    ,{field:'type_str', minWidth:90, title:'类型'}
+                    ,{field:'status_str', minWidth:90, title:'状态'}
+                    ,{field:'add_admin_id_name', minWidth:120, title:'添加人'}
+                    ,{field:'add_time', minWidth:150, title:'添加时间'}
+                    ,{field:'edit_admin_id_name', minWidth:120, title:'最后修改人'}
+                    ,{field:'edit_time', minWidth:150, title:'最后修改时间'}
+                    ,{minWidth:120, align:'center', fixed: 'right', title:'操作'
+                    ,templet:function(d){
+                            let str = '';
+                            if(d.action && d.action.length>0){
+                                $.each(d.action,function(k,v){
+                                    str+= action(v);
+                                })
+                            }
+                            
+                            return str;
+                        }
+                    }
+                ]]
+                ,done:function(a,b,c){
+                    lay_page = b;
+                    if(c > 0){
+
+                    }
+
+                    //隐藏加载框
+                    common.isLoading(false);
+                }
+            });
+        }
+
+        function set_user(value){
+            transfer.render({
+                elem: '#test1'
+                ,title: ['未选择', '已选择']  //自定义标题
+                ,data: user_list
+                ,id: 'user_list1'
+                ,value: value//初始右侧数据\
+                ,showSearch:true
+                //,width: 150 //定义宽度
+                // ,height: 300 //定义高度            
+                // ,onchange: function(obj, index){//穿梭时的回调
+                //   var arr = ['左边', '右边'];
+                //   layer.alert('来自 <strong>'+ arr[index] + '</strong> 的数据：'+ JSON.stringify(obj)); //获得被穿梭时的数据
+                // }
+                ,parseData: function(res){//重新定义数据字段
+                  return {
+                    "value": res.id //数据值
+                    ,"title": res.name //数据标题
+                    ,"disabled": res.disabled  //是否禁用
+                    ,"checked": res.checked //是否选中
+                  }
+                }
+            })
+        }
+
+    });
+    //给子级调用
+    function res_msg(msg){
+        layer.msg(msg,{icon:1});
+        setTimeout(function(){
+            // window.location.reload();
+            layui_obj.table.reload('idTest', {
+                method: 'post'
+                ,where: pdata
+                ,page: {
+                    curr: lay_page
+                }
+            });
+        },1000);
+    }
+
+    function action(action,data){
+        let str = '';
+        switch (action) {
+            case 'userGroupDetail':
+                str = '<a class="layui-btn layui-btn-xs" lay-event="userGroupDetail">详情</a>';
+                break;
+            case 'getAdminIdsByGroupId':
+                str = '<a class="layui-btn layui-btn-xs" lay-event="getAdminIdsByGroupId">用户</a>';
+                break;
+            
+            default:
+
+                break;
+        }
+
+        return str;
+    }
+</script>
+</body>
+</html>

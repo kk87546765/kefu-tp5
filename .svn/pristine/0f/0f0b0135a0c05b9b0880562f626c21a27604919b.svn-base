@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <title>后台管理系统</title>
+    <link rel="stylesheet" href="/assets/vendor/layui/css/layui.css"/>
+    <link rel="stylesheet" href="/assets/model/common/css/style.css"/>
+    <link rel="stylesheet" href="/assets/model/common/css/common.css"/>
+    <!--[if lt IE 9]>
+    <script src="/assets/model/common/js/html5shiv.min.js"></script>
+    <script src="/assets/model/common/js/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        .layui-col-space15 {
+            /* margin: -7.5px; */
+            margin:-7.5px 0 !important;
+        }
+    </style>
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<form class="layui-form" action="" style="padding: 20px;" id="edit-form" lay-filter="edit-form">
+
+
+
+<!--    <div class="layui-form-item">-->
+<!--        <label class="layui-form-label">平台</label>-->
+<!--        <div class="layui-input-inline">-->
+<!--            <select  name="platform_id" lay-verify="required" lay-filter="platform_id" id="platform_id">-->
+<!--                <option value="" >请选择平台</option>-->
+
+<!--            </select>-->
+<!--        </div>-->
+<!--    </div>-->
+
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">限制类型</label>
+        <div class="layui-input-inline">
+            <select  name="type" lay-verify="required" lay-search="" id="type">
+                <option value="1" >手机号码
+                </option>
+                <option value="2" >身份证
+                </option>
+                <option value="3" >设备号
+                </option>
+            </select>
+        </div>
+    </div>
+
+    <div class="layui-form-item" >
+        <label class="layui-form-label">限制类型值</label>
+        <div class="layui-input-block" >
+            <input class="layui-input" id='check_val' lay-verify="required" name='check_val' value="" style="width:25%;">
+            <br>
+            <button type="button" class="layui-btn" id="check_btn" lay-filter="check_btn" >检索</button>
+        </div>
+
+    </div>
+
+
+
+<!--    <div class="layui-form-item">-->
+<!--        <label class="layui-form-label">员工</label>-->
+<!--        <div class="layui-input-inline">-->
+<!--            <select  name="admin_id"  lay-search="" id="admin_id">-->
+<!--            <option value="" >请选择员工-->
+<!--            </option>-->
+<!--            </select>-->
+<!--        </div>-->
+<!--    </div>-->
+
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">封禁原因类别</label>
+        <div class="layui-input-block" >
+            <input type="radio" name="reason_type" value="恶劣投诉" title="恶劣投诉"><br>
+            <input type="radio" name="reason_type" value="公会" title="公会"><br>
+            <input type="radio" name="reason_type" value="其他" title="其他"> <input type="text" class="layui-input" name="reason_type"  value="">
+
+        </div>
+    </div>
+
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">封禁原因</label>
+        <div class="layui-input-block" id="often_login_equipment">
+            <textarea class="layui-textarea" name="reason"></textarea>
+        </div>
+    </div>
+
+
+
+    <input type='hidden' name="phone_val" value=""/>
+    <input type='hidden' name="id_card_val" value=""/>
+    <input type='hidden' name="udid_val" value=""/>
+<!--    <input type='hidden' name="id" value=""/>-->
+
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button type="submit" class="layui-btn" lay-submit="" lay-filter="submit_btn">立即提交</button>
+        </div>
+    </div>
+</form>
+<script type="text/javascript" src="/assets/vendor/layui/layui.js"></script>
+<script>
+
+    var where = {};
+    var _phoneMJson = {};
+    var _idCardMJson = {};
+    var _udidMJson = {};
+    layui.config({
+        version: true,
+        base: '/assets/model/'
+    }).extend({
+        common: 'common/js/common',
+        search: 'common/js/search',
+    }).use(['table','common','jquery','form','laydate'], function(){
+        var form = layui.form,
+            laydate = layui.laydate,
+            $ = layui.jquery, //重点处
+            common = layui.common,
+            table = layui.table;
+
+        var pdata = common.urlParam;
+
+
+
+
+
+        // function getPlatform(id = 0){
+        //     common.req({
+        //         url: "Ajax/getPlatformList",
+        //         type: "post",
+        //         dataType:"json",
+        //         success:function(res){
+        //             console.log(res)
+        //             if( res.code == 0 ){
+        //                 var html = '';
+        //                 $.each(res.data,function(i,item){
+        //
+        //                     if(id == item.platform_id ){
+        //
+        //                         html += "<option selected value=\"" + item.platform_id + "\" >" + item.name + "</option>";
+        //                     }else{
+        //                         html += "<option value=\"" + item.platform_id + "\" >" + item.name + "</option>";
+        //                     }
+        //                 })
+        //
+        //                 $('#platform_id').append(html)
+        //                 form.render('select');
+        //             }
+        //         },
+        //         error:function(data){
+        //             layer.alert(data.msg,{icon:2});
+        //         }
+        //     });
+        // }
+
+        // function getAdmin(id = 0,platform_id = 0){
+        //     common.req({
+        //         url: "inner_account/getAdmin",
+        //         type: "post",
+        //         data: {'platform_id':platform_id},
+        //         dataType:"json",
+        //         success:function(res){
+        //             if( res.code == 0 ){
+        //                 var html = '';
+        //                 $.each(res.data,function(i,item){
+        //                     if(id == item.id ){
+        //                         html += "<option selected value=\"" + item.id + "\" >" + item.name + "</option>";
+        //                     }else{
+        //                         html += "<option value=\"" + item.id + "\" >" + item.name + "</option>";
+        //                     }
+        //                 })
+        //                 $('#admin_id').append(html)
+        //                 form.render('select');
+        //             }
+        //         },
+        //         error:function(data){
+        //             layer.alert(data.msg,{icon:2});
+        //         }
+        //     });
+        // }
+        // getPlatform();
+
+
+
+        //
+        // form.on('select(platform_id)',function(data){
+        //     getAdmin(0,data.value);
+        // })
+
+
+
+
+        $('#check_btn').click( function(data){
+
+            // let platform_id = $('#platform_id').val();
+
+            let type = $('#type').val();
+
+            let check_val = $('#check_val').val();
+
+            // if(platform_id <= 0){
+            //     layer.alert('请选择平台',{icon:2});
+            //     return false;
+            // }
+
+
+            if(check_val == '' || check_val == null){
+                layer.alert('请填写数值',{icon:2});
+                return false;
+            }
+
+            var url = "block_list.html?type="+type+'&val='+check_val;
+
+            var this_index = layer.open({
+                type: 2,
+                title: "详情",
+                maxmin: true,
+                shadeClose: true, //点击遮罩关闭层
+                area : ['80%' , '70%'],
+                content: url,
+                btn: ['确定', '取消'],
+                success: function (layero, index) { },
+                yes: function (index, layero) {
+                    var body = layer.getChildFrame('body',index)
+                    body.find('#check_btn').click();
+
+                     _phoneMJson = body.find('#phone_sub').val();
+                     _idCardMJson = body.find('#id_card_sub').val();
+                     _udidMJson = body.find('#udid_sub').val();
+
+                    //  if (phoneMJson != "") {
+                    //       _phoneMJson = $.parseJSON(phoneMJson);//转成Json对象
+                    //      // var a = JSON.stringify(_phoneMJson)
+                    //      //  console.log(a)
+                    //      // $("#phone_val").val("'"+phoneMJson+"'");//重新赋值
+                    //
+                    //
+                    //  }
+                    // if (idCardMJson != "") {
+                    //       _idCardMJson = $.parseJSON(idCardMJson);//转成Json对象
+                    //     //$("#id_card_val").val(idCardMJson);//重新赋值
+                    //
+                    // }
+                    // if (udidMJson != "") {
+                    //      _udidMJson = $.parseJSON(udidMJson);//转成Json对象
+                    //     //$("#udid_val").val(udidMJson);//重新赋值
+                    //
+                    // }
+
+
+                 },
+                cancel: function (index, layero) {
+
+                    // 取消的操作
+                },
+                end: function () {  }
+            });
+            // console.log(data)
+        });
+
+    //监听提交
+        form.on('submit(submit_btn)', function(data){
+
+            data.field.phone_val = _phoneMJson;
+            data.field.id_card_val = _idCardMJson;
+            data.field.udid_val = _udidMJson;
+            let reason_type = $("input[name='reason_type']:checked").val();
+            if(reason_type != '其他'){
+                data.field.reason_type = reason_type;
+            }
+            form.verify();
+            common.req({
+                url: "black_list/add",
+                data: data.field,
+                type: "post",
+                dataType:"json",
+                success:function(res){
+                    console.log(res);
+                    if( res.code==0 ){
+                        var index = parent.layer.getFrameIndex(window.name);
+                        window.parent.res_msg(res.msg);
+                        parent.layer.close(index);//关闭当前页
+                        //window.parent.location.reload(); //刷新父窗口
+                    }else{
+                        layer.alert(res.msg,{icon:2});
+                    }
+                },
+                error:function(res){
+                    layer.alert(res.msg,{icon:2});
+                }
+            });
+            return false;
+        });
+
+    });
+
+</script>
+</body>
+</html>

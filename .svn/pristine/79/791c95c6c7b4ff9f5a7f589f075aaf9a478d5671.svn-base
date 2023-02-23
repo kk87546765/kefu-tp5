@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <title>后台管理系统</title>
+    <link rel="stylesheet" href="/assets/vendor/layui/css/layui.css"/>
+    <link rel="stylesheet" href="/assets/model/common/css/style.css"/>
+    <link rel="stylesheet" href="/assets/model/common/css/common.css"/>
+    <!--[if lt IE 9]>
+    <script src="/assets/model/common/js/html5shiv.min.js"></script>
+    <script src="/assets/model/common/js/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        .layui-col-space15 {
+            /* margin: -7.5px; */
+            margin:-7.5px 0 !important;
+        }
+    </style>
+</head>
+<body>
+<div style="padding: 12px;"  class="search_wrap">
+    <form class="layui-form" action="" id="search_form">
+
+        <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+            <ul class="layui-tab-title">
+                <li class="layui-this btn_type" data-id="1" lay-id="1">手机号码</li>
+                <li class="btn_type" data-id="2" lay-id="2">身份证</li>
+                <li class="btn_type" data-id="3" lay-id="3">设备号</li>
+
+            </ul>
+            <div class="layui-tab-content">
+                <div class="layui-tab-item layui-show">
+                    <div class="table_wrap " style="padding: 0 15px;">
+                        <table class="layui-table"   lay-filter="demo1" id="demo1" >
+
+                        </table>
+                    </div>
+                </div>
+                <div class="layui-tab-item">
+                    <div class="table_wrap " style="padding: 0 15px;">
+                        <table class="layui-table"   lay-filter="demo2" id="demo2" >
+
+                        </table>
+                    </div>
+                </div>
+                <div class="layui-tab-item">
+                    <div class="table_wrap " style="padding: 0 15px;">
+                        <table class="layui-table"   lay-filter="demo3" id="demo3" >
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <div  style='text-align: center;margin:0 auto;'>
+            <button type="button"  class="layui-btn" id="check_btn" lay-filter="check_btn" style="display: none">确定</button>
+        </div>
+
+        <div>
+            <input type="hidden" id="phone_sub" value="">
+            <input type="hidden" id="id_card_sub" value="">
+            <input type="hidden" id="udid_sub" value="">
+        </div>
+
+
+
+<script type="text/javascript" src="/assets/vendor/layui/layui.js"></script>
+<script>
+    var where = {};
+    var pdata = {};
+    var have_phone = 0;
+    var have_id_card = 0;
+    var have_udid = 0;
+    layui.config({
+        version: true,
+        base: '/assets/model/'
+    }).extend({
+        common: 'common/js/common',
+        search: 'common/js/search',
+    }).use(['common','jquery','form','element','laydate','table'], function () {
+        var $ = layui.jquery;
+        var form = layui.form;
+        var laydate = layui.laydate;
+        var table = layui.table;
+        var common = layui.common;
+        element = layui.element;
+
+        var pdata = common.urlParam;
+
+        if(pdata.type){
+            $(".btn_type").eq(pdata.type-1).hide();
+            let tt = pdata.type;
+            if(pdata.type == 1){
+                tt = 2;
+            }else{
+                tt = 1;
+            }
+            element.tabChange('docDemoTabBrief',tt);
+            if(tt == 1){
+                show_phone();
+            }else{
+                show_id_card();
+            }
+
+        }
+        layui.use('element', function(){
+            var element = layui.element;
+            //监听Tab切换，以改变地址hash值
+            element.on('tab(docDemoTabBrief)', function(){
+                let id = this.getAttribute('lay-id');
+                if(id == 1 && have_phone == 0){
+                    show_phone();
+                }
+                if(id == 2 && have_id_card == 0){
+                    show_id_card();
+                }
+                if(id == 3 && have_udid == 0){
+                    show_udid();
+                }
+
+                // alert(this.getAttribute('lay-id'));
+            });
+        });
+
+
+
+
+        function show_phone(){
+            //第一个实例
+            table.render({
+                elem: '#demo1',
+                headers:common.getHeader()
+                ,height: 'full-150'
+                ,where: { type:1,val:pdata.val,'platform_id':pdata.platform_id }
+                ,url: common.getUrl('black_list/getBlackList') //数据接口
+                ,page: false //开启分页
+                ,cols: [[ //表头
+                    {type:'checkbox',  width:40, fixed: 'left'}
+                    ,{field: 'uid', title: 'uid', width:'25%',hide: true}
+                    ,{field: 'mobile', title: '手机号码', width:'100%'}
+                ]],
+                done:function (){
+                    have_phone = 1;
+                }
+            });
+
+        }
+
+        function show_id_card(){
+            //第一个实例
+            table.render({
+                elem: '#demo2',
+                headers:common.getHeader()
+                ,height: 'full-150'
+
+                ,where: { type: 2,val:pdata.val ,'platform_id':pdata.platform_id}
+                ,url: common.getUrl('black_list/getBlackList') //数据接口
+                ,page: false //开启分页
+                ,cols: [[ //表头
+                    {type:'checkbox',  width:40, fixed: 'left'}
+                    ,{field: 'uid', title: 'uid', width:'25%',hide: true}
+                    ,{field: 'id_card', title: '身份证号', width:'100%'}
+
+                ]],
+                done:function (){
+                    have_id_card = 1;
+                }
+            });
+
+        }
+
+
+        function show_udid(){
+            //第一个实例
+            table.render({
+                elem: '#demo3',
+                headers:common.getHeader()
+                ,height: 'full-150'
+
+                ,where: { type: 3,val:pdata.val ,'platform_id':pdata.platform_id}
+                ,url: common.getUrl('black_list/getBlackList') //数据接口
+                ,page: false //开启分页
+                ,cols: [[ //表头
+                    {type:'checkbox',  width:40, fixed: 'left'}
+                    ,{field: 'uid', title: 'uid', width:'25%',hide: true}
+                    ,{field: 'udid', title: '设备号', width:'100%'}
+                ]],
+                done:function (){
+                    have_udid = 1;
+                }
+            });
+
+        }
+
+
+
+
+
+
+        //时间
+        laydate.render({
+            elem: '#s_time',
+            type: 'datetime'
+        });
+        laydate.render({
+            elem: '#e_time',
+            type: 'datetime'
+        });
+
+        $(' .layui-btn').on('click', function(){
+
+            var checkStatus = table.checkStatus('demo1');
+
+            if (!checkStatus.data.length) { //判断，如果没有选择提示
+                // layer.msg('请选择数据', { icon: 7 }); return;
+            } else {//否则，序列化为Json字符串，存放在视图页面中
+                $("#phone_sub").val(JSON.stringify(checkStatus.data));
+            }
+
+            var checkStatus = table.checkStatus('demo2');
+
+            if (!checkStatus.data.length) { //判断，如果没有选择提示
+                // layer.msg('请选择数据', { icon: 7 }); return;
+            } else {//否则，序列化为Json字符串，存放在视图页面中
+                $("#id_card_sub").val(JSON.stringify(checkStatus.data));
+            }
+            var checkStatus = table.checkStatus('demo3');
+
+            if (!checkStatus.data.length) { //判断，如果没有选择提示
+                // layer.msg('请选择数据', { icon: 7 }); return;
+            } else {//否则，序列化为Json字符串，存放在视图页面中
+                $("#udid_sub").val(JSON.stringify(checkStatus.data));
+            }
+
+            var index = parent.layer.getFrameIndex(window.name);
+
+            parent.layer.close(index);
+
+        });
+
+        //监听工具条
+        table.on('tool(demo)', function(obj) {
+            var data = obj.data;
+
+            var type = data.type.toLowerCase()
+
+            if (obj.event === 'del') {
+                layer.confirm('真的解禁吗', function (index) {
+                    layer.close(index);
+                    common.req({
+                        url: url,
+                        data: {blockid: data.id, type: 2},
+                        type: "post",
+                        dataType: "json",
+                        success: function (res) {
+                            if (res.code == 0) {
+                                if (res.succ == data.id) {
+                                    obj.del();
+                                }
+                                layer.msg(res.msg, {icon: 1});
+                            } else {
+                                layer.msg(res.msg, {icon: 2});
+                            }
+                        },
+                        error: function (data) {
+                            layer.alert('错误' + data.msg, {icon: 2});
+                        }
+                    });
+
+                });
+            }
+        })
+
+
+
+    });
+
+
+    //给子级调用
+    function res_msg(msg){
+        layer.msg(msg,{icon:1});
+        setTimeout(function(){
+            window.location.reload();
+        },1000);
+    }
+</script>
+</body>
+</html>

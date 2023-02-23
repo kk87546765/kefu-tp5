@@ -1,0 +1,927 @@
+---------------------------------------------------------------
+[ 2022-10-08T17:42:18+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/InnerAccount/run
+[运行时间：0.191026s] [吞吐率：5.23req/s] [内存消耗：3,931.09kb] [文件加载：176]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'InnerAccount',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:105.0) Gecko/20100101 Firefox/105.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/InnerAccount/run' => '',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\scripts\controller\InnerAccount->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\InnerAccount.php ]
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义数组索引: func[D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\library\traits\controller\lxxScript.php:179]
+---------------------------------------------------------------
+[ 2022-10-08T17:43:20+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/InnerAccount/run?p[action]=update_inner_account
+[运行时间：0.091427s] [吞吐率：10.94req/s] [内存消耗：4,054.28kb] [文件加载：178]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'InnerAccount',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:105.0) Gecko/20100101 Firefox/105.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/InnerAccount/run' => '',
+  'p' => 
+  array (
+    'action' => 'update_inner_account',
+  ),
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\InnerAccount->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\InnerAccount.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001342s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.008327s ]
+[ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_InnerAccount' , 'updateInnerAccount' , '{\"action\":\"update_inner_account\"}' , 1665222200 , 1665222200) [ RunTime:0.000908s ]
+[ error ] [0]类型错误: Too few arguments to function common\sql_server\InnerAccountSqlServer::getNeedUpdateData(), 1 passed in D:\phpstudy_pro\WWW\new_kefu_online\common\server\InnerAccount\InnerAccountServer.php on line 74 and exactly 2 expected[D:\phpstudy_pro\WWW\new_kefu_online\common\sql_server\InnerAccountSqlServer.php:111]
+---------------------------------------------------------------
+[ 2022-10-08T17:44:38+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/InnerAccount/run?p[action]=update_inner_account
+[运行时间：0.091992s] [吞吐率：10.87req/s] [内存消耗：4,054.28kb] [文件加载：178]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'InnerAccount',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:105.0) Gecko/20100101 Firefox/105.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/InnerAccount/run' => '',
+  'p' => 
+  array (
+    'action' => 'update_inner_account',
+  ),
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\InnerAccount->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\InnerAccount.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001631s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.002853s ]
+[ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_InnerAccount' , 'updateInnerAccount' , '{\"action\":\"update_inner_account\"}' , 1665222278 , 1665222278) [ RunTime:0.000861s ]
+[ error ] [0]类型错误: Too few arguments to function common\sql_server\InnerAccountSqlServer::getNeedUpdateData(), 1 passed in D:\phpstudy_pro\WWW\new_kefu_online\common\server\InnerAccount\InnerAccountServer.php on line 74 and exactly 2 expected[D:\phpstudy_pro\WWW\new_kefu_online\common\sql_server\InnerAccountSqlServer.php:111]
+---------------------------------------------------------------
+[ 2022-10-08T17:44:57+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/InnerAccount/run?p[action]=update_inner_account
+[运行时间：0.075452s] [吞吐率：13.25req/s] [内存消耗：3,790.57kb] [文件加载：169]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'InnerAccount',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:105.0) Gecko/20100101 Firefox/105.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/InnerAccount/run' => '',
+  'p' => 
+  array (
+    'action' => 'update_inner_account',
+  ),
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\InnerAccount->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\InnerAccount.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001531s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.002639s ]
+[ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_InnerAccount' , 'updateInnerAccount' , '{\"action\":\"update_inner_account\"}' , 1665222297 , 1665222297) [ RunTime:0.000756s ]
+---------------------------------------------------------------
+[ 2022-10-08T17:47:16+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/InnerAccount/run?p[action]=update_inner_account
+[运行时间：0.093828s] [吞吐率：10.66req/s] [内存消耗：4,054.28kb] [文件加载：178]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'InnerAccount',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:105.0) Gecko/20100101 Firefox/105.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/InnerAccount/run' => '',
+  'p' => 
+  array (
+    'action' => 'update_inner_account',
+  ),
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\InnerAccount->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\InnerAccount.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001480s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.003273s ]
+[ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_InnerAccount' , 'updateInnerAccount' , '{\"action\":\"update_inner_account\"}' , 1665222436 , 1665222436) [ RunTime:0.000962s ]
+[ error ] [0]类型错误: Too few arguments to function common\sql_server\InnerAccountSqlServer::getNeedUpdateData(), 1 passed in D:\phpstudy_pro\WWW\new_kefu_online\common\server\InnerAccount\InnerAccountServer.php on line 74 and exactly 2 expected[D:\phpstudy_pro\WWW\new_kefu_online\common\sql_server\InnerAccountSqlServer.php:111]
+---------------------------------------------------------------
+[ 2022-10-08T17:48:09+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/InnerAccount/run?p[action]=update_inner_account
+[运行时间：0.078175s] [吞吐率：12.79req/s] [内存消耗：3,899.41kb] [文件加载：171]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'InnerAccount',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:105.0) Gecko/20100101 Firefox/105.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/InnerAccount/run' => '',
+  'p' => 
+  array (
+    'action' => 'update_inner_account',
+  ),
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\InnerAccount->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\InnerAccount.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001430s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.002681s ]
+[ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_InnerAccount' , 'updateInnerAccount' , '{\"action\":\"update_inner_account\"}' , 1665222489 , 1665222489) [ RunTime:0.002134s ]
+---------------------------------------------------------------
+[ 2022-10-08T17:49:30+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/InnerAccount/run?p[action]=update_inner_account
+[运行时间：0.157606s] [吞吐率：6.34req/s] [内存消耗：4,269.51kb] [文件加载：181]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'InnerAccount',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:105.0) Gecko/20100101 Firefox/105.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/InnerAccount/run' => '',
+  'p' => 
+  array (
+    'action' => 'update_inner_account',
+  ),
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\InnerAccount->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\InnerAccount.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001295s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.004810s ]
+[ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_InnerAccount' , 'updateInnerAccount' , '{\"action\":\"update_inner_account\"}' , 1665222569 , 1665222569) [ RunTime:0.000833s ]
+[ error ] [0]致命错误: Class '\common\model\db_customer_asjd\KefuLoginLog' not found[D:\phpstudy_pro\WWW\new_kefu_online\common\server\CustomerPlatform\CommonServer.php:15]
+---------------------------------------------------------------
+[ 2022-10-08T17:53:05+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/InnerAccount/run?p[action]=update_inner_account
+[运行时间：0.092405s] [吞吐率：10.82req/s] [内存消耗：3,976.17kb] [文件加载：177]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'InnerAccount',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:105.0) Gecko/20100101 Firefox/105.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/InnerAccount/run' => '',
+  'p' => 
+  array (
+    'action' => 'update_inner_account',
+  ),
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\InnerAccount->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\InnerAccount.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001866s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.003106s ]
+[ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_InnerAccount' , 'updateInnerAccount' , '{\"action\":\"update_inner_account\"}' , 1665222785 , 1665222785) [ RunTime:0.001080s ]
+[ error ] [8]未定义变量: v[D:\phpstudy_pro\WWW\new_kefu_online\common\server\InnerAccount\InnerAccountServer.php:75]
+---------------------------------------------------------------
+[ 2022-10-08T17:58:45+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/InnerAccount/run?p[action]=update_inner_account
+[运行时间：0.093035s] [吞吐率：10.75req/s] [内存消耗：3,974.20kb] [文件加载：176]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'InnerAccount',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:105.0) Gecko/20100101 Firefox/105.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/InnerAccount/run' => '',
+  'p' => 
+  array (
+    'action' => 'update_inner_account',
+  ),
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\InnerAccount->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\InnerAccount.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001640s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.003352s ]
+[ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_InnerAccount' , 'updateInnerAccount' , '{\"action\":\"update_inner_account\"}' , 1665223125 , 1665223125) [ RunTime:0.000975s ]
+[ error ] [0]致命错误: Cannot use [] for reading[D:\phpstudy_pro\WWW\new_kefu_online\common\server\InnerAccount\InnerAccountServer.php:75]
+---------------------------------------------------------------
+[ 2022-10-08T17:58:57+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/InnerAccount/run?p[action]=update_inner_account
+[运行时间：0.082333s] [吞吐率：12.15req/s] [内存消耗：3,976.17kb] [文件加载：177]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'InnerAccount',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:105.0) Gecko/20100101 Firefox/105.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/InnerAccount/run' => '',
+  'p' => 
+  array (
+    'action' => 'update_inner_account',
+  ),
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\InnerAccount->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\InnerAccount.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001366s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.002679s ]
+[ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_InnerAccount' , 'updateInnerAccount' , '{\"action\":\"update_inner_account\"}' , 1665223137 , 1665223137) [ RunTime:0.002687s ]
+[ error ] [8]未定义数组下标: 0[D:\phpstudy_pro\WWW\new_kefu_online\common\server\InnerAccount\InnerAccountServer.php:75]
+---------------------------------------------------------------
+[ 2022-10-08T17:59:10+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/InnerAccount/run?p[action]=update_inner_account
+[运行时间：0.076945s] [吞吐率：13.00req/s] [内存消耗：3,901.30kb] [文件加载：171]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'InnerAccount',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:105.0) Gecko/20100101 Firefox/105.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/InnerAccount/run' => '',
+  'p' => 
+  array (
+    'action' => 'update_inner_account',
+  ),
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\InnerAccount->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\InnerAccount.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001351s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.002789s ]
+[ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_InnerAccount' , 'updateInnerAccount' , '{\"action\":\"update_inner_account\"}' , 1665223150 , 1665223150) [ RunTime:0.000792s ]
+---------------------------------------------------------------
+[ 2022-10-08T17:59:23+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/InnerAccount/run?p[action]=update_inner_account
+[运行时间：0.079646s] [吞吐率：12.56req/s] [内存消耗：3,900.98kb] [文件加载：171]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'InnerAccount',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:105.0) Gecko/20100101 Firefox/105.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/InnerAccount/run' => '',
+  'p' => 
+  array (
+    'action' => 'update_inner_account',
+  ),
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\InnerAccount->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\InnerAccount.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001480s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.002919s ]
+[ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_InnerAccount' , 'updateInnerAccount' , '{\"action\":\"update_inner_account\"}' , 1665223163 , 1665223163) [ RunTime:0.002141s ]
+---------------------------------------------------------------
+[ 2022-10-08T17:59:32+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/InnerAccount/run?p[action]=update_inner_account
+[运行时间：0.076767s] [吞吐率：13.03req/s] [内存消耗：3,901.02kb] [文件加载：171]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'InnerAccount',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:105.0) Gecko/20100101 Firefox/105.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/InnerAccount/run' => '',
+  'p' => 
+  array (
+    'action' => 'update_inner_account',
+  ),
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\InnerAccount->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\InnerAccount.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001346s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.002775s ]
+[ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_InnerAccount' , 'updateInnerAccount' , '{\"action\":\"update_inner_account\"}' , 1665223172 , 1665223172) [ RunTime:0.000842s ]
+---------------------------------------------------------------
+[ 2022-10-08T18:09:01+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/InnerAccount/run?p[action]=update_inner_account
+[运行时间：0.153456s] [吞吐率：6.52req/s] [内存消耗：4,444.77kb] [文件加载：185]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'InnerAccount',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:105.0) Gecko/20100101 Firefox/105.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/InnerAccount/run' => '',
+  'p' => 
+  array (
+    'action' => 'update_inner_account',
+  ),
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\InnerAccount->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\InnerAccount.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003412s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.003185s ]
+[ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_InnerAccount' , 'updateInnerAccount' , '{\"action\":\"update_inner_account\"}' , 1665223741 , 1665223741) [ RunTime:0.001012s ]
+[ error ] [10501]SQLSTATE[42S02]: Base table or view not found: 1146 Table 'db_customer_xll.kefu_login_log' doesn't exist[D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\library\think\db\Connection.php:385]
+---------------------------------------------------------------
+[ 2022-10-08T18:09:28+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/InnerAccount/run?p[action]=update_inner_account
+[运行时间：0.119207s] [吞吐率：8.39req/s] [内存消耗：4,852.37kb] [文件加载：185]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'InnerAccount',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:105.0) Gecko/20100101 Firefox/105.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/InnerAccount/run' => '',
+  'p' => 
+  array (
+    'action' => 'update_inner_account',
+  ),
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\InnerAccount->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\InnerAccount.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001346s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.002750s ]
+[ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_InnerAccount' , 'updateInnerAccount' , '{\"action\":\"update_inner_account\"}' , 1665223768 , 1665223768) [ RunTime:0.002595s ]
+[ error ] [2]array_column() expects parameter 1 to be array, string given[D:\phpstudy_pro\WWW\new_kefu_online\common\sql_server\InnerAccountSqlServer.php:165]
+---------------------------------------------------------------
+[ 2022-10-08T18:09:50+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/InnerAccount/run?p[action]=update_inner_account
+[运行时间：0.100394s] [吞吐率：9.96req/s] [内存消耗：5,117.59kb] [文件加载：179]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'InnerAccount',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:105.0) Gecko/20100101 Firefox/105.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/InnerAccount/run' => '',
+  'p' => 
+  array (
+    'action' => 'update_inner_account',
+  ),
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\InnerAccount->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\InnerAccount.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001374s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.001027s ]
+[ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_InnerAccount' , 'updateInnerAccount' , '{\"action\":\"update_inner_account\"}' , 1665223790 , 1665223790) [ RunTime:0.000877s ]
+---------------------------------------------------------------
+[ 2022-10-08T18:10:27+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/InnerAccount/run?p[action]=update_inner_account
+[运行时间：0.111083s] [吞吐率：9.00req/s] [内存消耗：4,852.37kb] [文件加载：185]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'InnerAccount',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:105.0) Gecko/20100101 Firefox/105.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/InnerAccount/run' => '',
+  'p' => 
+  array (
+    'action' => 'update_inner_account',
+  ),
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\InnerAccount->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\InnerAccount.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001452s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000767s ]
+[ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_InnerAccount' , 'updateInnerAccount' , '{\"action\":\"update_inner_account\"}' , 1665223827 , 1665223827) [ RunTime:0.002153s ]
+[ error ] [2]array_column() expects parameter 1 to be array, string given[D:\phpstudy_pro\WWW\new_kefu_online\common\sql_server\InnerAccountSqlServer.php:165]
+---------------------------------------------------------------
+[ 2022-10-08T18:11:00+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/InnerAccount/run?p[action]=update_inner_account
+[运行时间：0.127044s] [吞吐率：7.87req/s] [内存消耗：5,117.27kb] [文件加载：179]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'InnerAccount',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:105.0) Gecko/20100101 Firefox/105.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/InnerAccount/run' => '',
+  'p' => 
+  array (
+    'action' => 'update_inner_account',
+  ),
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\InnerAccount->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\InnerAccount.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001338s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000659s ]
+[ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_InnerAccount' , 'updateInnerAccount' , '{\"action\":\"update_inner_account\"}' , 1665223860 , 1665223860) [ RunTime:0.000853s ]
+---------------------------------------------------------------
+[ 2022-10-08T18:11:20+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/InnerAccount/run?p[action]=update_inner_account
+[运行时间：0.118031s] [吞吐率：8.47req/s] [内存消耗：4,852.62kb] [文件加载：185]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'InnerAccount',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:105.0) Gecko/20100101 Firefox/105.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/InnerAccount/run' => '',
+  'p' => 
+  array (
+    'action' => 'update_inner_account',
+  ),
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\InnerAccount->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\InnerAccount.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001341s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.002770s ]
+[ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_InnerAccount' , 'updateInnerAccount' , '{\"action\":\"update_inner_account\"}' , 1665223880 , 1665223880) [ RunTime:0.002587s ]
+[ error ] [2]array_column() expects parameter 1 to be array, string given[D:\phpstudy_pro\WWW\new_kefu_online\common\sql_server\InnerAccountSqlServer.php:166]
+---------------------------------------------------------------
+[ 2022-10-08T18:11:46+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/InnerAccount/run?p[action]=update_inner_account
+[运行时间：0.096674s] [吞吐率：10.34req/s] [内存消耗：4,852.37kb] [文件加载：185]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'InnerAccount',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:105.0) Gecko/20100101 Firefox/105.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/InnerAccount/run' => '',
+  'p' => 
+  array (
+    'action' => 'update_inner_account',
+  ),
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\InnerAccount->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\InnerAccount.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001446s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000751s ]
+[ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_InnerAccount' , 'updateInnerAccount' , '{\"action\":\"update_inner_account\"}' , 1665223906 , 1665223906) [ RunTime:0.002241s ]
+[ error ] [2]array_column() expects parameter 1 to be array, string given[D:\phpstudy_pro\WWW\new_kefu_online\common\sql_server\InnerAccountSqlServer.php:166]
+---------------------------------------------------------------
+[ 2022-10-08T18:13:50+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/InnerAccount/run?p[action]=update_inner_account
+[运行时间：0.136571s] [吞吐率：7.32req/s] [内存消耗：4,852.62kb] [文件加载：185]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'InnerAccount',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:105.0) Gecko/20100101 Firefox/105.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/InnerAccount/run' => '',
+  'p' => 
+  array (
+    'action' => 'update_inner_account',
+  ),
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\InnerAccount->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\InnerAccount.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001403s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000737s ]
+[ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_InnerAccount' , 'updateInnerAccount' , '{\"action\":\"update_inner_account\"}' , 1665224030 , 1665224030) [ RunTime:0.002168s ]
+[ error ] [2]array_column() expects parameter 1 to be array, string given[D:\phpstudy_pro\WWW\new_kefu_online\common\sql_server\InnerAccountSqlServer.php:165]
+---------------------------------------------------------------
+[ 2022-10-08T18:14:11+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/InnerAccount/run?p[action]=update_inner_account
+[运行时间：0.100569s] [吞吐率：9.94req/s] [内存消耗：5,117.71kb] [文件加载：179]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'InnerAccount',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:105.0) Gecko/20100101 Firefox/105.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/InnerAccount/run' => '',
+  'p' => 
+  array (
+    'action' => 'update_inner_account',
+  ),
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\InnerAccount->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\InnerAccount.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001463s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000826s ]
+[ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_InnerAccount' , 'updateInnerAccount' , '{\"action\":\"update_inner_account\"}' , 1665224051 , 1665224051) [ RunTime:0.002764s ]
+---------------------------------------------------------------
+[ 2022-10-08T18:14:32+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/InnerAccount/run?p[action]=update_inner_account
+[运行时间：0.087879s] [吞吐率：11.38req/s] [内存消耗：5,118.45kb] [文件加载：179]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'InnerAccount',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:105.0) Gecko/20100101 Firefox/105.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/InnerAccount/run' => '',
+  'p' => 
+  array (
+    'action' => 'update_inner_account',
+  ),
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\InnerAccount->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\InnerAccount.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001424s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000773s ]
+[ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_InnerAccount' , 'updateInnerAccount' , '{\"action\":\"update_inner_account\"}' , 1665224072 , 1665224072) [ RunTime:0.000821s ]
+---------------------------------------------------------------
+[ 2022-10-08T18:14:39+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/InnerAccount/run?p[action]=update_inner_account
+[运行时间：0.090378s] [吞吐率：11.06req/s] [内存消耗：5,118.45kb] [文件加载：179]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'InnerAccount',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:105.0) Gecko/20100101 Firefox/105.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/InnerAccount/run' => '',
+  'p' => 
+  array (
+    'action' => 'update_inner_account',
+  ),
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\InnerAccount->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\InnerAccount.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001259s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000748s ]
+[ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_InnerAccount' , 'updateInnerAccount' , '{\"action\":\"update_inner_account\"}' , 1665224079 , 1665224079) [ RunTime:0.002914s ]

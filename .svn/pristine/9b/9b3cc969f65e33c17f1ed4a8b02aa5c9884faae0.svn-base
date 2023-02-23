@@ -1,0 +1,64 @@
+{% include 'common/header_layui.volt' %}
+<body class="hold-transition skin-blue sidebar-mini">
+    <form class="layui-form" action="" style="padding: 20px;">
+        <div class="layui-form-item">
+            <label class="layui-form-label">用户名</label>
+            <div class="layui-input-inline">
+                <input type="text" name="username" lay-verify="required" autocomplete="off" class="layui-input">
+                <span style="color:red; font-size: 14px;">请用英文字母、数字或两者组合作为账号！</span>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">密码</label>
+            <div class="layui-input-inline">
+                <input type="text" name="password" lay-verify="required" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">真实姓名</label>
+            <div class="layui-input-inline">
+                <input type="text" name="realname" lay-verify="required" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">状态</label>
+            <div class="layui-input-block">
+                <input type="checkbox" checked="" name="status" lay-skin="switch" lay-text="ON|OFF"><div class="layui-unselect layui-form-switch layui-form-onswitch" lay-skin="_switch"><em>ON</em><i></i></div>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+              <button type="submit" class="layui-btn" lay-submit="" lay-filter="submit_btn">立即提交</button>
+            </div>
+        </div>
+    </form>
+
+    <script>
+        layui.use(['form'], function(){
+            var form = layui.form;
+            //监听提交
+            form.on('submit(submit_btn)', function(data){
+                $.ajax({
+                    url: "/admin/gsuser/add_user",
+                    data: data.field,
+                    type: "post",
+                    dataType:"json",
+                    success:function(data){
+                        console.log(data);
+                        if( data.status==1 ){
+                            var index = parent.layer.getFrameIndex(window.name);
+                            window.parent.res_msg(data.msg);
+                            parent.layer.close(index);//关闭当前页
+                            //window.parent.location.reload(); //刷新父窗口
+                        }
+                    },
+                    error:function(data){
+                        layer.alert('错误'+data.msg,{icon:2});
+                    }
+                });
+                return false;
+            });
+        });
+    </script>
+</body>
+</html>

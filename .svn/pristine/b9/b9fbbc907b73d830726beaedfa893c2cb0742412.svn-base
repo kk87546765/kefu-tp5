@@ -1,0 +1,17 @@
+<?php
+
+
+namespace extend;
+
+class ApiSms
+{
+    public static $config = [
+        "tencent"=>"\\extend\\Sms\\TencentSms",    //腾讯云
+        "nuoer"=>"\\extend\\Sms\\NuoerSms",    //诺尔代发
+    ];
+
+    public static function init($default = 'tencent'){
+        return self::$config[$default];
+    }
+
+}

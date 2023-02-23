@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <title>后台管理系统</title>
+    <link rel="stylesheet" href="/assets/vendor/layui/css/layui.css"/>
+    <link rel="stylesheet" href="/assets/model/common/css/style.css"/>
+    <link rel="stylesheet" href="/assets/model/common/css/common.css"/>
+    <script type="text/javascript" src="/assets/vendor/layui/layui.js"></script>
+    <!--[if lt IE 9]>
+    <script src="/assets/model/common/js/html5shiv.min.js"></script>
+    <script src="/assets/model/common/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+<!-- 加载动画 -->
+    <div class="page-loading">
+        <div class="ball-loader">
+            <span></span><span></span><span></span><span></span>
+        </div>
+    </div>
+    <div class="layui-form" lay-filter="edit-form" action="" style="padding: 20px;">
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">礼包码</label>
+            <div class="layui-input-inline">
+                <input type="text" name="code" lay-verify="required" value="" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">平台</label>
+            <div class="layui-input-inline">
+                <select name="platform_id" lay-filter="platform_id" lay-verify="required">
+                    <option value="">请选择</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">唯一产品</label>
+            <div class="layui-input-inline">
+                <select name="up_id" lay-verify="required">
+                </select>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">状态</label>
+            <div class="layui-input-inline">
+                <select name="status" lay-verify="required">
+                </select>
+            </div>
+        </div>
+        
+        <input type="hidden" name="id" value="">
+
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+              <button type="submit" class="layui-btn layui-power" id="Recall-codeAdd" lay-submit="" lay-filter="submit_btn">立即提交</button>
+              <button type="submit" class="layui-btn layui-power" id="Recall-codeEdit" lay-submit="" lay-filter="submit_btn">保存</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var layui_obj = layui.config({
+            version: true,
+            base: '/assets/model/'
+        }).extend({
+            common: 'common/js/common',
+        }).use(['common','jquery','form'], function(){
+            var form = layui.form;
+            var common = layui.common;
+            var $ = layui.jquery;
+            var id = common.urlParam.id;
+            var p_url = 'Recall/codeAdd';
+            var detail_url = 'Recall/codeDetail';
+            var up_product_where = {};
+            var detail_form = {};
+            
+            if(id > 0){
+                p_url = 'Recall/codeEdit';
+                //初始化权限显示
+                common.initPowerShow(['Recall-codeEdit']);
+            }else{
+                //初始化权限显示
+                common.initPowerShow(['Recall-codeAdd']);
+            }
+
+            //初始化页面数据
+            initData();
+
+            //监听提交
+            form.on('submit(submit_btn)', function(data){
+                common.req({
+                    url: p_url,
+                    data: data.field,
+                    type: "post",
+                    dataType:"json",
+                    success:function(res){
+                        console.log(res);
+                        if( res.code==0 ){
+                            var index = parent.layer.getFrameIndex(window.name);
+                            window.parent.res_msg(res.msg);
+                            parent.layer.close(index);//关闭当前页
+                            //window.parent.location.reload(); //刷新父窗口
+                        }else{
+                            layer.alert(res.msg,{icon:2});
+                        }
+                    },
+                    error:function(res){
+                        layer.alert('错误'+res.msg,{icon:2});
+                    }
+                });
+                return false;
+            });
+
+            form.on('select(platform_id)',function(data){
+                up_product_where.platform_id = data.value;
+                getUpProduct();
+            })
+
+
+            function initData(){
+
+                common.req({
+                    url: detail_url,
+                    data: {'id':id},
+                    type: "post",
+                    dataType:"json",
+                    success:function(res){
+                        
+                        if( res.code==0 ){
+
+                            common.isLoading(false);
+
+                        
+                            common.setOption1(res.config.status_arr,$('select[name="status"]'));
+
+                            if(id>0){
+                                detail_form = res.data;
+                                up_product_where.platform_id = detail_form.platform_id;
+                            }
+
+                            var p = new Promise(function(resolve,reject){
+                                common.req({
+                                    url: "ajax/getPlatformList",
+                                    type: "post",
+                                    dataType:"json",
+                                    success:function(res){
+                                        if( res.code==0 ){
+                                            $.each(res.data,function(k,v){
+                                                $('select[name=platform_id]').append('<option value="'+v.platform_id+'">'+v.name+'</option>');
+                                            });
+
+                                            form.render();
+                                            resolve(res.data);
+                                        }
+                                    },
+                                    error:function(res){
+                                        layer.alert('错误'+res.msg,{icon:2});
+                                    }
+                                });
+                            })
+
+                            p.then((r_data)=>{
+                                getUpProduct().then(()=>{
+                                    if(id>0){
+                                        form.val('edit-form',res.data);
+                                    }
+                                })
+                            })
+                        }else{
+                            layer.alert('错误'+res.msg,{icon:2});
+                        }
+                    },
+                    error:function(res){
+                        layer.alert('错误'+res.msg,{icon:2});
+                    }
+                });
+            }
+            function getUpProduct(){
+                return new Promise(function(resolve,reject){
+                    common.req({
+                        url: "ajax/getUProductList",
+                        type: "post",
+                        data:up_product_where,
+                        dataType:"json",
+                        success:function(res){
+                            if( res.code==0 ){
+                                $('select[name=up_id]').html('');
+                                $.each(res.data,function(k,v){
+                                    $('select[name=up_id]').append('<option value="'+v.up_id+'">'+v.name+'</option>');
+                                });
+
+                                form.render();
+                                resolve(1);
+                            }
+                        },
+                        error:function(res){
+                            layer.alert('错误'+res.msg,{icon:2});
+                        }
+                    });
+                })
+            }
+        });
+    </script>
+</body>
+</html>

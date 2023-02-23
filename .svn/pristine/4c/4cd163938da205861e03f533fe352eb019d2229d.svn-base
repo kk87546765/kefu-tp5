@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <title>后台管理系统</title>
+    <link rel="stylesheet" href="/assets/vendor/layui/css/layui.css"/>
+    <link rel="stylesheet" href="/assets/model/common/css/style.css"/>
+    <link rel="stylesheet" href="/assets/model/common/css/common.css"/>
+    <script type="text/javascript" src="/assets/vendor/layui/layui.js"></script>
+    <!--[if lt IE 9]>
+    <script src="/assets/model/common/js/html5shiv.min.js"></script>
+    <script src="/assets/model/common/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+<!-- 加载动画 -->
+<div class="page-loading">
+    <div class="ball-loader">
+        <span></span><span></span><span></span><span></span>
+    </div>
+</div>
+<div class="layui-card">
+    <div style="padding: 12px;" class="search_wrap">
+        <form class="layui-form" action="" lay-filter="search-form" id="search_form">
+            <div class="layui-inline" style="margin-bottom: 6px;">
+                <label class="layui-form-label">账号</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="username" id="username" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-inline" style="margin-bottom: 6px;">
+                <label class="layui-form-label">真实名称</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="realname" id="realname" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-inline" style="margin-bottom: 6px;">
+                <label class="layui-form-label">角色</label>
+                <div class="layui-input-inline">
+                    <select name="role_id" id="role_id" lay-filter="role_id" lay-search="">
+                    </select>
+                </div>
+            </div>
+
+            <div class="layui-inline" style="margin-bottom: 6px;">
+                <label class="layui-form-label">状态</label>
+                <div class="layui-input-inline">
+                    <select name="status" >
+                        <option value="">选择</option>
+                        <option value="1" selected>开启</option>
+                        <option value="2">停用</option>
+                    </select>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="layui-btn-group demoTable"  style="padding: 0 15px;">
+      <button class="layui-btn layui-btn-sm layui-power" id="User-list" data-type="search">搜索</button>
+      <button class="layui-btn layui-btn-sm layui-power" id="User-add" data-type="add">添加</button>
+    </div>
+
+    <div class="table_wrap" style="padding: 0 15px;">
+        <table id="idTest" lay-filter="demo" class="layui-table"></table>
+    </div>
+
+</div>
+<script>
+var lay_page = 1;
+var p_data = {};
+
+var layui_obj = layui.config({
+    version: true,
+    base: '/assets/model/'
+}).extend({
+    common: 'common/js/common',
+}).use(['common','table','laydate','jquery','form'], function(){
+    var table   = layui.table,
+    laydate = layui.laydate;
+    var common = layui.common;
+    var form = layui.form;
+    var $ = layui.jquery;
+
+    //初始化权限显示
+    common.initPowerShow(['User-add','User-list']);
+    //初始化页面数据
+    initData();
+
+    //监听工具条
+    table.on('tool(demo)', function(obj){
+        var data = obj.data;
+        if(obj.event === 'detail'){
+            //编辑
+            layer.open({
+                type: 2,
+                title: "修改用户",
+                maxmin: true,
+                shadeClose: true, //点击遮罩关闭层
+                area : ['80%' , '60%'],
+                content: "/view/user/detail.html?id="+data.id
+            });
+        }
+    });
+
+    $('.demoTable .layui-btn').on('click', function(){
+        var type = $(this).data('type');
+        if( type=='add' ){
+            //添加
+            layer.open({
+                type: 2,
+                title: "添加用户",
+                maxmin: true,
+                shadeClose: true, //点击遮罩关闭层
+                area : ['80%' , '60%'],
+                content: "/view/user/detail.html"
+            });
+        }else if( type=='search' ){
+            //搜索
+            let form_data = $('#search_form').serializeArray();
+            // console.log(form_data);return;
+            $.each(form_data,function(k,v){
+                p_data[v.name] = v.value;
+            })
+            table.reload('idTest', {
+                method: 'post'
+                ,where: p_data
+                ,page: {
+                    curr: 1
+                }
+            });
+        }
+    });
+
+    function initData(){
+
+        p_data = common.urlParam;
+        //初始化配置数据
+        common.req({
+            url: "User/listConfig"
+            ,type:'post'
+            ,dataType:'json'
+            ,success:function(res){
+                if( res.code==0 ){
+                    res.data.roles[''] = '全部';
+                    common.setOption1(res.data.roles,$('select[name="role_id"]'));
+
+                    form.render();
+                    form.val('search-form',p_data);
+                }
+            }
+            ,error:function(res){
+                layer.alert('错误'+res.msg,{icon:2});
+            }
+        })
+
+        table.render({
+            elem: '#idTest'
+            ,height: 'full-120'
+            ,url: common.apiUrl+'User/list' //数据接口
+            ,headers: common.getHeader()
+            ,page: true
+            ,limits:[20,50,100,200,500]
+            ,limit:20
+            ,minWidth:1000
+            ,method:'POST'
+            ,where: p_data
+            ,cols: [[ //表头
+                {field:'id', minWidth:80, sort: true, title:'ID'}
+                ,{field:'username', minWidth:120, title:'账号'}
+                ,{field:'realname', minWidth:120, title:'真实姓名'}
+                ,{field:'role_id', minWidth:138, title:'角色'}
+                ,{field:'position_grade_str', minWidth:100, title:'账号等级'}
+                ,{field:'status_str', minWidth:92, title:'状态'}
+                ,{field:'last_login_time', minWidth:174, title:'上次登录时间'}
+                ,{field:'last_ip_str', minWidth:130, title:'登录ip'}
+                ,{minWidth:120, align:'center', fixed: 'right', title:'操作'
+                ,templet:function(d){
+                        let str = '';
+                        if(d.action && d.action.length>0){
+                            $.each(d.action,function(k,v){
+                                str+= action(v);
+                            })
+                        }
+                        return str;
+                    }
+                }
+            ]]
+            ,done:function(a,b,c){
+                lay_page = b;
+                if(c > 0){
+
+                }
+
+                //隐藏加载框
+                common.isLoading(false);
+            }
+        });
+    }
+});
+//给子级调用
+function res_msg(msg){
+    layer.msg(msg,{icon:1});
+    setTimeout(function(){
+        // window.location.reload();
+        layui_obj.table.reload('idTest', {
+            method: 'post'
+            ,where: p_data
+            ,page: {
+                curr: lay_page
+            }
+        });
+    },1000);
+}
+
+function action(action,data){
+    let str = '';
+    switch (action) {
+        case 'detail':
+            str = '<a class="layui-btn layui-btn-xs" lay-event="detail">编辑</a>';
+            break;           
+        default:
+
+            break;
+    }
+
+    return str;
+}
+</script>
+</body>
+</html>

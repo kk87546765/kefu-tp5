@@ -1,0 +1,3105 @@
+---------------------------------------------------------------
+[ 2022-06-16T14:38:48+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/admin/getRedis
+[运行时间：0.219284s] [吞吐率：4.56req/s] [内存消耗：4,749.85kb] [文件加载：192]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'getRedis',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '55',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NTQ0OTc5NDEsImV4cCI6MTY1NzA4OTk0MSwidWlkIjoxNDN9.-43ZKzS1MUyNzhuhyoJcaYbJ8NgYn4rH6qNK6V5pLDg',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/admin/getRedis' => '',
+  'input' => 'block_resemble_key_nbcq',
+  'grade' => 'undefined-undefined',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Admin->getRedis[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\Admin.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001377s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.001341s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.003111s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_admin_log_n` [ RunTime:0.000967s ]
+[ sql ] [ SQL ] INSERT INTO `gr_admin_log_n` (`ip` , `admin_id` , `url` , `data` , `controller` , `action` , `add_time`) VALUES ('127.0.0.1' , 143 , '/admin/admin/getRedis' , '\"{\\\"\\\\\\/admin\\\\\\/admin\\\\\\/getRedis\\\":\\\"\\\",\\\"input\\\":\\\"block_resemble_key_nbcq\\\",\\\"grade\\\":\\\"undefined-undefined\\\"}\"' , 'Admin' , 'getRedis' , 1655361528) [ RunTime:0.002380s ]
+---------------------------------------------------------------
+[ 2022-06-16T14:39:02+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/admin/getRedis
+[运行时间：0.121964s] [吞吐率：8.20req/s] [内存消耗：4,632.82kb] [文件加载：191]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'getRedis',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '55',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NTQ0OTc5NDEsImV4cCI6MTY1NzA4OTk0MSwidWlkIjoxNDN9.-43ZKzS1MUyNzhuhyoJcaYbJ8NgYn4rH6qNK6V5pLDg',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://www.newkefu.com/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/admin/getRedis' => '',
+  'input' => 'block_resemble_key_nbcq',
+  'grade' => 'undefined-undefined',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Admin->getRedis[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\Admin.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001245s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000861s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000995s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_admin_log_n` [ RunTime:0.000889s ]
+[ sql ] [ SQL ] INSERT INTO `gr_admin_log_n` (`ip` , `admin_id` , `url` , `data` , `controller` , `action` , `add_time`) VALUES ('127.0.0.1' , 143 , '/admin/admin/getRedis' , '\"{\\\"\\\\\\/admin\\\\\\/admin\\\\\\/getRedis\\\":\\\"\\\",\\\"input\\\":\\\"block_resemble_key_nbcq\\\",\\\"grade\\\":\\\"undefined-undefined\\\"}\"' , 'Admin' , 'getRedis' , 1655361542) [ RunTime:0.000359s ]
+---------------------------------------------------------------
+[ 2022-06-16T14:39:26+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/admin/getRedis
+[运行时间：0.093611s] [吞吐率：10.68req/s] [内存消耗：4,632.83kb] [文件加载：191]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'getRedis',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '58',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NTQ0OTc5NDEsImV4cCI6MTY1NzA4OTk0MSwidWlkIjoxNDN9.-43ZKzS1MUyNzhuhyoJcaYbJ8NgYn4rH6qNK6V5pLDg',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/admin/getRedis' => '',
+  'key_name' => 'block_resemble_key_nbcq',
+  'grade' => 'undefined-undefined',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Admin->getRedis[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\Admin.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001438s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.001136s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000967s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_admin_log_n` [ RunTime:0.000780s ]
+[ sql ] [ SQL ] INSERT INTO `gr_admin_log_n` (`ip` , `admin_id` , `url` , `data` , `controller` , `action` , `add_time`) VALUES ('127.0.0.1' , 143 , '/admin/admin/getRedis' , '\"{\\\"\\\\\\/admin\\\\\\/admin\\\\\\/getRedis\\\":\\\"\\\",\\\"key_name\\\":\\\"block_resemble_key_nbcq\\\",\\\"grade\\\":\\\"undefined-undefined\\\"}\"' , 'Admin' , 'getRedis' , 1655361566) [ RunTime:0.000365s ]
+---------------------------------------------------------------
+[ 2022-06-16T14:39:34+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/admin/getRedis
+[运行时间：0.085127s] [吞吐率：11.75req/s] [内存消耗：4,632.80kb] [文件加载：191]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'getRedis',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '58',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NTQ0OTc5NDEsImV4cCI6MTY1NzA4OTk0MSwidWlkIjoxNDN9.-43ZKzS1MUyNzhuhyoJcaYbJ8NgYn4rH6qNK6V5pLDg',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://www.newkefu.com/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/admin/getRedis' => '',
+  'key_name' => 'block_resemble_key_nbcq',
+  'grade' => 'undefined-undefined',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Admin->getRedis[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\Admin.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001319s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.001104s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000858s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_admin_log_n` [ RunTime:0.000802s ]
+[ sql ] [ SQL ] INSERT INTO `gr_admin_log_n` (`ip` , `admin_id` , `url` , `data` , `controller` , `action` , `add_time`) VALUES ('127.0.0.1' , 143 , '/admin/admin/getRedis' , '\"{\\\"\\\\\\/admin\\\\\\/admin\\\\\\/getRedis\\\":\\\"\\\",\\\"key_name\\\":\\\"block_resemble_key_nbcq\\\",\\\"grade\\\":\\\"undefined-undefined\\\"}\"' , 'Admin' , 'getRedis' , 1655361574) [ RunTime:0.000375s ]
+---------------------------------------------------------------
+[ 2022-06-16T14:39:55+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/admin/getRedis
+[运行时间：0.085946s] [吞吐率：11.64req/s] [内存消耗：4,633.17kb] [文件加载：191]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'getRedis',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '58',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NTQ0OTc5NDEsImV4cCI6MTY1NzA4OTk0MSwidWlkIjoxNDN9.-43ZKzS1MUyNzhuhyoJcaYbJ8NgYn4rH6qNK6V5pLDg',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://www.newkefu.com/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/admin/getRedis' => '',
+  'key_name' => 'block_resemble_key_nbcq',
+  'grade' => 'undefined-undefined',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Admin->getRedis[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\Admin.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001157s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000865s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_admin_log_n` [ RunTime:0.000898s ]
+[ sql ] [ SQL ] INSERT INTO `gr_admin_log_n` (`ip` , `admin_id` , `url` , `data` , `controller` , `action` , `add_time`) VALUES ('127.0.0.1' , 143 , '/admin/admin/getRedis' , '\"{\\\"\\\\\\/admin\\\\\\/admin\\\\\\/getRedis\\\":\\\"\\\",\\\"key_name\\\":\\\"block_resemble_key_nbcq\\\",\\\"grade\\\":\\\"undefined-undefined\\\"}\"' , 'Admin' , 'getRedis' , 1655361595) [ RunTime:0.000401s ]
+---------------------------------------------------------------
+[ 2022-06-16T14:40:34+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/admin/getRedis
+[运行时间：0.078236s] [吞吐率：12.78req/s] [内存消耗：4,633.20kb] [文件加载：191]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'getRedis',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '38',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NTQ0OTc5NDEsImV4cCI6MTY1NzA4OTk0MSwidWlkIjoxNDN9.-43ZKzS1MUyNzhuhyoJcaYbJ8NgYn4rH6qNK6V5pLDg',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/admin/getRedis' => '',
+  'key_name' => 'abc',
+  'grade' => 'undefined-undefined',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Admin->getRedis[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\Admin.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001024s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000793s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000918s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_admin_log_n` [ RunTime:0.000740s ]
+[ sql ] [ SQL ] INSERT INTO `gr_admin_log_n` (`ip` , `admin_id` , `url` , `data` , `controller` , `action` , `add_time`) VALUES ('127.0.0.1' , 143 , '/admin/admin/getRedis' , '\"{\\\"\\\\\\/admin\\\\\\/admin\\\\\\/getRedis\\\":\\\"\\\",\\\"key_name\\\":\\\"abc\\\",\\\"grade\\\":\\\"undefined-undefined\\\"}\"' , 'Admin' , 'getRedis' , 1655361634) [ RunTime:0.000506s ]
+---------------------------------------------------------------
+[ 2022-06-16T14:40:40+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/admin/getRedis
+[运行时间：0.083240s] [吞吐率：12.01req/s] [内存消耗：4,633.10kb] [文件加载：191]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'getRedis',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '38',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NTQ0OTc5NDEsImV4cCI6MTY1NzA4OTk0MSwidWlkIjoxNDN9.-43ZKzS1MUyNzhuhyoJcaYbJ8NgYn4rH6qNK6V5pLDg',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://www.newkefu.com/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/admin/getRedis' => '',
+  'key_name' => 'abc',
+  'grade' => 'undefined-undefined',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Admin->getRedis[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\Admin.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001056s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000788s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000862s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_admin_log_n` [ RunTime:0.000838s ]
+[ sql ] [ SQL ] INSERT INTO `gr_admin_log_n` (`ip` , `admin_id` , `url` , `data` , `controller` , `action` , `add_time`) VALUES ('127.0.0.1' , 143 , '/admin/admin/getRedis' , '\"{\\\"\\\\\\/admin\\\\\\/admin\\\\\\/getRedis\\\":\\\"\\\",\\\"key_name\\\":\\\"abc\\\",\\\"grade\\\":\\\"undefined-undefined\\\"}\"' , 'Admin' , 'getRedis' , 1655361640) [ RunTime:0.000356s ]
+---------------------------------------------------------------
+[ 2022-06-16T14:43:20+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/admin/getRedis
+[运行时间：0.105387s] [吞吐率：9.49req/s] [内存消耗：4,747.30kb] [文件加载：197]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'getRedis',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '38',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NTQ0OTc5NDEsImV4cCI6MTY1NzA4OTk0MSwidWlkIjoxNDN9.-43ZKzS1MUyNzhuhyoJcaYbJ8NgYn4rH6qNK6V5pLDg',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://www.newkefu.com/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/admin/getRedis' => '',
+  'key_name' => 'abc',
+  'grade' => 'undefined-undefined',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Admin->getRedis[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\Admin.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001188s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000833s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000934s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_admin_log_n` [ RunTime:0.000690s ]
+[ sql ] [ SQL ] INSERT INTO `gr_admin_log_n` (`ip` , `admin_id` , `url` , `data` , `controller` , `action` , `add_time`) VALUES ('127.0.0.1' , 143 , '/admin/admin/getRedis' , '\"{\\\"\\\\\\/admin\\\\\\/admin\\\\\\/getRedis\\\":\\\"\\\",\\\"key_name\\\":\\\"abc\\\",\\\"grade\\\":\\\"undefined-undefined\\\"}\"' , 'Admin' , 'getRedis' , 1655361800) [ RunTime:0.000332s ]
+[ error ] [2]Redis::hSet() expects exactly 3 parameters, 2 given[D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\Admin.php:465]
+---------------------------------------------------------------
+[ 2022-06-16T14:45:27+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/admin/getRedis
+[运行时间：0.128921s] [吞吐率：7.76req/s] [内存消耗：4,747.30kb] [文件加载：197]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'getRedis',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '38',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NTQ0OTc5NDEsImV4cCI6MTY1NzA4OTk0MSwidWlkIjoxNDN9.-43ZKzS1MUyNzhuhyoJcaYbJ8NgYn4rH6qNK6V5pLDg',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://www.newkefu.com/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/admin/getRedis' => '',
+  'key_name' => 'abc',
+  'grade' => 'undefined-undefined',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Admin->getRedis[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\Admin.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010730s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000866s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000823s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_admin_log_n` [ RunTime:0.000669s ]
+[ sql ] [ SQL ] INSERT INTO `gr_admin_log_n` (`ip` , `admin_id` , `url` , `data` , `controller` , `action` , `add_time`) VALUES ('127.0.0.1' , 143 , '/admin/admin/getRedis' , '\"{\\\"\\\\\\/admin\\\\\\/admin\\\\\\/getRedis\\\":\\\"\\\",\\\"key_name\\\":\\\"abc\\\",\\\"grade\\\":\\\"undefined-undefined\\\"}\"' , 'Admin' , 'getRedis' , 1655361927) [ RunTime:0.000360s ]
+[ error ] [2]Redis::hGet() expects exactly 2 parameters, 1 given[D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\Admin.php:472]
+---------------------------------------------------------------
+[ 2022-06-16T14:45:41+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/admin/getRedis
+[运行时间：0.082234s] [吞吐率：12.16req/s] [内存消耗：4,634.82kb] [文件加载：191]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'getRedis',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '38',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NTQ0OTc5NDEsImV4cCI6MTY1NzA4OTk0MSwidWlkIjoxNDN9.-43ZKzS1MUyNzhuhyoJcaYbJ8NgYn4rH6qNK6V5pLDg',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://www.newkefu.com/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/admin/getRedis' => '',
+  'key_name' => 'abc',
+  'grade' => 'undefined-undefined',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Admin->getRedis[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\Admin.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001067s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000714s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000804s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_admin_log_n` [ RunTime:0.000595s ]
+[ sql ] [ SQL ] INSERT INTO `gr_admin_log_n` (`ip` , `admin_id` , `url` , `data` , `controller` , `action` , `add_time`) VALUES ('127.0.0.1' , 143 , '/admin/admin/getRedis' , '\"{\\\"\\\\\\/admin\\\\\\/admin\\\\\\/getRedis\\\":\\\"\\\",\\\"key_name\\\":\\\"abc\\\",\\\"grade\\\":\\\"undefined-undefined\\\"}\"' , 'Admin' , 'getRedis' , 1655361941) [ RunTime:0.000314s ]
+---------------------------------------------------------------
+[ 2022-06-16T14:46:02+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/admin/getRedis
+[运行时间：0.087955s] [吞吐率：11.37req/s] [内存消耗：4,635.32kb] [文件加载：191]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'getRedis',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '38',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NTQ0OTc5NDEsImV4cCI6MTY1NzA4OTk0MSwidWlkIjoxNDN9.-43ZKzS1MUyNzhuhyoJcaYbJ8NgYn4rH6qNK6V5pLDg',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://www.newkefu.com/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/admin/getRedis' => '',
+  'key_name' => 'abc',
+  'grade' => 'undefined-undefined',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Admin->getRedis[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\Admin.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001078s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000708s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000842s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_admin_log_n` [ RunTime:0.000604s ]
+[ sql ] [ SQL ] INSERT INTO `gr_admin_log_n` (`ip` , `admin_id` , `url` , `data` , `controller` , `action` , `add_time`) VALUES ('127.0.0.1' , 143 , '/admin/admin/getRedis' , '\"{\\\"\\\\\\/admin\\\\\\/admin\\\\\\/getRedis\\\":\\\"\\\",\\\"key_name\\\":\\\"abc\\\",\\\"grade\\\":\\\"undefined-undefined\\\"}\"' , 'Admin' , 'getRedis' , 1655361962) [ RunTime:0.000316s ]
+---------------------------------------------------------------
+[ 2022-06-16T14:46:25+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/admin/getRedis
+[运行时间：0.106527s] [吞吐率：9.39req/s] [内存消耗：4,635.40kb] [文件加载：191]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'getRedis',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '38',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NTQ0OTc5NDEsImV4cCI6MTY1NzA4OTk0MSwidWlkIjoxNDN9.-43ZKzS1MUyNzhuhyoJcaYbJ8NgYn4rH6qNK6V5pLDg',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://www.newkefu.com/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/admin/getRedis' => '',
+  'key_name' => 'abc',
+  'grade' => 'undefined-undefined',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Admin->getRedis[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\Admin.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001218s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000853s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000895s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_admin_log_n` [ RunTime:0.000768s ]
+[ sql ] [ SQL ] INSERT INTO `gr_admin_log_n` (`ip` , `admin_id` , `url` , `data` , `controller` , `action` , `add_time`) VALUES ('127.0.0.1' , 143 , '/admin/admin/getRedis' , '\"{\\\"\\\\\\/admin\\\\\\/admin\\\\\\/getRedis\\\":\\\"\\\",\\\"key_name\\\":\\\"abc\\\",\\\"grade\\\":\\\"undefined-undefined\\\"}\"' , 'Admin' , 'getRedis' , 1655361985) [ RunTime:0.000340s ]
+---------------------------------------------------------------
+[ 2022-06-16T14:46:35+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/admin/getRedis
+[运行时间：0.087476s] [吞吐率：11.43req/s] [内存消耗：4,635.24kb] [文件加载：191]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'getRedis',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '36',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NTQ0OTc5NDEsImV4cCI6MTY1NzA4OTk0MSwidWlkIjoxNDN9.-43ZKzS1MUyNzhuhyoJcaYbJ8NgYn4rH6qNK6V5pLDg',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/admin/getRedis' => '',
+  'key_name' => 'a',
+  'grade' => 'undefined-undefined',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Admin->getRedis[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\Admin.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001151s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000730s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000802s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_admin_log_n` [ RunTime:0.000780s ]
+[ sql ] [ SQL ] INSERT INTO `gr_admin_log_n` (`ip` , `admin_id` , `url` , `data` , `controller` , `action` , `add_time`) VALUES ('127.0.0.1' , 143 , '/admin/admin/getRedis' , '\"{\\\"\\\\\\/admin\\\\\\/admin\\\\\\/getRedis\\\":\\\"\\\",\\\"key_name\\\":\\\"a\\\",\\\"grade\\\":\\\"undefined-undefined\\\"}\"' , 'Admin' , 'getRedis' , 1655361995) [ RunTime:0.000504s ]
+---------------------------------------------------------------
+[ 2022-06-16T14:46:37+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/admin/getRedis
+[运行时间：0.082661s] [吞吐率：12.10req/s] [内存消耗：4,635.24kb] [文件加载：191]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'getRedis',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '36',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NTQ0OTc5NDEsImV4cCI6MTY1NzA4OTk0MSwidWlkIjoxNDN9.-43ZKzS1MUyNzhuhyoJcaYbJ8NgYn4rH6qNK6V5pLDg',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://www.newkefu.com/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/admin/getRedis' => '',
+  'key_name' => 'a',
+  'grade' => 'undefined-undefined',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Admin->getRedis[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\Admin.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001022s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000681s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000803s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_admin_log_n` [ RunTime:0.000667s ]
+[ sql ] [ SQL ] INSERT INTO `gr_admin_log_n` (`ip` , `admin_id` , `url` , `data` , `controller` , `action` , `add_time`) VALUES ('127.0.0.1' , 143 , '/admin/admin/getRedis' , '\"{\\\"\\\\\\/admin\\\\\\/admin\\\\\\/getRedis\\\":\\\"\\\",\\\"key_name\\\":\\\"a\\\",\\\"grade\\\":\\\"undefined-undefined\\\"}\"' , 'Admin' , 'getRedis' , 1655361997) [ RunTime:0.000356s ]
+---------------------------------------------------------------
+[ 2022-06-16T14:46:50+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/admin/getRedis
+[运行时间：0.080103s] [吞吐率：12.48req/s] [内存消耗：4,635.28kb] [文件加载：191]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'getRedis',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '36',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NTQ0OTc5NDEsImV4cCI6MTY1NzA4OTk0MSwidWlkIjoxNDN9.-43ZKzS1MUyNzhuhyoJcaYbJ8NgYn4rH6qNK6V5pLDg',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://www.newkefu.com/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/admin/getRedis' => '',
+  'key_name' => 'a',
+  'grade' => 'undefined-undefined',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Admin->getRedis[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\Admin.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001095s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000701s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000811s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_admin_log_n` [ RunTime:0.000664s ]
+[ sql ] [ SQL ] INSERT INTO `gr_admin_log_n` (`ip` , `admin_id` , `url` , `data` , `controller` , `action` , `add_time`) VALUES ('127.0.0.1' , 143 , '/admin/admin/getRedis' , '\"{\\\"\\\\\\/admin\\\\\\/admin\\\\\\/getRedis\\\":\\\"\\\",\\\"key_name\\\":\\\"a\\\",\\\"grade\\\":\\\"undefined-undefined\\\"}\"' , 'Admin' , 'getRedis' , 1655362010) [ RunTime:0.000388s ]
+---------------------------------------------------------------
+[ 2022-06-16T14:59:43+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/admin/getRedis
+[运行时间：0.104666s] [吞吐率：9.55req/s] [内存消耗：4,705.59kb] [文件加载：194]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'getRedis',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '57',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NTQ0OTc5NDEsImV4cCI6MTY1NzA4OTk0MSwidWlkIjoxNDN9.-43ZKzS1MUyNzhuhyoJcaYbJ8NgYn4rH6qNK6V5pLDg',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/admin/getRedis' => '',
+  'type' => '3',
+  'hash_name' => 'a',
+  'key_name' => 'uid',
+  'grade' => 'undefined-undefined',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Admin->getRedis[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\Admin.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010892s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000786s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000882s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_admin_log_n` [ RunTime:0.000680s ]
+[ sql ] [ SQL ] INSERT INTO `gr_admin_log_n` (`ip` , `admin_id` , `url` , `data` , `controller` , `action` , `add_time`) VALUES ('127.0.0.1' , 143 , '/admin/admin/getRedis' , '\"{\\\"\\\\\\/admin\\\\\\/admin\\\\\\/getRedis\\\":\\\"\\\",\\\"type\\\":\\\"3\\\",\\\"hash_name\\\":\\\"a\\\",\\\"key_name\\\":\\\"uid\\\",\\\"grade\\\":\\\"undefined-undefined\\\"}\"' , 'Admin' , 'getRedis' , 1655362783) [ RunTime:0.000377s ]
+---------------------------------------------------------------
+[ 2022-06-16T15:00:07+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/admin/getRedis
+[运行时间：0.092973s] [吞吐率：10.76req/s] [内存消耗：4,635.88kb] [文件加载：191]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'getRedis',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '57',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NTQ0OTc5NDEsImV4cCI6MTY1NzA4OTk0MSwidWlkIjoxNDN9.-43ZKzS1MUyNzhuhyoJcaYbJ8NgYn4rH6qNK6V5pLDg',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://www.newkefu.com/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/admin/getRedis' => '',
+  'type' => '3',
+  'hash_name' => 'a',
+  'key_name' => 'uid',
+  'grade' => 'undefined-undefined',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Admin->getRedis[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\Admin.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001156s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000837s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000841s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_admin_log_n` [ RunTime:0.000645s ]
+[ sql ] [ SQL ] INSERT INTO `gr_admin_log_n` (`ip` , `admin_id` , `url` , `data` , `controller` , `action` , `add_time`) VALUES ('127.0.0.1' , 143 , '/admin/admin/getRedis' , '\"{\\\"\\\\\\/admin\\\\\\/admin\\\\\\/getRedis\\\":\\\"\\\",\\\"type\\\":\\\"3\\\",\\\"hash_name\\\":\\\"a\\\",\\\"key_name\\\":\\\"uid\\\",\\\"grade\\\":\\\"undefined-undefined\\\"}\"' , 'Admin' , 'getRedis' , 1655362807) [ RunTime:0.000321s ]
+---------------------------------------------------------------
+[ 2022-06-16T15:00:27+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/admin/getRedis
+[运行时间：0.083609s] [吞吐率：11.96req/s] [内存消耗：4,635.92kb] [文件加载：191]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'getRedis',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '57',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NTQ0OTc5NDEsImV4cCI6MTY1NzA4OTk0MSwidWlkIjoxNDN9.-43ZKzS1MUyNzhuhyoJcaYbJ8NgYn4rH6qNK6V5pLDg',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://www.newkefu.com/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/admin/getRedis' => '',
+  'type' => '3',
+  'hash_name' => 'a',
+  'key_name' => 'uid',
+  'grade' => 'undefined-undefined',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Admin->getRedis[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\Admin.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001108s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000702s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000843s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_admin_log_n` [ RunTime:0.000746s ]
+[ sql ] [ SQL ] INSERT INTO `gr_admin_log_n` (`ip` , `admin_id` , `url` , `data` , `controller` , `action` , `add_time`) VALUES ('127.0.0.1' , 143 , '/admin/admin/getRedis' , '\"{\\\"\\\\\\/admin\\\\\\/admin\\\\\\/getRedis\\\":\\\"\\\",\\\"type\\\":\\\"3\\\",\\\"hash_name\\\":\\\"a\\\",\\\"key_name\\\":\\\"uid\\\",\\\"grade\\\":\\\"undefined-undefined\\\"}\"' , 'Admin' , 'getRedis' , 1655362827) [ RunTime:0.000352s ]
+---------------------------------------------------------------
+[ 2022-06-16T15:02:27+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/admin/getRedis
+[运行时间：0.113915s] [吞吐率：8.78req/s] [内存消耗：4,705.59kb] [文件加载：194]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'getRedis',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '56',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NTQ0OTc5NDEsImV4cCI6MTY1NzA4OTk0MSwidWlkIjoxNDN9.-43ZKzS1MUyNzhuhyoJcaYbJ8NgYn4rH6qNK6V5pLDg',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/admin/getRedis' => '',
+  'type' => '1',
+  'hash_name' => 'a',
+  'key_name' => 'bc',
+  'grade' => 'undefined-undefined',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Admin->getRedis[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\Admin.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011617s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000720s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.001265s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_admin_log_n` [ RunTime:0.000870s ]
+[ sql ] [ SQL ] INSERT INTO `gr_admin_log_n` (`ip` , `admin_id` , `url` , `data` , `controller` , `action` , `add_time`) VALUES ('127.0.0.1' , 143 , '/admin/admin/getRedis' , '\"{\\\"\\\\\\/admin\\\\\\/admin\\\\\\/getRedis\\\":\\\"\\\",\\\"type\\\":\\\"1\\\",\\\"hash_name\\\":\\\"a\\\",\\\"key_name\\\":\\\"bc\\\",\\\"grade\\\":\\\"undefined-undefined\\\"}\"' , 'Admin' , 'getRedis' , 1655362947) [ RunTime:0.000406s ]
+---------------------------------------------------------------
+[ 2022-06-16T15:02:45+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/admin/getRedis
+[运行时间：0.077971s] [吞吐率：12.83req/s] [内存消耗：4,635.88kb] [文件加载：191]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'getRedis',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '56',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NTQ0OTc5NDEsImV4cCI6MTY1NzA4OTk0MSwidWlkIjoxNDN9.-43ZKzS1MUyNzhuhyoJcaYbJ8NgYn4rH6qNK6V5pLDg',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://www.newkefu.com/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/admin/getRedis' => '',
+  'type' => '1',
+  'hash_name' => 'a',
+  'key_name' => 'bc',
+  'grade' => 'undefined-undefined',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Admin->getRedis[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\Admin.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001048s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000690s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000841s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_admin_log_n` [ RunTime:0.000700s ]
+[ sql ] [ SQL ] INSERT INTO `gr_admin_log_n` (`ip` , `admin_id` , `url` , `data` , `controller` , `action` , `add_time`) VALUES ('127.0.0.1' , 143 , '/admin/admin/getRedis' , '\"{\\\"\\\\\\/admin\\\\\\/admin\\\\\\/getRedis\\\":\\\"\\\",\\\"type\\\":\\\"1\\\",\\\"hash_name\\\":\\\"a\\\",\\\"key_name\\\":\\\"bc\\\",\\\"grade\\\":\\\"undefined-undefined\\\"}\"' , 'Admin' , 'getRedis' , 1655362965) [ RunTime:0.000329s ]
+---------------------------------------------------------------
+[ 2022-06-16T15:03:22+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/admin/getRedis
+[运行时间：0.093139s] [吞吐率：10.74req/s] [内存消耗：4,636.38kb] [文件加载：191]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'getRedis',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '56',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NTQ0OTc5NDEsImV4cCI6MTY1NzA4OTk0MSwidWlkIjoxNDN9.-43ZKzS1MUyNzhuhyoJcaYbJ8NgYn4rH6qNK6V5pLDg',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://www.newkefu.com/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/admin/getRedis' => '',
+  'type' => '1',
+  'hash_name' => 'a',
+  'key_name' => 'bc',
+  'grade' => 'undefined-undefined',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Admin->getRedis[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\Admin.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001075s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000702s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000853s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_admin_log_n` [ RunTime:0.000705s ]
+[ sql ] [ SQL ] INSERT INTO `gr_admin_log_n` (`ip` , `admin_id` , `url` , `data` , `controller` , `action` , `add_time`) VALUES ('127.0.0.1' , 143 , '/admin/admin/getRedis' , '\"{\\\"\\\\\\/admin\\\\\\/admin\\\\\\/getRedis\\\":\\\"\\\",\\\"type\\\":\\\"1\\\",\\\"hash_name\\\":\\\"a\\\",\\\"key_name\\\":\\\"bc\\\",\\\"grade\\\":\\\"undefined-undefined\\\"}\"' , 'Admin' , 'getRedis' , 1655363002) [ RunTime:0.000318s ]
+---------------------------------------------------------------
+[ 2022-06-16T15:03:30+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/admin/getRedis
+[运行时间：0.109772s] [吞吐率：9.11req/s] [内存消耗：4,748.89kb] [文件加载：197]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'getRedis',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '56',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NTQ0OTc5NDEsImV4cCI6MTY1NzA4OTk0MSwidWlkIjoxNDN9.-43ZKzS1MUyNzhuhyoJcaYbJ8NgYn4rH6qNK6V5pLDg',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://www.newkefu.com/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/admin/getRedis' => '',
+  'type' => '1',
+  'hash_name' => 'a',
+  'key_name' => 'bc',
+  'grade' => 'undefined-undefined',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Admin->getRedis[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\Admin.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001137s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000695s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000895s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_admin_log_n` [ RunTime:0.000726s ]
+[ sql ] [ SQL ] INSERT INTO `gr_admin_log_n` (`ip` , `admin_id` , `url` , `data` , `controller` , `action` , `add_time`) VALUES ('127.0.0.1' , 143 , '/admin/admin/getRedis' , '\"{\\\"\\\\\\/admin\\\\\\/admin\\\\\\/getRedis\\\":\\\"\\\",\\\"type\\\":\\\"1\\\",\\\"hash_name\\\":\\\"a\\\",\\\"key_name\\\":\\\"bc\\\",\\\"grade\\\":\\\"undefined-undefined\\\"}\"' , 'Admin' , 'getRedis' , 1655363010) [ RunTime:0.000323s ]
+[ error ] [8]未定义变量: res[D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\Admin.php:476]
+---------------------------------------------------------------
+[ 2022-06-16T15:03:38+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/admin/getRedis
+[运行时间：0.082621s] [吞吐率：12.10req/s] [内存消耗：4,636.38kb] [文件加载：191]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'getRedis',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '56',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NTQ0OTc5NDEsImV4cCI6MTY1NzA4OTk0MSwidWlkIjoxNDN9.-43ZKzS1MUyNzhuhyoJcaYbJ8NgYn4rH6qNK6V5pLDg',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://www.newkefu.com/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/admin/getRedis' => '',
+  'type' => '1',
+  'hash_name' => 'a',
+  'key_name' => 'bc',
+  'grade' => 'undefined-undefined',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Admin->getRedis[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\Admin.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001133s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000679s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000774s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_admin_log_n` [ RunTime:0.000633s ]
+[ sql ] [ SQL ] INSERT INTO `gr_admin_log_n` (`ip` , `admin_id` , `url` , `data` , `controller` , `action` , `add_time`) VALUES ('127.0.0.1' , 143 , '/admin/admin/getRedis' , '\"{\\\"\\\\\\/admin\\\\\\/admin\\\\\\/getRedis\\\":\\\"\\\",\\\"type\\\":\\\"1\\\",\\\"hash_name\\\":\\\"a\\\",\\\"key_name\\\":\\\"bc\\\",\\\"grade\\\":\\\"undefined-undefined\\\"}\"' , 'Admin' , 'getRedis' , 1655363018) [ RunTime:0.000317s ]
+---------------------------------------------------------------
+[ 2022-06-16T15:03:46+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/admin/getRedis
+[运行时间：0.099032s] [吞吐率：10.10req/s] [内存消耗：4,636.38kb] [文件加载：191]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'getRedis',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '56',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NTQ0OTc5NDEsImV4cCI6MTY1NzA4OTk0MSwidWlkIjoxNDN9.-43ZKzS1MUyNzhuhyoJcaYbJ8NgYn4rH6qNK6V5pLDg',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/admin/getRedis' => '',
+  'type' => '1',
+  'hash_name' => 'a',
+  'key_name' => 'bc',
+  'grade' => 'undefined-undefined',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Admin->getRedis[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\Admin.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001115s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000717s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000791s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_admin_log_n` [ RunTime:0.000877s ]
+[ sql ] [ SQL ] INSERT INTO `gr_admin_log_n` (`ip` , `admin_id` , `url` , `data` , `controller` , `action` , `add_time`) VALUES ('127.0.0.1' , 143 , '/admin/admin/getRedis' , '\"{\\\"\\\\\\/admin\\\\\\/admin\\\\\\/getRedis\\\":\\\"\\\",\\\"type\\\":\\\"1\\\",\\\"hash_name\\\":\\\"a\\\",\\\"key_name\\\":\\\"bc\\\",\\\"grade\\\":\\\"undefined-undefined\\\"}\"' , 'Admin' , 'getRedis' , 1655363026) [ RunTime:0.000377s ]
+---------------------------------------------------------------
+[ 2022-06-16T15:03:52+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/admin/getRedis
+[运行时间：0.088118s] [吞吐率：11.35req/s] [内存消耗：4,636.38kb] [文件加载：191]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'getRedis',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '57',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NTQ0OTc5NDEsImV4cCI6MTY1NzA4OTk0MSwidWlkIjoxNDN9.-43ZKzS1MUyNzhuhyoJcaYbJ8NgYn4rH6qNK6V5pLDg',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/admin/getRedis' => '',
+  'type' => '1',
+  'hash_name' => 'a',
+  'key_name' => 'abc',
+  'grade' => 'undefined-undefined',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Admin->getRedis[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\Admin.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001087s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000714s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000843s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_admin_log_n` [ RunTime:0.000622s ]
+[ sql ] [ SQL ] INSERT INTO `gr_admin_log_n` (`ip` , `admin_id` , `url` , `data` , `controller` , `action` , `add_time`) VALUES ('127.0.0.1' , 143 , '/admin/admin/getRedis' , '\"{\\\"\\\\\\/admin\\\\\\/admin\\\\\\/getRedis\\\":\\\"\\\",\\\"type\\\":\\\"1\\\",\\\"hash_name\\\":\\\"a\\\",\\\"key_name\\\":\\\"abc\\\",\\\"grade\\\":\\\"undefined-undefined\\\"}\"' , 'Admin' , 'getRedis' , 1655363032) [ RunTime:0.000382s ]
+---------------------------------------------------------------
+[ 2022-06-16T15:04:21+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/admin/getRedis
+[运行时间：0.104801s] [吞吐率：9.54req/s] [内存消耗：4,636.38kb] [文件加载：191]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'getRedis',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '57',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NTQ0OTc5NDEsImV4cCI6MTY1NzA4OTk0MSwidWlkIjoxNDN9.-43ZKzS1MUyNzhuhyoJcaYbJ8NgYn4rH6qNK6V5pLDg',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/admin/getRedis' => '',
+  'type' => '1',
+  'hash_name' => 'a',
+  'key_name' => 'abc',
+  'grade' => 'undefined-undefined',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Admin->getRedis[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\Admin.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001144s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000790s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000798s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_admin_log_n` [ RunTime:0.000761s ]
+[ sql ] [ SQL ] INSERT INTO `gr_admin_log_n` (`ip` , `admin_id` , `url` , `data` , `controller` , `action` , `add_time`) VALUES ('127.0.0.1' , 143 , '/admin/admin/getRedis' , '\"{\\\"\\\\\\/admin\\\\\\/admin\\\\\\/getRedis\\\":\\\"\\\",\\\"type\\\":\\\"1\\\",\\\"hash_name\\\":\\\"a\\\",\\\"key_name\\\":\\\"abc\\\",\\\"grade\\\":\\\"undefined-undefined\\\"}\"' , 'Admin' , 'getRedis' , 1655363061) [ RunTime:0.000330s ]
+---------------------------------------------------------------
+[ 2022-06-16T15:09:34+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/admin/getRedis
+[运行时间：0.116266s] [吞吐率：8.60req/s] [内存消耗：4,636.16kb] [文件加载：191]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'getRedis',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '30',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NTQ0OTc5NDEsImV4cCI6MTY1NzA4OTk0MSwidWlkIjoxNDN9.-43ZKzS1MUyNzhuhyoJcaYbJ8NgYn4rH6qNK6V5pLDg',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/admin/getRedis' => '',
+  'type' => '1',
+  'hash_name' => '',
+  'key_name' => 'abc',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Admin->getRedis[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\Admin.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001127s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000733s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000875s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_admin_log_n` [ RunTime:0.000581s ]
+[ sql ] [ SQL ] INSERT INTO `gr_admin_log_n` (`ip` , `admin_id` , `url` , `data` , `controller` , `action` , `add_time`) VALUES ('127.0.0.1' , 143 , '/admin/admin/getRedis' , '\"{\\\"\\\\\\/admin\\\\\\/admin\\\\\\/getRedis\\\":\\\"\\\",\\\"type\\\":\\\"1\\\",\\\"hash_name\\\":\\\"\\\",\\\"key_name\\\":\\\"abc\\\"}\"' , 'Admin' , 'getRedis' , 1655363374) [ RunTime:0.000343s ]
+---------------------------------------------------------------
+[ 2022-06-16T15:09:59+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/admin/getRedis
+[运行时间：0.079360s] [吞吐率：12.60req/s] [内存消耗：4,636.16kb] [文件加载：191]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'getRedis',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '30',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NTQ0OTc5NDEsImV4cCI6MTY1NzA4OTk0MSwidWlkIjoxNDN9.-43ZKzS1MUyNzhuhyoJcaYbJ8NgYn4rH6qNK6V5pLDg',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/admin/getRedis' => '',
+  'type' => '1',
+  'hash_name' => '',
+  'key_name' => 'abc',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Admin->getRedis[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\Admin.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001030s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000699s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000808s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_admin_log_n` [ RunTime:0.000697s ]
+[ sql ] [ SQL ] INSERT INTO `gr_admin_log_n` (`ip` , `admin_id` , `url` , `data` , `controller` , `action` , `add_time`) VALUES ('127.0.0.1' , 143 , '/admin/admin/getRedis' , '\"{\\\"\\\\\\/admin\\\\\\/admin\\\\\\/getRedis\\\":\\\"\\\",\\\"type\\\":\\\"1\\\",\\\"hash_name\\\":\\\"\\\",\\\"key_name\\\":\\\"abc\\\"}\"' , 'Admin' , 'getRedis' , 1655363399) [ RunTime:0.000320s ]
+---------------------------------------------------------------
+[ 2022-06-16T15:10:13+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/admin/getRedis
+[运行时间：0.087500s] [吞吐率：11.43req/s] [内存消耗：4,636.16kb] [文件加载：191]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'getRedis',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '30',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NTQ0OTc5NDEsImV4cCI6MTY1NzA4OTk0MSwidWlkIjoxNDN9.-43ZKzS1MUyNzhuhyoJcaYbJ8NgYn4rH6qNK6V5pLDg',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/admin/getRedis' => '',
+  'type' => '1',
+  'hash_name' => '',
+  'key_name' => 'abc',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Admin->getRedis[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\Admin.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001019s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000739s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000804s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_admin_log_n` [ RunTime:0.000804s ]
+[ sql ] [ SQL ] INSERT INTO `gr_admin_log_n` (`ip` , `admin_id` , `url` , `data` , `controller` , `action` , `add_time`) VALUES ('127.0.0.1' , 143 , '/admin/admin/getRedis' , '\"{\\\"\\\\\\/admin\\\\\\/admin\\\\\\/getRedis\\\":\\\"\\\",\\\"type\\\":\\\"1\\\",\\\"hash_name\\\":\\\"\\\",\\\"key_name\\\":\\\"abc\\\"}\"' , 'Admin' , 'getRedis' , 1655363413) [ RunTime:0.000425s ]
+---------------------------------------------------------------
+[ 2022-06-16T15:10:27+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/admin/getRedis
+[运行时间：0.109889s] [吞吐率：9.10req/s] [内存消耗：4,636.16kb] [文件加载：191]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'getRedis',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '30',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NTQ0OTc5NDEsImV4cCI6MTY1NzA4OTk0MSwidWlkIjoxNDN9.-43ZKzS1MUyNzhuhyoJcaYbJ8NgYn4rH6qNK6V5pLDg',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/admin/getRedis' => '',
+  'type' => '1',
+  'hash_name' => '',
+  'key_name' => 'abc',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Admin->getRedis[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\Admin.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001027s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000681s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000807s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_admin_log_n` [ RunTime:0.000787s ]
+[ sql ] [ SQL ] INSERT INTO `gr_admin_log_n` (`ip` , `admin_id` , `url` , `data` , `controller` , `action` , `add_time`) VALUES ('127.0.0.1' , 143 , '/admin/admin/getRedis' , '\"{\\\"\\\\\\/admin\\\\\\/admin\\\\\\/getRedis\\\":\\\"\\\",\\\"type\\\":\\\"1\\\",\\\"hash_name\\\":\\\"\\\",\\\"key_name\\\":\\\"abc\\\"}\"' , 'Admin' , 'getRedis' , 1655363427) [ RunTime:0.000416s ]
+---------------------------------------------------------------
+[ 2022-06-16T15:11:24+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/admin/getRedis
+[运行时间：0.113001s] [吞吐率：8.85req/s] [内存消耗：4,636.16kb] [文件加载：191]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'getRedis',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '30',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NTQ0OTc5NDEsImV4cCI6MTY1NzA4OTk0MSwidWlkIjoxNDN9.-43ZKzS1MUyNzhuhyoJcaYbJ8NgYn4rH6qNK6V5pLDg',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/admin/getRedis' => '',
+  'type' => '1',
+  'hash_name' => '',
+  'key_name' => 'abc',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Admin->getRedis[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\Admin.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001085s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000683s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000808s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_admin_log_n` [ RunTime:0.000709s ]
+[ sql ] [ SQL ] INSERT INTO `gr_admin_log_n` (`ip` , `admin_id` , `url` , `data` , `controller` , `action` , `add_time`) VALUES ('127.0.0.1' , 143 , '/admin/admin/getRedis' , '\"{\\\"\\\\\\/admin\\\\\\/admin\\\\\\/getRedis\\\":\\\"\\\",\\\"type\\\":\\\"1\\\",\\\"hash_name\\\":\\\"\\\",\\\"key_name\\\":\\\"abc\\\"}\"' , 'Admin' , 'getRedis' , 1655363484) [ RunTime:0.000341s ]
+---------------------------------------------------------------
+[ 2022-06-16T15:11:40+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/admin/getRedis
+[运行时间：0.085199s] [吞吐率：11.74req/s] [内存消耗：4,705.36kb] [文件加载：194]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'getRedis',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '30',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NTQ0OTc5NDEsImV4cCI6MTY1NzA4OTk0MSwidWlkIjoxNDN9.-43ZKzS1MUyNzhuhyoJcaYbJ8NgYn4rH6qNK6V5pLDg',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://www.newkefu.com/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/admin/getRedis' => '',
+  'type' => '1',
+  'hash_name' => '',
+  'key_name' => 'abc',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Admin->getRedis[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\Admin.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001026s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000675s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000796s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_admin_log_n` [ RunTime:0.000568s ]
+[ sql ] [ SQL ] INSERT INTO `gr_admin_log_n` (`ip` , `admin_id` , `url` , `data` , `controller` , `action` , `add_time`) VALUES ('127.0.0.1' , 143 , '/admin/admin/getRedis' , '\"{\\\"\\\\\\/admin\\\\\\/admin\\\\\\/getRedis\\\":\\\"\\\",\\\"type\\\":\\\"1\\\",\\\"hash_name\\\":\\\"\\\",\\\"key_name\\\":\\\"abc\\\"}\"' , 'Admin' , 'getRedis' , 1655363500) [ RunTime:0.000308s ]
+---------------------------------------------------------------
+[ 2022-06-16T15:11:43+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/admin/getRedis
+[运行时间：0.087500s] [吞吐率：11.43req/s] [内存消耗：4,705.36kb] [文件加载：194]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'getRedis',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '30',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NTQ0OTc5NDEsImV4cCI6MTY1NzA4OTk0MSwidWlkIjoxNDN9.-43ZKzS1MUyNzhuhyoJcaYbJ8NgYn4rH6qNK6V5pLDg',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/admin/getRedis' => '',
+  'type' => '1',
+  'hash_name' => '',
+  'key_name' => 'abc',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Admin->getRedis[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\Admin.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001026s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000733s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000867s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_admin_log_n` [ RunTime:0.000631s ]
+[ sql ] [ SQL ] INSERT INTO `gr_admin_log_n` (`ip` , `admin_id` , `url` , `data` , `controller` , `action` , `add_time`) VALUES ('127.0.0.1' , 143 , '/admin/admin/getRedis' , '\"{\\\"\\\\\\/admin\\\\\\/admin\\\\\\/getRedis\\\":\\\"\\\",\\\"type\\\":\\\"1\\\",\\\"hash_name\\\":\\\"\\\",\\\"key_name\\\":\\\"abc\\\"}\"' , 'Admin' , 'getRedis' , 1655363503) [ RunTime:0.000314s ]
+---------------------------------------------------------------
+[ 2022-06-16T15:11:56+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/admin/getRedis
+[运行时间：0.084033s] [吞吐率：11.90req/s] [内存消耗：4,705.36kb] [文件加载：194]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'getRedis',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '31',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NTQ0OTc5NDEsImV4cCI6MTY1NzA4OTk0MSwidWlkIjoxNDN9.-43ZKzS1MUyNzhuhyoJcaYbJ8NgYn4rH6qNK6V5pLDg',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/admin/getRedis' => '',
+  'type' => '3',
+  'hash_name' => 'a',
+  'key_name' => 'uid',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Admin->getRedis[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\Admin.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001013s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000637s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000793s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_admin_log_n` [ RunTime:0.000658s ]
+[ sql ] [ SQL ] INSERT INTO `gr_admin_log_n` (`ip` , `admin_id` , `url` , `data` , `controller` , `action` , `add_time`) VALUES ('127.0.0.1' , 143 , '/admin/admin/getRedis' , '\"{\\\"\\\\\\/admin\\\\\\/admin\\\\\\/getRedis\\\":\\\"\\\",\\\"type\\\":\\\"3\\\",\\\"hash_name\\\":\\\"a\\\",\\\"key_name\\\":\\\"uid\\\"}\"' , 'Admin' , 'getRedis' , 1655363516) [ RunTime:0.000371s ]
+---------------------------------------------------------------
+[ 2022-06-16T15:13:30+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/admin/getRedis
+[运行时间：0.120488s] [吞吐率：8.30req/s] [内存消耗：4,705.45kb] [文件加载：194]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'getRedis',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '54',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NTQ0OTc5NDEsImV4cCI6MTY1NzA4OTk0MSwidWlkIjoxNDN9.-43ZKzS1MUyNzhuhyoJcaYbJ8NgYn4rH6qNK6V5pLDg',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/admin/getRedis' => '',
+  'type' => '2',
+  'key_name' => 'block_keyword_set_shenqi',
+  'hash_name' => 'uid',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Admin->getRedis[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\Admin.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010753s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000704s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000785s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_admin_log_n` [ RunTime:0.000645s ]
+[ sql ] [ SQL ] INSERT INTO `gr_admin_log_n` (`ip` , `admin_id` , `url` , `data` , `controller` , `action` , `add_time`) VALUES ('127.0.0.1' , 143 , '/admin/admin/getRedis' , '\"{\\\"\\\\\\/admin\\\\\\/admin\\\\\\/getRedis\\\":\\\"\\\",\\\"type\\\":\\\"2\\\",\\\"key_name\\\":\\\"block_keyword_set_shenqi\\\",\\\"hash_name\\\":\\\"uid\\\"}\"' , 'Admin' , 'getRedis' , 1655363610) [ RunTime:0.000443s ]
+---------------------------------------------------------------
+[ 2022-06-16T15:15:22+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/admin/getRedis
+[运行时间：0.114147s] [吞吐率：8.76req/s] [内存消耗：4,705.45kb] [文件加载：194]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'getRedis',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '54',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NTQ0OTc5NDEsImV4cCI6MTY1NzA4OTk0MSwidWlkIjoxNDN9.-43ZKzS1MUyNzhuhyoJcaYbJ8NgYn4rH6qNK6V5pLDg',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/admin/getRedis' => '',
+  'type' => '2',
+  'key_name' => 'block_keyword_set_shenqi',
+  'hash_name' => 'uid',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Admin->getRedis[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\Admin.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.010632s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000751s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000870s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_admin_log_n` [ RunTime:0.000807s ]
+[ sql ] [ SQL ] INSERT INTO `gr_admin_log_n` (`ip` , `admin_id` , `url` , `data` , `controller` , `action` , `add_time`) VALUES ('127.0.0.1' , 143 , '/admin/admin/getRedis' , '\"{\\\"\\\\\\/admin\\\\\\/admin\\\\\\/getRedis\\\":\\\"\\\",\\\"type\\\":\\\"2\\\",\\\"key_name\\\":\\\"block_keyword_set_shenqi\\\",\\\"hash_name\\\":\\\"uid\\\"}\"' , 'Admin' , 'getRedis' , 1655363722) [ RunTime:0.000401s ]
+---------------------------------------------------------------
+[ 2022-06-16T15:15:48+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/admin/getRedis
+[运行时间：0.101957s] [吞吐率：9.81req/s] [内存消耗：4,705.45kb] [文件加载：194]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'getRedis',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '54',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NTQ0OTc5NDEsImV4cCI6MTY1NzA4OTk0MSwidWlkIjoxNDN9.-43ZKzS1MUyNzhuhyoJcaYbJ8NgYn4rH6qNK6V5pLDg',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/admin/getRedis' => '',
+  'type' => '2',
+  'key_name' => 'block_keyword_set_shenqi',
+  'hash_name' => 'uid',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Admin->getRedis[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\Admin.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001057s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000921s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000867s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_admin_log_n` [ RunTime:0.000667s ]
+[ sql ] [ SQL ] INSERT INTO `gr_admin_log_n` (`ip` , `admin_id` , `url` , `data` , `controller` , `action` , `add_time`) VALUES ('127.0.0.1' , 143 , '/admin/admin/getRedis' , '\"{\\\"\\\\\\/admin\\\\\\/admin\\\\\\/getRedis\\\":\\\"\\\",\\\"type\\\":\\\"2\\\",\\\"key_name\\\":\\\"block_keyword_set_shenqi\\\",\\\"hash_name\\\":\\\"uid\\\"}\"' , 'Admin' , 'getRedis' , 1655363748) [ RunTime:0.000332s ]
+---------------------------------------------------------------
+[ 2022-06-16T15:16:01+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/admin/getRedis
+[运行时间：0.093799s] [吞吐率：10.66req/s] [内存消耗：4,705.37kb] [文件加载：194]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'getRedis',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '33',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NTQ0OTc5NDEsImV4cCI6MTY1NzA4OTk0MSwidWlkIjoxNDN9.-43ZKzS1MUyNzhuhyoJcaYbJ8NgYn4rH6qNK6V5pLDg',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/admin/getRedis' => '',
+  'type' => '1',
+  'key_name' => 'abc',
+  'hash_name' => 'uid',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Admin->getRedis[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\Admin.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011312s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000807s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000935s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_admin_log_n` [ RunTime:0.000822s ]
+[ sql ] [ SQL ] INSERT INTO `gr_admin_log_n` (`ip` , `admin_id` , `url` , `data` , `controller` , `action` , `add_time`) VALUES ('127.0.0.1' , 143 , '/admin/admin/getRedis' , '\"{\\\"\\\\\\/admin\\\\\\/admin\\\\\\/getRedis\\\":\\\"\\\",\\\"type\\\":\\\"1\\\",\\\"key_name\\\":\\\"abc\\\",\\\"hash_name\\\":\\\"uid\\\"}\"' , 'Admin' , 'getRedis' , 1655363761) [ RunTime:0.000362s ]
+---------------------------------------------------------------
+[ 2022-06-16T15:17:31+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/admin/getRedis
+[运行时间：0.083448s] [吞吐率：11.98req/s] [内存消耗：4,705.37kb] [文件加载：194]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'getRedis',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '33',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NTQ0OTc5NDEsImV4cCI6MTY1NzA4OTk0MSwidWlkIjoxNDN9.-43ZKzS1MUyNzhuhyoJcaYbJ8NgYn4rH6qNK6V5pLDg',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/admin/getRedis' => '',
+  'type' => '1',
+  'key_name' => 'abc',
+  'hash_name' => 'uid',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Admin->getRedis[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\Admin.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001068s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000683s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000801s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_admin_log_n` [ RunTime:0.000789s ]
+[ sql ] [ SQL ] INSERT INTO `gr_admin_log_n` (`ip` , `admin_id` , `url` , `data` , `controller` , `action` , `add_time`) VALUES ('127.0.0.1' , 143 , '/admin/admin/getRedis' , '\"{\\\"\\\\\\/admin\\\\\\/admin\\\\\\/getRedis\\\":\\\"\\\",\\\"type\\\":\\\"1\\\",\\\"key_name\\\":\\\"abc\\\",\\\"hash_name\\\":\\\"uid\\\"}\"' , 'Admin' , 'getRedis' , 1655363851) [ RunTime:0.000398s ]
+---------------------------------------------------------------
+[ 2022-06-16T15:17:41+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/admin/getRedis
+[运行时间：0.116550s] [吞吐率：8.58req/s] [内存消耗：4,705.54kb] [文件加载：194]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'getRedis',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '53',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NTQ0OTc5NDEsImV4cCI6MTY1NzA4OTk0MSwidWlkIjoxNDN9.-43ZKzS1MUyNzhuhyoJcaYbJ8NgYn4rH6qNK6V5pLDg',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/admin/getRedis' => '',
+  'type' => '1',
+  'key_name' => 'block_resemble_key_nbcq',
+  'hash_name' => 'uid',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Admin->getRedis[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\Admin.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001205s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000781s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000844s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_admin_log_n` [ RunTime:0.000788s ]
+[ sql ] [ SQL ] INSERT INTO `gr_admin_log_n` (`ip` , `admin_id` , `url` , `data` , `controller` , `action` , `add_time`) VALUES ('127.0.0.1' , 143 , '/admin/admin/getRedis' , '\"{\\\"\\\\\\/admin\\\\\\/admin\\\\\\/getRedis\\\":\\\"\\\",\\\"type\\\":\\\"1\\\",\\\"key_name\\\":\\\"block_resemble_key_nbcq\\\",\\\"hash_name\\\":\\\"uid\\\"}\"' , 'Admin' , 'getRedis' , 1655363861) [ RunTime:0.000338s ]
+---------------------------------------------------------------
+[ 2022-06-16T15:17:49+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/admin/getRedis
+[运行时间：0.089823s] [吞吐率：11.13req/s] [内存消耗：4,705.45kb] [文件加载：194]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'getRedis',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '53',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NTQ0OTc5NDEsImV4cCI6MTY1NzA4OTk0MSwidWlkIjoxNDN9.-43ZKzS1MUyNzhuhyoJcaYbJ8NgYn4rH6qNK6V5pLDg',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/admin/getRedis' => '',
+  'type' => '2',
+  'key_name' => 'block_resemble_key_nbcq',
+  'hash_name' => 'uid',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Admin->getRedis[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\Admin.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000975s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000675s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000856s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_admin_log_n` [ RunTime:0.000843s ]
+[ sql ] [ SQL ] INSERT INTO `gr_admin_log_n` (`ip` , `admin_id` , `url` , `data` , `controller` , `action` , `add_time`) VALUES ('127.0.0.1' , 143 , '/admin/admin/getRedis' , '\"{\\\"\\\\\\/admin\\\\\\/admin\\\\\\/getRedis\\\":\\\"\\\",\\\"type\\\":\\\"2\\\",\\\"key_name\\\":\\\"block_resemble_key_nbcq\\\",\\\"hash_name\\\":\\\"uid\\\"}\"' , 'Admin' , 'getRedis' , 1655363869) [ RunTime:0.000466s ]
+---------------------------------------------------------------
+[ 2022-06-16T15:18:15+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/admin/getRedis
+[运行时间：0.099433s] [吞吐率：10.06req/s] [内存消耗：4,705.45kb] [文件加载：194]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'getRedis',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '53',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NTQ0OTc5NDEsImV4cCI6MTY1NzA4OTk0MSwidWlkIjoxNDN9.-43ZKzS1MUyNzhuhyoJcaYbJ8NgYn4rH6qNK6V5pLDg',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/admin/getRedis' => '',
+  'type' => '2',
+  'key_name' => 'block_resemble_key_nbcq',
+  'hash_name' => 'uid',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Admin->getRedis[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\Admin.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001100s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000706s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000784s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_admin_log_n` [ RunTime:0.000616s ]
+[ sql ] [ SQL ] INSERT INTO `gr_admin_log_n` (`ip` , `admin_id` , `url` , `data` , `controller` , `action` , `add_time`) VALUES ('127.0.0.1' , 143 , '/admin/admin/getRedis' , '\"{\\\"\\\\\\/admin\\\\\\/admin\\\\\\/getRedis\\\":\\\"\\\",\\\"type\\\":\\\"2\\\",\\\"key_name\\\":\\\"block_resemble_key_nbcq\\\",\\\"hash_name\\\":\\\"uid\\\"}\"' , 'Admin' , 'getRedis' , 1655363895) [ RunTime:0.000318s ]
+---------------------------------------------------------------
+[ 2022-06-16T15:18:26+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/admin/getRedis
+[运行时间：0.095884s] [吞吐率：10.43req/s] [内存消耗：4,705.45kb] [文件加载：194]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'getRedis',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '53',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NTQ0OTc5NDEsImV4cCI6MTY1NzA4OTk0MSwidWlkIjoxNDN9.-43ZKzS1MUyNzhuhyoJcaYbJ8NgYn4rH6qNK6V5pLDg',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/admin/getRedis' => '',
+  'type' => '2',
+  'key_name' => 'block_resemble_key_nbcq',
+  'hash_name' => 'uid',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Admin->getRedis[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\Admin.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001135s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000751s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000802s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_admin_log_n` [ RunTime:0.000770s ]
+[ sql ] [ SQL ] INSERT INTO `gr_admin_log_n` (`ip` , `admin_id` , `url` , `data` , `controller` , `action` , `add_time`) VALUES ('127.0.0.1' , 143 , '/admin/admin/getRedis' , '\"{\\\"\\\\\\/admin\\\\\\/admin\\\\\\/getRedis\\\":\\\"\\\",\\\"type\\\":\\\"2\\\",\\\"key_name\\\":\\\"block_resemble_key_nbcq\\\",\\\"hash_name\\\":\\\"uid\\\"}\"' , 'Admin' , 'getRedis' , 1655363906) [ RunTime:0.000321s ]
+---------------------------------------------------------------
+[ 2022-06-16T15:18:43+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/admin/getRedis
+[运行时间：0.099163s] [吞吐率：10.08req/s] [内存消耗：4,705.45kb] [文件加载：194]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => 'getRedis',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '53',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NTQ0OTc5NDEsImV4cCI6MTY1NzA4OTk0MSwidWlkIjoxNDN9.-43ZKzS1MUyNzhuhyoJcaYbJ8NgYn4rH6qNK6V5pLDg',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/admin/getRedis' => '',
+  'type' => '2',
+  'key_name' => 'block_resemble_key_nbcq',
+  'hash_name' => 'uid',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Admin->getRedis[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\Admin.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000994s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000739s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000842s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_admin_log_n` [ RunTime:0.000731s ]
+[ sql ] [ SQL ] INSERT INTO `gr_admin_log_n` (`ip` , `admin_id` , `url` , `data` , `controller` , `action` , `add_time`) VALUES ('127.0.0.1' , 143 , '/admin/admin/getRedis' , '\"{\\\"\\\\\\/admin\\\\\\/admin\\\\\\/getRedis\\\":\\\"\\\",\\\"type\\\":\\\"2\\\",\\\"key_name\\\":\\\"block_resemble_key_nbcq\\\",\\\"hash_name\\\":\\\"uid\\\"}\"' , 'Admin' , 'getRedis' , 1655363923) [ RunTime:0.000310s ]
+---------------------------------------------------------------
+[ 2022-06-16T15:38:45+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/block_waring/index
+[运行时间：0.100228s] [吞吐率：9.98req/s] [内存消耗：4,778.31kb] [文件加载：200]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'block_waring',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '196',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NTQ0OTc5NDEsImV4cCI6MTY1NzA4OTk0MSwidWlkIjoxNDN9.-43ZKzS1MUyNzhuhyoJcaYbJ8NgYn4rH6qNK6V5pLDg',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/block_waring/index' => '',
+  'page' => '1',
+  'limit' => '20',
+  'tkey' => '',
+  'game' => '',
+  'type' => '',
+  'keyword' => '',
+  'uid' => '',
+  'uname' => '',
+  'sid' => '',
+  'ip' => '',
+  'imei' => '',
+  'money_min' => '',
+  'money_max' => '',
+  'sdate' => '2022-05-01 00:00:00',
+  'edate' => '2022-06-16 00:00:00',
+  'level_min' => '',
+  'level_max' => '',
+  'sid_min' => '',
+  'sid_max' => '',
+  'ext' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\BlockWaring->index[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\BlockWaring.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001105s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000737s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.001144s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_admin_log_n` [ RunTime:0.000781s ]
+[ sql ] [ SQL ] INSERT INTO `gr_admin_log_n` (`ip` , `admin_id` , `url` , `data` , `controller` , `action` , `add_time`) VALUES ('127.0.0.1' , 143 , '/admin/block_waring/index' , '\"{\\\"\\\\\\/admin\\\\\\/block_waring\\\\\\/index\\\":\\\"\\\",\\\"page\\\":\\\"1\\\",\\\"limit\\\":\\\"20\\\",\\\"tkey\\\":\\\"\\\",\\\"game\\\":\\\"\\\",\\\"type\\\":\\\"\\\",\\\"keyword\\\":\\\"\\\",\\\"uid\\\":\\\"\\\",\\\"uname\\\":\\\"\\\",\\\"sid\\\":\\\"\\\",\\\"ip\\\":\\\"\\\",\\\"imei\\\":\\\"\\\",\\\"money_min\\\":\\\"\\\",\\\"money_max\\\":\\\"\\\",\\\"sdate\\\":\\\"2022-05-01 00:00:00\\\",\\\"edate\\\":\\\"2022-06-16 00:00:00\\\",\\\"level_min\\\":\\\"\\\",\\\"level_max\\\":\\\"\\\",\\\"sid_min\\\":\\\"\\\",\\\"sid_max\\\":\\\"\\\",\\\"ext\\\":\\\"\\\"}\"' , 'BlockWaring' , 'index' , 1655365125) [ RunTime:0.000393s ]
+---------------------------------------------------------------
+[ 2022-06-16T15:38:52+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/block_waring/index
+[运行时间：0.088267s] [吞吐率：11.33req/s] [内存消耗：4,895.97kb] [文件加载：201]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'block_waring',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '204',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NTQ0OTc5NDEsImV4cCI6MTY1NzA4OTk0MSwidWlkIjoxNDN9.-43ZKzS1MUyNzhuhyoJcaYbJ8NgYn4rH6qNK6V5pLDg',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/block_waring/index' => '',
+  'page' => '1',
+  'limit' => '20',
+  'tkey' => '',
+  'game' => '',
+  'type' => '',
+  'keyword' => '',
+  'uid' => '',
+  'uname' => '',
+  'sid' => '',
+  'ip' => '',
+  'imei' => '',
+  'money_min' => '4000',
+  'money_max' => '5000',
+  'sdate' => '2022-05-01 00:00:00',
+  'edate' => '2022-06-16 00:00:00',
+  'level_min' => '',
+  'level_max' => '',
+  'sid_min' => '',
+  'sid_max' => '',
+  'ext' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\BlockWaring->index[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\BlockWaring.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001092s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000739s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000901s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_admin_log_n` [ RunTime:0.000857s ]
+[ sql ] [ SQL ] INSERT INTO `gr_admin_log_n` (`ip` , `admin_id` , `url` , `data` , `controller` , `action` , `add_time`) VALUES ('127.0.0.1' , 143 , '/admin/block_waring/index' , '\"{\\\"\\\\\\/admin\\\\\\/block_waring\\\\\\/index\\\":\\\"\\\",\\\"page\\\":\\\"1\\\",\\\"limit\\\":\\\"20\\\",\\\"tkey\\\":\\\"\\\",\\\"game\\\":\\\"\\\",\\\"type\\\":\\\"\\\",\\\"keyword\\\":\\\"\\\",\\\"uid\\\":\\\"\\\",\\\"uname\\\":\\\"\\\",\\\"sid\\\":\\\"\\\",\\\"ip\\\":\\\"\\\",\\\"imei\\\":\\\"\\\",\\\"money_min\\\":\\\"4000\\\",\\\"money_max\\\":\\\"5000\\\",\\\"sdate\\\":\\\"2022-05-01 00:00:00\\\",\\\"edate\\\":\\\"2022-06-16 00:00:00\\\",\\\"level_min\\\":\\\"\\\",\\\"level_max\\\":\\\"\\\",\\\"sid_min\\\":\\\"\\\",\\\"sid_max\\\":\\\"\\\",\\\"ext\\\":\\\"\\\"}\"' , 'BlockWaring' , 'index' , 1655365132) [ RunTime:0.000383s ]
+---------------------------------------------------------------
+[ 2022-06-16T16:28:36+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/block_waring/index
+[运行时间：0.106163s] [吞吐率：9.42req/s] [内存消耗：4,583.88kb] [文件加载：191]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'block_waring',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '204',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NTQ0OTc5NDEsImV4cCI6MTY1NzA4OTk0MSwidWlkIjoxNDN9.-43ZKzS1MUyNzhuhyoJcaYbJ8NgYn4rH6qNK6V5pLDg',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/block_waring/index' => '',
+  'page' => '1',
+  'limit' => '20',
+  'tkey' => '',
+  'game' => '',
+  'type' => '',
+  'keyword' => '',
+  'uid' => '',
+  'uname' => '',
+  'sid' => '',
+  'ip' => '',
+  'imei' => '',
+  'money_min' => '4000',
+  'money_max' => '5000',
+  'sdate' => '2022-05-01 00:00:00',
+  'edate' => '2022-06-16 00:00:00',
+  'level_min' => '',
+  'level_max' => '',
+  'sid_min' => '',
+  'sid_max' => '',
+  'ext' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\BlockWaring->index[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\BlockWaring.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002106s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.001646s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.003109s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_admin_log_n` [ RunTime:0.000959s ]
+[ sql ] [ SQL ] INSERT INTO `gr_admin_log_n` (`ip` , `admin_id` , `url` , `data` , `controller` , `action` , `add_time`) VALUES ('127.0.0.1' , 143 , '/admin/block_waring/index' , '\"{\\\"\\\\\\/admin\\\\\\/block_waring\\\\\\/index\\\":\\\"\\\",\\\"page\\\":\\\"1\\\",\\\"limit\\\":\\\"20\\\",\\\"tkey\\\":\\\"\\\",\\\"game\\\":\\\"\\\",\\\"type\\\":\\\"\\\",\\\"keyword\\\":\\\"\\\",\\\"uid\\\":\\\"\\\",\\\"uname\\\":\\\"\\\",\\\"sid\\\":\\\"\\\",\\\"ip\\\":\\\"\\\",\\\"imei\\\":\\\"\\\",\\\"money_min\\\":\\\"4000\\\",\\\"money_max\\\":\\\"5000\\\",\\\"sdate\\\":\\\"2022-05-01 00:00:00\\\",\\\"edate\\\":\\\"2022-06-16 00:00:00\\\",\\\"level_min\\\":\\\"\\\",\\\"level_max\\\":\\\"\\\",\\\"sid_min\\\":\\\"\\\",\\\"sid_max\\\":\\\"\\\",\\\"ext\\\":\\\"\\\"}\"' , 'BlockWaring' , 'index' , 1655368116) [ RunTime:0.000772s ]
+---------------------------------------------------------------
+[ 2022-06-16T16:48:45+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/block_waring/index
+[运行时间：0.113854s] [吞吐率：8.78req/s] [内存消耗：4,894.95kb] [文件加载：201]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'block_waring',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '204',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NTQ0OTc5NDEsImV4cCI6MTY1NzA4OTk0MSwidWlkIjoxNDN9.-43ZKzS1MUyNzhuhyoJcaYbJ8NgYn4rH6qNK6V5pLDg',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/block_waring/index' => '',
+  'page' => '1',
+  'limit' => '20',
+  'tkey' => '',
+  'game' => '',
+  'type' => '',
+  'keyword' => '',
+  'uid' => '',
+  'uname' => '',
+  'sid' => '',
+  'ip' => '',
+  'imei' => '',
+  'money_min' => '4000',
+  'money_max' => '5000',
+  'sdate' => '2022-05-01 00:00:00',
+  'edate' => '2022-06-16 00:00:00',
+  'level_min' => '',
+  'level_max' => '',
+  'sid_min' => '',
+  'sid_max' => '',
+  'ext' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\BlockWaring->index[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\BlockWaring.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001533s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.001194s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.001130s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_admin_log_n` [ RunTime:0.001030s ]
+[ sql ] [ SQL ] INSERT INTO `gr_admin_log_n` (`ip` , `admin_id` , `url` , `data` , `controller` , `action` , `add_time`) VALUES ('127.0.0.1' , 143 , '/admin/block_waring/index' , '\"{\\\"\\\\\\/admin\\\\\\/block_waring\\\\\\/index\\\":\\\"\\\",\\\"page\\\":\\\"1\\\",\\\"limit\\\":\\\"20\\\",\\\"tkey\\\":\\\"\\\",\\\"game\\\":\\\"\\\",\\\"type\\\":\\\"\\\",\\\"keyword\\\":\\\"\\\",\\\"uid\\\":\\\"\\\",\\\"uname\\\":\\\"\\\",\\\"sid\\\":\\\"\\\",\\\"ip\\\":\\\"\\\",\\\"imei\\\":\\\"\\\",\\\"money_min\\\":\\\"4000\\\",\\\"money_max\\\":\\\"5000\\\",\\\"sdate\\\":\\\"2022-05-01 00:00:00\\\",\\\"edate\\\":\\\"2022-06-16 00:00:00\\\",\\\"level_min\\\":\\\"\\\",\\\"level_max\\\":\\\"\\\",\\\"sid_min\\\":\\\"\\\",\\\"sid_max\\\":\\\"\\\",\\\"ext\\\":\\\"\\\"}\"' , 'BlockWaring' , 'index' , 1655369325) [ RunTime:0.000452s ]
+---------------------------------------------------------------
+[ 2022-06-16T16:49:33+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/block_waring/index
+[运行时间：0.111614s] [吞吐率：8.96req/s] [内存消耗：4,790.07kb] [文件加载：199]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'block_waring',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '204',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NTQ0OTc5NDEsImV4cCI6MTY1NzA4OTk0MSwidWlkIjoxNDN9.-43ZKzS1MUyNzhuhyoJcaYbJ8NgYn4rH6qNK6V5pLDg',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/block_waring/index' => '',
+  'page' => '1',
+  'limit' => '20',
+  'tkey' => '',
+  'game' => '',
+  'type' => '',
+  'keyword' => '',
+  'uid' => '',
+  'uname' => '',
+  'sid' => '',
+  'ip' => '',
+  'imei' => '',
+  'money_min' => '4000',
+  'money_max' => '5000',
+  'sdate' => '2022-05-01 00:00:00',
+  'edate' => '2022-06-16 00:00:00',
+  'level_min' => '',
+  'level_max' => '',
+  'sid_min' => '',
+  'sid_max' => '',
+  'ext' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\BlockWaring->index[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\BlockWaring.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001496s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.001230s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000956s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_admin_log_n` [ RunTime:0.000947s ]
+[ sql ] [ SQL ] INSERT INTO `gr_admin_log_n` (`ip` , `admin_id` , `url` , `data` , `controller` , `action` , `add_time`) VALUES ('127.0.0.1' , 143 , '/admin/block_waring/index' , '\"{\\\"\\\\\\/admin\\\\\\/block_waring\\\\\\/index\\\":\\\"\\\",\\\"page\\\":\\\"1\\\",\\\"limit\\\":\\\"20\\\",\\\"tkey\\\":\\\"\\\",\\\"game\\\":\\\"\\\",\\\"type\\\":\\\"\\\",\\\"keyword\\\":\\\"\\\",\\\"uid\\\":\\\"\\\",\\\"uname\\\":\\\"\\\",\\\"sid\\\":\\\"\\\",\\\"ip\\\":\\\"\\\",\\\"imei\\\":\\\"\\\",\\\"money_min\\\":\\\"4000\\\",\\\"money_max\\\":\\\"5000\\\",\\\"sdate\\\":\\\"2022-05-01 00:00:00\\\",\\\"edate\\\":\\\"2022-06-16 00:00:00\\\",\\\"level_min\\\":\\\"\\\",\\\"level_max\\\":\\\"\\\",\\\"sid_min\\\":\\\"\\\",\\\"sid_max\\\":\\\"\\\",\\\"ext\\\":\\\"\\\"}\"' , 'BlockWaring' , 'index' , 1655369373) [ RunTime:0.000496s ]
+[ error ] [8]未定义数组索引: count_money[D:\phpstudy_pro\WWW\new_kefu_online\common\server\Block\BlockWaringServer.php:107]
+---------------------------------------------------------------
+[ 2022-06-16T16:49:45+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/block_waring/index
+[运行时间：0.103927s] [吞吐率：9.62req/s] [内存消耗：4,778.55kb] [文件加载：200]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'block_waring',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '204',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NTQ0OTc5NDEsImV4cCI6MTY1NzA4OTk0MSwidWlkIjoxNDN9.-43ZKzS1MUyNzhuhyoJcaYbJ8NgYn4rH6qNK6V5pLDg',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/block_waring/index' => '',
+  'page' => '1',
+  'limit' => '20',
+  'tkey' => '',
+  'game' => '',
+  'type' => '',
+  'keyword' => '',
+  'uid' => '',
+  'uname' => '',
+  'sid' => '',
+  'ip' => '',
+  'imei' => '',
+  'money_min' => '4000',
+  'money_max' => '5000',
+  'sdate' => '2022-05-01 00:00:00',
+  'edate' => '2022-06-16 00:00:00',
+  'level_min' => '',
+  'level_max' => '',
+  'sid_min' => '',
+  'sid_max' => '',
+  'ext' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\BlockWaring->index[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\BlockWaring.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001122s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.002637s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.002348s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_admin_log_n` [ RunTime:0.001433s ]
+[ sql ] [ SQL ] INSERT INTO `gr_admin_log_n` (`ip` , `admin_id` , `url` , `data` , `controller` , `action` , `add_time`) VALUES ('127.0.0.1' , 143 , '/admin/block_waring/index' , '\"{\\\"\\\\\\/admin\\\\\\/block_waring\\\\\\/index\\\":\\\"\\\",\\\"page\\\":\\\"1\\\",\\\"limit\\\":\\\"20\\\",\\\"tkey\\\":\\\"\\\",\\\"game\\\":\\\"\\\",\\\"type\\\":\\\"\\\",\\\"keyword\\\":\\\"\\\",\\\"uid\\\":\\\"\\\",\\\"uname\\\":\\\"\\\",\\\"sid\\\":\\\"\\\",\\\"ip\\\":\\\"\\\",\\\"imei\\\":\\\"\\\",\\\"money_min\\\":\\\"4000\\\",\\\"money_max\\\":\\\"5000\\\",\\\"sdate\\\":\\\"2022-05-01 00:00:00\\\",\\\"edate\\\":\\\"2022-06-16 00:00:00\\\",\\\"level_min\\\":\\\"\\\",\\\"level_max\\\":\\\"\\\",\\\"sid_min\\\":\\\"\\\",\\\"sid_max\\\":\\\"\\\",\\\"ext\\\":\\\"\\\"}\"' , 'BlockWaring' , 'index' , 1655369385) [ RunTime:0.000671s ]
+---------------------------------------------------------------
+[ 2022-06-16T17:50:03+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/block_waring/index
+[运行时间：0.159218s] [吞吐率：6.28req/s] [内存消耗：4,810.45kb] [文件加载：197]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'block_waring',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '206',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NTQ0OTc5NDEsImV4cCI6MTY1NzA4OTk0MSwidWlkIjoxNDN9.-43ZKzS1MUyNzhuhyoJcaYbJ8NgYn4rH6qNK6V5pLDg',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/block_waring/index' => '',
+  'page' => '1',
+  'limit' => '20',
+  'tkey' => 'll',
+  'game' => '',
+  'type' => '',
+  'keyword' => '',
+  'uid' => '',
+  'uname' => '',
+  'sid' => '',
+  'ip' => '',
+  'imei' => '',
+  'money_min' => '4000',
+  'money_max' => '5000',
+  'sdate' => '2022-05-01 00:00:00',
+  'edate' => '2022-06-16 00:00:00',
+  'level_min' => '',
+  'level_max' => '',
+  'sid_min' => '',
+  'sid_max' => '',
+  'ext' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\BlockWaring->index[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\BlockWaring.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001580s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.001511s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.002835s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_admin_log_n` [ RunTime:0.001044s ]
+[ sql ] [ SQL ] INSERT INTO `gr_admin_log_n` (`ip` , `admin_id` , `url` , `data` , `controller` , `action` , `add_time`) VALUES ('127.0.0.1' , 143 , '/admin/block_waring/index' , '\"{\\\"\\\\\\/admin\\\\\\/block_waring\\\\\\/index\\\":\\\"\\\",\\\"page\\\":\\\"1\\\",\\\"limit\\\":\\\"20\\\",\\\"tkey\\\":\\\"ll\\\",\\\"game\\\":\\\"\\\",\\\"type\\\":\\\"\\\",\\\"keyword\\\":\\\"\\\",\\\"uid\\\":\\\"\\\",\\\"uname\\\":\\\"\\\",\\\"sid\\\":\\\"\\\",\\\"ip\\\":\\\"\\\",\\\"imei\\\":\\\"\\\",\\\"money_min\\\":\\\"4000\\\",\\\"money_max\\\":\\\"5000\\\",\\\"sdate\\\":\\\"2022-05-01 00:00:00\\\",\\\"edate\\\":\\\"2022-06-16 00:00:00\\\",\\\"level_min\\\":\\\"\\\",\\\"level_max\\\":\\\"\\\",\\\"sid_min\\\":\\\"\\\",\\\"sid_max\\\":\\\"\\\",\\\"ext\\\":\\\"\\\"}\"' , 'BlockWaring' , 'index' , 1655373003) [ RunTime:0.000594s ]
+[ error ] [0]语法解析错误: syntax error, unexpected 'if' (T_IF)[D:\phpstudy_pro\WWW\new_kefu_online\common\server\Block\BlockWaringServer.php:79]
+---------------------------------------------------------------
+[ 2022-06-16T17:50:11+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/block_waring/index
+[运行时间：0.110512s] [吞吐率：9.05req/s] [内存消耗：4,694.60kb] [文件加载：193]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'block_waring',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '206',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NTQ0OTc5NDEsImV4cCI6MTY1NzA4OTk0MSwidWlkIjoxNDN9.-43ZKzS1MUyNzhuhyoJcaYbJ8NgYn4rH6qNK6V5pLDg',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'referer' => 'http://www.newkefu.com/',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/block_waring/index' => '',
+  'page' => '1',
+  'limit' => '20',
+  'tkey' => 'll',
+  'game' => '',
+  'type' => '',
+  'keyword' => '',
+  'uid' => '',
+  'uname' => '',
+  'sid' => '',
+  'ip' => '',
+  'imei' => '',
+  'money_min' => '4000',
+  'money_max' => '5000',
+  'sdate' => '2022-05-01 00:00:00',
+  'edate' => '2022-06-16 00:00:00',
+  'level_min' => '',
+  'level_max' => '',
+  'sid_min' => '',
+  'sid_max' => '',
+  'ext' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\BlockWaring->index[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\BlockWaring.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001609s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.001217s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000967s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_admin_log_n` [ RunTime:0.000998s ]
+[ sql ] [ SQL ] INSERT INTO `gr_admin_log_n` (`ip` , `admin_id` , `url` , `data` , `controller` , `action` , `add_time`) VALUES ('127.0.0.1' , 143 , '/admin/block_waring/index' , '\"{\\\"\\\\\\/admin\\\\\\/block_waring\\\\\\/index\\\":\\\"\\\",\\\"page\\\":\\\"1\\\",\\\"limit\\\":\\\"20\\\",\\\"tkey\\\":\\\"ll\\\",\\\"game\\\":\\\"\\\",\\\"type\\\":\\\"\\\",\\\"keyword\\\":\\\"\\\",\\\"uid\\\":\\\"\\\",\\\"uname\\\":\\\"\\\",\\\"sid\\\":\\\"\\\",\\\"ip\\\":\\\"\\\",\\\"imei\\\":\\\"\\\",\\\"money_min\\\":\\\"4000\\\",\\\"money_max\\\":\\\"5000\\\",\\\"sdate\\\":\\\"2022-05-01 00:00:00\\\",\\\"edate\\\":\\\"2022-06-16 00:00:00\\\",\\\"level_min\\\":\\\"\\\",\\\"level_max\\\":\\\"\\\",\\\"sid_min\\\":\\\"\\\",\\\"sid_max\\\":\\\"\\\",\\\"ext\\\":\\\"\\\"}\"' , 'BlockWaring' , 'index' , 1655373011) [ RunTime:0.000444s ]
+---------------------------------------------------------------
+[ 2022-06-16T17:50:18+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/block_waring/index
+[运行时间：0.087288s] [吞吐率：11.46req/s] [内存消耗：4,694.60kb] [文件加载：193]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'block_waring',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '206',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NTQ0OTc5NDEsImV4cCI6MTY1NzA4OTk0MSwidWlkIjoxNDN9.-43ZKzS1MUyNzhuhyoJcaYbJ8NgYn4rH6qNK6V5pLDg',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/block_waring/index' => '',
+  'page' => '1',
+  'limit' => '20',
+  'tkey' => 'zw',
+  'game' => '',
+  'type' => '',
+  'keyword' => '',
+  'uid' => '',
+  'uname' => '',
+  'sid' => '',
+  'ip' => '',
+  'imei' => '',
+  'money_min' => '4000',
+  'money_max' => '5000',
+  'sdate' => '2022-05-01 00:00:00',
+  'edate' => '2022-06-16 00:00:00',
+  'level_min' => '',
+  'level_max' => '',
+  'sid_min' => '',
+  'sid_max' => '',
+  'ext' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\BlockWaring->index[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\BlockWaring.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001551s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.001081s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000887s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_admin_log_n` [ RunTime:0.000839s ]
+[ sql ] [ SQL ] INSERT INTO `gr_admin_log_n` (`ip` , `admin_id` , `url` , `data` , `controller` , `action` , `add_time`) VALUES ('127.0.0.1' , 143 , '/admin/block_waring/index' , '\"{\\\"\\\\\\/admin\\\\\\/block_waring\\\\\\/index\\\":\\\"\\\",\\\"page\\\":\\\"1\\\",\\\"limit\\\":\\\"20\\\",\\\"tkey\\\":\\\"zw\\\",\\\"game\\\":\\\"\\\",\\\"type\\\":\\\"\\\",\\\"keyword\\\":\\\"\\\",\\\"uid\\\":\\\"\\\",\\\"uname\\\":\\\"\\\",\\\"sid\\\":\\\"\\\",\\\"ip\\\":\\\"\\\",\\\"imei\\\":\\\"\\\",\\\"money_min\\\":\\\"4000\\\",\\\"money_max\\\":\\\"5000\\\",\\\"sdate\\\":\\\"2022-05-01 00:00:00\\\",\\\"edate\\\":\\\"2022-06-16 00:00:00\\\",\\\"level_min\\\":\\\"\\\",\\\"level_max\\\":\\\"\\\",\\\"sid_min\\\":\\\"\\\",\\\"sid_max\\\":\\\"\\\",\\\"ext\\\":\\\"\\\"}\"' , 'BlockWaring' , 'index' , 1655373018) [ RunTime:0.000398s ]
+---------------------------------------------------------------
+[ 2022-06-16T18:10:00+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/ajax/getGameProduct
+[运行时间：0.114313s] [吞吐率：8.75req/s] [内存消耗：4,831.05kb] [文件加载：194]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'ajax',
+    2 => 'getGameProduct',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'content-length' => '0',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NTQ0OTc5NDEsImV4cCI6MTY1NzA4OTk0MSwidWlkIjoxNDN9.-43ZKzS1MUyNzhuhyoJcaYbJ8NgYn4rH6qNK6V5pLDg',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/ajax/getGameProduct' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Ajax->getGameProduct[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\Ajax.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001086s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000880s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000999s ]
+---------------------------------------------------------------
+[ 2022-06-16T18:10:00+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/ajax/getPlatformList
+[运行时间：0.120627s] [吞吐率：8.29req/s] [内存消耗：4,750.07kb] [文件加载：193]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'ajax',
+    2 => 'getPlatformList',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'content-length' => '0',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NTQ0OTc5NDEsImV4cCI6MTY1NzA4OTk0MSwidWlkIjoxNDN9.-43ZKzS1MUyNzhuhyoJcaYbJ8NgYn4rH6qNK6V5pLDg',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/ajax/getPlatformList' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Ajax->getPlatformList[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\Ajax.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001181s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.001265s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.001308s ]
+---------------------------------------------------------------
+[ 2022-06-16T18:10:00+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/elastic_search_chat/getTypes
+[运行时间：0.113232s] [吞吐率：8.83req/s] [内存消耗：4,689.34kb] [文件加载：195]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'elastic_search_chat',
+    2 => 'getTypes',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'content-length' => '0',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NTQ0OTc5NDEsImV4cCI6MTY1NzA4OTk0MSwidWlkIjoxNDN9.-43ZKzS1MUyNzhuhyoJcaYbJ8NgYn4rH6qNK6V5pLDg',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/elastic_search_chat/getTypes' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\ElasticSearchChat->getTypes[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\ElasticSearchChat.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001313s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000887s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000949s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_admin_log_n` [ RunTime:0.000967s ]
+[ sql ] [ SQL ] INSERT INTO `gr_admin_log_n` (`ip` , `admin_id` , `url` , `data` , `controller` , `action` , `add_time`) VALUES ('127.0.0.1' , 143 , '/admin/elastic_search_chat/getTypes' , '\"{\\\"\\\\\\/admin\\\\\\/elastic_search_chat\\\\\\/getTypes\\\":\\\"\\\"}\"' , 'ElasticSearchChat' , 'getTypes' , 1655374200) [ RunTime:0.000579s ]
+---------------------------------------------------------------
+[ 2022-06-16T18:10:01+08:00 ] 127.0.0.1 GET api.newkefu.com/admin/block_waring/index?page=1&limit=20
+[运行时间：0.107769s] [吞吐率：9.28req/s] [内存消耗：4,773.56kb] [文件加载：200]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'block_waring',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NTQ0OTc5NDEsImV4cCI6MTY1NzA4OTk0MSwidWlkIjoxNDN9.-43ZKzS1MUyNzhuhyoJcaYbJ8NgYn4rH6qNK6V5pLDg',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/block_waring/index' => '',
+  'page' => '1',
+  'limit' => '20',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\BlockWaring->index[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\BlockWaring.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001398s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.001223s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000932s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_admin_log_n` [ RunTime:0.000766s ]
+[ sql ] [ SQL ] INSERT INTO `gr_admin_log_n` (`ip` , `admin_id` , `url` , `data` , `controller` , `action` , `add_time`) VALUES ('127.0.0.1' , 143 , '/admin/block_waring/index?page=1&limit=20' , '\"{\\\"\\\\\\/admin\\\\\\/block_waring\\\\\\/index\\\":\\\"\\\",\\\"page\\\":\\\"1\\\",\\\"limit\\\":\\\"20\\\"}\"' , 'BlockWaring' , 'index' , 1655374201) [ RunTime:0.000394s ]
+---------------------------------------------------------------
+[ 2022-06-16T18:10:05+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/block_waring/index
+[运行时间：0.095437s] [吞吐率：10.48req/s] [内存消耗：4,783.16kb] [文件加载：200]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'block_waring',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '182',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NTQ0OTc5NDEsImV4cCI6MTY1NzA4OTk0MSwidWlkIjoxNDN9.-43ZKzS1MUyNzhuhyoJcaYbJ8NgYn4rH6qNK6V5pLDg',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/block_waring/index' => '',
+  'page' => '1',
+  'limit' => '20',
+  'tkey' => '',
+  'game' => '',
+  'type' => '',
+  'keyword' => '',
+  'uid' => '',
+  'uname' => '',
+  'sid' => '',
+  'ip' => '',
+  'imei' => '',
+  'money_min' => '',
+  'money_max' => '',
+  'sdate' => '2022-05-01 00:00:00',
+  'edate' => '2022-06-17 00:00:00',
+  'level_min' => '',
+  'level_max' => '',
+  'sid_min' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\BlockWaring->index[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\BlockWaring.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001105s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000813s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000969s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_admin_log_n` [ RunTime:0.001417s ]
+[ sql ] [ SQL ] INSERT INTO `gr_admin_log_n` (`ip` , `admin_id` , `url` , `data` , `controller` , `action` , `add_time`) VALUES ('127.0.0.1' , 143 , '/admin/block_waring/index' , '\"{\\\"\\\\\\/admin\\\\\\/block_waring\\\\\\/index\\\":\\\"\\\",\\\"page\\\":\\\"1\\\",\\\"limit\\\":\\\"20\\\",\\\"tkey\\\":\\\"\\\",\\\"game\\\":\\\"\\\",\\\"type\\\":\\\"\\\",\\\"keyword\\\":\\\"\\\",\\\"uid\\\":\\\"\\\",\\\"uname\\\":\\\"\\\",\\\"sid\\\":\\\"\\\",\\\"ip\\\":\\\"\\\",\\\"imei\\\":\\\"\\\",\\\"money_min\\\":\\\"\\\",\\\"money_max\\\":\\\"\\\",\\\"sdate\\\":\\\"2022-05-01 00:00:00\\\",\\\"edate\\\":\\\"2022-06-17 00:00:00\\\",\\\"level_min\\\":\\\"\\\",\\\"level_max\\\":\\\"\\\",\\\"sid_min\\\":\\\"\\\"}\"' , 'BlockWaring' , 'index' , 1655374205) [ RunTime:0.000452s ]
+---------------------------------------------------------------
+[ 2022-06-16T18:11:48+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/block_waring/index
+[运行时间：0.091391s] [吞吐率：10.94req/s] [内存消耗：4,783.33kb] [文件加载：200]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'block_waring',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '182',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NTQ0OTc5NDEsImV4cCI6MTY1NzA4OTk0MSwidWlkIjoxNDN9.-43ZKzS1MUyNzhuhyoJcaYbJ8NgYn4rH6qNK6V5pLDg',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/block_waring/index' => '',
+  'page' => '1',
+  'limit' => '20',
+  'tkey' => '',
+  'game' => '',
+  'type' => '',
+  'keyword' => '',
+  'uid' => '',
+  'uname' => '',
+  'sid' => '',
+  'ip' => '',
+  'imei' => '',
+  'money_min' => '',
+  'money_max' => '',
+  'sdate' => '2022-05-01 00:00:00',
+  'edate' => '2022-06-17 00:00:00',
+  'level_min' => '',
+  'level_max' => '',
+  'sid_min' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\BlockWaring->index[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\BlockWaring.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001120s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000735s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000945s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_admin_log_n` [ RunTime:0.000937s ]
+[ sql ] [ SQL ] INSERT INTO `gr_admin_log_n` (`ip` , `admin_id` , `url` , `data` , `controller` , `action` , `add_time`) VALUES ('127.0.0.1' , 143 , '/admin/block_waring/index' , '\"{\\\"\\\\\\/admin\\\\\\/block_waring\\\\\\/index\\\":\\\"\\\",\\\"page\\\":\\\"1\\\",\\\"limit\\\":\\\"20\\\",\\\"tkey\\\":\\\"\\\",\\\"game\\\":\\\"\\\",\\\"type\\\":\\\"\\\",\\\"keyword\\\":\\\"\\\",\\\"uid\\\":\\\"\\\",\\\"uname\\\":\\\"\\\",\\\"sid\\\":\\\"\\\",\\\"ip\\\":\\\"\\\",\\\"imei\\\":\\\"\\\",\\\"money_min\\\":\\\"\\\",\\\"money_max\\\":\\\"\\\",\\\"sdate\\\":\\\"2022-05-01 00:00:00\\\",\\\"edate\\\":\\\"2022-06-17 00:00:00\\\",\\\"level_min\\\":\\\"\\\",\\\"level_max\\\":\\\"\\\",\\\"sid_min\\\":\\\"\\\"}\"' , 'BlockWaring' , 'index' , 1655374308) [ RunTime:0.000558s ]
+---------------------------------------------------------------
+[ 2022-06-16T18:12:03+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/block_waring/index
+[运行时间：0.102170s] [吞吐率：9.79req/s] [内存消耗：4,827.34kb] [文件加载：201]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'block_waring',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '182',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NTQ0OTc5NDEsImV4cCI6MTY1NzA4OTk0MSwidWlkIjoxNDN9.-43ZKzS1MUyNzhuhyoJcaYbJ8NgYn4rH6qNK6V5pLDg',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/block_waring/index' => '',
+  'page' => '1',
+  'limit' => '20',
+  'tkey' => '',
+  'game' => '',
+  'type' => '',
+  'keyword' => '',
+  'uid' => '',
+  'uname' => '',
+  'sid' => '',
+  'ip' => '',
+  'imei' => '',
+  'money_min' => '',
+  'money_max' => '',
+  'sdate' => '2022-05-01 00:00:00',
+  'edate' => '2022-06-17 00:00:00',
+  'level_min' => '',
+  'level_max' => '',
+  'sid_min' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\BlockWaring->index[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\BlockWaring.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001080s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000718s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000864s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_admin_log_n` [ RunTime:0.000799s ]
+[ sql ] [ SQL ] INSERT INTO `gr_admin_log_n` (`ip` , `admin_id` , `url` , `data` , `controller` , `action` , `add_time`) VALUES ('127.0.0.1' , 143 , '/admin/block_waring/index' , '\"{\\\"\\\\\\/admin\\\\\\/block_waring\\\\\\/index\\\":\\\"\\\",\\\"page\\\":\\\"1\\\",\\\"limit\\\":\\\"20\\\",\\\"tkey\\\":\\\"\\\",\\\"game\\\":\\\"\\\",\\\"type\\\":\\\"\\\",\\\"keyword\\\":\\\"\\\",\\\"uid\\\":\\\"\\\",\\\"uname\\\":\\\"\\\",\\\"sid\\\":\\\"\\\",\\\"ip\\\":\\\"\\\",\\\"imei\\\":\\\"\\\",\\\"money_min\\\":\\\"\\\",\\\"money_max\\\":\\\"\\\",\\\"sdate\\\":\\\"2022-05-01 00:00:00\\\",\\\"edate\\\":\\\"2022-06-17 00:00:00\\\",\\\"level_min\\\":\\\"\\\",\\\"level_max\\\":\\\"\\\",\\\"sid_min\\\":\\\"\\\"}\"' , 'BlockWaring' , 'index' , 1655374323) [ RunTime:0.000364s ]
+---------------------------------------------------------------
+[ 2022-06-16T18:14:18+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/block_waring/index
+[运行时间：0.106228s] [吞吐率：9.41req/s] [内存消耗：4,827.34kb] [文件加载：201]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'block_waring',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '182',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NTQ0OTc5NDEsImV4cCI6MTY1NzA4OTk0MSwidWlkIjoxNDN9.-43ZKzS1MUyNzhuhyoJcaYbJ8NgYn4rH6qNK6V5pLDg',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/block_waring/index' => '',
+  'page' => '1',
+  'limit' => '20',
+  'tkey' => '',
+  'game' => '',
+  'type' => '',
+  'keyword' => '',
+  'uid' => '',
+  'uname' => '',
+  'sid' => '',
+  'ip' => '',
+  'imei' => '',
+  'money_min' => '',
+  'money_max' => '',
+  'sdate' => '2022-05-01 00:00:00',
+  'edate' => '2022-06-17 00:00:00',
+  'level_min' => '',
+  'level_max' => '',
+  'sid_min' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\BlockWaring->index[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\BlockWaring.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001142s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000766s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000907s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_admin_log_n` [ RunTime:0.000688s ]
+[ sql ] [ SQL ] INSERT INTO `gr_admin_log_n` (`ip` , `admin_id` , `url` , `data` , `controller` , `action` , `add_time`) VALUES ('127.0.0.1' , 143 , '/admin/block_waring/index' , '\"{\\\"\\\\\\/admin\\\\\\/block_waring\\\\\\/index\\\":\\\"\\\",\\\"page\\\":\\\"1\\\",\\\"limit\\\":\\\"20\\\",\\\"tkey\\\":\\\"\\\",\\\"game\\\":\\\"\\\",\\\"type\\\":\\\"\\\",\\\"keyword\\\":\\\"\\\",\\\"uid\\\":\\\"\\\",\\\"uname\\\":\\\"\\\",\\\"sid\\\":\\\"\\\",\\\"ip\\\":\\\"\\\",\\\"imei\\\":\\\"\\\",\\\"money_min\\\":\\\"\\\",\\\"money_max\\\":\\\"\\\",\\\"sdate\\\":\\\"2022-05-01 00:00:00\\\",\\\"edate\\\":\\\"2022-06-17 00:00:00\\\",\\\"level_min\\\":\\\"\\\",\\\"level_max\\\":\\\"\\\",\\\"sid_min\\\":\\\"\\\"}\"' , 'BlockWaring' , 'index' , 1655374458) [ RunTime:0.003977s ]
+---------------------------------------------------------------
+[ 2022-06-16T18:14:20+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/ajax/getGameProduct
+[运行时间：0.091754s] [吞吐率：10.90req/s] [内存消耗：4,831.05kb] [文件加载：194]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'ajax',
+    2 => 'getGameProduct',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'content-length' => '0',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NTQ0OTc5NDEsImV4cCI6MTY1NzA4OTk0MSwidWlkIjoxNDN9.-43ZKzS1MUyNzhuhyoJcaYbJ8NgYn4rH6qNK6V5pLDg',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/ajax/getGameProduct' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Ajax->getGameProduct[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\Ajax.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001568s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000878s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000851s ]
+---------------------------------------------------------------
+[ 2022-06-16T18:14:20+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/ajax/getPlatformList
+[运行时间：0.104215s] [吞吐率：9.60req/s] [内存消耗：4,750.07kb] [文件加载：193]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'ajax',
+    2 => 'getPlatformList',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'content-length' => '0',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NTQ0OTc5NDEsImV4cCI6MTY1NzA4OTk0MSwidWlkIjoxNDN9.-43ZKzS1MUyNzhuhyoJcaYbJ8NgYn4rH6qNK6V5pLDg',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/ajax/getPlatformList' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\Ajax->getPlatformList[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\Ajax.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001512s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.001078s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.001173s ]
+---------------------------------------------------------------
+[ 2022-06-16T18:14:20+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/elastic_search_chat/getTypes
+[运行时间：0.103223s] [吞吐率：9.69req/s] [内存消耗：4,689.34kb] [文件加载：195]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'elastic_search_chat',
+    2 => 'getTypes',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'content-length' => '0',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NTQ0OTc5NDEsImV4cCI6MTY1NzA4OTk0MSwidWlkIjoxNDN9.-43ZKzS1MUyNzhuhyoJcaYbJ8NgYn4rH6qNK6V5pLDg',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/elastic_search_chat/getTypes' => '',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\ElasticSearchChat->getTypes[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\ElasticSearchChat.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001562s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.001008s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.001214s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_admin_log_n` [ RunTime:0.000871s ]
+[ sql ] [ SQL ] INSERT INTO `gr_admin_log_n` (`ip` , `admin_id` , `url` , `data` , `controller` , `action` , `add_time`) VALUES ('127.0.0.1' , 143 , '/admin/elastic_search_chat/getTypes' , '\"{\\\"\\\\\\/admin\\\\\\/elastic_search_chat\\\\\\/getTypes\\\":\\\"\\\"}\"' , 'ElasticSearchChat' , 'getTypes' , 1655374460) [ RunTime:0.000392s ]
+---------------------------------------------------------------
+[ 2022-06-16T18:14:20+08:00 ] 127.0.0.1 GET api.newkefu.com/admin/block_waring/index?page=1&limit=20
+[运行时间：0.096176s] [吞吐率：10.40req/s] [内存消耗：4,773.73kb] [文件加载：200]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'block_waring',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NTQ0OTc5NDEsImV4cCI6MTY1NzA4OTk0MSwidWlkIjoxNDN9.-43ZKzS1MUyNzhuhyoJcaYbJ8NgYn4rH6qNK6V5pLDg',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/block_waring/index' => '',
+  'page' => '1',
+  'limit' => '20',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\BlockWaring->index[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\BlockWaring.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001132s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000850s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.000889s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_admin_log_n` [ RunTime:0.000797s ]
+[ sql ] [ SQL ] INSERT INTO `gr_admin_log_n` (`ip` , `admin_id` , `url` , `data` , `controller` , `action` , `add_time`) VALUES ('127.0.0.1' , 143 , '/admin/block_waring/index?page=1&limit=20' , '\"{\\\"\\\\\\/admin\\\\\\/block_waring\\\\\\/index\\\":\\\"\\\",\\\"page\\\":\\\"1\\\",\\\"limit\\\":\\\"20\\\"}\"' , 'BlockWaring' , 'index' , 1655374460) [ RunTime:0.000338s ]

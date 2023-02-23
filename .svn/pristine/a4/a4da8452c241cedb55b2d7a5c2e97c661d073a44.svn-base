@@ -1,0 +1,65 @@
+{% include 'common/header_layui.volt' %}
+<body>
+
+<table lay-filter="parse-table-demo">
+    <thead>
+    <tr>
+        <th lay-data="{field:'uid', minWidth:120}">用户ID</th>
+{#        <th lay-data="{field:'uname', minWidth:150}">用户名</th>#}
+        <th lay-data="{field:'rolename', minWidth:120}">角色名</th>
+        <th lay-data="{field:'role_level', minWidth:80}">角色等级</th>
+        <th lay-data="{field:'ip', minWidth:150}">IP</th>
+        <th lay-data="{field:'date', minWidth:100}">时间</th>
+        <th lay-data="{field:'sid', minWidth:100}">区服</th>
+        <th lay-data="{field:'count_money', minWidth:100 }">充值金额</th>
+        <th lay-data="{field:'game_name', minWidth:100}">游戏</th>
+        <th lay-data="{field:'content', minWidth:200}">内容</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for  k,v in result %}
+    <tr>
+        <td>{{v['uid']}}</td>
+        <td>{{v['uname']}}</td>
+        <td>{{v['role_level']}}</td>
+{#        <td>{{v['uname']}}</td>#}
+        <td>{{v['ip']}}</td>
+        <td>{{v['date']}}</td>
+        <td>{{v['sid']}}</td>
+        <td>{{v['count_money']}}</td>
+        <td>{{v['gkey']}}</td>
+        <td>{{v['content']}}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+
+
+<script>
+
+    layui.use(['table'], function(){
+        var table   = layui.table
+
+        table.init('parse-table-demo', { //转化静态表格
+            //height: 'full-500'
+            limit: 500
+          
+        });
+
+
+        $(document).keyup(function(e){
+            var key =  e.which || e.keyCode;
+            if(key == 27){
+                var index = parent.layer.getFrameIndex(window.name);
+
+                parent.layer.close(index)
+            }
+        });
+
+    });
+
+
+</script>
+</body>
+</html>

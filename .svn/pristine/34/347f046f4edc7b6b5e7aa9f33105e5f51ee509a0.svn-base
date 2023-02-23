@@ -1,0 +1,35 @@
+{% include 'common/header_layui.volt' %}
+
+<body>
+<div class="table_wrap" style="padding: 0 15px;">
+    <table id="idTest" lay-filter="demo" class="layui-table"></table>
+</div>
+
+<script>
+    layui.use(['table'], function(){
+        var table   = layui.table;
+        var url = '/admin/{{controller}}/seller_kpi_children';
+        url+= '?group_id={{group_id}}';
+        url+= '&admin_id={{admin_id}}';
+        url+= '&month={{month}}';
+        url+= '&game_product_id={{game_product_id}}';
+        table.render({
+            elem: '#idTest'
+            ,height: 'full-120'
+            ,url: url //数据接口
+            ,page: true //开启分页
+            ,limits:[20,50,100,200,500]
+            ,limit:20
+            ,minWidth:1000
+            ,cols: [[ //表头
+                 {field:'group_id_str', width:150, sort: true, title:'营销组别'}
+                ,{field:'admin_id_str', width:100, title:'营销专员'}
+                ,{field:'game_product_id_str', minWidth:200, title:'营销产品'}
+                ,{field:'kpi_date_str', minWidth:80, title:'时间'}
+                ,{field:'kpi_value', minWidth:80, title:'当月KPI'}
+            ]]
+        });
+    });
+</script>
+</body>
+</html>

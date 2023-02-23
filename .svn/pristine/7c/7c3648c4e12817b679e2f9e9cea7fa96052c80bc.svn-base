@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <title>后台管理系统</title>
+    <link rel="stylesheet" href="/assets/vendor/layui/css/layui.css"/>
+    <link rel="stylesheet" href="/assets/model/common/css/style.css"/>
+    <link rel="stylesheet" href="/assets/model/common/css/common.css"/>
+    <script type="text/javascript" src="/assets/vendor/layui/layui.js"></script>
+    <!--[if lt IE 9]>
+    <script src="/assets/model/common/js/html5shiv.min.js"></script>
+    <script src="/assets/model/common/js/respond.min.js"></script>
+    <![endif]-->
+    <style type="text/css">
+        .area_input{
+            max-width: 100px;
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+<!-- 加载动画 -->
+    <div class="page-loading">
+        <div class="ball-loader">
+            <span></span><span></span><span></span><span></span>
+        </div>
+    </div>
+    <div class="layui-form" lay-filter="edit-form" action="" style="padding: 20px;">
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">标题</label>
+            <div class="layui-input-inline">
+                <input type="text" name="title" lay-verify="required" value="" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">平台</label>
+            <div class="layui-input-inline">
+                <select name="platform_id" lay-filter="platform_id" lay-verify="required">
+                    <option value="">请选择</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="layui-form-item" id="loss_up_id">
+            <label class="layui-form-label">流失产品</label>
+            <div class="layui-input-inline">
+                <div id="select_loss_up_id" class="xm-select-demo" style="min-width: 210px"></div>
+                <!-- <select name="loss_up_id" lay-filter="loss_up_id" lay-verify="required">
+                    <option value="">请选择</option>
+                </select> -->
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">流失天数</label>
+            <div class="layui-input-block">
+                <input type="number" name="min_loss_day" lay-verify="required" value="" autocomplete="off" class="layui-input area_input">
+                -
+                <input type="number" name="max_loss_day" lay-verify="required" value="" autocomplete="off" class="layui-input area_input">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">账号充值(全产品)</label>
+            <div class="layui-input-block">
+                <input type="number" name="min_account_money" lay-verify="required" value="" autocomplete="off" class="layui-input area_input">
+                -
+                <input type="number" name="max_account_money" lay-verify="required" value="" autocomplete="off" class="layui-input area_input">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">账号充值(流失产品)</label>
+            <div class="layui-input-block">
+                <input type="number" name="min_loss_up_money" lay-verify="required" value="" autocomplete="off" class="layui-input area_input">
+                -
+                <input type="number" name="max_loss_up_money" lay-verify="required" value="" autocomplete="off" class="layui-input area_input">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">角色等级</label>
+            <div class="layui-input-block">
+                <input type="number" name="min_level" lay-verify="required" value="" autocomplete="off" class="layui-input area_input">
+                -
+                <input type="number" name="max_level" lay-verify="required" value="" autocomplete="off" class="layui-input area_input">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">发送次数限制</label>
+            <div class="layui-input-inline">
+                <input type="number" name="send_num" lay-verify="required" value="" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">单手机号间隔频率</label>
+            <div class="layui-input-inline">
+                <input type="number" name="interval_day" lay-verify="required" value="" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">发送限制数量</label>
+            <div class="layui-input-inline">
+                <input type="number" name="limit_num" lay-verify="required" value="" autocomplete="off" class="layui-input" placeholder="0：无限制">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">召回产品</label>
+            <div class="layui-input-inline">
+                <select name="recall_up_id" lay-filter="recall_up_id" lay-verify="required">
+                    <option value="">请选择</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="layui-form-item" id="recall_ver_group_id_model">
+            <label class="layui-form-label">召回链接(组)</label>
+            <div class="layui-input-inline">
+                <select name="recall_ver_group_id" lay-verify="required">
+                </select>
+            </div>
+        </div>
+
+        <div class="layui-form-item" id="recall_code_group_id_model">
+            <label class="layui-form-label">礼包码(组)</label>
+            <div class="layui-input-inline">
+                <select name="recall_code_group_id" lay-verify="required">
+                </select>
+            </div>
+        </div>
+
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">自动执行</label>
+            <div class="layui-input-inline">
+                <select name="execute_type" lay-verify="required">
+                </select>
+            </div>
+        </div>
+        
+        <input type="hidden" name="id" value="">
+
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+              <button type="submit" class="layui-btn layui-power" id="Recall-planAdd" lay-submit="" lay-filter="submit_btn">立即提交</button>
+              <button type="submit" class="layui-btn layui-power" id="Recall-planEdit" lay-submit="" lay-filter="submit_btn">保存</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var layui_obj = layui.config({
+            version: true,
+            base: '/assets/model/'
+        }).extend({
+            common: 'common/js/common',
+        }).use(['common','jquery','form','xmSelect'], function(){
+            var form = layui.form;
+            var common = layui.common;
+            var $ = layui.jquery;
+            var xmSelect = layui.xmSelect;
+
+            var id = common.urlParam.id;
+            var is_copy = common.urlParam.is_copy;
+            var p_url = 'Recall/planAdd';
+            var detail_url = 'Recall/planDetail';
+            var up_product_where = {};
+            var code_group_where = {};
+            var link_group_where = {};
+            var detail_form = {};
+            
+            if(id > 0 && is_copy != 1){
+                p_url = 'Recall/planEdit';
+                //初始化权限显示
+                common.initPowerShow(['Recall-planEdit']);
+            }else{
+                //初始化权限显示
+                common.initPowerShow(['Recall-planAdd']);
+            }
+
+            //游戏
+            var select_loss_up_id = xmSelect.render({
+                el: '#select_loss_up_id',
+                filterable: true,
+                toolbar: {
+                    show: true,
+                    list: [ 'ALL', 'CLEAR', 'REVERSE' ]
+                },
+                data: [],
+                initValue:[],
+                name:'loss_up_id',
+                on:(data)=>{
+                    // var this_info = common.getSelectVal(data.arr);
+                    // def_val.game = this_info;
+                }
+            });
+
+            //初始化页面数据
+            initData();
+
+            //监听提交
+            form.on('submit(submit_btn)', function(data){
+                common.req({
+                    url: p_url,
+                    data: data.field,
+                    type: "post",
+                    dataType:"json",
+                    success:function(res){
+                        console.log(res);
+                        if( res.code==0 ){
+                            var index = parent.layer.getFrameIndex(window.name);
+                            window.parent.res_msg(res.msg);
+                            parent.layer.close(index);//关闭当前页
+                            //window.parent.location.reload(); //刷新父窗口
+                        }else{
+                            layer.alert(res.msg,{icon:2});
+                        }
+                    },
+                    error:function(res){
+                        layer.alert('错误'+res.msg,{icon:2});
+                    }
+                });
+                return false;
+            });
+
+            form.on('select(platform_id)',function(data){
+                up_product_where.platform_id = data.value;
+                code_group_where.platform_id = data.value;
+                link_group_where.platform_id = data.value;
+                getUpProduct();
+            })
+
+            form.on('select(recall_up_id)',function(data){
+                code_group_where.up_id = data.value;
+                link_group_where.up_id = data.value;
+                getLinkGroup();
+                getCodeGroup();
+            })
+
+
+            function initData(){
+
+                common.req({
+                    url: detail_url,
+                    data: {'id':id},
+                    type: "post",
+                    dataType:"json",
+                    success:function(res){
+                        
+                        if( res.code==0 ){
+
+                            
+
+                        
+                            common.setOption1(res.config.execute_type_arr,$('select[name="execute_type"]'));
+
+                            if(id>0){
+                                detail_form = res.data;
+                                up_product_where.platform_id = detail_form.platform_id;
+                                code_group_where.platform_id = detail_form.platform_id;
+                                link_group_where.platform_id = detail_form.platform_id;
+
+                                code_group_where.recall_up_id = detail_form.recall_up_id;
+                                link_group_where.recall_up_id = detail_form.recall_up_id;
+                            }
+
+                            var p = new Promise(function(resolve,reject){
+                                common.req({
+                                    url: "ajax/getPlatformList",
+                                    type: "post",
+                                    dataType:"json",
+                                    success:function(res){
+                                        if( res.code==0 ){
+                                            $.each(res.data,function(k,v){
+                                                $('select[name=platform_id]').append('<option value="'+v.platform_id+'">'+v.name+'</option>');
+                                            });
+
+                                            form.render();
+                                            resolve(res.data);
+                                        }
+                                    },
+                                    error:function(res){
+                                        layer.alert('错误'+res.msg,{icon:2});
+                                    }
+                                });
+                            })
+
+                            p.then((r_data)=>{
+                                Promise.all([getUpProduct(),getLinkGroup(),getCodeGroup()]).then(res=>{
+
+                                    if(id>0){
+                                        if(is_copy == 1){
+                                            detail_form.id = 0;
+                                        }
+                                        form.val('edit-form',detail_form);
+                                    }
+                                    common.isLoading(false);
+                                })
+                            })
+                        }else{
+                            layer.alert('错误'+res.msg,{icon:2});
+                        }
+                    },
+                    error:function(res){
+                        layer.alert('错误'+res.msg,{icon:2});
+                    }
+                });
+            }
+
+            function getUpProduct(){
+                return new Promise(function(resolve,reject){
+                    common.req({
+                        url: "ajax/getUProductList",
+                        type: "post",
+                        data:up_product_where,
+                        dataType:"json",
+                        success:function(res){
+
+                            
+
+                            if( res.code==0 ){
+                                var this_list = [];
+                                $('select[name=recall_up_id]').html('<option value="">请选择</option>');
+                                $.each(res.data,function(k,v){
+                                    $('select[name=recall_up_id]').append('<option value="'+v.up_id+'">'+v.name+'</option>');
+                                    var this_data = {};
+                                    this_data.name = v.name;
+                                    this_data.value = v.up_id;
+                                    this_list.push(this_data);
+                                });
+
+                                select_loss_up_id.update({
+                                    data: this_list,
+                                    initValue:detail_form.loss_up_id?(detail_form.loss_up_id).split(','):[],
+                                    // autoRow: true,
+                                })
+                                form.render();
+                                resolve(1);
+                            }else{
+                                layer.tips(res.msg, '#loss_up_id_model label');
+                            }
+                        },
+                        error:function(res){
+                            layer.alert('错误'+res.msg,{icon:2});
+                        }
+                    });
+                })
+            }
+
+            function getLinkGroup(){
+                return new Promise(function(resolve,reject){
+                    common.req({
+                        url: "recall/linkGroupList",
+                        type: "post",
+                        data:link_group_where,
+                        dataType:"json",
+                        success:function(res){
+                            if( res.code==0 ){
+                                $('select[name=recall_ver_group_id]').html('<option value="">请选择</option>');
+                                $.each(res.data,function(k,v){
+                                    $('select[name=recall_ver_group_id]').append('<option value="'+v.id+'">'+v.title+'</option>');
+                                });
+
+                                form.render();
+                                resolve(1);
+                            }else{
+                                layer.tips(res.msg, '#recall_ver_group_id_model label');
+                            }
+                        },
+                        error:function(res){
+                            layer.alert('错误'+res.msg,{icon:2});
+                        }
+                    });
+                })
+            }
+
+            function getCodeGroup(){
+                return new Promise(function(resolve,reject){
+                    common.req({
+                        url: "recall/codeGroupList",
+                        type: "post",
+                        data:code_group_where,
+                        dataType:"json",
+                        success:function(res){
+                            if( res.code==0 ){
+                                $('select[name=recall_code_group_id]').html('<option value="">请选择</option>');
+                                $.each(res.data,function(k,v){
+                                    $('select[name=recall_code_group_id]').append('<option value="'+v.id+'">'+v.title+'</option>');
+                                });
+
+                                form.render();
+                                resolve(1);
+                            }else{
+                                layer.tips(res.msg, '#recall_code_group_id_model label');
+                            }
+                        },
+                        error:function(res){
+                            layer.alert('错误'+res.msg,{icon:2});
+                        }
+                    });
+                })
+            }
+        });
+    </script>
+</body>
+</html>

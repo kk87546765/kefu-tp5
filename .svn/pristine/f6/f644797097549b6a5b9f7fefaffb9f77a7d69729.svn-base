@@ -1,0 +1,375 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <title>后台管理系统</title>
+    <link rel="stylesheet" href="/assets/vendor/layui/css/layui.css"/>
+    <link rel="stylesheet" href="/assets/model/common/css/style.css"/>
+    <link rel="stylesheet" href="/assets/model/common/css/common.css"/>
+    <script type="text/javascript" src="/assets/vendor/layui/layui.js"></script>
+    <!--[if lt IE 9]>
+    <script src="/assets/model/common/js/html5shiv.min.js"></script>
+    <script src="/assets/model/common/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<style type="text/css">
+    .statistic{
+        padding-left: 20px;
+        padding-top: 15px;
+    }
+    .statistic li{
+        display: inline-block;
+        margin-right: 10px;
+    }
+</style>
+<body>
+<div style="padding: 12px;"  class="search_wrap">
+    <form class="layui-form" action="" id="search_form">
+        <div class="layui-inline" style="margin-bottom: 6px;">
+        <label class="layui-form-label">日期</label>
+
+           <div class="layui-input-inline">
+               <input type="text" name="month" id="sdate" placeholder="开始时间" autocomplete="off" class="layui-input">
+           </div>
+        </div>
+
+        <div class="layui-inline" style="margin-bottom: 6px;">
+            <label class="layui-form-label">主体: </label>
+            <div class="layui-input-inline">
+                <div id="select_platform_id" class="xm-select-demo" style="min-width: 210px"></div>
+            </div>
+        </div>
+
+        <div class="layui-inline" style="margin-bottom: 6px;">
+            <label class="layui-form-label">产品: </label>
+            <div class="layui-input-inline">
+                <div id="select_product_id" class="xm-select-demo" style="min-width: 210px"></div>
+            </div>
+        </div>
+
+        <div class="layui-inline" style="margin-bottom: 6px;">
+            <label class="layui-form-label">专员: </label>
+            <div class="layui-input-inline">
+                <div id="select_admin_id" class="xm-select-demo" style="min-width: 210px"></div>
+            </div>
+        </div>
+
+        <div class="layui-inline" >
+            <label class="layui-form-label">大单限制: </label>
+            <div class="layui-input-inline">
+                <input type="text" name="big_order_limit" placeholder="" value="5000" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+
+        <!-- <div class="layui-inline" >
+            <label class="layui-form-label">活跃累充限制: </label>
+            <div class="layui-input-inline">
+                <input type="text" name="active_user_recharge_limit" placeholder="" value="1000" autocomplete="off" class="layui-input">
+            </div>
+        </div> -->
+
+
+    </form>
+</div>
+<div class="layui-btn-group demoTable" style="padding: 0 30px; float: right;">
+    <button class="layui-btn layui-btn-sm" data-type="search">搜索</button>
+</div>
+
+<div>
+    <ul class="statistic" id="statistic">
+
+    </ul>
+</div>
+
+<div class="table_wrap" style="padding: 0 15px;">
+    <table id="idTest" lay-filter="demo" class="layui-table"></table>
+</div>
+
+<script>
+    var lay_page = 1;
+    var p_data = {
+
+    };
+    var layui_obj = layui.config({
+        version: true,
+        base: '/assets/model/'
+    }).extend({
+        common: 'common/js/common',
+        search: 'common/js/search',
+    }).use(['common','jquery','search','table','laydate','form','xmSelect'], function(){
+        var table   = layui.table,
+            form = layui.form,
+            laydate = layui.laydate;
+        var xmSelect = layui.xmSelect;
+
+        var $ = layui.jquery;
+        var common = layui.common;
+        var search = layui.search;
+        var cols_list = [];
+        var statistic_info = {};
+
+
+        //日期
+        laydate.render({
+            elem: '#sdate',
+            trigger : 'click',
+            type: 'month'
+        });
+
+        initData();
+
+        //监听工具条
+        table.on('tool(demo)', function(obj){
+            var data = obj.data;
+            if(obj.event === 'detail'){
+                //详情
+                var this_where = p_data;
+                this_where.admin_id = data.admin_id;
+                var url = "sell_statistic_month_detail.html?1";
+                    $.each(p_data,(k,v)=>{
+                        url+='&'+k+'='+v;
+                    })
+                    
+
+                let thisindex = layer.open({
+                    type: 2,
+                    title: "编辑",
+                    maxmin: true,
+                    shadeClose: true, //点击遮罩关闭层
+                    area : ['70%' , '70%'],
+                    content: url
+                });
+                layer.full(thisindex);
+            }
+        });
+
+        $('.demoTable .layui-btn').on('click', function(){
+            var type = $(this).data('type');
+            if( type=='search' ){
+
+                let form_data = $('#search_form').serializeArray();
+                
+                $.each(form_data,function(k,v){
+                    p_data[v.name] = v.value;
+                })
+                get_statistic();
+                table.reload('idTest', {
+                    method: 'post'
+                    ,where: p_data
+                    ,page: {
+                        curr: 1
+                    }
+                });
+            }
+        });
+
+        function initData(){
+
+            common.initPowerShow([
+                'VipStatistic-sellStatisticMonthList'
+                ,'VipStatistic-sellStatisticMonthListExcel'
+            ]);
+            var urlParam = common.urlParam;
+
+            var data_type = urlParam.data_type?urlParam.data_type:1;
+            p_data.data_type = data_type;
+
+            if(data_type == 2){
+                cols_list = [
+                    {field:'kpi_date_str', minWidth:90, sort: true, title:'月份'}
+                    ,{field:'product_id_str', minWidth:300, title:'游戏产品'}
+                    ,{field:'admin_id_str', minWidth:90, title:'营销专员'}
+                    ,{field:'sum_kpi_value', minWidth:110, title:'月KPI业绩'}
+                    ,{field:'order_sum', minWidth:120, title:'营销总业绩'}
+                    ,{field:'order_kip_present', minWidth:110, title:'KPI完成率(%)'}
+                    ,{field:'sell_commission', minWidth:110, title:'营销提成金额'}//
+                    ,{field:'big_order_count', minWidth:100, title:'大单数量'}
+                    ,{field:'big_order_sum', minWidth:100, title:'大单金额'}
+                    ,{field:'big_order_sum_present', minWidth:100, title:'大单占比(%)'}
+                     ,{field:'maintenance_present_str', minWidth:100, title:'活跃覆盖率'}
+                    ,{field:'month_user_count', minWidth:100, title:'已维护vip数',}
+                ]
+
+                statistic_info = {
+                    // 'kpi_sum':'总KPI业绩',
+
+                    'order_sum':'总完成业绩',
+                    // 'order_count':'',
+                    // 'kpi_present':'总完成率',
+
+                    'sell_commission':'总提成',
+
+                    // 'big_order_count':'总大单数',
+                    'big_order_sum':'总大单金额',
+                    // 'big_order_sum_present':'总大单金额占比率',
+                    'big_order_sum_present_str':'总大单金额占比率',
+
+                    // 'maintenance_count':'',//活跃用户维护工单数
+                    // 'maintenance_all':'',//活跃人数
+                    // 'maintenance_present':'',//活跃覆盖率
+                    'maintenance_present_str':'总月活跃覆盖率',//活跃覆盖率
+
+                    // 'remark_count':'',//当月分配用户登记工单数
+                    // 'remark_all':'',//当月分配用户总数数
+                    // 'remark_present':'',//月联系率
+                    // 'remark_present_str':'总月联系率',//月联系率
+
+                    // 'washed_away_count':'',//历史分配用户总数
+                    // 'washed_away_all':'该月新增流失用户数量',
+                    // 'washed_away_present':'总月新增流失率',
+                    // 'washed_away_present_str':'总月新增流失率',
+
+                    'month_user_count':'已维护VIP数',
+                };
+            }else{
+                cols_list = [
+                    {field:'kpi_date_str', minWidth:90, sort: true, title:'月份'}
+                    ,{field:'product_id_str', minWidth:300, title:'游戏产品'}
+                    ,{field:'admin_id_str', minWidth:90, title:'营销专员'}
+                    ,{field:'sum_kpi_value', minWidth:110, title:'月KPI业绩'}
+                    ,{field:'order_sum', minWidth:120, title:'营销总业绩'}
+                    ,{field:'order_kip_present', minWidth:110, title:'KPI完成率(%)'}
+                    ,{field:'big_order_count', minWidth:100, title:'大单数量'}
+                    ,{field:'big_order_sum', minWidth:100, title:'大单金额'}
+                    ,{field:'big_order_sum_present', minWidth:100, title:'大单占比(%)'}
+                    ,{field:'maintenance_present_str', minWidth:100, title:'活跃覆盖率',alt:'30天累计充值达标'}
+                    ,{field:'remark_present_str', minWidth:100, title:'月联系率',}
+                    ,{field:'washed_away_present_str', minWidth:100, title:'充值流失率',}
+                    ,{field:'login_lost_present_str', minWidth:100, title:'登录流失率',}
+                    ,{minWidth:120, align:'center', fixed: 'right', title:'操作'
+                    ,templet:function(d){
+                            let str = '';
+                            // if(d.action && d.action.length>0){
+                            //     $.each(d.action,function(k,v){
+                            //         str+= action(v);
+                            //     })
+                            // }
+                            str+= action('sellStatisticMonthDetail');
+                            return str;
+                        }
+                    }
+                ];
+
+                statistic_info = {
+                        'sum_kpi_value':'总KPI业绩',
+
+                        'order_sum':'总完成业绩',
+                        // 'order_count':'',
+                        'order_kip_present':'总完成率',
+
+                        'big_order_count':'总大单数',
+                        'big_order_sum':'总大单金额',
+                        'big_order_sum_present':'总大单金额占比率',
+
+                        // 'maintenance_count':'',//活跃用户维护工单数
+                        // 'maintenance_all':'',//活跃人数
+                        // 'maintenance_present':'',//活跃覆盖率
+                        'maintenance_present_str':'总月活跃覆盖率',//活跃覆盖率
+
+                        // 'remark_count':'',//当月分配用户登记工单数
+                        // 'remark_all':'',//当月分配用户总数数
+                        // 'remark_present':'',//月联系率
+                        'remark_present_str':'总月联系率',//月联系率
+
+                        // 'washed_away_count':'',//历史分配用户总数
+                        // 'washed_away_all':'',//该月流失用户数量
+                        // 'washed_away_present':'',//活跃覆盖率
+                        'washed_away_present_str':'总月充值流失率',//活跃覆盖率
+
+                        'login_lost_present_str':'总月登录流失率',//活跃覆盖率
+                    };
+            }
+
+            common.req({
+                url: 'vip_statistic/sellStatisticMonthListConfig' //获取游戏名称
+                ,success:function(json)
+                {
+
+                    var base_config = json.data;
+
+                    search.init('common_search',base_config.search_config);
+
+                    // 数据表格
+                    get_statistic();
+                    // 数据表格
+                    table.render({
+                        elem: '#idTest'
+                        // ,height: 'full-120'
+                        ,url: common.getUrl('vip_statistic/sellStatisticMonthList') //数据接口
+                        ,headers:common.getHeader()
+                        ,page: true
+                        ,limits:[20,50,100,200,500]
+                        ,limit:20
+                        ,minWidth:1000
+                        ,autoWidth:true
+                        ,cols: [cols_list]
+                        ,where:p_data
+                        ,done:function(a,b,c){
+                            lay_page = b;
+                        }
+                    });
+
+                    form.render();
+                }
+            });
+        }
+
+        function get_statistic(){
+        
+            common.req({
+                url: "vip_statistic/sellStatisticMonthInfo",
+                data: p_data,
+                type: "post",
+                dataType:"json",
+                success:function(res){
+                    
+                    if( res.code==0 ){
+                        var info = res.data
+                        var html = '';
+                        $.each(statistic_info,function(k,v){
+                            html += '<li>'+v+': <span>'+info[k]+'</span></li>';
+                        })
+                        $('#statistic').html(html);
+                    }
+                },
+                error:function(data){
+                    // layer.alert('错误'+data.msg,{icon:2});
+                }
+            });
+        }
+        
+    });
+    //给子级调用
+    function res_msg(msg){
+        layer.msg(msg,{icon:1});
+        setTimeout(function(){
+            layui_obj.table.reload('idTest', {
+                method: 'post'
+                ,where: p_data
+                ,page: {
+                    curr: lay_page
+                }
+            });
+        },1000);
+    }
+    function action(action,data){
+        let str = '';
+        switch (action) {
+            case 'sellStatisticMonthDetail':
+                str = '<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="detail">详情</a>';
+                break;
+            default:
+
+                break;
+        }
+
+        return str;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,210 @@
+[ 2022-02-28T15:57:02+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-28T15:57:02+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'Gameproduct',
+    2 => 'run',
+  ),
+)
+[ 2022-02-28T15:57:02+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-28T15:57:02+08:00 ][ info ] [ PARAM ] array (
+)
+[ 2022-02-28T15:57:02+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-28T15:57:02+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-28T15:57:02+08:00 ][ info ] [ RUN ] app\scripts\controller\GameProduct->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\Gameproduct.php ]
+[ 2022-02-28T15:57:13+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-28T15:57:13+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'Gameproduct',
+    2 => 'run',
+  ),
+)
+[ 2022-02-28T15:57:13+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-28T15:57:13+08:00 ][ info ] [ PARAM ] array (
+)
+[ 2022-02-28T15:57:13+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-28T15:57:13+08:00 ][ info ] [ RUN ] app\scripts\controller\GameProduct->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\Gameproduct.php ]
+[ 2022-02-28T15:57:13+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-28T15:57:13+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001264s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2022-02-28T15:57:13+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000946s ]
+[ 2022-02-28T15:57:13+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_Gameproduct' , 'GameProduct' , '\"\"' , 1646035033 , 1646035033) [ RunTime:0.001630s ]
+[ 2022-02-28T15:57:49+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-28T15:57:49+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'Gameproduct',
+    2 => 'run',
+  ),
+)
+[ 2022-02-28T15:57:49+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-28T15:57:49+08:00 ][ info ] [ PARAM ] array (
+)
+[ 2022-02-28T15:57:49+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-28T15:57:49+08:00 ][ info ] [ RUN ] app\scripts\controller\GameProduct->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\Gameproduct.php ]
+[ 2022-02-28T15:57:49+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-28T15:57:49+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001185s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2022-02-28T15:57:49+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000819s ]
+[ 2022-02-28T15:57:49+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_Gameproduct' , 'GameProduct' , '\"\"' , 1646035069 , 1646035069) [ RunTime:0.001292s ]
+[ 2022-02-28T15:57:49+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-28T15:57:49+08:00 ][ error ] [8]Undefined index: url_key[D:\phpstudy_pro\WWW\new_kefu\common\server\GameProduct\GameProductScriptsServer.php:94]
+[ 2022-02-28T15:58:24+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-28T15:58:24+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'Gameproduct',
+    2 => 'run',
+  ),
+)
+[ 2022-02-28T15:58:24+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-28T15:58:24+08:00 ][ info ] [ PARAM ] array (
+)
+[ 2022-02-28T15:58:24+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-28T15:58:24+08:00 ][ info ] [ RUN ] app\scripts\controller\GameProduct->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\Gameproduct.php ]
+[ 2022-02-28T15:58:30+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-28T15:58:30+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'Gameproduct',
+    2 => 'run',
+  ),
+)
+[ 2022-02-28T15:58:30+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-28T15:58:30+08:00 ][ info ] [ PARAM ] array (
+)
+[ 2022-02-28T15:58:30+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-28T15:58:30+08:00 ][ info ] [ RUN ] app\scripts\controller\GameProduct->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\Gameproduct.php ]
+[ 2022-02-28T15:58:30+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-28T15:58:30+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.010498s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2022-02-28T15:58:30+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000829s ]
+[ 2022-02-28T15:58:30+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_Gameproduct' , 'GameProduct' , '\"\"' , 1646035110 , 1646035110) [ RunTime:0.001306s ]
+[ 2022-02-28T15:58:30+08:00 ][ error ] [8]Undefined variable: platformInfo[D:\phpstudy_pro\WWW\new_kefu\common\server\GameProduct\GameProductScriptsServer.php:92]
+[ 2022-02-28T15:58:48+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-28T15:58:48+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'Gameproduct',
+    2 => 'run',
+  ),
+)
+[ 2022-02-28T15:58:48+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-28T15:58:48+08:00 ][ info ] [ PARAM ] array (
+)
+[ 2022-02-28T15:58:48+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-28T15:58:48+08:00 ][ info ] [ RUN ] app\scripts\controller\GameProduct->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\Gameproduct.php ]
+[ 2022-02-28T15:58:48+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-28T15:58:48+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001144s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2022-02-28T15:58:48+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.002310s ]
+[ 2022-02-28T15:58:48+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_Gameproduct' , 'GameProduct' , '\"\"' , 1646035128 , 1646035128) [ RunTime:0.001351s ]
+[ 2022-02-28T15:59:25+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-28T15:59:25+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'Gameproduct',
+    2 => 'run',
+  ),
+)
+[ 2022-02-28T15:59:25+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-28T15:59:25+08:00 ][ info ] [ PARAM ] array (
+)
+[ 2022-02-28T15:59:25+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-28T15:59:25+08:00 ][ info ] [ RUN ] app\scripts\controller\GameProduct->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\Gameproduct.php ]
+[ 2022-02-28T15:59:25+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-28T15:59:25+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.011370s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2022-02-28T15:59:25+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.002328s ]
+[ 2022-02-28T15:59:25+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_Gameproduct' , 'GameProduct' , '\"\"' , 1646035165 , 1646035165) [ RunTime:0.001407s ]
+[ 2022-02-28T15:59:41+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-28T15:59:41+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'Gameproduct',
+    2 => 'run',
+  ),
+)
+[ 2022-02-28T15:59:41+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-28T15:59:41+08:00 ][ info ] [ PARAM ] array (
+)
+[ 2022-02-28T15:59:41+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-28T15:59:41+08:00 ][ info ] [ RUN ] app\scripts\controller\GameProduct->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\Gameproduct.php ]
+[ 2022-02-28T15:59:41+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-28T15:59:41+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001080s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2022-02-28T15:59:41+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.002550s ]
+[ 2022-02-28T15:59:41+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_Gameproduct' , 'GameProduct' , '\"\"' , 1646035181 , 1646035181) [ RunTime:0.001760s ]
+[ 2022-02-28T15:59:41+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-28T15:59:41+08:00 ][ error ] [8]Undefined index: url_key[D:\phpstudy_pro\WWW\new_kefu\common\server\GameProduct\GameProductScriptsServer.php:96]
+[ 2022-02-28T16:31:06+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-28T16:31:06+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'Gameproduct',
+    2 => 'run',
+  ),
+)
+[ 2022-02-28T16:31:06+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-28T16:31:06+08:00 ][ info ] [ PARAM ] array (
+)
+[ 2022-02-28T16:31:06+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-28T16:31:06+08:00 ][ info ] [ RUN ] app\scripts\controller\GameProduct->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\Gameproduct.php ]
+[ 2022-02-28T16:31:06+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-28T16:31:06+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.011012s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2022-02-28T16:31:06+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000861s ]
+[ 2022-02-28T16:31:06+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_Gameproduct' , 'GameProduct' , '\"\"' , 1646037066 , 1646037066) [ RunTime:0.002508s ]
+[ 2022-02-28T16:31:06+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-28T16:39:51+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-28T16:39:51+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'Gameproduct',
+    2 => 'run',
+  ),
+)
+[ 2022-02-28T16:39:51+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-28T16:39:51+08:00 ][ info ] [ PARAM ] array (
+)
+[ 2022-02-28T16:39:51+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-28T16:39:51+08:00 ][ info ] [ RUN ] app\scripts\controller\GameProduct->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\Gameproduct.php ]
+[ 2022-02-28T16:39:51+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-28T16:39:51+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.010967s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2022-02-28T16:39:51+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.001338s ]
+[ 2022-02-28T16:39:51+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_Gameproduct' , 'GameProduct' , '\"\"' , 1646037591 , 1646037591) [ RunTime:0.001613s ]
+[ 2022-02-28T16:39:51+08:00 ][ info ] [ DB ] INIT mysql

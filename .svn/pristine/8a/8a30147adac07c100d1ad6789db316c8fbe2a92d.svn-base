@@ -1,0 +1,34 @@
+<?php
+namespace app\api\controller;
+
+
+use common\libraries\Common;
+use common\libraries\ElasticSearch;
+
+
+class Test extends Base
+{
+   public function index()
+   {
+       $es = new ElasticSearch();
+       $bool['bool']['filter']['bool']['must'][]['term']['gkey'] =  'shenqi';
+
+       $last_month = Common::GetMonth(1);
+       $now_month = date('Ym');
+       $next_month = Common::GetMonth(0);
+       $result = $es->search(
+           [
+               $es->index_name.'-'.$last_month,
+               $es->index_name.'-'.$now_month,
+               $es->index_name.'-'.$next_month
+           ],
+           $bool,
+           '',
+           ['time'=>['order'=>'desc']],
+           1,
+           1
+       );
+
+       echo json_encode($result);
+   }
+}

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <title>后台管理系统</title>
+    <link rel="stylesheet" href="/assets/vendor/layui/css/layui.css"/>
+    <link rel="stylesheet" href="/assets/model/common/css/style.css"/>
+    <link rel="stylesheet" href="/assets/model/common/css/common.css"/>
+    <!--[if lt IE 9]>
+    <script src="/assets/model/common/js/html5shiv.min.js"></script>
+    <script src="/assets/model/common/js/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        .layui-col-space15 {
+            /* margin: -7.5px; */
+            margin:-7.5px 0 !important;
+        }
+    </style>
+</head>
+<body class="hold-transition skin-blue sidebar-mini" >
+<form class="layui-form" action="" style="padding: 20px;" id="form1">
+    <div class="layui-form-item">
+        <label class="layui-form-label">类型</label>
+        <div class="layui-input-block">
+            <input type="radio" name="type" lay-filter='type' value="1" title="修改密码" checked="" />
+            <input type="radio" name="type" lay-filter='type' value="2" title="换绑手机" />
+        </div>
+    </div>
+
+    <div class="layui-form-item type_1">
+        <label class="layui-form-label ">密码框</label>
+        <div class="layui-input-inline">
+            <input type="text"  name="new_password"  value=""  id="new_password" class="layui-input" >
+        </div>
+    </div>
+
+    <div class="layui-form-item p_menu p_lev1 type_1">
+        <label class="layui-form-label">验证条件</label>
+        <div class="layui-input-inline" style="width:70%">
+            <textarea lay-verify="content" lay-filter='textarea' id='textarea' name="remarks" ></textarea>
+        </div>
+    </div>
+
+    <div class="layui-form-item type_2">
+        <label class="layui-form-label ">换绑手机号</label>
+        <div class="layui-input-inline">
+            <input type="text"  name="new_phone"  value=""  id="new_phone" class="layui-input" >
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button type="button" class="layui-btn" lay-submit="" lay-filter="submit_btn" id="submit">保存</button>
+        </div>
+    </div>
+</form>
+<script type="text/javascript" src="/assets/vendor/layui/layui.js"></script>
+<script>
+
+    layui.config({
+        version: true,
+        base: '/assets/model/'
+    }).extend({
+        common: 'common/js/common',
+    }).use(['layedit','form','jquery','common'], function(){
+        var form = layui.form,
+            common = layui.common,
+            layedit = layui.layedit;
+
+        var $ = layui.$ //重点处
+
+        var pdata = common.urlParam;
+
+        $('.type_2').hide()
+        form.on('radio(type)',function(data){
+            if(data.value == 1){
+                $('.type_2').hide()
+                $('.type_1').show()
+            }else if(data.value == 2){
+                $('.type_1').hide()
+                $('.type_2').show()
+            }
+        });
+
+        var index0 = layedit.build('textarea', {
+            width: '50%',
+
+        });
+
+        form.verify({
+            content: function(value) {
+                return layedit.sync(index0);
+            }
+        });
+
+        // 监听提交
+        form.on('submit(submit_btn)', function(data){
+
+            data.field.uid = pdata.uid;
+            data.field.platform_id = pdata.platform_id;
+            console.log(data)
+            common.req({
+                url: "AccountSearch/changePassword",
+
+                data:data.field,
+                success:function(res)
+                {
+                    console.log(res);
+                    if( res.code==0 ){
+                        var index = parent.layer.getFrameIndex(window.name);
+                        parent.layer.msg(res.msg,{icon:1});
+                        parent.layer.close(index);
+                        //window.parent.location.reload(); //刷新父窗口
+                    }else{
+                        // window.parent.res_msg(res.msg);
+                    }
+                }
+            });
+        });
+
+
+        form.verify({
+            gt0:function(val,item){
+                if(val<=0){
+                    return '请填写';
+                }
+            },
+            min0:function(value, item){
+
+                if(!(/^[\d]{1,}$/.test(value)) ){
+                    return '必须为正数';
+                }
+            },
+        });
+
+
+    });
+</script>
+</body>
+</html>

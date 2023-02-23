@@ -1,0 +1,32 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: crosstime
+ * Date: 2017/10/12
+ * Time: 上午11:57
+ */
+namespace app\admin\controller;
+
+use common\libraries\Common;
+use common\server\Sms\SmsServer;
+use think\Config;
+
+
+class Sms extends Oauth
+{
+    protected $no_oauth = ['sms'];
+
+    public function index()
+    {
+
+    }
+
+
+    public function sms()
+    {
+
+
+        SmsServer::send();
+    }
+
+}

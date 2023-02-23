@@ -1,0 +1,33 @@
+<div class="pageContent">
+    <form method="post" action="/admin/admin/add" class="pageForm required-validate" onsubmit="return validateCallback(this, dialogAjaxDone);">
+        <div class="pageFormContent" layoutH="56">
+            <p>
+                <label>用户名：</label>
+                <input type="text" name="username" size="30" class="required alphanumeric" value="" minlength="6" maxlength="20">
+            </p>
+            <p>
+                <label>真实名：</label>
+                <input type="text" name="realname" size="30" class="required combox" value="">
+            </p>
+            <p>
+                <label>密码：</label>
+                <input type="password" name="password" size="30" class="required alphanumeric" minlength="6" maxlength="20" value="">
+            </p>
+            <p>
+                <label>权限类型：</label>
+                <input type="radio" name="is_admin" size="30" value="1">管理员
+                <input type="radio" name="is_admin" size="30" value="0" checked>客服
+                <input type="radio" name="is_admin" size="30" value="2">助理
+            </p>
+        </div>
+        <div class="formBar">
+            <ul>
+                <li><div class="buttonActive"><div class="buttonContent"><button type="submit" >保存</button></div></div></li>
+                <li>
+                    <div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div>
+                </li>
+            </ul>
+        </div>
+    </form>
+</div>
+

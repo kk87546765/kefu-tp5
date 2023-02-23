@@ -1,0 +1,1706 @@
+[ 2022-02-23T10:10:30+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-23T10:10:30+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-23T10:10:30+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-23T10:10:30+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'repair_role',
+    'platform' => 'youyu',
+    'new_start_time' => '2022-02-21',
+    'new_end_time' => '2022-02-22',
+  ),
+)
+[ 2022-02-23T10:10:30+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-23T10:10:30+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-23T10:10:30+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-23T10:10:30+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-23T10:10:30+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001442s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2022-02-23T10:10:30+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000956s ]
+[ 2022-02-23T10:10:30+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_GetBaseInfo' , 'repairRole' , '{\"action\":\"repair_role\",\"platform\":\"youyu\",\"new_start_time\":\"2022-02-21\",\"new_end_time\":\"2022-02-22\"}' , 1645582230 , 1645582230) [ RunTime:0.004046s ]
+[ 2022-02-23T10:10:30+08:00 ][ error ] [2]Illegal string offset 'start_time'[D:\phpstudy_pro\WWW\new_kefu\common\server\GetBaseInfo\GetBaseInfoServer.php:942]
+[ 2022-02-23T10:11:40+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-23T10:11:40+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-23T10:11:40+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-23T10:11:40+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'repair_role',
+    'platform' => 'youyu',
+    'new_start_time' => '2022-02-21',
+    'new_end_time' => '2022-02-22',
+  ),
+)
+[ 2022-02-23T10:11:40+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-23T10:11:40+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-23T10:11:47+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-23T10:11:47+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-23T10:11:47+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-23T10:11:47+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'repair_role',
+    'platform' => 'youyu',
+    'new_start_time' => '2022-02-21',
+    'new_end_time' => '2022-02-22',
+  ),
+)
+[ 2022-02-23T10:11:47+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-23T10:11:47+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-23T10:11:47+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-23T10:11:47+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001411s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2022-02-23T10:11:47+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000862s ]
+[ 2022-02-23T10:11:47+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_GetBaseInfo' , 'repairRole' , '{\"action\":\"repair_role\",\"platform\":\"youyu\",\"new_start_time\":\"2022-02-21\",\"new_end_time\":\"2022-02-22\"}' , 1645582307 , 1645582307) [ RunTime:0.001116s ]
+[ 2022-02-23T10:12:03+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-23T10:12:03+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-23T10:12:03+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-23T10:12:03+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'repair_role',
+    'platform' => 'youyu',
+    'new_start_time' => '2022-02-21',
+    'new_end_time' => '2022-02-22',
+  ),
+)
+[ 2022-02-23T10:12:03+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-23T10:12:03+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-23T10:12:03+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-23T10:12:03+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001335s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2022-02-23T10:12:03+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000926s ]
+[ 2022-02-23T10:12:03+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_GetBaseInfo' , 'repairRole' , '{\"action\":\"repair_role\",\"platform\":\"youyu\",\"new_start_time\":\"2022-02-21\",\"new_end_time\":\"2022-02-22\"}' , 1645582323 , 1645582323) [ RunTime:0.006715s ]
+[ 2022-02-23T10:12:46+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-23T10:12:46+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-23T10:12:46+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-23T10:12:46+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'repair_role',
+    'platform' => 'youyu',
+    'new_start_time' => '2022-02-21',
+    'new_end_time' => '2022-02-22',
+  ),
+)
+[ 2022-02-23T10:12:46+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-23T10:12:46+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-23T10:12:46+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-23T10:12:46+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001293s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2022-02-23T10:12:46+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000807s ]
+[ 2022-02-23T10:12:46+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_GetBaseInfo' , 'repairRole' , '{\"action\":\"repair_role\",\"platform\":\"youyu\",\"new_start_time\":\"2022-02-21\",\"new_end_time\":\"2022-02-22\"}' , 1645582366 , 1645582366) [ RunTime:0.001188s ]
+[ 2022-02-23T10:17:59+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-23T10:17:59+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-23T10:17:59+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-23T10:17:59+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'repair_role',
+    'platform' => 'youyu',
+    'new_start_time' => '2022-02-21',
+    'new_end_time' => '2022-02-22',
+  ),
+)
+[ 2022-02-23T10:17:59+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-23T10:17:59+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-23T10:17:59+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-23T10:17:59+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001387s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2022-02-23T10:17:59+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000958s ]
+[ 2022-02-23T10:17:59+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_GetBaseInfo' , 'repairRole' , '{\"action\":\"repair_role\",\"platform\":\"youyu\",\"new_start_time\":\"2022-02-21\",\"new_end_time\":\"2022-02-22\"}' , 1645582679 , 1645582679) [ RunTime:0.001012s ]
+[ 2022-02-23T10:18:17+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-23T10:18:17+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-23T10:18:17+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-23T10:18:17+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'repair_role',
+    'platform' => 'youyu',
+    'new_start_time' => '2022-02-21',
+    'new_end_time' => '2022-02-22',
+  ),
+)
+[ 2022-02-23T10:18:17+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-23T10:18:17+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-23T10:18:17+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-23T10:18:17+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001209s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2022-02-23T10:18:17+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000771s ]
+[ 2022-02-23T10:18:17+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_GetBaseInfo' , 'repairRole' , '{\"action\":\"repair_role\",\"platform\":\"youyu\",\"new_start_time\":\"2022-02-21\",\"new_end_time\":\"2022-02-22\"}' , 1645582697 , 1645582697) [ RunTime:0.001426s ]
+[ 2022-02-23T10:19:47+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-23T10:19:47+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-23T10:19:47+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-23T10:19:47+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'repair_role',
+    'platform' => 'youyu',
+    'new_start_time' => '2022-02-21',
+    'new_end_time' => '2022-02-22',
+  ),
+)
+[ 2022-02-23T10:19:47+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-23T10:19:47+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-23T10:19:47+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-23T10:19:47+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001184s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2022-02-23T10:19:47+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000699s ]
+[ 2022-02-23T10:19:47+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_GetBaseInfo' , 'repairRole' , '{\"action\":\"repair_role\",\"platform\":\"youyu\",\"new_start_time\":\"2022-02-21\",\"new_end_time\":\"2022-02-22\"}' , 1645582787 , 1645582787) [ RunTime:0.001225s ]
+[ 2022-02-23T10:28:06+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-23T10:28:06+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-23T10:28:06+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-23T10:28:06+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'repair_role',
+    'platform' => 'youyu',
+    'new_start_time' => '2022-02-21',
+    'new_end_time' => '2022-02-22',
+  ),
+)
+[ 2022-02-23T10:28:06+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-23T10:28:06+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-23T10:28:06+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-23T10:28:06+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001464s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2022-02-23T10:28:06+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.001045s ]
+[ 2022-02-23T10:28:06+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_GetBaseInfo' , 'repairRole' , '{\"action\":\"repair_role\",\"platform\":\"youyu\",\"new_start_time\":\"2022-02-21\",\"new_end_time\":\"2022-02-22\"}' , 1645583286 , 1645583286) [ RunTime:0.001121s ]
+[ 2022-02-23T10:30:38+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-23T10:30:38+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-23T10:30:38+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-23T10:30:38+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'repair_role',
+    'platform' => 'youyu',
+    'new_start_time' => '2022-02-21',
+    'new_end_time' => '2022-02-22',
+  ),
+)
+[ 2022-02-23T10:30:38+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-23T10:30:38+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-23T10:30:38+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-23T10:30:38+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001288s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2022-02-23T10:30:38+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000906s ]
+[ 2022-02-23T10:30:38+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_GetBaseInfo' , 'repairRole' , '{\"action\":\"repair_role\",\"platform\":\"youyu\",\"new_start_time\":\"2022-02-21\",\"new_end_time\":\"2022-02-22\"}' , 1645583438 , 1645583438) [ RunTime:0.001360s ]
+[ 2022-02-23T10:30:49+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-23T10:30:49+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-23T10:30:49+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-23T10:30:49+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'repair_role',
+    'platform' => 'youyu',
+    'new_start_time' => '2022-02-21',
+    'new_end_time' => '2022-02-22',
+  ),
+)
+[ 2022-02-23T10:30:49+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-23T10:30:49+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-23T10:30:49+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-23T10:30:49+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001247s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2022-02-23T10:30:49+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000833s ]
+[ 2022-02-23T10:30:49+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_GetBaseInfo' , 'repairRole' , '{\"action\":\"repair_role\",\"platform\":\"youyu\",\"new_start_time\":\"2022-02-21\",\"new_end_time\":\"2022-02-22\"}' , 1645583449 , 1645583449) [ RunTime:0.001252s ]
+[ 2022-02-23T10:32:50+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-23T10:32:50+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-23T10:32:50+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-23T10:32:50+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'repair_role',
+    'platform' => 'youyu',
+    'new_start_time' => '2022-02-21',
+    'new_end_time' => '2022-02-22',
+  ),
+)
+[ 2022-02-23T10:32:50+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-23T10:32:50+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-23T10:32:50+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-23T10:32:50+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001304s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2022-02-23T10:32:50+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000913s ]
+[ 2022-02-23T10:32:50+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_GetBaseInfo' , 'repairRole' , '{\"action\":\"repair_role\",\"platform\":\"youyu\",\"new_start_time\":\"2022-02-21\",\"new_end_time\":\"2022-02-22\"}' , 1645583570 , 1645583570) [ RunTime:0.001262s ]
+[ 2022-02-23T10:33:04+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-23T10:33:04+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-23T10:33:04+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-23T10:33:04+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'repair_role',
+    'platform' => 'youyu',
+    'new_start_time' => '2022-02-21',
+    'new_end_time' => '2022-02-22',
+  ),
+)
+[ 2022-02-23T10:33:04+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-23T10:33:04+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-23T10:33:04+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-23T10:33:04+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001260s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2022-02-23T10:33:04+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000835s ]
+[ 2022-02-23T10:33:04+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_GetBaseInfo' , 'repairRole' , '{\"action\":\"repair_role\",\"platform\":\"youyu\",\"new_start_time\":\"2022-02-21\",\"new_end_time\":\"2022-02-22\"}' , 1645583584 , 1645583584) [ RunTime:0.001202s ]
+[ 2022-02-23T10:35:13+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-23T10:35:13+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-23T10:35:13+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-23T10:35:13+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'repair_role',
+    'platform' => 'youyu',
+    'new_start_time' => '2022-02-21',
+    'new_end_time' => '2022-02-22',
+  ),
+)
+[ 2022-02-23T10:35:13+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-23T10:35:13+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-23T10:35:13+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-23T10:35:13+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001333s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2022-02-23T10:35:13+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000934s ]
+[ 2022-02-23T10:35:13+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_GetBaseInfo' , 'repairRole' , '{\"action\":\"repair_role\",\"platform\":\"youyu\",\"new_start_time\":\"2022-02-21\",\"new_end_time\":\"2022-02-22\"}' , 1645583713 , 1645583713) [ RunTime:0.001126s ]
+[ 2022-02-23T10:35:13+08:00 ][ error ] [2]Illegal string offset 'start_time'[D:\phpstudy_pro\WWW\new_kefu\common\server\GetBaseInfo\GetBaseInfoServer.php:939]
+[ 2022-02-23T10:37:28+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-23T10:37:28+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-23T10:37:28+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-23T10:37:28+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'repair_role',
+    'platform' => 'youyu',
+    'new_start_time' => '2022-02-21',
+    'new_end_time' => '2022-02-22',
+  ),
+)
+[ 2022-02-23T10:37:28+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-23T10:37:28+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-23T10:37:28+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-23T10:37:28+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001313s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2022-02-23T10:37:28+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000943s ]
+[ 2022-02-23T10:37:28+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_GetBaseInfo' , 'repairRole' , '{\"action\":\"repair_role\",\"platform\":\"youyu\",\"new_start_time\":\"2022-02-21\",\"new_end_time\":\"2022-02-22\"}' , 1645583848 , 1645583848) [ RunTime:0.001160s ]
+[ 2022-02-23T10:38:38+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-23T10:38:38+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-23T10:38:38+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-23T10:38:38+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'repair_role',
+    'platform' => 'youyu',
+    'new_start_time' => '2022-02-21',
+    'new_end_time' => '2022-02-22',
+  ),
+)
+[ 2022-02-23T10:38:38+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-23T10:38:38+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-23T10:38:38+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-23T10:38:38+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001310s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2022-02-23T10:38:38+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000940s ]
+[ 2022-02-23T10:38:38+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_GetBaseInfo' , 'repairRole' , '{\"action\":\"repair_role\",\"platform\":\"youyu\",\"new_start_time\":\"2022-02-21\",\"new_end_time\":\"2022-02-22\"}' , 1645583918 , 1645583918) [ RunTime:0.001031s ]
+[ 2022-02-23T10:56:13+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-23T10:56:13+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-23T10:56:13+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-23T10:56:13+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'action',
+    'platform' => 'youyu',
+    'type' => '1',
+    'action_type' => '1',
+  ),
+)
+[ 2022-02-23T10:56:13+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-23T10:56:13+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-23T10:56:13+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-23T10:56:13+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001550s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2022-02-23T10:56:13+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.001196s ]
+[ 2022-02-23T10:56:13+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_GetBaseInfo' , 'userAction' , '{\"action\":\"action\",\"platform\":\"youyu\",\"type\":\"1\",\"action_type\":\"1\"}' , 1645584973 , 1645584973) [ RunTime:0.001190s ]
+[ 2022-02-23T10:56:13+08:00 ][ sql ] [ SQL ] SELECT
+                    (
+                        FROM_UNIXTIME('reg_date', '%H')
+                    ) AS h,
+                    count(*) as totalCount
+                FROM
+                    db_customer_youyu.kefu_common_member
+                WHERE
+                    reg_date >= 1645459200
+                AND reg_date < 1645545600
+                GROUP BY
+                    h [ RunTime:0.014570s ]
+[ 2022-02-23T10:56:14+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-23T10:56:57+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-23T10:56:57+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-23T10:56:57+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-23T10:56:57+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'action',
+    'platform' => 'youyu',
+    'type' => '1',
+    'action_type' => '1',
+  ),
+)
+[ 2022-02-23T10:56:57+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-23T10:56:57+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-23T10:57:04+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-23T10:57:04+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-23T10:57:04+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-23T10:57:04+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'action',
+    'platform' => 'youyu',
+    'type' => '1',
+    'action_type' => '1',
+  ),
+)
+[ 2022-02-23T10:57:04+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-23T10:57:04+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-23T10:57:04+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-23T10:57:04+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001189s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2022-02-23T10:57:04+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000785s ]
+[ 2022-02-23T10:57:04+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_GetBaseInfo' , 'userAction' , '{\"action\":\"action\",\"platform\":\"youyu\",\"type\":\"1\",\"action_type\":\"1\"}' , 1645585024 , 1645585024) [ RunTime:0.001010s ]
+[ 2022-02-23T10:57:04+08:00 ][ sql ] [ SQL ] SELECT
+                    (
+                        FROM_UNIXTIME('reg_date', '%H')
+                    ) AS h,
+                    count(*) as totalCount
+                FROM
+                    db_customer_youyu.kefu_common_member
+                WHERE
+                    reg_date >= 1645459200
+                AND reg_date < 1645545600
+                GROUP BY
+                    h [ RunTime:0.003782s ]
+[ 2022-02-23T10:57:04+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-23T10:58:00+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-23T10:58:00+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-23T10:58:00+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-23T10:58:00+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'action',
+    'platform' => 'youyu',
+    'type' => '1',
+    'action_type' => '1',
+  ),
+)
+[ 2022-02-23T10:58:00+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-23T10:58:00+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-23T10:58:05+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-23T10:58:05+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-23T10:58:05+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-23T10:58:05+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'action',
+    'platform' => 'youyu',
+    'type' => '1',
+    'action_type' => '1',
+  ),
+)
+[ 2022-02-23T10:58:05+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-23T10:58:05+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-23T10:58:05+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-23T10:58:05+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001188s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2022-02-23T10:58:05+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000744s ]
+[ 2022-02-23T10:58:05+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_GetBaseInfo' , 'userAction' , '{\"action\":\"action\",\"platform\":\"youyu\",\"type\":\"1\",\"action_type\":\"1\"}' , 1645585085 , 1645585085) [ RunTime:0.000792s ]
+[ 2022-02-23T10:58:05+08:00 ][ sql ] [ SQL ] SELECT
+                    (
+                        FROM_UNIXTIME('reg_date', '%H')
+                    ) AS h,
+                    count(*) as totalCount
+                FROM
+                    db_customer_youyu.kefu_common_member
+                WHERE
+                    reg_date >= 1645459200
+                AND reg_date < 1645545600
+                GROUP BY
+                    h [ RunTime:0.002805s ]
+[ 2022-02-23T10:58:24+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-23T10:58:24+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-23T10:58:24+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-23T10:58:24+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'action',
+    'platform' => 'youyu',
+    'type' => '1',
+    'action_type' => '1',
+  ),
+)
+[ 2022-02-23T10:58:24+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-23T10:58:24+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-23T10:58:24+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-23T10:58:24+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001296s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2022-02-23T10:58:24+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000761s ]
+[ 2022-02-23T10:58:24+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_GetBaseInfo' , 'userAction' , '{\"action\":\"action\",\"platform\":\"youyu\",\"type\":\"1\",\"action_type\":\"1\"}' , 1645585104 , 1645585104) [ RunTime:0.001113s ]
+[ 2022-02-23T10:58:25+08:00 ][ sql ] [ SQL ] SELECT
+                    (
+                        FROM_UNIXTIME('reg_date', '%H')
+                    ) AS h,
+                    count(*) as totalCount
+                FROM
+                    db_customer_youyu.kefu_common_member
+                WHERE
+                    reg_date >= 1645459200
+                AND reg_date < 1645545600
+                GROUP BY
+                    h [ RunTime:0.003799s ]
+[ 2022-02-23T10:59:25+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-23T10:59:25+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-23T10:59:25+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-23T10:59:25+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'action',
+    'platform' => 'youyu',
+    'type' => '1',
+    'action_type' => '1',
+  ),
+)
+[ 2022-02-23T10:59:25+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-23T10:59:25+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-23T10:59:25+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-23T10:59:25+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001258s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2022-02-23T10:59:25+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000761s ]
+[ 2022-02-23T10:59:25+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_GetBaseInfo' , 'userAction' , '{\"action\":\"action\",\"platform\":\"youyu\",\"type\":\"1\",\"action_type\":\"1\"}' , 1645585165 , 1645585165) [ RunTime:0.001024s ]
+[ 2022-02-23T10:59:26+08:00 ][ sql ] [ SQL ] SELECT
+                    (
+                        FROM_UNIXTIME('reg_date', '%H')
+                    ) AS h,
+                    count(*) as totalCount
+                FROM
+                    db_customer_youyu.kefu_common_member
+                WHERE
+                    reg_date >= 1645459200
+                AND reg_date < 1645545600
+                GROUP BY
+                    h [ RunTime:0.002849s ]
+[ 2022-02-23T10:59:26+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-23T11:05:49+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-23T11:05:49+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-23T11:05:49+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-23T11:05:49+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'action',
+    'platform' => 'youyu',
+    'type' => '1',
+    'action_type' => '1',
+  ),
+)
+[ 2022-02-23T11:05:49+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-23T11:05:49+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-23T11:05:49+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-23T11:05:49+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001281s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2022-02-23T11:05:49+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000773s ]
+[ 2022-02-23T11:05:49+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_GetBaseInfo' , 'userAction' , '{\"action\":\"action\",\"platform\":\"youyu\",\"type\":\"1\",\"action_type\":\"1\"}' , 1645585549 , 1645585549) [ RunTime:0.000763s ]
+[ 2022-02-23T11:05:50+08:00 ][ sql ] [ SQL ] SELECT
+                    (
+                        FROM_UNIXTIME('reg_date', '%H')
+                    ) AS h,
+                    count(*) as totalCount
+                FROM
+                    db_customer_youyu.kefu_common_member
+                WHERE
+                    reg_date >= 1645459200
+                AND reg_date < 1645545600
+                GROUP BY
+                    h [ RunTime:0.000491s ]
+[ 2022-02-23T11:05:50+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-23T11:06:24+08:00 ][ sql ] [ SQL ] UPDATE `gr_run_log`  SET `status`=1,`update_time`=1645585584  WHERE  `id` = 114 [ RunTime:0.002507s ]
+[ 2022-02-23T11:34:28+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-23T11:34:28+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-23T11:34:28+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-23T11:34:28+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'repair_role',
+    'platform' => 'youyu',
+  ),
+)
+[ 2022-02-23T11:34:28+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-23T11:34:28+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-23T11:34:28+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-23T11:34:28+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-23T11:34:28+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001054s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2022-02-23T11:34:28+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000644s ]
+[ 2022-02-23T11:34:28+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_GetBaseInfo' , 'repairRole' , '{\"action\":\"repair_role\",\"platform\":\"youyu\"}' , 1645587268 , 1645587268) [ RunTime:0.001373s ]
+[ 2022-02-23T11:34:28+08:00 ][ sql ] [ SQL ] UPDATE `gr_run_log`  SET `status`=1,`update_time`=1645587268  WHERE  `id` = 115 [ RunTime:0.001406s ]
+[ 2022-02-23T11:36:23+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-23T11:36:23+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-23T11:36:23+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-23T11:36:23+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'repair_role',
+    'platform' => 'youyu',
+    'start_time' => '2022-02-21',
+    'end_time' => '2022-02-22',
+  ),
+)
+[ 2022-02-23T11:36:23+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-23T11:36:23+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-23T11:36:30+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-23T11:36:30+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-23T11:36:30+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-23T11:36:30+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'repair_role',
+    'platform' => 'youyu',
+    'start_time' => '2022-02-21',
+    'end_time' => '2022-02-22',
+  ),
+)
+[ 2022-02-23T11:36:30+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-23T11:36:30+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-23T11:36:30+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-23T11:36:30+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001155s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2022-02-23T11:36:30+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000693s ]
+[ 2022-02-23T11:36:30+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_GetBaseInfo' , 'repairRole' , '{\"action\":\"repair_role\",\"platform\":\"youyu\",\"start_time\":\"2022-02-21\",\"end_time\":\"2022-02-22\"}' , 1645587390 , 1645587390) [ RunTime:0.001430s ]
+[ 2022-02-23T11:36:30+08:00 ][ sql ] [ SQL ] UPDATE `gr_run_log`  SET `status`=1,`update_time`=1645587390  WHERE  `id` = 116 [ RunTime:0.000992s ]
+[ 2022-02-23T11:37:11+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-23T11:37:11+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-23T11:37:11+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-23T11:37:11+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'repair_role',
+    'platform' => 'youyu',
+    'start_time' => '2022-02-21',
+    'end_time' => '2022-02-22',
+  ),
+)
+[ 2022-02-23T11:37:11+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-23T11:37:11+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-23T11:37:11+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-23T11:37:11+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001550s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2022-02-23T11:37:11+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000883s ]
+[ 2022-02-23T11:37:11+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_GetBaseInfo' , 'repairRole' , '{\"action\":\"repair_role\",\"platform\":\"youyu\",\"start_time\":\"2022-02-21\",\"end_time\":\"2022-02-22\"}' , 1645587431 , 1645587431) [ RunTime:0.001449s ]
+[ 2022-02-23T11:37:42+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-23T11:37:42+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-23T11:37:42+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-23T11:37:42+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'repair_role',
+    'platform' => 'youyu',
+    'start_time' => '2022-02-21',
+    'end_time' => '2022-02-22',
+  ),
+)
+[ 2022-02-23T11:37:42+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-23T11:37:42+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-23T11:37:42+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-23T11:37:42+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001216s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2022-02-23T11:37:42+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000790s ]
+[ 2022-02-23T11:37:42+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_GetBaseInfo' , 'repairRole' , '{\"action\":\"repair_role\",\"platform\":\"youyu\",\"start_time\":\"2022-02-21\",\"end_time\":\"2022-02-22\"}' , 1645587462 , 1645587462) [ RunTime:0.001660s ]
+[ 2022-02-23T11:43:02+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-23T11:43:02+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-23T11:43:02+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-23T11:43:02+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'repair_role',
+    'platform' => 'youyu',
+    'start_time' => '2022-02-21',
+    'end_time' => '2022-02-22',
+  ),
+)
+[ 2022-02-23T11:43:02+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-23T11:43:02+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-23T11:43:02+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-23T11:43:02+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001455s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2022-02-23T11:43:02+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000942s ]
+[ 2022-02-23T11:43:02+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_GetBaseInfo' , 'repairRole' , '{\"action\":\"repair_role\",\"platform\":\"youyu\",\"start_time\":\"2022-02-21\",\"end_time\":\"2022-02-22\"}' , 1645587782 , 1645587782) [ RunTime:0.001434s ]
+[ 2022-02-23T11:43:02+08:00 ][ sql ] [ SQL ] UPDATE `gr_run_log`  SET `status`=1,`update_time`=1645587782  WHERE  `id` = 119 [ RunTime:0.001133s ]
+[ 2022-02-23T11:43:21+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-23T11:43:21+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-23T11:43:21+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-23T11:43:21+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'repair_role',
+    'platform' => 'youyu',
+    'start_time' => '2022-02-21',
+    'end_time' => '2022-02-22',
+  ),
+)
+[ 2022-02-23T11:43:21+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-23T11:43:21+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-23T11:43:21+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-23T11:43:21+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001207s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2022-02-23T11:43:21+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000753s ]
+[ 2022-02-23T11:43:21+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_GetBaseInfo' , 'repairRole' , '{\"action\":\"repair_role\",\"platform\":\"youyu\",\"start_time\":\"2022-02-21\",\"end_time\":\"2022-02-22\"}' , 1645587801 , 1645587801) [ RunTime:0.001480s ]
+[ 2022-02-23T11:43:31+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-23T11:43:31+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-23T11:43:31+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-23T11:43:31+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'repair_role',
+    'platform' => 'youyu',
+    'start_time' => '2022-02-21',
+    'end_time' => '2022-02-22',
+  ),
+)
+[ 2022-02-23T11:43:31+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-23T11:43:31+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-23T11:43:31+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-23T11:43:31+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001197s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2022-02-23T11:43:31+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000765s ]
+[ 2022-02-23T11:43:31+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_GetBaseInfo' , 'repairRole' , '{\"action\":\"repair_role\",\"platform\":\"youyu\",\"start_time\":\"2022-02-21\",\"end_time\":\"2022-02-22\"}' , 1645587811 , 1645587811) [ RunTime:0.001946s ]
+[ 2022-02-23T11:44:29+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-23T11:44:29+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-23T11:44:29+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-23T11:44:29+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'repair_role',
+    'platform' => 'youyu',
+    'start_time' => '2022-02-21',
+    'end_time' => '2022-02-22',
+  ),
+)
+[ 2022-02-23T11:44:29+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-23T11:44:29+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-23T11:44:29+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-23T11:44:29+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001332s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2022-02-23T11:44:29+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000832s ]
+[ 2022-02-23T11:44:29+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_GetBaseInfo' , 'repairRole' , '{\"action\":\"repair_role\",\"platform\":\"youyu\",\"start_time\":\"2022-02-21\",\"end_time\":\"2022-02-22\"}' , 1645587869 , 1645587869) [ RunTime:0.001305s ]
+[ 2022-02-23T11:45:01+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-23T11:45:01+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-23T11:45:01+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-23T11:45:01+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'repair_role',
+    'platform' => 'youyu',
+    'start_time' => '2022-02-21',
+    'end_time' => '2022-02-22',
+  ),
+)
+[ 2022-02-23T11:45:01+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-23T11:45:01+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-23T11:45:01+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-23T11:45:01+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001242s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2022-02-23T11:45:01+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000780s ]
+[ 2022-02-23T11:45:01+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_GetBaseInfo' , 'repairRole' , '{\"action\":\"repair_role\",\"platform\":\"youyu\",\"start_time\":\"2022-02-21\",\"end_time\":\"2022-02-22\"}' , 1645587901 , 1645587901) [ RunTime:0.001539s ]
+[ 2022-02-23T11:46:25+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-23T11:46:25+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-23T11:46:25+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-23T11:46:25+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'repair_role',
+    'platform' => 'youyu',
+    'start_time' => '2022-02-21',
+    'end_time' => '2022-02-22',
+  ),
+)
+[ 2022-02-23T11:46:25+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-23T11:46:25+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-23T11:46:25+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-23T11:46:25+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001307s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2022-02-23T11:46:25+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000857s ]
+[ 2022-02-23T11:46:25+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_GetBaseInfo' , 'repairRole' , '{\"action\":\"repair_role\",\"platform\":\"youyu\",\"start_time\":\"2022-02-21\",\"end_time\":\"2022-02-22\"}' , 1645587985 , 1645587985) [ RunTime:0.001477s ]
+[ 2022-02-23T11:52:47+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-23T11:52:47+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-23T11:52:47+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-23T11:52:47+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'repair_role',
+    'platform' => 'youyu',
+    'start_time' => '2022-02-21',
+    'end_time' => '2022-02-22',
+  ),
+)
+[ 2022-02-23T11:52:47+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-23T11:52:47+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-23T11:52:47+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-23T11:52:47+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001406s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2022-02-23T11:52:47+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.001008s ]
+[ 2022-02-23T11:52:47+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_GetBaseInfo' , 'repairRole' , '{\"action\":\"repair_role\",\"platform\":\"youyu\",\"start_time\":\"2022-02-21\",\"end_time\":\"2022-02-22\"}' , 1645588367 , 1645588367) [ RunTime:0.001531s ]
+[ 2022-02-23T11:54:30+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-23T11:54:30+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-23T11:54:30+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-23T11:54:30+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'repair_role',
+    'platform' => 'youyu',
+    'start_time' => '2022-02-21',
+    'end_time' => '2022-02-22',
+  ),
+)
+[ 2022-02-23T11:54:30+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-23T11:54:30+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-23T11:54:30+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-23T11:54:31+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001314s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2022-02-23T11:54:31+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000934s ]
+[ 2022-02-23T11:54:31+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_GetBaseInfo' , 'repairRole' , '{\"action\":\"repair_role\",\"platform\":\"youyu\",\"start_time\":\"2022-02-21\",\"end_time\":\"2022-02-22\"}' , 1645588470 , 1645588470) [ RunTime:0.001662s ]
+[ 2022-02-23T11:54:32+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-23T11:54:33+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-23T11:54:35+08:00 ][ error ] [8]Undefined variable: open_time[D:\phpstudy_pro\WWW\new_kefu\common\sql_server\GetBaseInfoSqlServer.php:436]
+[ 2022-02-23T11:57:24+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-23T11:57:24+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-23T11:57:24+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-23T11:57:24+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'repair_role',
+    'platform' => 'youyu',
+    'start_time' => '2022-02-21',
+    'end_time' => '2022-02-22',
+  ),
+)
+[ 2022-02-23T11:57:24+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-23T11:57:24+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-23T11:57:24+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-23T11:57:24+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001443s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2022-02-23T11:57:24+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.001142s ]
+[ 2022-02-23T11:57:24+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_GetBaseInfo' , 'repairRole' , '{\"action\":\"repair_role\",\"platform\":\"youyu\",\"start_time\":\"2022-02-21\",\"end_time\":\"2022-02-22\"}' , 1645588644 , 1645588644) [ RunTime:0.001553s ]
+[ 2022-02-23T11:57:27+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-23T11:57:27+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-23T12:06:08+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-23T12:06:08+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-23T12:06:08+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-23T12:06:08+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'repair_role',
+    'platform' => 'youyu',
+    'start_time' => '2022-02-21',
+    'end_time' => '2022-02-22',
+  ),
+)
+[ 2022-02-23T12:06:08+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-23T12:06:08+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-23T12:06:08+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-23T12:06:08+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001466s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2022-02-23T12:06:08+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.001003s ]
+[ 2022-02-23T12:06:08+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_GetBaseInfo' , 'repairRole' , '{\"action\":\"repair_role\",\"platform\":\"youyu\",\"start_time\":\"2022-02-21\",\"end_time\":\"2022-02-22\"}' , 1645589168 , 1645589168) [ RunTime:0.001745s ]
+[ 2022-02-23T12:06:10+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-23T12:06:10+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-23T12:06:19+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-23T12:06:19+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-23T12:06:19+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-23T12:06:19+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'repair_role',
+    'platform' => 'youyu',
+    'start_time' => '2022-02-21',
+    'end_time' => '2022-02-22',
+  ),
+)
+[ 2022-02-23T12:06:19+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-23T12:06:19+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-23T12:06:19+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-23T12:06:19+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001198s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2022-02-23T12:06:19+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000656s ]
+[ 2022-02-23T12:06:19+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_GetBaseInfo' , 'repairRole' , '{\"action\":\"repair_role\",\"platform\":\"youyu\",\"start_time\":\"2022-02-21\",\"end_time\":\"2022-02-22\"}' , 1645589179 , 1645589179) [ RunTime:0.001368s ]
+[ 2022-02-23T12:06:22+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-23T12:06:22+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-23T12:07:08+08:00 ][ error ] [10501]SQLSTATE[42S22]: Column not found: 1054 Unknown column '05serverId' in 'field list'[D:\phpstudy_pro\WWW\new_kefu\thinkphp\library\think\db\Connection.php:453]
+[ 2022-02-23T12:09:20+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-23T12:09:20+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-23T12:09:20+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-23T12:09:20+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'repair_role',
+    'platform' => 'youyu',
+    'start_time' => '2022-02-21',
+    'end_time' => '2022-02-22',
+  ),
+)
+[ 2022-02-23T12:09:20+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-23T12:09:20+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-23T12:09:20+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-23T12:09:20+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001184s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2022-02-23T12:09:20+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000677s ]
+[ 2022-02-23T12:09:20+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_GetBaseInfo' , 'repairRole' , '{\"action\":\"repair_role\",\"platform\":\"youyu\",\"start_time\":\"2022-02-21\",\"end_time\":\"2022-02-22\"}' , 1645589360 , 1645589360) [ RunTime:0.001770s ]
+[ 2022-02-23T12:09:22+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-23T12:09:22+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-23T12:13:51+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-23T12:13:51+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-23T12:13:51+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-23T12:13:51+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'repair_role',
+    'platform' => 'youyu',
+    'start_time' => '2022-02-21',
+    'end_time' => '2022-02-22',
+  ),
+)
+[ 2022-02-23T12:13:51+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-23T12:13:51+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-23T12:13:51+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-23T12:13:51+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.010722s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2022-02-23T12:13:51+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000871s ]
+[ 2022-02-23T12:13:51+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_GetBaseInfo' , 'repairRole' , '{\"action\":\"repair_role\",\"platform\":\"youyu\",\"start_time\":\"2022-02-21\",\"end_time\":\"2022-02-22\"}' , 1645589631 , 1645589631) [ RunTime:0.001543s ]
+[ 2022-02-23T12:13:53+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-23T12:13:53+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-23T12:14:36+08:00 ][ error ] [10501]SQLSTATE[42S22]: Column not found: 1054 Unknown column '05serverId' in 'field list'[D:\phpstudy_pro\WWW\new_kefu\thinkphp\library\think\db\Connection.php:453]
+[ 2022-02-23T12:22:38+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-23T12:22:38+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-23T12:22:38+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-23T12:22:38+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'repair_role',
+    'platform' => 'youyu',
+    'start_time' => '2022-02-21',
+    'end_time' => '2022-02-22',
+  ),
+)
+[ 2022-02-23T12:22:38+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-23T12:22:38+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-23T12:22:38+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-23T12:22:38+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001401s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2022-02-23T12:22:38+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000849s ]
+[ 2022-02-23T12:22:38+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_GetBaseInfo' , 'repairRole' , '{\"action\":\"repair_role\",\"platform\":\"youyu\",\"start_time\":\"2022-02-21\",\"end_time\":\"2022-02-22\"}' , 1645590158 , 1645590158) [ RunTime:0.001776s ]
+[ 2022-02-23T12:22:40+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-23T12:24:42+08:00 ][ error ] [8]Redis::get(): send of 48 bytes failed with errno=10054 远程主机强迫关闭了一个现有的连接。
+[D:\phpstudy_pro\WWW\new_kefu\thinkphp\library\think\cache\driver\Redis.php:86]
+[ 2022-02-23T14:33:19+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-23T14:33:19+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-23T14:33:19+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-23T14:33:19+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'repair_role',
+    'platform' => 'youyu',
+    'start_time' => '2022-02-21',
+    'end_time' => '2022-02-22',
+  ),
+)
+[ 2022-02-23T14:33:19+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-23T14:33:19+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-23T14:33:19+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-23T14:33:19+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-23T14:33:19+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001342s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2022-02-23T14:33:19+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000923s ]
+[ 2022-02-23T14:33:19+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_GetBaseInfo' , 'repairRole' , '{\"action\":\"repair_role\",\"platform\":\"youyu\",\"start_time\":\"2022-02-21\",\"end_time\":\"2022-02-22\"}' , 1645597999 , 1645597999) [ RunTime:0.001713s ]
+[ 2022-02-23T14:33:53+08:00 ][ error ] [10501]SQLSTATE[42S22]: Column not found: 1054 Unknown column '05serverId' in 'field list'[D:\phpstudy_pro\WWW\new_kefu\thinkphp\library\think\db\Connection.php:453]
+[ 2022-02-23T14:37:05+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-23T14:37:05+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-23T14:37:05+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-23T14:37:05+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'repair_role',
+    'platform' => 'youyu',
+    'start_time' => '2022-02-21',
+    'end_time' => '2022-02-22',
+  ),
+)
+[ 2022-02-23T14:37:05+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-23T14:37:05+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-23T14:37:05+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-23T14:37:05+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001453s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2022-02-23T14:37:05+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.001230s ]
+[ 2022-02-23T14:37:05+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_GetBaseInfo' , 'repairRole' , '{\"action\":\"repair_role\",\"platform\":\"youyu\",\"start_time\":\"2022-02-21\",\"end_time\":\"2022-02-22\"}' , 1645598225 , 1645598225) [ RunTime:0.001487s ]
+[ 2022-02-23T14:37:07+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-23T14:41:35+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-23T14:41:35+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-23T14:41:35+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-23T14:41:35+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'repair_role',
+    'platform' => 'youyu',
+    'start_time' => '2022-02-21',
+    'end_time' => '2022-02-22',
+  ),
+)
+[ 2022-02-23T14:41:35+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-23T14:41:35+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-23T14:41:35+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-23T14:41:35+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001481s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2022-02-23T14:41:35+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000995s ]
+[ 2022-02-23T14:41:35+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_GetBaseInfo' , 'repairRole' , '{\"action\":\"repair_role\",\"platform\":\"youyu\",\"start_time\":\"2022-02-21\",\"end_time\":\"2022-02-22\"}' , 1645598495 , 1645598495) [ RunTime:0.001420s ]
+[ 2022-02-23T14:41:54+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-23T14:41:54+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-23T14:41:54+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-23T14:41:54+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'repair_role',
+    'platform' => 'youyu',
+    'start_time' => '2022-02-21',
+    'end_time' => '2022-02-22',
+  ),
+)
+[ 2022-02-23T14:41:54+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-23T14:41:54+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-23T14:41:54+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-23T14:41:54+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001423s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2022-02-23T14:41:54+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.001048s ]
+[ 2022-02-23T14:41:54+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_GetBaseInfo' , 'repairRole' , '{\"action\":\"repair_role\",\"platform\":\"youyu\",\"start_time\":\"2022-02-21\",\"end_time\":\"2022-02-22\"}' , 1645598514 , 1645598514) [ RunTime:0.001534s ]
+[ 2022-02-23T14:45:47+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-23T14:45:47+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-23T14:45:47+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-23T14:45:47+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'repair_role',
+    'platform' => 'youyu',
+    'start_time' => '2022-02-21',
+    'end_time' => '2022-02-22',
+  ),
+)
+[ 2022-02-23T14:45:47+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-23T14:45:47+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-23T14:45:47+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-23T14:45:47+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001523s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2022-02-23T14:45:47+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000995s ]
+[ 2022-02-23T14:45:47+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_GetBaseInfo' , 'repairRole' , '{\"action\":\"repair_role\",\"platform\":\"youyu\",\"start_time\":\"2022-02-21\",\"end_time\":\"2022-02-22\"}' , 1645598747 , 1645598747) [ RunTime:0.001378s ]
+[ 2022-02-23T15:16:45+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-23T15:16:45+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-23T15:16:45+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-23T15:16:45+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'repair_role',
+    'platform' => 'youyu',
+    'start_time' => '2022-02-21',
+    'end_time' => '2022-02-22',
+  ),
+)
+[ 2022-02-23T15:16:45+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-23T15:16:45+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-23T15:16:45+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-23T15:16:45+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001873s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2022-02-23T15:16:45+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.001125s ]
+[ 2022-02-23T15:16:45+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_GetBaseInfo' , 'repairRole' , '{\"action\":\"repair_role\",\"platform\":\"youyu\",\"start_time\":\"2022-02-21\",\"end_time\":\"2022-02-22\"}' , 1645600605 , 1645600605) [ RunTime:0.001434s ]
+[ 2022-02-23T15:17:22+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-23T15:17:22+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-23T15:17:22+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-23T15:17:22+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'repair_role',
+    'platform' => 'youyu',
+    'start_time' => '2022-02-21',
+    'end_time' => '2022-02-22',
+  ),
+)
+[ 2022-02-23T15:17:22+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-23T15:17:22+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-23T15:17:22+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-23T15:17:22+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001347s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2022-02-23T15:17:22+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000877s ]
+[ 2022-02-23T15:17:22+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_GetBaseInfo' , 'repairRole' , '{\"action\":\"repair_role\",\"platform\":\"youyu\",\"start_time\":\"2022-02-21\",\"end_time\":\"2022-02-22\"}' , 1645600642 , 1645600642) [ RunTime:0.001388s ]
+[ 2022-02-23T15:17:22+08:00 ][ error ] [8]Undefined variable: end_time[D:\phpstudy_pro\WWW\new_kefu\common\server\GetBaseInfo\GetBaseInfoServer.php:519]
+[ 2022-02-23T15:17:42+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-23T15:17:42+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-23T15:17:42+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-23T15:17:42+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'repair_role',
+    'platform' => 'youyu',
+    'start_time' => '2022-02-21',
+    'end_time' => '2022-02-22',
+  ),
+)
+[ 2022-02-23T15:17:42+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-23T15:17:42+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-23T15:17:42+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-23T15:17:42+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001345s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2022-02-23T15:17:42+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000810s ]
+[ 2022-02-23T15:17:42+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_GetBaseInfo' , 'repairRole' , '{\"action\":\"repair_role\",\"platform\":\"youyu\",\"start_time\":\"2022-02-21\",\"end_time\":\"2022-02-22\"}' , 1645600662 , 1645600662) [ RunTime:0.001317s ]
+[ 2022-02-23T15:17:44+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-23T15:17:44+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-23T15:18:28+08:00 ][ error ] [10501]SQLSTATE[42S22]: Column not found: 1054 Unknown column '05serverId' in 'field list'[D:\phpstudy_pro\WWW\new_kefu\thinkphp\library\think\db\Connection.php:453]
+[ 2022-02-23T15:28:47+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-23T15:28:47+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-23T15:28:47+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-23T15:28:47+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'repair_role',
+    'platform' => 'youyu',
+    'start_time' => '2022-02-21',
+    'end_time' => '2022-02-22',
+  ),
+)
+[ 2022-02-23T15:28:47+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-23T15:28:47+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-23T15:28:47+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-23T15:28:47+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001629s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2022-02-23T15:28:47+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.001115s ]
+[ 2022-02-23T15:28:47+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_GetBaseInfo' , 'repairRole' , '{\"action\":\"repair_role\",\"platform\":\"youyu\",\"start_time\":\"2022-02-21\",\"end_time\":\"2022-02-22\"}' , 1645601327 , 1645601327) [ RunTime:0.001847s ]
+[ 2022-02-23T15:28:49+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-23T15:28:49+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-23T15:31:21+08:00 ][ sql ] [ SQL ] UPDATE `gr_run_log`  SET `status`=1,`update_time`=1645601481  WHERE  `id` = 141 [ RunTime:0.001526s ]

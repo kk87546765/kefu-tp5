@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <title>后台管理系统</title>
+    <link rel="stylesheet" href="/assets/vendor/layui/css/layui.css"/>
+    <link rel="stylesheet" href="/assets/model/common/css/style.css"/>
+    <link rel="stylesheet" href="/assets/model/common/css/common.css"/>
+    <!--[if lt IE 9]>
+    <script src="/assets/model/common/js/html5shiv.min.js"></script>
+    <script src="/assets/model/common/js/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        .layui-col-space15 {
+            /* margin: -7.5px; */
+            margin:-7.5px 0 !important;
+        }
+    </style>
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<form class="layui-form" action="" style="padding: 20px;">
+    <div class="layui-form-item">
+        <label class="layui-form-label">配置名称</label>
+        <div class="layui-input-inline">
+            <input type="text" name="name" lay-verify="required" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+
+    <fieldset class="layui-elem-field" >
+        <legend>封禁操作</legend>
+        <br/>
+        <br/>
+        <div class="layui-field-box">
+            <div class="layui-form-item">
+                <label class="layui-form-label">封禁类型</label>
+                <div class="layui-input-inline">
+                    <select name="type"  lay-search="" lay-verify="required" title="平台">
+                        <option value="">选择</option>
+                        <option value="1" selected="">登录</option>
+                        <option value="2">禁言</option>
+
+                    </select>
+                </div>
+            </div>
+            <div class="layui-form-item" >
+                <label class="layui-form-label">封禁原因:</label>
+                <div class="layui-input-inline">
+                    <select name="ban_reason"  lay-search=""  lay-verify="required" title="平台">
+                        <option value="">选择</option>
+                        <option value="1" selected="">广告号</option>
+                        <option value="2">恶意刷屏</option>
+                        <option value="3">恶意辱骂他人</option>
+                        <option value="4">疑似广告号</option>
+                    </select>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">封禁时间</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="ban_time" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+
+            <div class="layui-form-item" >
+                <label class="layui-form-label">封禁对象:</label>
+                <div class="layui-input-inline">
+                    <select name="ban_object"  lay-search="" lay-verify="required" title="平台">
+                        <option value="">选择</option>
+                        <option value="1" selected="">账号</option>
+                        <option value="2">IP</option>
+                        <option value="3">设备</option>
+
+
+                    </select>
+                </div>
+            </div>
+
+            <div class="layui-form-item" >
+                <label class="layui-form-label">产品:</label>
+                <div class="layui-input-inline">
+                    <select name="product"  lay-search="" id='product' lay-verify="required" title="平台">
+
+                    </select>
+                </div>
+            </div>
+
+        </div>
+    </fieldset>
+
+
+
+
+
+    <fieldset class="layui-elem-field" >
+        <legend>封禁条件</legend>
+        <br/>
+        <br/>
+        <div class="layui-field-box">
+            <div class="layui-form-item">
+                <label class="layui-form-label">等级</label>
+
+                <div class="layui-input-inline" style="width: 100px;">
+                    <input type="text"  lay-verify="required"  name='min_level' autocomplete="off" class="layui-input">
+                </div>
+                <div class="layui-input-inline" style="width: 100px;">
+                    <input type="text"  lay-verify="required"  name='max_level' autocomplete="off" class="layui-input">
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">充值金额</label>
+
+                <div class="layui-input-inline" style="width: 100px;">
+                    <input type="text"  lay-verify="required"  name='min_money' autocomplete="off" class="layui-input">
+                </div>
+                <div class="layui-form-mid">-</div>
+                <div class="layui-input-inline" style="width: 100px;">
+                    <input type="text"  lay-verify="required"  name='max_money' autocomplete="off" class="layui-input">
+                </div>
+            </div>
+        </div>
+    </fieldset>
+
+
+
+    <fieldset class="layui-elem-field" >
+        <legend>封禁规则(请选择一个)</legend>
+        <br/>
+        <br/>
+        <div class="layui-field-box">
+            <div class="layui-form-item ">
+                <input type="hidden" name="grade" id="grade">
+                <div class="layui-input-inline" style="width: 100px;">
+                    <input type="text" name="limit_time"  id="limit_time1" autocomplete="off" class="layui-input">
+
+                </div>
+                <div class="layui-form-mid layui-word-aux">  分钟内大量私聊玩家人数达</div>
+
+                <div class="layui-input-inline" style="width: 100px;">
+                    <input type="text" name="private_chat_num"  id="private_chat_num" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+
+            <div class="layui-form-item ">
+                <input type="hidden" name="grade" id="grade">
+                <div class="layui-input-inline" style="width: 100px;">
+                    <input type="text" name="limit_time" id="limit_time2" autocomplete="off" class="layui-input">
+
+                </div>
+                <div class="layui-form-mid layui-word-aux">  分钟内分布</div>
+
+                <div class="layui-form-mid layui-word-aux">条重复信息达到</div>
+
+                <div class="layui-input-inline" style="width: 100px;">
+                    <input type="text" name="repeat_msg_num"  id="repeat_msg_num"  autocomplete="off" class="layui-input">
+                </div>
+            </div>
+
+
+            <div class="layui-form-item ">
+                <input type="hidden" name="grade" id="grade">
+                <div class="layui-input-inline" style="width: 100px;">
+                    <input type="text" name="limit_time"  id="limit_time3" autocomplete="off" class="layui-input">
+
+                </div>
+                <div class="layui-form-mid layui-word-aux">  分钟内发言</div>
+
+                <div class="layui-input-inline" style="width: 100px;">
+                    <input type="text" name="limit_figure_length"  id="limit_figure_length"  autocomplete="off" class="layui-input">
+                </div>
+                <div class="layui-form-mid layui-word-aux">位纯数字次数</div>
+
+                <div class="layui-input-inline" style="width: 100px;">
+                    <input type="text" name="figure_num"  id="figure_num" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+
+            <div class="layui-form-item ">
+                <input type="hidden" name="grade" id="grade">
+                <div class="layui-input-inline" style="width: 100px;">
+                    <input type="text" name="limit_time"  id="limit_time4" autocomplete="off" class="layui-input">
+
+                </div>
+                <div class="layui-form-mid layui-word-aux">  分钟内发言累计超过</div>
+
+                <div class="layui-input-inline" style="width: 100px;">
+                    <input type="text" name="limit_char_length"  id="limit_char_length" autocomplete="off" class="layui-input">
+                </div>
+
+                <div class="layui-form-mid layui-word-aux">字符</div>
+
+            </div>
+
+        </div>
+    </fieldset>
+
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button type="submit" class="layui-btn" lay-submit="" lay-filter="submit_btn">立即提交</button>
+        </div>
+    </div>
+</form>
+<script type="text/javascript" src="/assets/vendor/layui/layui.js"></script>
+<script>
+    layui.config({
+        version: true,
+        base: '/assets/model/'
+    }).extend({
+        common: 'common/js/common',
+        search: 'common/js/search',
+    }).use(['form', 'layedit', 'laydate','common','jquery'], function(){
+        var form = layui.form
+            ,layer = layui.layer
+            ,layedit = layui.layedit
+            ,common = layui.common
+            ,$ = layui.jquery
+            ,laydate = layui.laydate;
+        //日期
+        laydate.render({
+            elem: '#sdate',
+            trigger : 'click',
+            type: 'date'
+        });
+        laydate.render({
+            elem: '#edate',
+            trigger : 'click',
+            type: 'date'
+        });
+
+
+        common.req({
+            url:'action_block/getGameProduct'
+            ,success:function(json)
+            {
+
+                if(json.code == 0){
+                    let html = '';
+                    $.each(json.data,function(k,v){
+
+                        html ='<option value="'+v.id+'">'+v.name+'</option>';
+                        $('#product').append(html)
+                    })
+
+                    form.render('select');
+
+                }else {
+                    layer.msg(json.msg,{icon:2});
+                }
+            }
+        })
+
+
+
+        //监听提交
+        form.on('submit(submit_btn)', function(data){
+            var flag = 0;
+            var limit_time = 0;
+            if($('#private_chat_num').val() !== '' || $('#limit_time1').val() !== ''){
+                data.field.limit_time = $('#limit_time1').val();
+                data.field.check_type = 1;
+                flag += 1;
+            }
+
+            if($('#repeat_msg_num').val() !== '' || $('#limit_time2').val() !== ''){
+                data.field.limit_time = $('#limit_time2').val();
+                data.field.check_type = 2;
+                flag += 1;
+            }
+
+            if($('#limit_figure_length').val() !== ''|| $('#figure_num').val() !== '' || $('#limit_time3').val() !== ''){
+                data.field.limit_time = $('#limit_time3').val();
+                data.field.check_type = 3;
+                flag += 1;
+            }
+
+            if($('#limit_char_length').val() !== '' || $('#limit_time4').val() !== ''){
+                data.field.limit_time = $('#limit_time4').val();
+                data.field.check_type = 4;
+                flag += 1;
+            }
+
+            if(flag > 1){
+                layer.msg("封禁规则只能选择一个", {icon: 2});
+                return false;
+            }
+
+
+
+
+            var grade = data.field.grade1+'-'+data.field.grade2
+            data.field.grade = grade
+            common.req({
+                url: "action_block/add",
+                data: data.field,
+                type: "post",
+                dataType:"json",
+                success:function(data){
+                    if( data.code == 0 ){
+                        var index = parent.layer.getFrameIndex(window.name);
+                        window.parent.res_msg(data.msg);
+                        parent.layer.close(index);//关闭当前页
+                        //window.parent.location.reload(); //刷新父窗口
+                    }else{
+                        layer.msg(data.msg,{icon:2});
+                    }
+                },
+                error:function(data){
+                    layer.alert('错误'+data.msg,{icon:2});
+                }
+            });
+            return false;
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <title>后台管理系统</title>
+    <link rel="stylesheet" href="/assets/vendor/layui/css/layui.css"/>
+    <link rel="stylesheet" href="/assets/model/common/css/style.css"/>
+    <link rel="stylesheet" href="/assets/model/common/css/common.css"/>
+    <script type="text/javascript" src="/assets/vendor/layui/layui.js"></script>
+    <!--[if lt IE 9]>
+    <script src="/assets/model/common/js/html5shiv.min.js"></script>
+    <script src="/assets/model/common/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<style>
+    html{
+        background-color: #fff !important;
+    }
+    .city-picker-span{
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+    .define-bgcolor-5FB878{
+        background-color: #5FB878;
+    }
+    .define-bgcolor-009688{
+        background-color: #009688;
+    }
+    .order_screen_capture_item {
+        width: 90px;
+        float: left;
+        text-align: center;
+        padding-left: 10px;
+        padding-bottom: 10px;
+    }
+    .layui-form-label{
+        width: 100px;
+    }
+    .sheet_item_type_sub_module{
+        display: none;
+    }
+</style>
+
+<body>
+<!-- 页面加载loading -->
+<div class="page-loading">
+    <div class="ball-loader">
+        <span></span><span></span><span></span><span></span>
+    </div>
+</div>
+
+<!-- 表单开始 -->
+<div class="layui-form" lay-filter="edit-form" id="edit-form" style="padding: 20px 30px 0 0;">
+
+    <input type="hidden" name="id" id="id_form" class="id" value="">
+
+    <div class="layui-form-item apply_time_module">
+        <label class="layui-form-label" style="width: 100px;">申请时间<span style="color: red">*</span></label>
+        <div class="layui-input-inline">
+            <input type="text" class="layui-input" id="apply_time_form" name="apply_time" placeholder=" - ">
+        </div>
+    </div>
+
+    <div class="layui-form-item handle_time_module">
+        <label class="layui-form-label" style="width: 100px;">受理时间</label>
+        <div class="layui-input-inline">
+            <input type="text" class="layui-input" id="handle_time_form" name="handle_time" placeholder=" - ">
+        </div>
+    </div>
+
+    <div class="layui-form-item sheet_type_module">
+        <label class="layui-form-label">
+            <span class="layui-form-label-title">工单类型</span>
+            <span style="color: red">*</span>
+        </label>
+        <div class="layui-input-inline" style="width: 250px;">
+            <select name="sheet_type" lay-verify="required" lay-search="" lay-filter="sheet_type">
+                <option value="">请选择</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <div class="layui-block">
+            <label class="layui-form-label">
+                <span class="layui-form-label-title">操作类型</span>
+                <span style="color: red">*</span>
+            </label>
+            <div class="layui-input-inline" style="width: 250px;">
+                <div id="select_sheet_item_type" class="xm-select-demo" style="min-width: 210px"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-form-item sheet_item_type_sub_module">
+        <label class="layui-form-label">
+            <span class="layui-form-label-title">子类型</span>
+            <span style="color: red">*</span>
+        </label>
+        <div class="layui-input-inline" style="width: 250px;">
+            <select name="sheet_item_type_sub" lay-search="">
+                <option value="">请选择</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="layui-form-item platform_id_module">
+        <label class="layui-form-label">
+            <span class="layui-form-label-title">平台类型</span>
+            <span style="color: red">*</span>
+        </label>
+        <div class="layui-input-inline" style="width: 250px;">
+            <select name="platform_id" lay-verify="required" lay-filter="platform_id" lay-search="">
+                <option value="">请选择</option>
+            </select>
+        </div>
+    </div>
+    <div class="layui-form-item role_id_module">
+        <label class="layui-form-label">
+            <span class="layui-form-label-title">角色ID</span>
+            <span style="color: red">*</span>
+        </label>
+        <div class="layui-input-inline">
+            <div id="select_role_id" class="xm-select-demo" style="min-width: 210px"></div>
+        </div>
+        <button type="button" class="layui-btn role_id_btn" style="margin-left: 60px;">确定</button>
+    </div>
+
+    <div class="layui-form-item uid_module">
+        <label class="layui-form-label">
+            <span class="layui-form-label-title">玩家UID</span>
+            <span style="color: red">*</span>
+        </label>
+        <div class="layui-input-block">
+            <div class="layui-input-inline">
+                <input name="uid" autocomplete="off" placeholder="暂无信息" type="text" class="layui-input" maxlength="100"
+                       lay-verType="tips" value="" style="width: 500px"/>
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-form-item user_account_module">
+        <label class="layui-form-label">
+            <span class="layui-form-label-title">账号</span>
+            <span style="color: red">*</span>
+        </label>
+        <div class="layui-input-block">
+            <div class="layui-input-inline">
+                <input name="user_account" autocomplete="off" placeholder="暂无信息" type="text" class="layui-input" maxlength="100"
+                       lay-verType="tips" value="" style="width: 500px"/>
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-form-item product_id_module">
+        <label class="layui-form-label">
+            <span class="layui-form-label-title">产品</span>
+            <span style="color: red">*</span>
+        </label>
+        <div class="layui-input-block">
+            <div class="layui-input-inline">
+                <div id="select_product_id" class="xm-select-demo" style="min-width: 210px"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-form-item game_id_module">
+        <label class="layui-form-label">
+            <span class="layui-form-label-title">游戏</span>
+            <span style="color: red">*</span>
+        </label>
+        <div class="layui-input-block">
+            <div class="layui-input-inline">
+                <div id="select_game_id" class="xm-select-demo" style="min-width: 210px"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-form-item role_name_module">
+        <label class="layui-form-label">
+            <span class="layui-form-label-title">角色名称</span>
+            <span style="color: red">*</span>
+        </label>
+        <div class="layui-input-block">
+            <div class="layui-input-inline">
+                <input name="role_name" autocomplete="off" placeholder="暂无信息" type="text" class="layui-input" maxlength="100"
+                       lay-verType="tips" value="" style="width: 500px"/>
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-form-item server_id_module">
+        <label class="layui-form-label">
+            <span class="layui-form-label-title">区服</span>
+            <span style="color: red">*</span>
+        </label>
+        <div class="layui-input-block">
+            <div class="layui-input-inline">
+                <input name="server_id" autocomplete="off" placeholder="暂无信息" type="text" class="layui-input" maxlength="100"
+                       lay-verType="tips" value="" style="width: 500px"/>
+            </div>
+        </div>
+    </div>
+    <div class="layui-form-item pay_money_total_module">
+        <label class="layui-form-label">
+            <span class="layui-form-label-title">总充值金额</span>
+        </label>
+        <div class="layui-input-block">
+            <div class="layui-input-inline">
+                <input name="pay_money_total" autocomplete="off" placeholder="暂无信息" type="text" class="layui-input" maxlength="50"
+                       lay-verType="tips" value="" style="width: 500px"/>
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-form-item user_source_module">
+        <label class="layui-form-label">
+            <span class="layui-form-label-title">用户来源</span>
+            <span style="color: red">*</span>
+        </label>
+        <div class="layui-input-block">
+            <div class="layui-input-inline" id="user_source_div">
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-form-item visitor_id_module">
+        <label class="layui-form-label">
+            <span class="layui-form-label-title">访客ID</span>
+        </label>
+        <div class="layui-input-block">
+            <div class="layui-input-inline">
+                <input name="visitor_id" autocomplete="off" placeholder="暂无信息" type="text" class="layui-input" maxlength="100"
+                       lay-verType="tips" value="" style="width: 500px"/>
+            </div>
+        </div>
+    </div>
+    <div class="layui-form-item contact_type_module">
+        <label class="layui-form-label">
+            <span class="layui-form-label-title">联系方式类型</span>
+            <span style="color: red">*</span>
+        </label>
+        <div class="layui-input-inline" style="width: 250px;">
+            <select name="contact_type" lay-verify="required" lay-filter="contact_type" lay-search="">
+                <option value="">请选择</option>
+            </select>
+        </div>
+    </div>
+    <div class="layui-form-item contact_module">
+        <label class="layui-form-label">
+            <span class="layui-form-label-title">联系方式</span>
+        </label>
+        <div class="layui-input-block">
+            <div class="layui-input-inline">
+                <input name="contact" autocomplete="off" placeholder="暂无信息" type="text" class="layui-input" maxlength="500"
+                       lay-verType="tips" value="" style="width: 500px"/>
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-form-item order_screen_capture_module">
+        <label class="layui-form-label">
+            <span class="layui-form-label-title">指定订单截图</span>
+        </label>
+        <div class="layui-input-block">
+            <div class="layui-input-inline">
+                <div class="layui-upload-drag" id="test10">
+                    <i class="layui-icon"></i>
+                    <p>点击上传，或将文件拖拽到此处</p>
+                </div>
+                <blockquote class="layui-elem-quote layui-quote-nm" style="margin-top: 10px;width: 500px;float: left">
+                    预览图：
+                    <div class="layui-upload-list order_screen_capture_list"></div>
+                </blockquote>
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-form-item content_module">
+        <label class="layui-form-label" style="width: 100px;">
+            <span class="layui-form-label-title">问题描述</span>
+            <span class="example_require" style="color: red;display: none;">*</span>
+        </label>
+        <div class="layui-input-block">
+            <textarea name="content" placeholder="请输入" id="content_form" class="layui-textarea"></textarea>
+        </div>
+    </div>
+
+    <div class="layui-form-item status_module">
+        <label class="layui-form-label">
+            <span class="layui-form-label-title">状态</span>
+            <span style="color: red">*</span>
+        </label>
+        <div class="layui-input-block" id="status_div">
+            
+        </div>
+    </div>
+
+    <div id="other_info_input">
+        
+    </div>
+
+    <div class="layui-form-item" id="work_sheet_log_div">
+        <label class="layui-form-label">
+            <span class="layui-form-label-title">跟进记录</span>
+        </label>
+        <div class="layui-input-block">
+            <div class="layui-input-inline">
+                <button type="button" class="layui-btn" id="workSheetlog">跟进记录</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-form-item record_user_module">
+        <label class="layui-form-label">
+            <span class="layui-form-label-title">记录人</span>
+        </label>
+        <div class="layui-input-block">
+            <div class="layui-input-inline">
+                <input disabled name="record_user" autocomplete="off" placeholder="暂无信息" type="text" class="layui-input" maxlength="100"
+                       lay-verType="tips" value="" style="width: 500px"/>
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-form-item follow_user_module">
+        <label class="layui-form-label">
+            <span class="layui-form-label-title">跟进人</span>
+        </label>
+        <div class="layui-input-block">
+            <div class="layui-input-inline">
+                <input disabled name="follow_user" autocomplete="off" placeholder="暂无信息" type="text" class="layui-input" maxlength="100"
+                       lay-verType="tips" value="" style="width: 500px"/>
+            </div>
+        </div>
+    </div>
+
+    <div class="layui-form-item layui-hide">
+        <input type="button" lay-submit lay-filter="layui-btn-form-submit" id="layui-btn-form-submit" value="确认添加">
+        <input type="button" lay-submit lay-filter="layui-btn-form-edit" id="layui-btn-form-edit" value="确认编辑">
+    </div>
+
+
+</div>
+<!-- 表单结束 -->
+<!-- 模板开始 -->
+<div id="input_demo" style="display: none;">
+    <div class="layui-form-item example_input_module">
+        <label class="layui-form-label" style="width: 100px;">
+            <span class="layui-form-label-title">工单类型</span>
+            <span class="example_require" style="color: red;display: none;">*</span>
+        </label>
+        <div class="layui-input-inline">
+            <input type="text" class="layui-input" id="xx_form" name="example" placeholder="">
+        </div>
+    </div>
+
+    <div class="layui-form-item example_textarea_module">
+        <label class="layui-form-label" style="width: 100px;">
+            <span class="layui-form-label-title">工单类型</span>
+            <span class="example_require" style="color: red;display: none;">*</span>
+        </label>
+        <div class="layui-input-block">
+            <textarea name="" placeholder="请输入" class="layui-textarea"></textarea>
+        </div>
+    </div>
+
+    <div class="layui-form-item example_radio_module">
+        <label class="layui-form-label" style="width: 100px;">
+            <span class="layui-form-label-title">工单类型</span>
+            <span class="example_require" style="color: red;display: none;">*</span>
+        </label>
+        <div class="layui-input-inline">
+            <div class="xm-select-demo"></div>
+        </div>
+    </div>
+</div>
+<!-- 模板结束 -->
+<script>
+    var id = 0;
+    var product_p_data = {};
+    var game_p_data = {};
+    var pic_len = 0;
+    var select_obj = {};
+
+    var select_role_id_data = [];
+    
+    var layui_obj = layui.config({
+        version: true,
+        base: '/assets/model/'
+    }).extend({
+        common: 'common/js/common',
+    }).use(['common','jquery','form','laydate','upload','xmSelect'],function(){
+        var form = layui.form,
+            common = layui.common,
+            laydate = layui.laydate,
+            xmSelect = layui.xmSelect,
+            upload = layui.upload;
+        var $ = layui.jquery;
+
+        var detailUrl = 'work_sheet/detail';//详情
+        var editUrl = 'work_sheet/edit';//修改
+        var addUrl = 'work_sheet/add';//添加
+        var imgUploadUrl = 'common/fileUploadOne';//图片上传
+        var getInfoByRoleIdUrl = 'work_sheet/getInfoByRoleId';//获取角色信息
+        var typeListUrl = 'work_sheet/typeList';//
+        var get_sheet_type_config_url = 'work_sheet/getSheetTypeConfig';//获取角色信息
+
+        var urlParam = common.urlParam;
+
+        if(urlParam.id != undefined){
+            id = urlParam.id;
+        }
+
+        // 注册时间
+        laydate.render({
+            elem: '#apply_time_form',
+            type: 'date',
+            trigger: 'click'
+        });
+        laydate.render({
+            elem: '#handle_time_form',
+            type: 'date',
+            trigger: 'click'
+        });
+
+        //操作类型选择初始
+        var sheet_item_type_data = [];
+
+        var select_sheet_item_type = xmSelect.render({
+            el: '#select_sheet_item_type',
+            toolbar: {
+                show: true,
+                list: [ 'ALL', 'CLEAR', 'REVERSE' ]
+            },
+            filterable: true,
+            data: sheet_item_type_data,
+            name:'sheet_item_type',
+            on:function(data){
+                //arr:  当前多选已选中的数据
+                var arr = data.arr;
+                //change, 此次选择变化的数据,数组
+                var change = data.change;
+                //isAdd, 此次操作是新增还是删除
+                var isAdd = data.isAdd;
+                
+            },
+        })
+
+        var select_product_id = xmSelect.render({
+            el: '#select_product_id',
+            radio: true,
+            filterable: true,
+            data: [],
+            name:'product_id',
+            on:(data)=>{
+                if(data.arr.length == 0){
+                    return false;
+                }
+                var this_info = get_select_val(data.arr);
+                game_p_data.product_id = this_info;
+                set_game_info();
+                
+            },
+        })
+
+        var select_game_id = xmSelect.render({
+            el: '#select_game_id',
+            radio: true,
+            filterable: true,
+            name:'game_id',
+        })
+
+        var select_role_id = xmSelect.render({
+            el: '#select_role_id',
+            radio: true,
+            // filterable: true,
+            toolbar: {
+                show: true,
+            },
+            data: [],
+            name:'role_id',
+            remoteSearch: true,
+            remoteMethod: function(val, cb, show){
+                 
+                //这里如果val为空, 则不触发搜索
+                if(!val){
+                    return cb(select_role_id_data);
+                }
+                let this_data = {};
+                var data1 = form.val("edit-form");
+                this_data.role_id = val;
+                this_data.uid = data1.uid;
+                this_data.user_name = data1.user_account;
+                this_data.platform_id = data1.platform_id;
+                this_data.sheet_type = data1.sheet_type;
+
+                var res = get_role_data(this_data);
+                if(res == {}){
+                    return cb([]);
+                }else{
+                    update_role_info(res);
+                    return cb(res.role_list);
+                }
+            },
+            on:(data)=>{
+                console.log(data)
+                if(data.arr.length == 0 ){
+                    return false;
+                }
+                if(data.arr[0] == data.change[0] ){
+                    return false;
+                }
+
+                let this_data = {};
+                var data1 = form.val("edit-form");
+                this_data.role_id = data.arr[0].value;
+                this_data.uid = data1.uid;
+                this_data.user_name = data1.user_account;
+                this_data.platform_id = data1.platform_id;
+                this_data.sheet_type = data1.sheet_type;
+
+                var res = get_role_data(this_data);
+                if(res == {}){
+                    return false;
+                }
+
+                update_role_info(res);
+                
+            },
+        })
+
+        var order_screen_capture = upload.render({
+            elem: '#test10'
+            ,url: common.getUrl(imgUploadUrl)
+            ,multiple: true
+            ,exts: 'gif|jpg|jpeg|bmp|png|swf'
+            ,before: function(){
+                layer.load(); //上传loading
+            }
+            ,allDone: function(obj){
+                // 结束上传
+                layer.closeAll('loading');
+                layer.msg('一共选择'+obj.total+'个图片，成功'+obj.successful+'个，失败'+obj.aborted+'个');
+            }
+            ,done: function(res){
+                //上传完毕
+                if(res.code == 0) {
+                    let str = '<div class="order_screen_capture_item">\n' +
+                        '                                <img style="width: 90px; height: 120px; padding-right: 10px; padding-bottom: 10px;" src="'+res.data.http_url+'" class="layui-upload-img">\n' +
+                        '                                <input type="hidden" name="order_screen_capture['+pic_len+']" value="'+res.data.url+'" class="layui-input"/>\n' +
+                        '                                <a class="layui-btn layui-btn-danger layui-btn-xs delImgClass">删除</a>\n'+
+                        '                            </div>';
+                    $('.order_screen_capture_list').append(str);
+
+                    //监听图片删除按钮
+                    $(".delImgClass").click(function () {
+                        $(this).parent('div').remove();//删除div
+                    });
+                    pic_len++;
+                }
+            }
+        });
+
+        //监听提交
+        form.on('submit(layui-btn-form-submit)', function(data){
+            var field = data.field; //获取提交的字段
+            layer.load(2);
+            common.req({
+                url: id>0?editUrl:addUrl,
+                type: 'POST',
+                data: field,
+                dataType:"json",
+                success: function(json) {
+                    if(json.code == 0){
+                        layer.closeAll('loading');
+                        layer.msg('保存成功', {icon: 1, time: 1200}, function () {
+                            let index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
+                            parent.layer.close(index); //再执行关闭
+                            $('.layui-laypage-btn', window.parent.document).click();//调用父级按钮，刷新当前页
+                        });
+                    }else{
+
+                        layer.msg(json.msg, {icon: 2, time: 1200}, function () {
+                            layer.closeAll('loading');
+                        });
+
+                    }
+                },
+                error: function() {
+                    layer.msg('请求失败', {icon: 2});
+                    layer.closeAll('loading');
+                }
+            });
+        });
+
+        form.on('select(sheet_type)', function(data){
+            layer.load(2);
+            workSheetTypeChange(data.value,id)
+        });
+
+        form.on('select(platform_id)', function(data){
+            // var this_info = get_select_val(data.arr);
+            product_p_data.platform_id = data.value;
+            game_p_data.platform_id = data.value;
+            set_product_info();
+        });
+
+        // 角色id确定按钮点击监听事件
+        $('.role_id_btn').click(function () {
+            let this_data = {};
+            var data1 = form.val("edit-form");
+            this_data.role_id = data1.role_id;
+            this_data.uid = data1.uid;
+            this_data.user_name = data1.user_account;
+            this_data.platform_id = data1.platform_id;
+            this_data.sheet_type = data1.sheet_type;
+
+            var json_data = get_role_data(this_data);
+            
+            if(json_data == {}){
+                return false;    
+            }
+
+            select_role_id_data = json_data.role_list
+            select_role_id.update({
+                data:select_role_id_data
+            })
+
+            update_role_info(json_data);
+        });
+
+        pageShowInit();
+
+
+        function update_role_info(json_data){
+            
+            //覆盖数据
+            $('.user_account_module input[name="user_account"]').val(json_data.user_name);
+            $('.uid_module input[name="uid"]').val(json_data.uid);
+            // $('.role_id_module input[name="role_id"]').val(json_data.role_id);
+            $('.role_name_module input[name="role_name"]').val(json_data.role_name);
+            $('.pay_money_total_module input[name="pay_money_total"]').val(json_data.total_pay);
+            $('.server_id_module input[name="server_id"]').val(json_data.server_id);
+            
+            select_product_id.setValue([ json_data.product_id ])
+            game_p_data.product_id = json_data.product_id;
+            set_game_info();
+            select_game_id.setValue([ json_data.last_pay_game_id ])
+            form.render();
+
+        }
+
+
+        function get_role_data(this_data){
+            var this_res = {};
+            layer.load(2);
+            common.req({
+                url: getInfoByRoleIdUrl,
+                type: 'POST',
+                data: this_data,
+                dataType:'json',
+                async:false,
+                success: function(json) {
+
+                    if (json.code == 0) {
+   
+                        this_res = json.data;
+                        layer.closeAll('loading');
+                    } else {
+                        layer.msg(json.msg, {icon: 2, time:1200},function () {
+                            layer.closeAll('loading');
+                        });
+                    }
+                },
+                error: function() {
+                    layer.msg('请求失败', {icon: 2});
+                    layer.closeAll('loading');
+                }
+            });
+            return this_res;
+        }
+
+        // 图片预览
+        $(document).on('click','img',function(obj){
+            layer.photos({
+                photos:  {"data": [{"src": obj.target.currentSrc}]}
+            })
+        });
+
+        // //获取工单日志按钮
+        $("#workSheetlog").click(function () {
+            showWorkSheetLog();
+        });
+        function workSheetTypeChange(id,work_sheet_id){
+
+            layer.load(2);
+
+            common.req({
+                url: get_sheet_type_config_url,
+                type: 'POST',
+                data: {id:id,work_sheet_id:work_sheet_id},
+                dataType:"json",
+                async:false,
+                success: function(json) {
+                    layer.closeAll('loading');
+
+                    var json_data = json.data;
+                    var new_data = [];
+                    var sheet_item_type_sub_option = '';
+                    var status_option = '';
+                    var field_config = {};
+
+                    $('.sheet_item_type_sub_module').hide();
+                    $('#other_info_input').html('');
+
+                    if(json.code == 0){
+                         
+                        $.each(json_data.sheet_item_type_list,(k,v)=>{
+                            new_data.push({name:v.title,value:v.id});
+                        })
+
+                        $.each(json_data.children_val,(k,v)=>{
+                            sheet_item_type_sub_option+='<option value="'+k+'">'+v+'</option>';
+                        })
+
+                        $.each(json_data.status_val,(k,v)=>{
+                            if(k>0){
+                                status_option+='<input type="radio" name="status" value="'+k+'" title="'+v+'">';
+                            }
+                        })
+
+                        $.each(json_data.input_config,(k,v)=>{
+                            appendInput(v);
+                        })
+
+                        field_config = json_data.field_config;
+                    }
+                    //更新子类
+                    if(sheet_item_type_sub_option != ''){
+                        $('.sheet_item_type_sub_module').show();
+                        $('.sheet_item_type_sub_module').find('select[name=sheet_item_type_sub]').html(sheet_item_type_sub_option);
+                    }
+
+                    //更新扩展字段
+                    
+                    //更新操作类型
+                    select_sheet_item_type.update({
+                        data: new_data,
+                        // autoRow: true,
+                    })
+                    //更新状态
+                    $('.status_module .layui-input-block').html(status_option)
+                    //更新标题&显示
+                    $.each(field_config,(k,v)=>{
+                        var this_obj = $('.'+k+'_module');
+                        // console.log(this_obj);
+                        if(this_obj){
+                            if(v.is_show == '0'){
+                                this_obj.hide();
+                            }else{
+                                this_obj.find('.layui-form-label-title').html(v.title);
+                                this_obj.show();
+                            }
+                        }
+                    })
+                    initFormSecond();
+                    console.log(1);
+                    form.render();
+                },
+                error: function() {
+                    layer.msg('请求失败', {icon: 2});
+                    layer.closeAll('loading');
+                }
+            });
+
+        }
+
+        function appendInput(e){
+            var example_module_class = 'other_info_'+e.menu_name+'_module';
+            var this_id_name = 'other_info_'+e.menu_name+'_form';
+            var this_input_name = 'other_info['+e.menu_name+']';
+            var example_obj = {};
+            if(e.type == 'text'){
+                example_obj= $('#input_demo .example_input_module').clone();
+
+                example_obj.addClass(example_module_class);
+                example_obj.find('.layui-form-label-title').html(e.info);
+                example_obj.find('input').val(e.value);
+                example_obj.find('input').attr('name',this_input_name);
+                example_obj.find('input').attr('id',this_id_name);
+
+
+                if(e.input_type == 'input'){
+
+                }
+
+                $('#other_info_input').append(example_obj);
+            }else if(e.type == 'textarea'){
+                example_obj= $('#input_demo .example_textarea_module').clone();
+
+                example_obj.addClass(example_module_class);
+                example_obj.find('.layui-form-label-title').html(e.info);
+                example_obj.find('textarea').val(e.value);
+                example_obj.find('textarea').attr('name',this_input_name);
+                example_obj.find('textarea').attr('id',this_id_name);
+
+                $('#other_info_input').append(example_obj);
+            }else if(e.type == 'radio'){
+                var this_selet_id = 'select_other_info_'+e.menu_name;
+                example_obj= $('#input_demo .example_radio_module').clone();
+                example_obj.addClass(example_module_class);
+                example_obj.find('.layui-form-label-title').html(e.info);
+                // example_obj.find('.xm-select-demo').val(e.value);
+                // example_obj.find('.xm-select-demo').attr('name',this_input_name);
+                example_obj.find('.xm-select-demo').attr('id',this_selet_id);
+                $('#other_info_input').append(example_obj);
+                var this_data = [];
+                $.each(e.parameter,(k,v)=>{
+                    this_data.push(v);
+                })
+                select_obj[this_selet_id] = xmSelect.render({
+                    el: '#'+this_selet_id,
+                    radio:true,
+                    data: this_data,
+                    name:this_input_name
+                })
+
+            }else if(e.type == 'checkbox'){
+                var this_selet_id = 'select_other_info_'+e.menu_name;
+                example_obj= $('#input_demo .example_radio_module').clone();
+                example_obj.addClass(example_module_class);
+                example_obj.find('.layui-form-label-title').html(e.info);
+                // example_obj.find('.xm-select-demo').val(e.value);
+                // example_obj.find('.xm-select-demo').attr('name',this_input_name);
+                example_obj.find('.xm-select-demo').attr('id',this_selet_id);
+                $('#other_info_input').append(example_obj);
+                var this_data = [];
+                $.each(e.parameter,(k,v)=>{
+                    this_data.push(v);
+                })
+                select_obj[this_selet_id] = xmSelect.render({
+                    el: '#'+this_selet_id,
+                    data: this_data,
+                    name:this_input_name
+                })
+
+            }   
+        }
+
+        // 处理化页面
+        function pageShowInit(){
+            initFormFirst();
+            common.req({
+                url: "work_sheet/detail",
+                data: {id:id},
+                type: "post",
+                dataType:"json",
+                async:false,
+                success:function(res){
+                    common.isLoading(false);
+                    if( res.code==0 ){
+
+                        initConfig(res.data.config);
+                        
+                        if(id > 0){
+                            initForm(res.data.info)
+                        }
+                        
+                        
+                    }else{
+                        layer.msg(res.msg,{icon:2});
+                    }
+                    form.render();
+                },
+                error:function(data){
+                    layer.alert('错误'+data.msg,{icon:2});
+                }
+            });
+        }
+
+        function initConfig(config) {
+            $.each(config.sheet_type_arr,function(k,v){
+                $('select[name=sheet_type]').append('<option value="'+v.id+'">'+v.title+'</option>');
+            });
+
+            $.each(config.platform_list,function(k,v){
+                $('select[name=platform_id]').append('<option value="'+v.platform_id+'">'+v.name+'</option>');
+            });
+
+            $.each(config.user_source_arr,function(k,v){
+                $('#user_source_div').append('<input type="radio" name="user_source" value="'+k+'" title="'+v+'">');
+            });
+
+            $.each(config.contact_type_arr,function(k,v){
+                $('select[name=contact_type]').append('<option value="'+k+'">'+v+'</option>');
+            });
+
+            $.each(config.status_arr,function(k,v){
+                if(k > 0){
+                    $('#status_div').append('<input type="radio" name="status" value="'+k+'" title="'+v+'">');
+                }
+            });
+        }
+
+        function initForm(form_data){
+
+            product_p_data.platform_id = form_data.platform_id;
+            game_p_data.platform_id = form_data.platform_id;
+            game_p_data.product_id = form_data.product_id;
+            set_product_info();
+            // set_game_info();
+            workSheetTypeChange(form_data.sheet_type,form_data.id);
+
+            let role_p_data = {};
+            role_p_data.role_id = form_data.role_id
+            role_p_data.platform_id = form_data.platform_id
+            role_p_data.sheet_type = form_data.sheet_type
+            let role_res = get_role_data(role_p_data);
+            // console.log(role_res);
+            if(role_res != {}){
+                select_role_id_data = role_res.role_list
+                select_role_id.update({
+                    data:select_role_id_data
+                })
+                update_role_info(role_res);
+            }
+
+
+            select_sheet_item_type.setValue(form_data.sheet_item_type);
+            select_game_id.setValue([form_data.game_id]);
+            select_product_id.setValue([form_data.product_id]);
+            form.val('edit-form', form_data);
+
+            // 图片
+            for (let i in form_data.order_screen_capture_full) {
+                if (form_data.order_screen_capture_full[i].url != '') {
+                    let str = '<div class="order_screen_capture_item">\n' +
+                        '                                <img style="width: 90px; height: 120px; padding-right: 10px; padding-bottom: 10px;" src="'+form_data.order_screen_capture_full[i].http_url+'" class="layui-upload-img">\n' +
+                        '                                <input type="hidden" name="order_screen_capture[]" value="'+form_data.order_screen_capture_full[i].url+'" class="layui-input"/>\n' +
+                        '                                <a class="layui-btn layui-btn-danger layui-btn-xs delImgClass">删除</a>\n'+
+                        '                            </div>';
+                    $('.order_screen_capture_list').append(str);
+
+                    //监听图片删除按钮
+                    $(".delImgClass").click(function () {
+                        $(this).parent('div').remove();//删除div
+                    });
+                    pic_len++;
+                }
+            }
+        }
+
+        // 获取地域数据
+        function getRegionList(reg_place,login_place){
+            common.req({
+                url: '/admin/ajax/get_region_list',
+                type: 'get',
+                dataType:"json",
+                success: function(json) {
+                    let region_list = [];
+                    if (json.code == 0) {
+                        region_list = json.data.list;
+                    }
+
+                    //拼接玩家无提供
+                    region_list.push({id: 0,mername: "玩家无提供",name: "玩家无提供"})
+
+                    let reg_place_str = '';
+                    let login_place_str = '';
+                    $.each(region_list,function(index,value){
+                        reg_place_str += '<option value="'+value.mername+'"';
+                        if(reg_place === value.mername){
+                            reg_place_str += ' selected ';
+                        }
+                        reg_place_str += '">'+value.mername+'</option>';
+
+                        login_place_str += '<option value="'+value.mername+'"';
+                        if(login_place === value.mername){
+                            login_place_str += ' selected ';
+                        }
+                        login_place_str += '">'+value.mername+'</option>';
+
+                    });
+
+                    $('.reg_place_module select[name="reg_place"]').append(reg_place_str);
+                    $('.login_place_module select[name="login_place"]').append(login_place_str);
+                    form.render('select');
+                    layer.closeAll('loading');
+                },
+                error: function() {
+                    layer.msg('获取地域数据失败，请刷新重试', {icon: 2});
+                    layer.closeAll('loading');
+                }
+            });
+        }
+
+        //显示工单日志按钮
+        function showWorkSheetLog() {
+            var id = $("#id_form").val();
+            layer.open({
+                type: 2
+                ,title: '跟进记录'
+                ,content: 'log_list.html?work_sheet_id='+id
+                ,maxmin: true
+                ,area: [$(window).width()*1+'px', $(window).height()*1+'px']
+            });
+        }
+
+        function set_product_info(game_id){
+            common.req({
+                url: "ajax/getProductList",
+                data: product_p_data,
+                type: "post",
+                dataType:"json",
+                async:false,
+                success:function(res){
+                    var this_list = [];
+                    if( res.code==0 ){
+                        $.each(res.data,function(k,v){
+                            var this_data = {};
+                            this_data.name = v.product_name;
+                            this_data.value = v.product_id;
+                            this_list.push(this_data);
+                        });
+                    }
+                    select_product_id.update({
+                        data: this_list,
+                        // autoRow: true,
+                    })
+                },
+                error:function(data){
+                    layer.alert('错误'+data.msg,{icon:2});
+                }
+            });
+        }
+
+        function set_game_info(){
+            common.req({
+                url: "ajax/getGameList",
+                data: game_p_data,
+                type: "post",
+                dataType:"json",
+                async:false,
+                success:function(res){
+                    var this_list = [];
+                    if( res.code==0 ){
+                        $.each(res.data,function(k,v){
+                            var this_data = {};
+                            this_data.name = v.game_name;
+                            this_data.value = v.game_id;
+                            this_list.push(this_data);
+                        });
+                    }
+                    select_game_id.update({
+                        data: this_list,
+                        // autoRow: true,
+                    })
+                    // console.log('set_game_info');
+                },
+                error:function(data){
+                    layer.alert('错误'+data.msg,{icon:2});
+                }
+            });
+        }
+
+        function initFormFirst(){
+            $('.apply_time_module').hide();
+            $('.handle_time_module').hide();
+            $('.sheet_item_type_sub_module').hide();
+            initFormSecond();
+        }
+
+        function initFormSecond(){
+            if(id >0 ){
+                $('.status_module').show();
+                $('#work_sheet_log_div').show();
+            }else{
+                $('.status_module').hide();
+                $('#work_sheet_log_div').hide();
+            }
+        }
+        function get_select_val(arr){
+            var this_data = [];
+            $.each(arr,(k,v)=>{
+                // console.log(v);
+                this_data.push(v.value);
+            })
+            return this_data;
+        }
+    });
+
+
+</script>
+
+</body>
+</html>

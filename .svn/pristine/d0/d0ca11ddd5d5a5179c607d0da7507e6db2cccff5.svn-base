@@ -1,0 +1,71 @@
+<?php
+
+
+use extend\GamekeySign\GamekeySignBase;
+
+class jmxy extends GamekeySignBase
+{
+
+    //判断来源
+    public $from = '';
+
+    public $uid_to_sdkid_url = "http://advapi.e7j.cn/Vip_Customer/get_uid";
+    public $sdkid_to_uid_url = "http://advapi.e7j.cn/Vip_Customer/get_uid";
+
+    private $cooperationID = ['zw'=>'zhangwan','bx'=>'bingxue','youyu'=>'youyu'];
+
+	public function __construct(){
+
+    }
+
+    #根据平台自身的uid换cp给的聚合uid，用于调用cp封禁、禁言接口
+    public function uid_to_sdkid_url($uid){
+
+	    if(empty($uid)){
+	        return false;
+        }
+
+
+        $time = time();
+
+        $key = 'KWpeSMaHTtveMzkwsV2oJKmO4A7Yhf0pKR3NSnIHifNpl06Iqub5iMEQFr0MpBqC';
+        $sign = md5($uid.$time.$key);
+        $post_data = [
+            'uid'  => $uid,
+            'time' => $time,
+            'sign' => $sign,
+            'channel'=>$this->cooperationID[$this->from],
+            'type' => 2
+        ];
+
+        $res = self::fetchUrl($this->sdkid_to_uid_url.'?'.http_build_query($post_data));
+
+        $res = json_decode($res,1);
+
+        if(isset($res['state']['code']) && $res['state']['code'] == 1){
+            $tmp_info = $res['data'];
+
+            return $tmp_info['uid'];
+
+        }else{
+
+
+            return false;
+        }
+    }
+
+
+
+    public function afterChangeData($chat_info)
+    {
+        $chat_info['tkey'] = 'youyu';
+        $chat_info['action_request_type'] = 'post';
+        return $chat_info;
+    }
+
+
+
+
+
+
+}

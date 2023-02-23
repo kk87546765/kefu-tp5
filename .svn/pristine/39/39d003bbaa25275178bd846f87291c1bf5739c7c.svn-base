@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <title>后台管理系统</title>
+    <link rel="stylesheet" href="/assets/vendor/layui/css/layui.css"/>
+    <link rel="stylesheet" href="/assets/model/common/css/style.css"/>
+    <link rel="stylesheet" href="/assets/model/common/css/common.css"/>
+    <script type="text/javascript" src="/assets/vendor/layui/layui.js"></script>
+    <!--[if lt IE 9]>
+    <script src="/assets/model/common/js/html5shiv.min.js"></script>
+    <script src="/assets/model/common/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+    <form class="layui-form" lay-filter="edit_form" action="" style="padding: 20px;">
+        <div class="layui-form-item">
+            <label class="layui-form-label">游戏</label>
+            <div class="layui-input-inline">
+                <select name="vip_game_product_id" lay-filter="vip_game_product_id" lay-verify="gt0" lay-search="">
+                    <option value="0">请选择</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">游戏</label>
+            <div class="layui-input-inline">
+                <select name="game_id" lay-filter="game_id">
+                    <option value="0">默认</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">单日充值金额</label>
+            <div class="layui-input-inline">
+                <input type="number" min="0" name="day_pay" lay-filter="day_pay" lay-verify="min0" value="" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">近30天充值金额</label>
+            <div class="layui-input-inline">
+                <input type="number" min="0" name="thirty_day_pay" lay-verify="min0" value="" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">历史累充金额</label>
+            <div class="layui-input-inline">
+                <input type="number" min="0" name="total_pay" lay-verify="min0" value="" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item p_menu p_lev1">
+            <label class="layui-form-label">状态</label>
+            <div class="layui-input-inline">
+                <input type="radio" name="static" value="1" title="开启" >
+                <input type="radio" name="static" value="2" title="关闭" >
+            </div>
+        </div>
+        <input type="hidden" name="id" value="0">
+
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+              <button type="submit" class="layui-btn layui-power" id="VipConfig-becomeVipStandardEdit" lay-submit="" lay-filter="submit_btn">修改</button>
+              <button type="submit" class="layui-btn layui-power" id="VipConfig-becomeVipStandardAdd" lay-submit="" lay-filter="submit_btn">提交</button>
+            </div>
+        </div>
+    </form>
+
+<script>
+
+var vip_game_product_id = 0;
+var form_game_id = 0;
+var p_data = {
+    'vip_game_product_id':0
+    ,'game_id':0
+};
+
+var game_list_url = 'ajax/getGameListByGPId';
+var layui_obj = layui.config({
+    version: true,
+    base: '/assets/model/'
+}).extend({
+    common: 'common/js/common',
+}).use(['common','jquery','form'], function(){
+    var form = layui.form;
+    var $ = layui.jquery;
+    var common = layui.common;
+    var url = 'vip_config/becomeVipStandardAdd';
+
+    initData();
+
+    //监听提交
+    form.on('submit(submit_btn)', function(data){
+        common.req({
+            url: url,
+            data: data.field,
+            type: "post",
+            dataType:"json",
+            success:function(res){
+                if( res.code==0 ){
+                    var index = parent.layer.getFrameIndex(window.name);
+                    window.parent.res_msg(res.msg);
+                    parent.layer.close(index);//关闭当前页
+                }
+            },
+            error:function(res){
+                layer.alert('错误'+res.msg,{icon:2});
+            }
+        });
+        return false;
+    });
+
+    form.on('select(vip_game_product_id)',function(data){
+        var thisval = data.value;
+
+        if(!thisval || thisval == 0 || thisval == p_data.vip_game_product_id){
+            return false;
+        }
+        p_data.vip_game_product_id = thisval;
+        if(vip_game_product_id == thisval){
+            p_data.game_id = form_game_id;
+        }else{
+            p_data.game_id = 0;
+        }
+        initForm();
+        get_game_list(thisval,p_data.game_id);
+        get_detail_info();
+        
+    })
+
+    form.on('select(game_id)',function(data){
+        var thisval = data.value;
+
+        p_data.game_id = thisval;
+
+        initForm();
+        get_detail_info();
+        
+    })
+
+    function initData(){
+
+        var id = common.urlParam.id;
+        var p = new Promise(function(resolve,reject){
+            common.req({
+                url: "vip_config/becomeVipStandardDetailConfig",
+                type: "post",
+                dataType:"json",
+                success:function(res){
+                    if( res.code==0 ){
+                        var base_config = res.data.config;
+
+                        $.each(base_config.product_list,function(k,v){
+                            $('select[name=vip_game_product_id]').append('<option value="'+v.id+'">'+v.name+'</option>');
+                        });
+
+                        form.render();
+                        resolve(1);
+                    }
+                },
+                error:function(res){
+                    layer.alert('错误'+res.msg,{icon:2});
+                }
+            });
+        })
+        p.then(function(){
+            common.req({
+                url: "vip_config/becomeVipStandardDetail",
+                data: {id:id},
+                type: "post",
+                dataType:"json",
+                success:function(res){
+                    if( res.code==0 ){
+                        var form_data = res.data
+
+                        if(id>0){
+                            url = 'vip_config/becomeVipStandardEdit';
+                            common.initPowerShow(['VipConfig-becomeVipStandardEdit']);
+                            vip_game_product_id = form_data.vip_game_product_id;
+                            form_game_id = form_data.game_id;
+                            p_data.vip_game_product_id = vip_game_product_id;
+                            p_data.game_id = form_game_id;
+                            get_game_list(form_data.vip_game_product_id,form_data.game_id);
+                        }else{
+                            common.initPowerShow(['VipConfig-becomeVipStandardAdd']);
+                        }
+                        form.val('edit_form',form_data);
+                    }
+                },
+                error:function(res){
+                    layer.alert('错误'+res.msg,{icon:2});
+                }
+            });
+        })
+        
+    }
+
+    function get_detail_info() {
+
+        common.req({
+            url: "vip_config/becomeVipStandardDetail",
+            data: p_data,
+            type: "post",
+            dataType:"json",
+            success:function(res){
+
+                if( res.code==0 ){
+                    var detail = res.data;
+                    if(detail.id>0){
+                        common.initPowerShow(['VipConfig-becomeVipStandardEdit']);
+                    }else{
+                        common.initPowerShow(['VipConfig-becomeVipStandardAdd']);
+                    }
+                    form.val('edit_form',res.data);
+                }
+            },
+            error:function(res){
+                layer.alert('错误'+res.msg,{icon:2});
+            }
+        });
+    }
+
+    function get_game_list(id,def_val) {
+        common.req({
+            url: game_list_url,
+            data: {'id':id},
+            type: "post",
+            dataType:"json",
+            success:function(res){
+
+                var this_option = '<option value="0">默认</option>';
+
+                if( res.code==0 ){
+                    $.each(res.data,(k,v)=>{
+                        if(v.game_id == def_val){
+                            this_option+='<option value="'+v.game_id+'" selected>'+v.game_name+'</option>'
+                        }else{
+                            this_option+='<option value="'+v.game_id+'">'+v.game_name+'</option>'
+                        }
+                        
+                    })
+                }
+
+                $('select[name=game_id]').html(this_option);
+                form.render('select');
+            },
+            error:function(res){
+                layer.alert('错误'+res.msg,{icon:2});
+            }
+        });
+    }
+
+    form.verify({
+        gt0:function(val,item){
+            if(val<=0){
+                return '请填写';
+            }
+        },
+        min0:function(value, item){
+
+            if(!(/^[\d]{1,}$/.test(value)) ){
+              return '必须为正数';
+            }
+        },
+    });
+
+    function initForm(){
+        $('input[name="day_pay"]').val(0);
+        $('input[name="thirty_day_pay"]').val(0);
+        $('input[name="total_pay"]').val(0);
+        $('input[name="id"]').val(0);
+        $("input[type=radio][name=static][value=1]").attr("checked","checked");
+    }
+});
+</script>
+</body>
+</html>

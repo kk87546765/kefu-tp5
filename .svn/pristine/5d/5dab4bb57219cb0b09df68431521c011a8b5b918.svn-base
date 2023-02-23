@@ -1,0 +1,279 @@
+<?php
+
+namespace app\admin\controller;
+
+
+use common\sql_server\BanImeiLog;
+use common\sql_server\BanIpLog;
+use common\sql_server\BanUserLog;
+use common\sql_server\Log;
+
+class Player extends Oauth
+{
+    private $banTypeData = [
+        1=>'封禁',
+        2=>'解封'
+    ];
+
+    public function ban_ip_list()
+    {
+        $fieldArr = [
+            'type'=>['name'=>'处理类型','type'=>'int'],
+            'ip'=>['type'=>'string','name'=>'IP'],
+            'dateline'=>['type'=>'time','name'=>'处理时间'],
+            'admin_user'=>['type'=>'string','name'=>'处理人'],
+            'ban_time'=>['type'=>'int','name'=>'封禁时长'],
+            'reason'=>['type'=>'string','name'=>'说明']
+        ];
+
+        $postData = $this->request->post();
+        $limit = $this->request->get('limit/d', 20);
+        $page = $this->request->get('page/d', 1);
+
+        $where='1=1';
+        foreach ($fieldArr as $k => $v){
+            if($v['type']!='time' && !empty($postData[$k])){
+                $where .=" and {$k} = '{$postData[$k]}'";
+            }
+        }
+        $postData['sdate'] = $postData['sdate']??date('Y-m-d');
+        if( !empty($postData['sdate']) ){
+            $where  .=  " and dateline>=".strtotime($postData['sdate']);
+        }
+
+        if( !empty($postData['edate']) ){
+            $where  .=  " and dateline<=".strtotime($postData['edate']);
+        }
+
+        $log = BanIpLog::getList($where,($page - 1) * $limit,$limit,'dateline desc');
+
+
+        $total = BanIpLog::getCount($where);
+
+        foreach( $log as &$v ){
+            $v['type']      = $this->banTypeData[$v['type']];
+//            $v['game_sign'] = $this->game_sign[$v['game_sign']];
+            $v['dateline']      = date("Y-m-d H:i:s",$v['dateline']);
+            $v['ban_time']  = $v['ban_time']?:'永久';
+        }
+
+
+        $this->rs['code'] = 0;
+        $this->rs['msg'] = '获取成功';
+        $this->rs['data'] = $log;
+        $this->rs['count'] = $total;
+        return return_json($this->rs);
+
+    }
+
+    public function ban_imei_list()
+    {
+        $fieldArr = [
+            'type'=>['name'=>'处理类型','type'=>'int'],
+            'imei'=>['type'=>'string','name'=>'设备号'],
+            'dateline'=>['type'=>'time','name'=>'处理时间'],
+            'admin_user'=>['type'=>'string','name'=>'处理人'],
+            'ban_time'=>['type'=>'int','name'=>'封禁时长'],
+            'reason'=>['type'=>'string','name'=>'说明']
+        ];
+
+
+        $postData = $this->request->post();
+        $limit = $this->request->get('limit/d', 20);
+        $page = $this->request->get('page/d', 1);
+
+        $where='1=1';
+        foreach ($fieldArr as $k => $v){
+            if($v['type']!='time' && !empty($postData[$k])){
+                $where .=" and {$k} = '{$postData[$k]}'";
+            }
+        }
+        $postData['sdate'] = $postData['sdate']??date('Y-m-d');
+        if( !empty($postData['sdate']) ){
+            $where  .=  " and dateline>=".strtotime($postData['sdate']);
+        }
+
+        if( !empty($postData['edate']) ){
+            $where  .=  " and dateline<=".strtotime($postData['edate']);
+        }
+
+
+        $log = BanImeiLog::getList($where, ($page - 1) * $limit,$limit,  'dateline desc');
+
+        $total = BanImeiLog::getCount($where);
+
+        foreach( $log as &$v ){
+            $v['type']      = $this->banTypeData[$v['type']];
+//            $v['game_sign'] = $this->game_sign[$v['game_sign']];
+            $v['dateline']      = date("Y-m-d H:i:s",$v['dateline']);
+            $v['ban_time']  = $v['ban_time']?:'永久';
+        }
+
+
+        $this->rs['code'] = 0;
+        $this->rs['msg'] = '获取成功';
+        $this->rs['data'] = $log;
+        $this->rs['count'] = $total;
+        return return_json($this->rs);
+    }
+
+    public function ban_user_list()
+    {
+        $fieldArr = [
+            'uid'=>['name'=>'平台id','type'=>'string'],
+            'type'=>['name'=>'处理类型','type'=>'int'],
+            'user_name'=>['type'=>'string','name'=>'账号'],
+            'dateline'=>['type'=>'time','name'=>'处理时间'],
+            'admin_user'=>['type'=>'string','name'=>'处理人'],
+            'ban_time'=>['type'=>'int','name'=>'封禁时长'],
+            'reason'=>['type'=>'string','name'=>'说明']
+        ];
+
+
+        $postData = $this->request->post();
+        $limit = $this->request->get('limit/d', 20);
+        $page = $this->request->get('page/d', 1);
+
+        $where='1=1';
+        foreach ($fieldArr as $k => $v){
+            if($v['type']!='time' && !empty($postData[$k])){
+                $where .=" and {$k} = '{$postData[$k]}'";
+            }
+        }
+        $postData['sdate'] = $postData['sdate']??date('Y-m-d');
+        if( !empty($postData['sdate']) ){
+            $where  .=  " and dateline>=".strtotime($postData['sdate']);
+        }
+
+        if( !empty($postData['edate']) ){
+            $where  .=  " and dateline<=".strtotime($postData['edate']);
+        }
+
+        $log = BanUserLog::getList($where, ($page - 1) * $limit,$limit,  'dateline desc');
+
+        $total = BanUserLog::getCount($where);
+
+        foreach( $log as &$v ){
+            $v['type']      = $this->banTypeData[$v['type']];
+//            $v['game_sign'] = $this->game_sign[$v['game_sign']];
+            $v['dateline']      = date("Y-m-d H:i:s",$v['dateline']);
+            $v['ban_time']  = $v['ban_time']?:'永久';
+        }
+
+        $this->rs['code'] = 0;
+        $this->rs['msg'] = '获取成功';
+        $this->rs['data'] = $log;
+        $this->rs['count'] = $total;
+        return return_json($this->rs);
+
+    }
+
+
+    /**
+     * 平台封禁操作
+     */
+    public function platformBan()
+    {
+        $resultArr = [
+            'status' => 1,
+            'msg'    => "操作成功",
+        ];
+        if($this->request->getMethod() == 'POST'){
+            $postData = $this->request->getPost();
+            if(empty($postData['ban_list'])){
+                $resultArr['status'] = 0;
+                $resultArr['msg'] = '请输入需要封禁的信息！';
+                $this->json($resultArr);
+            }
+            //封禁时长，单位分钟
+            $banTime = (int)$this->request->get('ban_time', null, $this->request->getPost("ban_time"));
+            $banTime = $banTime*60; //转换为秒
+            $users = explode("\n",$postData['ban_list']);
+            $users = array_unique($users);
+            $banType = $postData['ban_type'];
+            $actionType = $postData['action_type'];
+
+            $banAccountRadio = $postData['ban_account_radio'] ?? '';
+
+            $banData = [
+                'uid' => '',
+                'ip'  => '',
+                'imei' => '',
+                'idfa' => '',
+                'type' => '',
+                'action_type' => '',
+                'ban_time' => '',
+                'time' => '',
+            ];
+
+            //判断是封什么类型的信息赋值对应的ip或imei或uid
+            if ($actionType == self::BAN_UID) {
+                //如果是选择封账号需要去找到对应的UID(平台id)
+                if ($banAccountRadio == self::BAN_PLATFORM_NAME){
+                    /*$commonMember = KefuCommonMember::getUidByUserName($users);
+                    $users = array_unique(array_keys($commonMember));*/
+                    $banData['user_name'] = $users = implode(',', $users);
+                    $actionType = self::BAN_USER_NAME; //封user_name标识符
+                }else{
+                    $banData['uid'] = $users = implode(',', $users);
+                }
+
+            }elseif ($actionType == self::BAN_IP){
+                $banData['ip'] = $users = implode(',', $users);
+            }elseif ($actionType == self::BAN_IMEI){
+                $banData['imei'] = $users = implode(',', $users);
+            }
+
+
+
+            $banData['type']  = $banType;
+            $banData['action_type']  = $actionType;
+            $banData['ban_time']  = $banTime ? :'';
+
+            $resJson = $this->action_ban($banData);
+            $res = json_decode($resJson, true);
+
+
+//            if ($res['state']['code'] == 1){
+            if ($res){
+                $userArr = explode(',', $users);
+
+                if (count($userArr) == count($res['data'])){
+                    $resultArr['status'] = 0;
+                    $resultArr['msg'] = '平台全部操作失败！！';
+                    $this->json($resultArr);
+                }
+
+                if (!empty($res['data'])){
+                    //去掉失败的
+                    foreach ($userArr as $k => $v){
+                        if (in_array($v, $res['data'])){
+                            unset($userArr[$k]);
+                        }
+                    }
+                    $resultArr = [
+                        'status' => 1,
+                        'msg'    => "部分操作失败，失败的有（".implode(',', $res['data'])."）",
+                    ];
+                }
+
+                $tmpTime = time();
+                $logData = [
+                    'user' => $userArr,
+                    'type' => $banType,
+                    'ban_time' =>  $postData['ban_time'],
+                    'reason'  => $postData['reason'],
+                    'action_type' => $actionType,
+                    'dateline' => $tmpTime,
+                    'platform' => self::getPlatformConfig()->toArray()['field'],
+                ];
+
+
+                //更新本地的数据及redis缓存
+                $this->ban_log($logData);
+                $resultArr['status'] = 1;
+            }
+            $this->json($resultArr);
+        }
+    }
+}

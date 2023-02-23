@@ -1,0 +1,350 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <title>后台管理系统</title>
+    <link rel="stylesheet" href="/assets/vendor/layui/css/layui.css"/>
+    <link rel="stylesheet" href="/assets/model/common/css/style.css"/>
+    <link rel="stylesheet" href="/assets/model/common/css/common.css"/>
+    <script type="text/javascript" src="/assets/vendor/layui/layui.js"></script>
+    <!--[if lt IE 9]>
+    <script src="/assets/model/common/js/html5shiv.min.js"></script>
+    <script src="/assets/model/common/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<style type="text/css">
+    .layui-form-switch{
+        margin-top: 0px;
+    }
+    .game_list_title{
+        font-weight: bolder;
+        margin-top: 10px;
+
+    }
+</style>
+<body>
+    <!-- 加载动画 -->
+    <div class="page-loading">
+        <div class="ball-loader">
+            <span></span><span></span><span></span><span></span>
+        </div>
+    </div>
+    <form class="layui-form" lay-filter="edit-form" action="" style="padding: 20px;">
+        <input type="hidden" name="id" value="">
+        <div class="layui-form-item" id="username_model">
+            <label class="layui-form-label">登录账号</label>
+            <div class="layui-input-inline">
+                <input type="text" name="username" id="username" autocomplete="off" class="layui-input" value="">
+            </div>
+        </div>
+        <div class="layui-form-item" id="phone_model">
+            <label class="layui-form-label">手机号码</label>
+            <div class="layui-input-inline">
+                <input type="text" name="phone"  id='phone' autocomplete="off" class="layui-input" >
+            </div>
+        </div>
+        <div class="layui-form-item" id="password_model">
+            <label class="layui-form-label">密码</label>
+            <div class="layui-input-inline">
+                <input type="text" name="password"  autocomplete="off" class="layui-input" >
+            </div>
+        </div>
+
+        <div class="layui-form-item" id="realname_model">
+            <label class="layui-form-label">真实姓名</label>
+            <div class="layui-input-inline">
+                <input type="text" name="realname" lay-verify="required" autocomplete="off" class="layui-input" value="">
+            </div>
+        </div>
+        <div class="layui-form-item" id="role_id_model">
+            <label class="layui-form-label">角色</label>
+            <div class="layui-input-inline">
+                <select name="role_id"  lay-filter="role_id" id="role_id" lay-search="">
+                    <option value="">选择或搜索</option>
+                </select>
+            </div>
+            <span style="" >
+                <label class="layui-form-label">职位等级</label>
+                <div class="layui-input-inline">
+                    <select name="position_grade"  lay-filter="position_grade" id="position_grade" lay-search="">
+                </select>
+                </div>
+            </span>
+        </div>
+        <div class="layui-form-item" id="group_id_model">
+            <label class="layui-form-label">角色分组</label>
+            <div class="layui-input-block" id="group_id_input">
+            
+            </div>
+        </div>
+
+        <div class="layui-form-item" id="group_show_model">
+            <label class="layui-form-label">筛选(显/隐)</label>
+            <div class="layui-input-block" id="group_show_input">
+            
+            </div>
+        </div>
+
+        <div class="layui-form-item" id="platform_model">
+            <label class="layui-form-label">归属平台</label>
+            <div class="layui-input-block" id="platform_input">
+
+            </div>
+        </div>
+        <div class="layui-form-item" id="vip_game_product_ids_model">
+            <label class="layui-form-label">归属游戏</label>
+            <div class="layui-input-block" id="game_product_ids_div">
+
+            </div>
+        </div>
+        <div class="layui-form-item" id="status_model">
+            <label class="layui-form-label">状态</label>
+            <div class="layui-input-block">
+                <input type="checkbox" lay-filter="status"  id="status" checked="" name="status" lay-skin="switch" lay-text="ON|OFF">
+            </div>
+        </div>
+        <div class="layui-form-item" id="is_admin_model">
+            <label class="layui-form-label">超级管理员</label>
+            <div class="layui-input-block">
+                <input type="checkbox" name="is_admin" lay-skin="switch" lay-text="ON|OFF">
+            </div>
+        </div>
+        <div class="layui-form-item" id="is_admin_tip_model">
+            <label class="layui-form-label">提示</label>
+            <span style="color: red; line-height: 28px;">设为超级管理员后，角色将失效</span>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+              <button type="submit" class="layui-btn" lay-submit="" lay-filter="submit_btn">立即提交</button>
+            </div>
+        </div>
+    </form>
+
+    <script>
+        
+        var admin = {};
+        var admin_info = {};
+        var vip_game_product_ids = [];
+
+        var layui_obj = layui.config({
+            version: true,
+            base: '/assets/model/'
+        }).extend({
+            common: 'common/js/common',
+        }).use(['common','jquery','form'], function(){
+            var form = layui.form;
+            var common = layui.common;
+            var $ = layui.jquery;
+            var id = common.urlParam.id;
+            var p_url = 'User/add';
+            var detail_url = 'User/detail';
+            
+            if(id > 0){
+                p_url = 'User/edit';
+                //初始化权限显示
+                common.initPowerShow(['User-edit']);
+            }else{
+                //初始化权限显示
+                common.initPowerShow(['User-add']);
+            }
+
+            //初始化页面数据
+            initData();
+
+            //监听提交
+            form.on('submit(submit_btn)', function(data){
+
+                if(data.field.status && data.field.status == 'on'){
+                    data.field.status = 1;
+                }else{
+                    data.field.status = 2;
+                }
+                // console.log(data.field);
+                // return false;
+                common.req({
+                    url: p_url,
+                    data: data.field,
+                    type: "post",
+                    dataType:"json",
+                    success:function(data){
+
+                        if( data.code==0 ){
+                            var index = parent.layer.getFrameIndex(window.name);
+                            window.parent.res_msg(data.msg);
+                            parent.layer.close(index);//关闭当前页
+                            //window.parent.location.reload(); //刷新父窗口
+                        }else{
+                            layer.msg(data.msg,{icon:2});
+                        }
+                    },
+                    error:function(data){
+                      layer.alert('错误'+data.msg,{icon:2});
+                    }
+                });
+                return false;
+            });
+
+            form.on('checkbox(change_platform_id)',function(data){
+                var arr_box = [];
+                $('input[name="platform[]"]:checked').each(function() {
+                    arr_box.push($(this).val());
+                });
+                if(arr_box.length){
+                    setGameList(arr_box);
+                }else{
+                    setGPIDiv('');
+                }
+            })
+
+            form.on('checkbox(vip_game_product_ids)',function(data){
+                var arr_box = [];
+
+                $('input[name="vip_game_product_ids[]"]:checked').each(function() {
+                    arr_box.push($(this).val());
+                });
+
+                vip_game_product_ids = arr_box;
+            })
+
+            function initData(){
+                common.req({
+                    url: detail_url,
+                    data: {'id':id},
+                    type: "post",
+                    dataType:"json",
+                    success:function(res){
+                        
+                        if( res.code==0 ){
+
+                            common.isLoading(false);
+
+                            admin_info = res.data.admin_info;
+                            admin = res.data.admin;
+
+
+                            if(admin_info.is_admin == 0){
+                                $('#is_admin_model').hide();
+                                $('#is_admin_tip_model').hide();
+                            }
+
+                        
+
+                            common.setOption1(res.data.roles,$('select[name="role_id"]'));
+                            common.setOption1(res.data.position_grade_arr,$('select[name="position_grade"]'));
+
+                            $.each(res.data.user_group_type,(ugt_k,ugt_v)=>{
+                                $('#group_show_input').append('<input type="checkbox" name="extra[group_show]['+ugt_k+']" lay-skin="primary" title="'+ugt_v+'" value="'+ugt_k+'" >');
+                            })
+
+
+
+                            $.each(res.data.new_group_list,(k1,v1)=>{
+
+                                $.each(v1,(k,v)=>{
+                                    if(v.checked == 1){
+                                        $('#group_id_input').append('<input type="checkbox" name="group_id[]" checked lay-skin="primary" title="'+v.name+'" value="'+v.id+'" >');
+                                    }else{
+                                        $('#group_id_input').append('<input type="checkbox" name="group_id[]" lay-skin="primary" title="'+v.name+'" value="'+v.id+'" >');
+                                    }
+                                    
+                                })
+                                $('#group_id_input').append('<br>');
+                            })
+
+                            $.each(res.data.platform_list,(k,v)=>{
+  
+                                if(id >0 && $.inArray(v.suffix, admin.platform)>-1 ){
+                                    $('#platform_input').append('<input type="checkbox" name="platform[]" checked lay-skin="primary" title="'+v.name+'" value="'+v.suffix+'" lay-filter="change_platform_id">');
+                                }else{
+                                    $('#platform_input').append('<input type="checkbox" name="platform[]" lay-skin="primary" title="'+v.name+'" value="'+v.suffix+'" lay-filter="change_platform_id">');
+                                }
+                                
+                            })
+
+                            if(id>0){
+                                vip_game_product_ids = admin.vip_game_product_ids;
+                                if(admin.platform.length>0){
+                                    setGameList(admin.platform);
+                                }
+
+                                $('#username').attr('disabled',true);
+                                // $('#phone').attr('disabled',true);
+
+
+                                form.val('edit-form',admin);
+
+                                if(admin.status == 1){
+                                    $('#status').attr('checked','checked') ;
+                                }else{
+                                    $('#status').removeAttr('checked') ;
+                                }
+
+                            }
+
+                            form.render();
+
+                        }else{
+                            layer.alert('错误'+res.msg,{icon:2});
+                        }
+                    },
+                    error:function(res){
+                        layer.alert('错误'+res.msg,{icon:2});
+                    }
+                });
+            }
+
+            function setGameList(arr){
+                common.req({
+                    url: "Ajax/getProductList",
+                    data: {platform_field:arr,data_type:2},
+                    type: "post",
+                    dataType:"json",
+                    success:function(data){
+                        
+                        if(data.code == 0){
+                            var html = '';
+                            console.log(vip_game_product_ids)
+                            $.each(data.data,function(k1,v1){
+                                html+='<p class="game_list_title">'+v1.name+'</p>';
+                                
+                                $.each(v1.data,function(k,v){
+
+                                    var flag = $.inArray(v.id.toString(), vip_game_product_ids)
+
+                                    if( flag>-1){
+                                        html+= '<input type="checkbox" name="vip_game_product_ids[]" lay-skin="primary" title="'+v.product_name+'" value="'+v.id+'" checked lay-filter="vip_game_product_ids">';
+                                    }else{
+                                        html+= '<input type="checkbox" name="vip_game_product_ids[]" lay-skin="primary" title="'+v.product_name+'" value="'+v.id+'" lay-filter="vip_game_product_ids">';
+                                    }  
+                                })
+                                
+                            })
+                            setGPIDiv(html);
+                        }else{
+                            // layer.msg(data.msg);
+                            setGPIDiv('');
+                        }
+                        
+                    },
+                    error:function(data){
+                      layer.alert('错误'+data.msg,{icon:2});
+                    }
+                });
+            }
+            function setGPIDiv(html){
+                $('#game_product_ids_div').html(html);
+                form.render('checkbox');
+            }
+        });
+
+        
+    </script>
+</body>
+</html>

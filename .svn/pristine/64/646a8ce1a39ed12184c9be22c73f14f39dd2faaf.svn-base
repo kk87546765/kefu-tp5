@@ -1,0 +1,67 @@
+<?php
+namespace app\scripts\controller;
+
+use common\server\RecallPlan\RecallPlanServer;
+
+
+
+class RecallPlan extends Base
+{
+
+    protected $func_arr = [
+        'executeRecallPlan'      =>['func'=>'executeRecallPlan','param'=>'','delay_time'=>1000,'runtime'=>86400,'limit'=>0,'is_single'=>1],
+        'excuteRecallPlanLog'    =>['func'=>'excuteRecallPlanLog','param'=>'','delay_time'=>2000,'runtime'=>60,'limit'=>0,'is_single'=>1],
+//        'sendRecallPlanLog'    =>['func'=>'sendRecallPlanLog','param'=>'','delay_time'=>2000,'runtime'=>1,'limit'=>0,'is_single'=>1],
+//        'sendRecallPlanPeopleLog'    =>['func'=>'sendRecallPlanPeopleLog','param'=>'','delay_time'=>2000,'runtime'=>1,'limit'=>0,'is_single'=>1],
+
+
+    ];
+
+    public function run()
+    {
+        $this->apiRun();
+    }
+
+    //计划表插入到计划记录表
+    public function executeRecallPlan($params)
+    {
+
+        $result = RecallPlanServer::executeLossPlan($params);
+
+        return $result;
+    }
+
+    //计划记录表插入到计划记录明细表
+    public function excuteRecallPlanLog($params)
+    {
+
+        $result = RecallPlanServer::executeLossPlanLog($params);
+
+        return $result;
+    }
+
+
+    //计划记录表插入到计划记录明细表
+    public function sendRecallPlanLog($params)
+    {
+
+        $result = RecallPlanServer::sendRecallPlanLog($params);
+
+        return $result;
+    }
+
+
+    public function sendRecallPlanPeopleLog($params)
+    {
+
+        $result = RecallPlanServer::sendRecallPlanPeopleLog($params);
+        return $result;
+    }
+
+    public function clean()
+    {
+        $this->apiClean('all');
+    }
+
+
+}

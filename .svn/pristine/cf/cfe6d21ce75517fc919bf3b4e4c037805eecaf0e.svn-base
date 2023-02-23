@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <title>后台管理系统</title>
+    <link rel="stylesheet" href="/assets/vendor/layui/css/layui.css"/>
+    <link rel="stylesheet" href="/assets/model/common/css/style.css"/>
+    <link rel="stylesheet" href="/assets/model/common/css/common.css"/>
+    <!--[if lt IE 9]>
+    <script src="/assets/model/common/js/html5shiv.min.js"></script>
+    <script src="/assets/model/common/js/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        .layui-col-space15 {
+            /* margin: -7.5px; */
+            margin:-7.5px 0 !important;
+        }
+    </style>
+</head>
+<body>
+<div class="layui-tab layui-tab-card">
+    <ul class="layui-tab-title">
+        <li class="layui-this">账号</li>
+<!--        <li>IP</li>-->
+<!--        <li>设备</li>-->
+    </ul>
+    <div class="layui-tab-content">
+        <div class="layui-tab-item layui-show">
+            <form class="layui-form" action="" style="padding: 20px;">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">玩家账号</label>
+                    <div class="layui-input-inline">
+                        <textarea name="ban_list" placeholder="输入账号/平台ID封禁，多个角色回车换行" rows="10" cols="50" lay-verify="required"></textarea>
+                        <div style="margin-top: 5px; color: #ff0000;">一个账号是一行，多个账号请用换行符隔开</div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">数据</label>
+                    <div class="layui-input-block">
+                        <input type="radio" name="ban_account_radio" value="1" title="账号" checked="">
+                        <input type="radio" name="ban_account_radio" value="2" title="平台ID">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">封禁时长</label>
+                    <div class="layui-input-inline">
+                        <!--<input type="password" name="ban_time" placeholder="以分为单位，留空默认永久" class="layui-input">-->
+                        <input type="text" name="ban_time" lay-verify="title" autocomplete="off" placeholder="以分为单位，留空默认永久" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item" >
+                    <label class="layui-form-label">操作类型:</label>
+                    <div class="layui-input-inline">
+                        <select name="ban_type"  lay-search="" id="plat_id" lay-verify="required" title="平台">
+                            <option value="">选择或搜索</option>
+                            <option value="1" selected="">封禁</option>
+                            <option value="2">解封</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">封禁原因</label>
+                    <div class="layui-input-inline">
+                        <textarea name="reason" rows="3" cols="40" lay-verify="required"></textarea>
+                        <div style="margin-top: 5px; color: red;"></div>
+                    </div>
+                </div>
+
+                <div class="layui-form-item">
+                    <div class="layui-input-block">
+                        <button type="submit" class="layui-btn" lay-submit="" lay-filter="submit_account_btn">立即提交</button>
+                        <button type="reset" class="layui-btn layui-btn-primary">取消</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="layui-tab-item">
+            <form class="layui-form" action="" style="padding: 20px;">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">封禁IP</label>
+                    <div class="layui-input-inline">
+                        <textarea name="ban_list" placeholder="输入IP封禁，多个IP回车换行" rows="10" cols="40" lay-verify="required"></textarea>
+                        <!--<div style="margin-top: 5px; color: #ff0000;">一个账号是一行，多个账号请用换行符隔开</div>-->
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">封禁时长</label>
+                    <div class="layui-input-inline">
+                        <!--<input type="password" name="ban_time" placeholder="以分为单位，留空默认永久" class="layui-input">-->
+                        <input type="text" name="ban_time" lay-verify="title" autocomplete="off" placeholder="以分为单位，留空默认永久" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item" >
+                    <label class="layui-form-label">操作类型:</label>
+                    <div class="layui-input-inline">
+                        <select name="ban_type"  lay-search="" id="plat_id" lay-verify="required" title="平台">
+                            <option value="">选择或搜索</option>
+                            <option value="1" selected="">封禁</option>
+                            <option value="2">解封</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">封禁原因</label>
+                    <div class="layui-input-inline">
+                        <textarea name="reason" rows="3" cols="40" lay-verify="required"></textarea>
+                        <div style="margin-top: 5px; color: red;"></div>
+                    </div>
+                </div>
+
+                <div class="layui-form-item">
+                    <div class="layui-input-block">
+                        <button type="submit" class="layui-btn" lay-submit="" lay-filter="submit_ip_btn">立即提交</button>
+                        <button type="reset" class="layui-btn layui-btn-primary">取消</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="layui-tab-item">
+            <form class="layui-form" action="" style="padding: 20px;">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">设备</label>
+                    <div class="layui-input-inline">
+                        <textarea name="ban_list" placeholder="输入设备号，多个设备号回车换行" rows="10" cols="40" lay-verify="required"></textarea>
+                        <!--<div style="margin-top: 5px; color: #ff0000;">一个账号是一行，多个账号请用换行符隔开</div>-->
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">封禁时长</label>
+                    <div class="layui-input-inline">
+                        <!--<input type="password" name="ban_time" placeholder="以分为单位，留空默认永久" class="layui-input">-->
+                        <input type="text" name="ban_time" lay-verify="title" autocomplete="off" placeholder="以分为单位，留空默认永久" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item" >
+                    <label class="layui-form-label">操作类型:</label>
+                    <div class="layui-input-inline">
+                        <select name="ban_type"  lay-search="" id="plat_id" lay-verify="required" title="平台">
+                            <option value="">选择或搜索</option>
+                            <option value="1" selected="">封禁</option>
+                            <option value="2">解封</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">封禁原因</label>
+                    <div class="layui-input-inline">
+                        <textarea name="reason" rows="3" cols="40" lay-verify="required"></textarea>
+                        <div style="margin-top: 5px; color: red;"></div>
+                    </div>
+                </div>
+
+                <div class="layui-form-item">
+                    <div class="layui-input-block">
+                        <button type="submit" class="layui-btn" lay-submit="" lay-filter="submit_imei_btn">立即提交</button>
+                        <button type="reset" class="layui-btn layui-btn-primary">取消</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="/assets/vendor/layui/layui.js"></script>
+<script>
+    layui.config({
+        version: true,
+        base: '/assets/model/'
+    }).extend({
+        common: 'common/js/common',
+    }).use(['element', 'form', 'layedit', 'laydate','common'], function(){
+        var $ = layui.jquery
+            ,element = layui.element //Tab的切换功能，切换事件监听等，需要依赖element模块
+            ,form = layui.form
+            ,common = layui.common
+            ,layer = layui.layer
+            ,layedit = layui.layedit
+            ,laydate = layui.laydate;
+
+        //触发事件
+        /*var active = {
+            tabChange: function(){
+                //切换到指定Tab项
+                element.tabChange('demo', '22'); //切换到：用户管理
+            }
+        };
+*/
+        //监听账号封禁提交
+        form.on('submit(submit_account_btn)', function(data){
+            /*var grade = data.field.grade1+'-'+data.field.grade2
+            data.field.grade = grade*/
+            data.field.action_type = 1
+            common.req({
+                url: "player/platform_ban",
+                data: data.field,
+                type: "post",
+                dataType:"json",
+                success:function(data){
+                    if( data.code == 1 ){
+                        var index = parent.layer.getFrameIndex(window.name);
+                        window.parent.res_msg(data.msg);
+                        parent.layer.close(index);//关闭当前页
+                        //window.parent.location.reload(); //刷新父窗口
+                    }else{
+                        layer.msg(data.msg,{icon:2});
+                    }
+                },
+                error:function(data){
+                    layer.alert('错误'+data.msg,{icon:2});
+                }
+            });
+            return false;
+        });
+
+        //监听ip封禁提交
+        form.on('submit(submit_ip_btn)', function(data){
+            /*var grade = data.field.grade1+'-'+data.field.grade2
+            data.field.grade = grade*/
+            data.field.action_type = 2
+            $.ajax({
+                url: "/admin/ban/platform_ban",
+                data: data.field,
+                type: "post",
+                dataType:"json",
+                success:function(data){
+                    if( data.status==1 ){
+                        var index = parent.layer.getFrameIndex(window.name);
+                        window.parent.res_msg(data.msg);
+                        parent.layer.close(index);//关闭当前页
+                        //window.parent.location.reload(); //刷新父窗口
+                    }else{
+                        layer.msg(data.msg,{icon:2});
+                    }
+                },
+                error:function(data){
+                    layer.alert('错误'+data.msg,{icon:2});
+                }
+            });
+            return false;
+        });
+
+        //监听imei封禁提交
+        form.on('submit(submit_imei_btn)', function(data){
+            /*var grade = data.field.grade1+'-'+data.field.grade2
+            data.field.grade = grade*/
+            data.field.action_type = 3
+            $.ajax({
+                url: "/admin/ban/platform_ban",
+                data: data.field,
+                type: "post",
+                dataType:"json",
+                success:function(data){
+                    if( data.status==1 ){
+                        var index = parent.layer.getFrameIndex(window.name);
+                        window.parent.res_msg(data.msg);
+                        parent.layer.close(index);//关闭当前页
+                        //window.parent.location.reload(); //刷新父窗口
+                    }else{
+                        layer.msg(data.msg,{icon:2});
+                    }
+                },
+                error:function(data){
+                    layer.alert('错误'+data.msg,{icon:2});
+                }
+            });
+            return false;
+        });
+
+    });
+
+    // 操作按钮----关闭自身层
+    function close_self() {
+        var index=parent.layer.getFrameIndex(window.name);
+        parent.layer.close(index);
+    }
+    $('.layui-btn-primary').click(function () {
+        close_self();
+        // layer.close(layer.index);
+    });
+</script>
+</body>
+</html>

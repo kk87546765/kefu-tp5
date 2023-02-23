@@ -1,0 +1,57 @@
+<?php
+
+use extend\GamekeySign\GamekeySignBase;
+
+class jzezf extends GamekeySignBase
+{
+
+//    public $return_form = 2; //判断是否需要返回转接口的所有数据
+
+    private $secret = '3zNHnfaSawJRoxSdmiPQ2VdxjfUH5kW2';
+
+    public $uid_to_sdkid_url = "http://api.e7j.cn/activity/bx/index";
+
+    public $sdkid_to_uid_url = "http://api.e7j.cn/activity/bx/index";
+
+
+	public function __construct(){
+
+    }
+
+    #根据cp给的聚合uid换成平台自身的uid，用于信息推送时候替换成自己平台的uid,type1代表掌玩聚合id换平台id，2代表平台id换掌玩聚合id
+    public function uid_to_sdkid_url($sdkid){
+
+	    if(empty($sdkid)){
+	        return false;
+        }
+
+        $time = time();
+        $sign =md5($sdkid.$time.$this->secret);
+
+        $post_data = [
+            'uid'  => $sdkid,
+            'type' => 2,
+            'time' => $time,
+            'sign' => $sign
+
+        ];
+        $url = 'http://api.e7j.cn/activity/bx/index';
+        $res = self::fetchUrl($this->uid_to_sdkid_url.'?'.http_build_query($post_data));
+        $res = json_decode($res,1);
+
+        $return = [];
+
+        if(isset($res['state']['code']) && $res['state']['code'] == 1){
+            $return['channel'] = isset($res['data'][0]['cooperationID']) ? $res['data'][0]['cooperationID'] : '';
+            $return['sdkid'] = isset($res['data'][0]['sdkUID']) ? $res['data'][0]['sdkUID'] : $sdkid;
+        }
+
+        return $return['sdkid'];
+
+
+    }
+
+
+
+
+}

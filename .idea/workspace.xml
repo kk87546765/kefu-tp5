@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="d3bfd871-5968-4440-b43c-78808e44c79a" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
+    <execution />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/maennchen/zipstream-php" />
+      <path value="$PROJECT_DIR$/vendor/ezimuel/ringphp" />
+      <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/ezimuel/guzzlestreams" />
+      <path value="$PROJECT_DIR$/vendor/topthink/think-queue" />
+      <path value="$PROJECT_DIR$/vendor/topthink/think-helper" />
+      <path value="$PROJECT_DIR$/vendor/topthink/think-installer" />
+      <path value="$PROJECT_DIR$/vendor/react/promise" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/vendor/phpoffice/phpspreadsheet" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-client" />
+      <path value="$PROJECT_DIR$/vendor/psr/simple-cache" />
+      <path value="$PROJECT_DIR$/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-factory" />
+      <path value="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch" />
+      <path value="$PROJECT_DIR$/vendor/myclabs/php-enum" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/vendor/lcobucci/jwt" />
+      <path value="$PROJECT_DIR$/vendor/symfony/css-selector" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php80" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/vendor/symfony/dom-crawler" />
+      <path value="$PROJECT_DIR$/vendor/markbaker/matrix" />
+      <path value="$PROJECT_DIR$/vendor/ezyang/htmlpurifier" />
+      <path value="$PROJECT_DIR$/vendor/markbaker/complex" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/ringphp" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/streams" />
+      <path value="$PROJECT_DIR$/vendor/symfony/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/vendor/ralouphie/getallheaders" />
+      <path value="$PROJECT_DIR$/vendor/tencentcloud/common" />
+      <path value="$PROJECT_DIR$/vendor/tencentcloud/sms" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/promises" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/psr7" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/guzzle" />
+      <path value="$PROJECT_DIR$/vendor/tencentcloud/tencentcloud-sdk-php" />
+    </include_path>
+  </component>
+  <component name="ProjectId" id="26PhL5z5xVq1s2pWHg10Nm1kNuZ" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../customer_queue" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration" cleanupOnStartRun="true">
+    <configuration>C:\Users\1\AppData\Roaming\Subversion</configuration>
+    <supportedVersion>125</supportedVersion>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d3bfd871-5968-4440-b43c-78808e44c79a" name="Default Changelist" comment="" />
+      <created>1647331070067</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1647331070067</updated>
+      <workItem from="1647331071117" duration="92138000" />
+      <workItem from="1648720557350" duration="69371000" />
+      <workItem from="1649640516714" duration="89433000" />
+      <workItem from="1650504557368" duration="25531000" />
+      <workItem from="1651026668336" duration="35650000" />
+      <workItem from="1651717325602" duration="114429000" />
+      <workItem from="1653619367432" duration="15829000" />
+      <workItem from="1653878468379" duration="28326000" />
+      <workItem from="1654498087185" duration="164437000" />
+      <workItem from="1655861877744" duration="13000" />
+      <workItem from="1655861900970" duration="101364000" />
+      <workItem from="1656908401777" duration="108003000" />
+      <workItem from="1658108731310" duration="17000" />
+      <workItem from="1658108756464" duration="83343000" />
+      <workItem from="1658802842181" duration="148115000" />
+      <workItem from="1660556420483" duration="12000" />
+      <workItem from="1660556444833" duration="95428000" />
+      <workItem from="1661477721575" duration="191680000" />
+      <workItem from="1663206967600" duration="94366000" />
+      <workItem from="1664157138575" duration="4704000" />
+      <workItem from="1664244625028" duration="110011000" />
+      <workItem from="1665971232022" duration="7426000" />
+      <workItem from="1666165694227" duration="81189000" />
+      <workItem from="1667369659107" duration="17061000" />
+      <workItem from="1667455586184" duration="110384000" />
+      <workItem from="1668667900673" duration="40465000" />
+      <workItem from="1669875467120" duration="38449000" />
+      <workItem from="1670463765918" duration="13742000" />
+      <workItem from="1670808172569" duration="14000" />
+      <workItem from="1670808195940" duration="599000" />
+      <workItem from="1670813737233" duration="45662000" />
+      <workItem from="1672815376998" duration="110000" />
+      <workItem from="1672815498777" duration="23534000" />
+      <workItem from="1673235032149" duration="84142000" />
+      <workItem from="1675650297581" duration="31000" />
+      <workItem from="1675653536480" duration="60850000" />
+      <workItem from="1676343230530" duration="79139000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="-1230" y="284" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1677058729588">
+      <screen x="-1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="-1230" y="284" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1677058729588" />
+    <state x="690" y="284" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1669877002705" />
+    <state x="-1239" y="270" width="582" height="505" key="StructurePopup" timestamp="1676969761252">
+      <screen x="-1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="-1239" y="270" width="582" height="505" key="StructurePopup/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1676969761252" />
+    <state x="681" y="270" width="582" height="505" key="StructurePopup/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1670296057169" />
+    <state x="-1147" y="324" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1669372916370">
+      <screen x="-1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="-1147" y="324" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1669372916370" />
+    <state x="-1009" y="210" width="821" height="572" key="find.popup" timestamp="1676620538611">
+      <screen x="-1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="-1009" y="210" width="821" height="572" key="find.popup/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1676620538611" />
+    <state x="721" y="201" width="821" height="572" key="find.popup/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1670314311643" />
+    <state x="-1304" y="241" width="672" height="677" key="run.anything.popup" timestamp="1676962540492">
+      <screen x="-1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="-1304" y="241" width="672" height="677" key="run.anything.popup/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1676962540492" />
+    <state x="-886" y="179" width="672" height="653" key="search.everywhere.popup" timestamp="1677059234970">
+      <screen x="-1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="-886" y="179" width="672" height="653" key="search.everywhere.popup/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1677059234970" />
+    <state x="1034" y="179" width="672" height="653" key="search.everywhere.popup/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1670313608224" />
+    <state x="1034" y="179" width="672" height="653" key="search.everywhere.popup/0.0.1920.1040/-1920.0.1920.1080@0.0.1920.1040" timestamp="1669861893647" />
+  </component>
+</project>

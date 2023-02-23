@@ -1,0 +1,67 @@
+<?php
+namespace app\scripts\controller;
+
+use common\server\RecallPlan\RecallPlanServer;
+
+
+/**
+ * 用户注册登录支付行为接口类
+ *先跑注册接口（user_register）,再跑登录日志接口（user_login）,不然注册表里面的手机号，最后登录时间无法更新到
+ * @author tomson
+ */
+class RecallPlan extends Base
+{
+
+    protected $func_arr = [
+        'executeRecallPlan'    =>['func'=>'executeRecallPlan','param'=>'','delay_time'=>0,'runtime'=>1,'limit'=>0,'is_single'=>1],
+
+
+    ];
+
+    public function run()
+    {
+        $this->apiRun();
+    }
+
+
+
+//    public function run()
+//    {
+//
+//        $params = $this->request->get('p/a',[]);
+//        $index = $params['action'] ?? '';
+//
+//        $no_cache = $params['no_cache'] ?? 0;
+//
+//        if($no_cache){
+//            if(isset($this->func_arr[$index]['func'])){
+//                $this->clean($this->func_arr[$index]['func']);
+//            }
+//        }
+//
+//        $this->func_arr[$index]['param'] = isset($params) && !empty($params) ? $params : '';
+//
+//        $res = $this->apiRun($this->func_arr[$index]);//调用$func_arr里面配置方法
+//        echo json_encode($res);
+//    }
+
+
+
+    public function executeRecallPlan($params)
+    {
+        //计划表插入到计划记录表
+        $result = RecallPlanServer::executeLossPlan($params);
+
+        return $result;
+    }
+
+
+    public function excuteRecallPlanPeople($params)
+    {
+        $result =RecallPlanServer::executeLossPlanLog($params);
+
+        return $result;
+    }
+
+
+}

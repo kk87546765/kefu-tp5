@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <title>后台管理系统</title>
+    <link rel="stylesheet" href="/assets/vendor/layui/css/layui.css"/>
+    <link rel="stylesheet" href="/assets/model/common/css/style.css"/>
+    <link rel="stylesheet" href="/assets/model/common/css/common.css"/>
+    <script type="text/javascript" src="/assets/vendor/layui/layui.js"></script>
+    <!--[if lt IE 9]>
+    <script src="/assets/model/common/js/html5shiv.min.js"></script>
+    <script src="/assets/model/common/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<style type="text/css">
+.set_kpi{
+    color:#1e9fff;
+    cursor: pointer;
+}
+</style>
+
+<div id="up_user_group" style="display: none;">
+    <form class="layui-form" action="" style="padding: 20px;">
+        <div class="layui-inline" >
+            <label class="layui-form-label">分组: </label>
+            <div class="layui-input-inline">
+                <select name="group_id" lay-filter="group_id" lay-search="" >
+                    <option value="" >请选择</option>
+                </select>
+            </div>
+        </div>
+        <div class="layui-inline" style="margin-left: 30px;">
+            <div class="layui-input-inline">
+                <button type="submit" class="layui-btn" lay-submit lay-filter="up_user_group">立即提交</button>
+            </div>
+        </div>
+
+        <div class="layui-form-item" style="margin-top: 20px">
+            <div id="test1" class="demo-transfer"></div>
+        </div>
+    </form>
+</div>
+
+
+<div id="add_kpi" style="display: none;">
+    <form class="layui-form" action="" style="padding: 20px;">
+        <div class="layui-form-item" >
+            <label class="layui-form-label">营销产品: </label>
+            <div class="layui-input-inline">
+                <select name="game_product_id" lay-filter="game_product_id" lay-search="" >
+                    <option value="" >请选择</option>
+                </select>
+            </div>
+        </div>
+        <div class="layui-form-item" >
+            <label class="layui-form-label">营销KPI: </label>
+            <div class="layui-input-inline">
+                <input type="number" name="kpi_value" value="0" class="layui-input">
+            </div>
+        </div>
+        <input type="hidden" name="admin_id" value="0">
+        <input type="hidden" name="month" value="0">
+        <input type="hidden" name="group_id" value="0">
+        <input type="hidden" name="id" value="0">
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button type="submit" class="layui-btn" lay-submit lay-filter="add_kpi">立即提交</button>
+            </div>
+        </div>
+    </form>
+</div>
+<body>
+<div style="padding: 12px;"  class="search_wrap">
+</div>
+
+<div class="layui-btn-group demoTable" style="padding: 0 15px;">
+    <button type="button" id="refresh" class="layui-btn  layui-btn-sm">
+        <i class="layui-icon layui-icon-refresh"></i>
+    </button>
+</div>
+<div class="table_wrap" style="padding: 0 15px;">
+    <div class="layui-tab">
+      <ul class="layui-tab-title">
+        <li class="layui-this">营销KPI列表</li>
+        <li>分组与KPI设置</li>
+      </ul>
+      <div class="layui-tab-content">
+        <div class="layui-tab-item layui-show">
+            <div style="padding: 12px;"  class="search_wrap">
+                <form class="layui-form" lay-filter="search-form" action="">
+                    <div class="layui-inline" style="margin-bottom: 6px;">
+                        <label class="layui-form-label">营销组别: </label>
+                        <div class="layui-input-inline">
+                            <select name="list_group_id" lay-filter="list_group_id" lay-search="">
+                                <option value="">选择或搜索</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="layui-inline" style="margin-bottom: 6px;">
+                        <label class="layui-form-label">营销专员: </label>
+                        <div class="layui-input-inline">
+                            <select name="list_admin_id" id="list_admin_id" lay-search="">
+                                <option value="">选择或搜索</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="layui-inline" style="margin-bottom: 6px;">
+                        <label class="layui-form-label">营销产品: </label>
+                        <div class="layui-input-inline">
+                            <select name="list_game_product_id" lay-search="">
+                                <option value="">选择或搜索</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="layui-inline">
+                       <label class="layui-form-label">月份: </label>
+
+                       <div class="layui-input-inline">
+                           <input type="text" name="list_month" id="time2" placeholder="开始时间" autocomplete="off" class="layui-input" value="">
+                       </div>
+
+                   </div>
+
+                </form>
+            </div>
+            <div class="layui-btn-group demoTable" style="padding: 0 15px;">
+                <button class="layui-btn layui-btn-sm" data-type="search">搜索</button>
+            </div>
+
+            <div class="table_wrap" style="padding: 0 15px;">
+                <table id="idTest" lay-filter="demo" class="layui-table"></table>
+            </div>
+        </div>
+        <div class="layui-tab-item">
+            <div class="layui-btn-group demoTable" style="padding: 0 15px;">
+                <button class="layui-btn layui-btn-sm" id="up_user_group_btn">修改分组成员</button>
+
+            </div>
+            <div style="margin-top: 10px;">
+                <form class="layui-form" action="" style="padding: 20px;">
+                <div class="layui-inline" >
+                    <label class="layui-form-label">kpi月份</label>
+                    <div class="layui-input-block">
+                      <input id="time1" type="text" value="" name="time" placeholder="请输入月份" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                </form>
+            </div>
+            <div id="aaas">
+                
+            </div>
+            <table id="example" style="display: none;">
+                <tr class="example" data-id="0">
+                    <td class="username">张3</td>
+                    <td class="set_kpi" onclick="">kpi设置</td>
+                    <td class="kpi_data">KPI预览</td>
+                </tr>
+            </table>
+            <div class="layui-collapse" id="group_table_cont">
+            </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+
+<script>
+var kpi_open_index;
+var group_open_index;
+var user_list = {};
+var group_id = 0;
+var this_month = '';
+var game_product_id = 0;
+
+var layui_obj = layui.config({
+        version: true,
+        base: '/assets/model/'
+    }).extend({
+        common: 'common/js/common',
+        search: 'common/js/search',
+    }).use(['common','jquery','form','element','laydate','transfer','table'], function(){
+    var element = layui.element;
+    var laydate = layui.laydate;
+    var transfer = layui.transfer;
+    var form = layui.form;
+    var table = layui.table;
+    var $ = layui.jquery;
+    var common = layui.common;
+
+    laydate.render({
+        elem: '#time1' //指定元素
+        ,type: 'month'
+        ,done:function(value,date){
+            this_month = value;
+            change_kpi_config();
+        }
+    });
+
+    laydate.render({
+        elem: '#time2' //指定元素
+        ,type: 'month'
+    });
+
+    initData();
+    
+
+    table.on('tool(demo)', function(obj){
+        var data = obj.data;
+        if(obj.event === 'child'){
+            var title='详细';
+            var url = 'seller_kpi_children';
+            url+= '?group_id='+data.group_id;
+            url+= '&admin_id='+data.admin_id;
+            url+= '&month='+data.kpi_date_str;
+            url+= '&game_product_id='+$('select[name="list_game_product_id"]').val();
+
+            let thisindex = layer.open({
+                type: 2,
+                title: title,
+                maxmin: true,
+                shadeClose: true, //点击遮罩关闭层
+                area : ['70%' , '70%'],
+                content: url
+            });
+        }
+    });
+
+    form.on('submit(add_kpi)',function(data){
+
+        if(!data.field.game_product_id || data.field.game_product_id == 0){
+            layer.alert('请选择-营销产品');
+            return false;
+        }
+
+        common.req({
+            url: "vip_config/setUsersKpi"
+            ,data:data.field
+            ,type:'post'
+            ,dataType:'json'
+            ,success:function(res){
+                if( res.code==0 ){
+                    layer.msg(res.msg,{icon:1});
+                    change_kpi_config();
+                    layer.close(kpi_open_index);
+                }else{
+                    layer.msg(res.msg,{icon:2});
+                }
+            }
+            ,error:function(res){
+                layer.alert('错误'+res.msg,{icon:2});
+            }
+        })
+        return false;
+    })
+
+    form.on('submit(up_user_group)',function(data){
+        if(!data.field.group_id || data.field.group_id == 0){
+            layer.alert('请选择-分组');
+            return false;
+        }
+        var getData = transfer.getData('user_list1'); //获取右侧数据
+
+        var uids = [];
+
+        if(getData.length > 0){
+            $.each(getData,function(k,v){
+                uids.push(v.value);
+            })
+        }
+
+        common.req({
+            url: "Sysmanage/setAdminIdsByGroupId"
+            ,data:{group_id:group_id,uids:uids}
+            ,type:'post'
+            ,dataType:'json'
+            ,success:function(res){
+                if( res.code==0 ){
+                    layer.msg(res.msg,{icon:1});
+                }else{
+                    layer.msg(res.msg,{icon:2});
+                }
+            }
+            ,error:function(res){
+                layer.alert('错误'+res.msg,{icon:2});
+            }
+        })
+        return false;
+    })
+
+    form.on('select(list_group_id)', function(data){
+
+        common.req({
+            url:'ajax/getUserListByPlatformId'
+            ,data:{'group_id':data.value}
+            ,success:function(json){
+                $("#list_admin_id").html('<option value="">全部</option>');
+                if(json.code == 0){
+                    $.each(json.data,function(k,v){
+                        $("#list_admin_id").append('<option value="'+v.id+'">'+v.name+'</option>');
+                    })
+                }
+                form.render('select');
+            }
+        })
+        
+    });
+    
+    form.on('select(game_product_id)',function(e){
+
+        if(e.value == game_product_id){
+            return;
+        }
+
+        game_product_id = e.value;
+
+        if(game_product_id == 0){
+            initKpi();
+            return false;
+        }
+
+        var p_data = {};
+        p_data.admin_id = $('input[name="admin_id"]').val();
+        p_data.month = $('input[name="month"]').val();
+        p_data.game_product_id = game_product_id;
+
+        common.req({
+            url: "vip_config/getUsersKpi"
+            ,data:p_data
+            ,type:'post'
+            ,dataType:'json'
+            ,success:function(res){
+                if( res.code==0 ){
+                    $('input[name="kpi_value"]').val(res.data.kpi_value);
+                    $('input[name="id"]').val(res.data.id);
+                }else{
+                    // layer.msg(res.msg,{icon:2});
+                }
+            }
+            ,error:function(res){
+                layer.alert('错误'+res.msg,{icon:2});
+            }
+        })
+    })
+
+    form.on('select(group_id)',function(e){
+        if(e.value == group_id){
+            return;
+        }
+
+        group_id = e.value;
+
+        if(group_id == 0){
+            set_user([]);
+            return false;
+        }
+
+        common.req({
+            url: "Sysmanage/getAdminIdsByGroupId"
+            ,data:{group_id:group_id}
+            ,type:'post'
+            ,dataType:'json'
+            ,success:function(res){
+                if( res.code==0 ){
+                    set_user(res.data);
+                }else{
+                    layer.msg(res.msg,{icon:2});
+                }
+            }
+            ,error:function(res){
+                layer.alert('错误'+res.msg,{icon:2});
+            }
+        })
+    })
+
+    $('.demoTable .layui-btn').on('click', function(){
+        var type = $(this).data('type');
+        
+        if( type=='search' ){
+            //搜索
+            var p_data = {};
+                p_data.list_group_id     = $('select[name="list_group_id"]').val();
+                p_data.list_admin_id     = $('select[name="list_admin_id"]').val();
+                p_data.list_game_product_id     = $('select[name="list_game_product_id"]').val();
+                p_data.list_month     = $('input[name="list_month"]').val();
+
+            table.reload('idTest', {
+                method: 'post'
+                ,where: p_data
+                ,page: {
+                    curr: 1
+                }
+            });
+        }
+    });
+    $('.set_kpi').click(function(){
+        let thisobj = $(this);
+        let uid = thisobj.parent().attr('data-id');
+        let month = $('input[name="time"]').val();
+        initKpi();
+        $('input[name="month"]').val(month);
+        $('input[name="admin_id"]').val(uid);
+        $('input[name="group_id"]').val(thisobj.parent().attr('data-group-id'));
+
+        var select_gpi_obj = $('select[name="game_product_id"]');
+        select_gpi_obj.html(new Option("请选择",""));
+        common.req({
+            url: "vip_config/getGameListByUid"
+            ,data:{uid:uid}
+            ,type:'post'
+            ,dataType:'json'
+            ,ansy:false
+            ,success:function(res){
+
+                if( res.code==0 ){
+                    $.each(res.data,function(k,v){
+                        select_gpi_obj.append(new Option(v.name,v.id_str));
+                    })
+                }
+                form.render('select');
+            }
+            ,error:function(res){
+                layer.alert('错误'+res.msg,{icon:2});
+            }
+        })
+
+        kpi_open_index = layer.open({
+            type: 1,
+            area: ['600px', '500px'],
+            content: $('#add_kpi') //这里content是一个DOM，注意：最好该元素要存放在body最外层，否则可能被其它的相对元素所影响
+        });
+    })
+
+    $('#up_user_group_btn').click(function(){
+
+        let thisobj = $(this);
+
+        $('select[name="group_id"]').val(0);
+        set_user();
+        form.render();
+        group_open_index = layer.open({
+            type: 1,
+            area: ['600px', '600px'],
+            content: $('#up_user_group') //这里content是一个DOM，注意：最好该元素要存放在body最外层，否则可能被其它的相对元素所影响
+        });
+    })
+
+    function initData(){
+
+        common.initPowerShow([
+            'VipConfig-getKpiConfigList'
+            ,'VipConfig-getKpiConfigByMonth'
+        ]);
+
+        common.req({
+            url: 'vip_config/sellerKpiConfig' //获取游戏名称
+            ,success:function(json)
+            {
+                var base_config = json.data;
+
+                this_month = base_config.form_data.list_month;
+                $('#time1').val(this_month)
+
+                user_list = base_config.admin_list;
+
+                $.each(base_config.admin_list,function(k,v){
+                    $('select[name=list_admin_id]').append('<option value="'+v.id+'">'+v.name+'</option>');
+                });
+
+                $.each(base_config.group_list,function(k,v){
+                    $('select[name=list_group_id]').append('<option value="'+v.id+'">'+v.name+'</option>');
+                    $('select[name=group_id]').append('<option value="'+v.id+'">'+v.name+'</option>');
+                    addGroupTable(v)
+                });
+
+                $.each(base_config.product_list,function(k,v){
+                    $('select[name=list_game_product_id]').append('<option value="'+v.id_str+'">'+v.name+'</optionstringn>');
+                });
+
+
+                change_kpi_config();
+
+                table.render({
+                    elem: '#idTest'
+                    ,height: 'full-120'
+                    ,url: common.getUrl('vip_config/getKpiConfigList') //数据接口
+                    ,headers:common.getHeader()
+                    ,page: true //开启分页
+                    ,limits:[20,50,100,200,500]
+                    ,limit:20
+                    ,minWidth:1000
+                    ,cols: [[ //表头
+                        {field:'group_id_str', width:150, sort: true, title:'营销组别'}
+                        ,{field:'admin_id_str', width:100, title:'营销专员'}
+                        ,{field:'game_product_id_str', minWidth:200, title:'营销产品'}
+                        ,{field:'kpi_date_str', minWidth:80, title:'时间'}
+                        ,{field:'sum_kpi_value', minWidth:80, title:'当月KPI'}
+                        ,{minWidth:80, align:'center', fixed: 'right', title:'操作'
+                        ,templet:function(d){
+                                let str = '';
+                                return action('child',d);;
+                            }
+                        }
+                    ]]
+                });
+
+                form.render();
+                form.val('search-form',base_config.form_data);
+            }
+        })  
+    }
+
+    function initKpi(){
+        $('select[name="game_product_id"]').val('');
+        $('input[name="kpi_value"]').val(0)
+        game_product_id = 0;
+        form.render();
+    }
+
+    function set_user(value){
+        transfer.render({
+            elem: '#test1'
+            ,title: ['未选择', '已选择']  //自定义标题
+            ,data: user_list
+            ,id: 'user_list1'
+            ,value: value//初始右侧数据
+            ,parseData: function(res){//重新定义数据字段
+              return {
+                "value": res.id //数据值
+                ,"title": res.name //数据标题
+                ,"disabled": res.disabled  //是否禁用
+                ,"checked": res.checked //是否选中
+              }
+            }
+        })
+    }
+
+    function reolad_user(value){
+        transfer.reload('user_list1', {
+            value: value
+        })
+    }
+
+    function change_kpi_config(){
+        
+        let month = this_month;
+
+        common.req({
+            url: "vip_config/getKpiConfigByMonth"
+            ,data:{month:month}
+            ,type:'post'
+            ,dataType:'json'
+            ,success:function(res){
+                if( res.code==0 ){
+                    $('.list_data').remove();
+
+                    $.each(res.data,function(k,v){
+                        var thisobj = $('#group_table_'+v.id);
+                        $.each(v.admin_list,function(k1,v1){
+                            var example = $('#example').clone(true,true);
+                            example.find('tr').addClass('list_data');
+                            example.find('tr').attr('data-id',v1.id);
+                            example.find('tr').attr('data-group-id',v.id);
+                            example.find('.username').html(v1.name);
+                            var this_kpi_data = '';
+                            if(v1.kpi_list.length > 0){
+                                $.each(v1.kpi_list,function(k2,v2){
+                                    this_kpi_data+= v2.game_name+'：'+v2.kpi_value+' ,';
+                                })
+                            }else{
+                                this_kpi_data+='未设置';
+                            }
+                            example.find('.kpi_data').html(this_kpi_data);
+                            thisobj.append(example.find('tr'));
+                        })
+                    })
+                }else{
+                    layer.msg(res.msg,{icon:2});
+                }
+            }
+            ,error:function(res){
+                layer.alert('错误'+res.msg,{icon:2});
+            }
+        })
+    }
+
+    function addGroupTable(v){
+
+        var str = '<div class="layui-colla-item">'
+        str += '<h2 class="layui-colla-title">'+v.name+'</h2>';
+        str += '<div class="layui-colla-content layui-show">';
+        str += '<table id="group_table_'+v.id+'">';
+        str += '<tr>';
+        str += '<th style="min-width:80px">姓名</th>';
+        str += '<th style="min-width:80px">KPI设置</th>';
+        str += '<th style="">KPI预览</th>';
+        str += '</tr>';
+        str += '</table>';
+        str += '</div>';
+        str += '</div>';
+
+        $('#group_table_cont').append(str);
+    }
+});
+function action(action,data){
+    let str = '';
+    switch (action) {
+
+        case 'child':
+            str = '<a class="layui-btn layui-btn-xs" lay-event="child">查看</a>';
+            break;
+        default:
+
+            break;
+    }
+
+    return str;
+}
+</script>
+</body>
+</html>

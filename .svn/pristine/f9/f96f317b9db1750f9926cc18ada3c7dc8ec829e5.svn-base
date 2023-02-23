@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <title>后台管理系统</title>
+    <link rel="stylesheet" href="/assets/vendor/layui/css/layui.css"/>
+    <link rel="stylesheet" href="/assets/model/common/css/style.css"/>
+    <link rel="stylesheet" href="/assets/model/common/css/common.css"/>
+    <script type="text/javascript" src="/assets/vendor/layui/layui.js"></script>
+    <!--[if lt IE 9]>
+    <script src="/assets/model/common/js/html5shiv.min.js"></script>
+    <script src="/assets/model/common/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<style type="text/css">
+    .layui-input-inline{
+        width: 250px;
+    }
+</style>
+<body class="hold-transition skin-blue sidebar-mini">
+    <form class="layui-form" lay-filter="detail-form" id="detail-form" action="" style="padding: 20px;">
+
+        <div class="layui-tab">
+            <ul class="layui-tab-title">
+                <li class="layui-this">基础</li>
+                <li id="tab_field_config">字段标题</li>
+            </ul>
+            <div class="layui-tab-content">
+                <div class="layui-tab-item layui-show">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">名称<span style="color: red">*</span></label>
+                        <div class="layui-input-inline">
+                            <input type="text" name="title" lay-verify="required" value="" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">父级<span style="color: red">*</span></label>
+                        <div class="layui-input-inline">
+                            <select name="pid" lay-search="" lay-filter="pid">
+                                <option value="0">顶级</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item children_title_model">
+                        <label class="layui-form-label">子项-标题</label>
+                        <div class="layui-input-inline">
+                            <input type="text" name="children_title" value="" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item children_val_model">
+                        <label class="layui-form-label">子项-值</label>
+                        <div class="layui-input-inline">
+                            <textarea name="children_val" placeholder="val1=>name1,val2=>name2..." class="layui-textarea"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item status_val_model">
+                        <label class="layui-form-label">状态-值</label>
+                        <div class="layui-input-inline">
+                            <textarea name="status_val" placeholder="val1=>name1,val2=>name2..." class="layui-textarea"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item p_menu p_lev1">
+                        <label class="layui-form-label">状态</label>
+                        <div class="layui-input-inline" id="status_div">
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-tab-item" id="tab_field_config_item">
+                    
+                </div>
+            </div>
+        </div>
+        
+        
+        <input type="hidden" name="id" value="">
+
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+              <button type="submit" class="layui-btn layui-power" id="WorkSheet-typeAdd" lay-submit="" lay-filter="submit_btn">添加</button>
+              <button type="submit" class="layui-btn layui-power" id="WorkSheet-typeEdit" lay-submit="" lay-filter="submit_btn">修改</button>
+            </div>
+        </div>
+    </form>
+
+<script>
+   
+
+var id = 0;
+var info = {};
+
+var role_id = 0;
+var layui_obj = layui.config({
+    version: true,
+    base: '/assets/model/'
+}).extend({
+    common: 'common/js/common',
+    search: 'common/js/search',
+}).use(['common','jquery','form','element'], function(){
+    var form = layui.form;
+    var element = layui.element;
+    var $ = layui.jquery;
+    var common = layui.common;
+    var urlParam = common.urlParam;
+    var detail_url = 'work_sheet/typeAdd';
+
+    initData();
+    //监听提交
+    form.on('submit(submit_btn)', function(data){
+        common.req({
+            url: detail_url,
+            data: data.field,
+            type: "post",
+            dataType:"json",
+            success:function(res){
+                console.log(res);
+                if( res.code==0 ){
+                    var index = parent.layer.getFrameIndex(window.name);
+                    window.parent.res_msg(res.msg);
+                    parent.layer.close(index);//关闭当前页
+                }else{
+                    layer.msg(res.msg,{icon:2});
+                }
+            },
+            error:function(res){
+                layer.alert('错误'+res.msg,{icon:2});
+            }
+        });
+        return false;
+    });
+
+    form.on('select(pid)',(data)=>{
+        pidChange(data.value)
+    })
+
+    function initData(){
+
+        id = urlParam.id?urlParam.id:0;
+
+        common.req({
+            url: "work_sheet/typeDetail",
+            data: {id:id},
+            type: "post",
+            dataType:"json",
+            success:function(res){
+                if( res.code==0 ){
+                    info = res.data.info;
+                    var config = res.data.config;
+
+                    $.each(config.sheet_type_arr,function(k,v){
+                        $('select[name=pid]').append('<option value="'+v.id+'">'+v.title+'</option>');
+                    });
+
+                    $.each(config.status_arr,function(k,v){
+                        $('#status_div').append('<input type="radio" name="status" value="'+k+'" title="'+v+'" >');
+                    });
+
+                    $.each(config.field_title_arr,function(k,v){
+
+                        var str = '<div class="layui-form-item">';
+                        str+='<label class="layui-form-label" style="min-width: 140px">'+k+'</label>';
+                        str+='<div class="layui-input-inline">';
+                        str+='<input type="text" name="field_config['+k+'][title]" value="'+v.title+'" autocomplete="off" class="layui-input">';
+                        str+='</div>';
+                        str+='<label class="layui-form-label">显示</label>';
+                        str+='<div class="layui-input-inline">';
+                        if(v.is_show == 0){
+                            str+='<input type="radio" name="field_config['+k+'][is_show]" value="1" title="是">';
+                            str+='<input type="radio" name="field_config['+k+'][is_show]" value="0" title="否" checked>';
+                        }else{
+                            str+='<input type="radio" name="field_config['+k+'][is_show]" value="1" title="是" checked>';
+                            str+='<input type="radio" name="field_config['+k+'][is_show]" value="0" title="否">';
+                        }
+                        str+='</div>';
+                        str+='</div>';
+
+                        $('#tab_field_config_item').append(str);
+                    });
+
+                    if(id>0){
+                        pidChange(info.pid);
+                        detail_url = 'work_sheet/typeEdit';
+                        form.val('detail-form', info);
+                        common.initPowerShow([
+                            'WorkSheet-typeEdit'
+                        ]);
+                    }else{
+                        common.initPowerShow([
+                            'WorkSheet-typeAdd'
+                        ]);
+                    }
+                    form.render();
+                }else{
+                    layer.msg(res.msg,{icon:2});
+                }
+            },
+            error:function(res){
+                layer.alert('错误'+res.msg,{icon:2});
+            }
+        });   
+    }
+
+    function pidChange(e){
+        if(e == 0){
+            $('#tab_field_config').show();
+            $('.children_val_model').show();
+            // $('.children_title_model').show();
+            $('.status_val_model').show();
+        }else{
+            $('#tab_field_config').hide();
+            $('.children_val_model').hide();
+            $('.children_title_model').hide();
+            $('.status_val_model').hide();
+        }
+    }
+
+});
+</script>
+</body>
+</html>

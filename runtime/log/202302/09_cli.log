@@ -1,0 +1,1810 @@
+[ 2023-02-09T16:04:07+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2023-02-09T16:04:07+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ 2023-02-09T16:04:07+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2023-02-09T16:04:07+08:00 ][ info ] [ PARAM ] array (
+  'p' => 
+  array (
+  ),
+)
+[ 2023-02-09T16:04:07+08:00 ][ info ] [ RUN ] app\admin\controller\Index->index[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\Index.php ]
+[ 2023-02-09T16:05:27+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2023-02-09T16:05:27+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'RoleNameBlockScrips',
+    2 => 'run',
+  ),
+)
+[ 2023-02-09T16:05:27+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2023-02-09T16:05:27+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'RoleNameBlockScrips',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'checkRoleName',
+    'platform' => 'youyu',
+  ),
+)
+[ 2023-02-09T16:06:00+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2023-02-09T16:06:00+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'RoleNameBlockScripts',
+    2 => 'run',
+  ),
+)
+[ 2023-02-09T16:06:00+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2023-02-09T16:06:00+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'RoleNameBlockScripts',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'checkRoleName',
+    'platform' => 'youyu',
+  ),
+)
+[ 2023-02-09T16:06:00+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2023-02-09T16:06:00+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T16:06:00+08:00 ][ info ] [ RUN ] app\scripts\controller\RoleNameBlockScripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\RoleNameBlockScripts.php ]
+[ 2023-02-09T16:06:00+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T16:06:00+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001222s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2023-02-09T16:06:00+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.003349s ]
+[ 2023-02-09T16:06:00+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_RoleNameBlockScripts' , 'checkRoleName' , '[]' , 1675929960 , 1675929960) [ RunTime:0.001760s ]
+[ 2023-02-09T16:06:08+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2023-02-09T16:06:08+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'RoleNameBlockScripts',
+    2 => 'run',
+  ),
+)
+[ 2023-02-09T16:06:08+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2023-02-09T16:06:08+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'RoleNameBlockScripts',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'checkRoleName',
+    'platform' => 'youyu',
+  ),
+)
+[ 2023-02-09T16:06:08+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2023-02-09T16:06:08+08:00 ][ info ] [ RUN ] app\scripts\controller\RoleNameBlockScripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\RoleNameBlockScripts.php ]
+[ 2023-02-09T16:06:08+08:00 ][ error ] [8]Undefined index: func[D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\library\traits\controller\lxxScript.php:179]
+[ 2023-02-09T16:06:12+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2023-02-09T16:06:12+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'RoleNameBlockScripts',
+    2 => 'run',
+  ),
+)
+[ 2023-02-09T16:06:12+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2023-02-09T16:06:12+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'RoleNameBlockScripts',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'checkRoleName',
+    'platform' => 'youyu',
+  ),
+)
+[ 2023-02-09T16:06:12+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2023-02-09T16:06:12+08:00 ][ info ] [ RUN ] app\scripts\controller\RoleNameBlockScripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\RoleNameBlockScripts.php ]
+[ 2023-02-09T16:06:12+08:00 ][ error ] [8]Undefined index: func[D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\library\traits\controller\lxxScript.php:179]
+[ 2023-02-09T16:06:35+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2023-02-09T16:06:35+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'RoleNameBlockScripts',
+    2 => 'run',
+  ),
+)
+[ 2023-02-09T16:06:35+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2023-02-09T16:06:35+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'RoleNameBlockScripts',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'checkRoleName',
+    'platform' => 'youyu',
+  ),
+)
+[ 2023-02-09T16:06:35+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2023-02-09T16:06:35+08:00 ][ info ] [ RUN ] app\scripts\controller\RoleNameBlockScripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\RoleNameBlockScripts.php ]
+[ 2023-02-09T16:06:35+08:00 ][ error ] [8]Undefined index: func[D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\library\traits\controller\lxxScript.php:179]
+[ 2023-02-09T16:07:17+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2023-02-09T16:07:17+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'RoleNameBlockScripts',
+    2 => 'run',
+  ),
+)
+[ 2023-02-09T16:07:17+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2023-02-09T16:07:17+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'RoleNameBlockScripts',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'checkRoleName',
+    'platform' => 'youyu',
+  ),
+)
+[ 2023-02-09T16:07:17+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2023-02-09T16:07:17+08:00 ][ info ] [ RUN ] app\scripts\controller\RoleNameBlockScripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\RoleNameBlockScripts.php ]
+[ 2023-02-09T16:07:17+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T16:07:17+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001346s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2023-02-09T16:07:17+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.001096s ]
+[ 2023-02-09T16:07:17+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_RoleNameBlockScripts' , 'checkRoleName' , '[]' , 1675930037 , 1675930037) [ RunTime:0.005215s ]
+[ 2023-02-09T16:07:50+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2023-02-09T16:07:50+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'RoleNameBlockScripts',
+    2 => 'run',
+  ),
+)
+[ 2023-02-09T16:07:50+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2023-02-09T16:07:50+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'RoleNameBlockScripts',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'checkRoleName',
+    'platform' => 'youyu',
+  ),
+)
+[ 2023-02-09T16:07:50+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2023-02-09T16:07:50+08:00 ][ info ] [ RUN ] app\scripts\controller\RoleNameBlockScripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\RoleNameBlockScripts.php ]
+[ 2023-02-09T16:08:51+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2023-02-09T16:08:51+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'RoleNameBlockScripts',
+    2 => 'run',
+  ),
+)
+[ 2023-02-09T16:08:51+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2023-02-09T16:08:51+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'RoleNameBlockScripts',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'checkRoleName',
+    'platform' => 'youyu',
+  ),
+)
+[ 2023-02-09T16:08:51+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2023-02-09T16:08:51+08:00 ][ info ] [ RUN ] app\scripts\controller\RoleNameBlockScripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\RoleNameBlockScripts.php ]
+[ 2023-02-09T16:08:51+08:00 ][ error ] [8]Undefined index: func[D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\library\traits\controller\lxxScript.php:179]
+[ 2023-02-09T16:09:17+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2023-02-09T16:09:17+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'RoleNameBlockScripts',
+    2 => 'run',
+  ),
+)
+[ 2023-02-09T16:09:17+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2023-02-09T16:09:17+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'RoleNameBlockScripts',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'checkRoleName',
+    'platform' => 'youyu',
+  ),
+)
+[ 2023-02-09T16:09:17+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2023-02-09T16:09:17+08:00 ][ info ] [ RUN ] app\scripts\controller\RoleNameBlockScripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\RoleNameBlockScripts.php ]
+[ 2023-02-09T16:09:17+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T16:09:17+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001448s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2023-02-09T16:09:17+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.001058s ]
+[ 2023-02-09T16:09:17+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_RoleNameBlockScripts' , 'checkRoleName' , '[]' , 1675930157 , 1675930157) [ RunTime:0.000876s ]
+[ 2023-02-09T16:09:19+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2023-02-09T16:09:19+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'RoleNameBlockScripts',
+    2 => 'run',
+  ),
+)
+[ 2023-02-09T16:09:19+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2023-02-09T16:09:19+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'RoleNameBlockScripts',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'checkRoleName',
+    'platform' => 'youyu',
+  ),
+)
+[ 2023-02-09T16:09:19+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2023-02-09T16:09:19+08:00 ][ info ] [ RUN ] app\scripts\controller\RoleNameBlockScripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\RoleNameBlockScripts.php ]
+[ 2023-02-09T16:09:19+08:00 ][ error ] [8]Undefined index: func[D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\library\traits\controller\lxxScript.php:179]
+[ 2023-02-09T16:09:53+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2023-02-09T16:09:53+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'RoleNameBlockScripts',
+    2 => 'run',
+  ),
+)
+[ 2023-02-09T16:09:53+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2023-02-09T16:09:53+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'RoleNameBlockScripts',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'checkRoleName',
+    'platform' => 'youyu',
+  ),
+)
+[ 2023-02-09T16:09:53+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2023-02-09T16:09:53+08:00 ][ info ] [ RUN ] app\scripts\controller\RoleNameBlockScripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\RoleNameBlockScripts.php ]
+[ 2023-02-09T16:09:56+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2023-02-09T16:09:56+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'RoleNameBlockScripts',
+    2 => 'run',
+  ),
+)
+[ 2023-02-09T16:09:56+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2023-02-09T16:09:56+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'RoleNameBlockScripts',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'checkRoleName',
+    'platform' => 'youyu',
+  ),
+)
+[ 2023-02-09T16:09:56+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2023-02-09T16:09:56+08:00 ][ info ] [ RUN ] app\scripts\controller\RoleNameBlockScripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\RoleNameBlockScripts.php ]
+[ 2023-02-09T16:10:06+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2023-02-09T16:10:06+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'RoleNameBlockScripts',
+    2 => 'run',
+  ),
+)
+[ 2023-02-09T16:10:06+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2023-02-09T16:10:06+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'RoleNameBlockScripts',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'checkRoleName',
+    'platform' => 'youyu',
+  ),
+)
+[ 2023-02-09T16:10:06+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2023-02-09T16:10:06+08:00 ][ info ] [ RUN ] app\scripts\controller\RoleNameBlockScripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\RoleNameBlockScripts.php ]
+[ 2023-02-09T16:10:06+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T16:10:06+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001391s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2023-02-09T16:10:06+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000919s ]
+[ 2023-02-09T16:10:06+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_RoleNameBlockScripts' , 'checkRoleName' , '{\"action\":\"checkRoleName\",\"platform\":\"youyu\"}' , 1675930206 , 1675930206) [ RunTime:0.001088s ]
+[ 2023-02-09T16:13:57+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2023-02-09T16:13:57+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'RoleNameBlockScripts',
+    2 => 'run',
+  ),
+)
+[ 2023-02-09T16:13:57+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2023-02-09T16:13:57+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'RoleNameBlockScripts',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'checkRoleName',
+    'platform' => 'youyu',
+  ),
+)
+[ 2023-02-09T16:13:57+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2023-02-09T16:13:57+08:00 ][ info ] [ RUN ] app\scripts\controller\RoleNameBlockScripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\RoleNameBlockScripts.php ]
+[ 2023-02-09T16:13:57+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T16:13:57+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001166s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2023-02-09T16:13:57+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.002873s ]
+[ 2023-02-09T16:13:57+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_RoleNameBlockScripts' , 'checkRoleName' , '{\"action\":\"checkRoleName\",\"platform\":\"youyu\"}' , 1675930437 , 1675930437) [ RunTime:0.001391s ]
+[ 2023-02-09T16:13:57+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T16:14:11+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2023-02-09T16:14:11+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'RoleNameBlockScripts',
+    2 => 'run',
+  ),
+)
+[ 2023-02-09T16:14:11+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2023-02-09T16:14:11+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'RoleNameBlockScripts',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'checkRoleName',
+    'platform' => 'youyu',
+  ),
+)
+[ 2023-02-09T16:14:11+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2023-02-09T16:14:11+08:00 ][ info ] [ RUN ] app\scripts\controller\RoleNameBlockScripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\RoleNameBlockScripts.php ]
+[ 2023-02-09T16:14:11+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T16:14:11+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001059s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2023-02-09T16:14:11+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.002859s ]
+[ 2023-02-09T16:14:11+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_RoleNameBlockScripts' , 'checkRoleName' , '{\"action\":\"checkRoleName\",\"platform\":\"youyu\"}' , 1675930451 , 1675930451) [ RunTime:0.001135s ]
+[ 2023-02-09T16:14:11+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T16:52:32+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2023-02-09T16:52:32+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'RoleNameBlockScripts',
+    2 => 'run',
+  ),
+)
+[ 2023-02-09T16:52:32+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2023-02-09T16:52:32+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'RoleNameBlockScripts',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'checkRoleName',
+    'platform' => 'youyu',
+  ),
+)
+[ 2023-02-09T16:52:32+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2023-02-09T16:52:32+08:00 ][ info ] [ RUN ] app\scripts\controller\RoleNameBlockScripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\RoleNameBlockScripts.php ]
+[ 2023-02-09T16:52:32+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T16:52:32+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001279s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2023-02-09T16:52:32+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.001132s ]
+[ 2023-02-09T16:52:32+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_RoleNameBlockScripts' , 'checkRoleName' , '{\"action\":\"checkRoleName\",\"platform\":\"youyu\"}' , 1675932752 , 1675932752) [ RunTime:0.001417s ]
+[ 2023-02-09T16:52:32+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T16:52:32+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T16:52:32+08:00 ][ error ] [8]Undefined index: server_id[D:\phpstudy_pro\WWW\new_kefu_online\common\server\Scripts\RoleNameBlockScriptsServer.php:54]
+[ 2023-02-09T17:02:18+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2023-02-09T17:02:18+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'RoleNameBlockScripts',
+    2 => 'run',
+  ),
+)
+[ 2023-02-09T17:02:18+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2023-02-09T17:02:18+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'RoleNameBlockScripts',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'checkRoleName',
+    'platform' => 'youyu',
+  ),
+)
+[ 2023-02-09T17:02:18+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2023-02-09T17:02:18+08:00 ][ info ] [ RUN ] app\scripts\controller\RoleNameBlockScripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\RoleNameBlockScripts.php ]
+[ 2023-02-09T17:02:18+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:02:18+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001281s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2023-02-09T17:02:18+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000929s ]
+[ 2023-02-09T17:02:18+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_RoleNameBlockScripts' , 'checkRoleName' , '{\"action\":\"checkRoleName\",\"platform\":\"youyu\"}' , 1675933338 , 1675933338) [ RunTime:0.001266s ]
+[ 2023-02-09T17:02:18+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:02:18+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:02:53+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2023-02-09T17:02:53+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'RoleNameBlockScripts',
+    2 => 'run',
+  ),
+)
+[ 2023-02-09T17:02:53+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2023-02-09T17:02:53+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'RoleNameBlockScripts',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'checkRoleName',
+    'platform' => 'youyu',
+  ),
+)
+[ 2023-02-09T17:02:53+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2023-02-09T17:02:53+08:00 ][ info ] [ RUN ] app\scripts\controller\RoleNameBlockScripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\RoleNameBlockScripts.php ]
+[ 2023-02-09T17:02:53+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:02:53+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001108s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2023-02-09T17:02:53+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000808s ]
+[ 2023-02-09T17:02:53+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_RoleNameBlockScripts' , 'checkRoleName' , '{\"action\":\"checkRoleName\",\"platform\":\"youyu\"}' , 1675933373 , 1675933373) [ RunTime:0.000848s ]
+[ 2023-02-09T17:02:53+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:02:53+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:03:09+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2023-02-09T17:03:09+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'RoleNameBlockScripts',
+    2 => 'run',
+  ),
+)
+[ 2023-02-09T17:03:09+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2023-02-09T17:03:09+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'RoleNameBlockScripts',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'checkRoleName',
+    'platform' => 'youyu',
+  ),
+)
+[ 2023-02-09T17:03:09+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2023-02-09T17:03:09+08:00 ][ info ] [ RUN ] app\scripts\controller\RoleNameBlockScripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\RoleNameBlockScripts.php ]
+[ 2023-02-09T17:03:09+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:03:09+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001102s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2023-02-09T17:03:09+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000819s ]
+[ 2023-02-09T17:03:09+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_RoleNameBlockScripts' , 'checkRoleName' , '{\"action\":\"checkRoleName\",\"platform\":\"youyu\"}' , 1675933389 , 1675933389) [ RunTime:0.000985s ]
+[ 2023-02-09T17:03:09+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:03:09+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:03:23+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2023-02-09T17:03:23+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'RoleNameBlockScripts',
+    2 => 'run',
+  ),
+)
+[ 2023-02-09T17:03:23+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2023-02-09T17:03:23+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'RoleNameBlockScripts',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'checkRoleName',
+    'platform' => 'youyu',
+  ),
+)
+[ 2023-02-09T17:03:23+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2023-02-09T17:03:23+08:00 ][ info ] [ RUN ] app\scripts\controller\RoleNameBlockScripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\RoleNameBlockScripts.php ]
+[ 2023-02-09T17:03:23+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:03:23+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001003s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2023-02-09T17:03:23+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.002605s ]
+[ 2023-02-09T17:03:23+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_RoleNameBlockScripts' , 'checkRoleName' , '{\"action\":\"checkRoleName\",\"platform\":\"youyu\"}' , 1675933403 , 1675933403) [ RunTime:0.000901s ]
+[ 2023-02-09T17:03:23+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:03:23+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:13:43+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2023-02-09T17:13:43+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'RoleNameBlockScripts',
+    2 => 'run',
+  ),
+)
+[ 2023-02-09T17:13:43+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2023-02-09T17:13:43+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'RoleNameBlockScripts',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'checkRoleName',
+    'platform' => 'youyu',
+  ),
+)
+[ 2023-02-09T17:13:43+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2023-02-09T17:13:43+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:13:43+08:00 ][ info ] [ RUN ] app\scripts\controller\RoleNameBlockScripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\RoleNameBlockScripts.php ]
+[ 2023-02-09T17:13:43+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:13:43+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.000946s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2023-02-09T17:13:43+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000672s ]
+[ 2023-02-09T17:13:43+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_RoleNameBlockScripts' , 'checkRoleName' , '{\"action\":\"checkRoleName\",\"platform\":\"youyu\"}' , 1675934023 , 1675934023) [ RunTime:0.000827s ]
+[ 2023-02-09T17:13:43+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:13:43+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:14:06+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2023-02-09T17:14:06+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'RoleNameBlockScripts',
+    2 => 'run',
+  ),
+)
+[ 2023-02-09T17:14:06+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2023-02-09T17:14:06+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'RoleNameBlockScripts',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'checkRoleName',
+    'platform' => 'youyu',
+  ),
+)
+[ 2023-02-09T17:14:06+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2023-02-09T17:14:06+08:00 ][ info ] [ RUN ] app\scripts\controller\RoleNameBlockScripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\RoleNameBlockScripts.php ]
+[ 2023-02-09T17:14:06+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:14:06+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001168s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2023-02-09T17:14:06+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000905s ]
+[ 2023-02-09T17:14:06+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_RoleNameBlockScripts' , 'checkRoleName' , '{\"action\":\"checkRoleName\",\"platform\":\"youyu\"}' , 1675934046 , 1675934046) [ RunTime:0.001114s ]
+[ 2023-02-09T17:14:06+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:14:06+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:18:37+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2023-02-09T17:18:37+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'RoleNameBlockScripts',
+    2 => 'run',
+  ),
+)
+[ 2023-02-09T17:18:37+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2023-02-09T17:18:37+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'RoleNameBlockScripts',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'checkRoleName',
+    'platform' => 'youyu',
+  ),
+)
+[ 2023-02-09T17:18:37+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2023-02-09T17:18:37+08:00 ][ info ] [ RUN ] app\scripts\controller\RoleNameBlockScripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\RoleNameBlockScripts.php ]
+[ 2023-02-09T17:18:37+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:18:37+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001256s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2023-02-09T17:18:37+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000756s ]
+[ 2023-02-09T17:18:37+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_RoleNameBlockScripts' , 'checkRoleName' , '{\"action\":\"checkRoleName\",\"platform\":\"youyu\"}' , 1675934317 , 1675934317) [ RunTime:0.001218s ]
+[ 2023-02-09T17:18:37+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:18:37+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:18:42+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2023-02-09T17:18:42+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'RoleNameBlockScripts',
+    2 => 'run',
+  ),
+)
+[ 2023-02-09T17:18:42+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2023-02-09T17:18:42+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'RoleNameBlockScripts',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'checkRoleName',
+    'platform' => 'youyu',
+  ),
+)
+[ 2023-02-09T17:18:42+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2023-02-09T17:18:42+08:00 ][ info ] [ RUN ] app\scripts\controller\RoleNameBlockScripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\RoleNameBlockScripts.php ]
+[ 2023-02-09T17:18:42+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:18:42+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001019s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2023-02-09T17:18:42+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000681s ]
+[ 2023-02-09T17:18:42+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_RoleNameBlockScripts' , 'checkRoleName' , '{\"action\":\"checkRoleName\",\"platform\":\"youyu\"}' , 1675934322 , 1675934322) [ RunTime:0.000792s ]
+[ 2023-02-09T17:18:42+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:18:42+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:18:42+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:20:38+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2023-02-09T17:20:38+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'RoleNameBlockScripts',
+    2 => 'run',
+  ),
+)
+[ 2023-02-09T17:20:38+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2023-02-09T17:20:38+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'RoleNameBlockScripts',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'checkRoleName',
+    'platform' => 'youyu',
+  ),
+)
+[ 2023-02-09T17:20:38+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2023-02-09T17:20:38+08:00 ][ info ] [ RUN ] app\scripts\controller\RoleNameBlockScripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\RoleNameBlockScripts.php ]
+[ 2023-02-09T17:20:38+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:20:38+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001136s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2023-02-09T17:20:38+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.003041s ]
+[ 2023-02-09T17:20:38+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_RoleNameBlockScripts' , 'checkRoleName' , '{\"action\":\"checkRoleName\",\"platform\":\"youyu\"}' , 1675934438 , 1675934438) [ RunTime:0.001172s ]
+[ 2023-02-09T17:20:38+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:20:38+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:20:38+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:20:38+08:00 ][ error ] [10501]SQLSTATE[42S22]: Column not found: 1054 Unknown column 'role_id' in 'where clause'[D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\library\think\db\Connection.php:385]
+[ 2023-02-09T17:21:14+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2023-02-09T17:21:14+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'RoleNameBlockScripts',
+    2 => 'run',
+  ),
+)
+[ 2023-02-09T17:21:14+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2023-02-09T17:21:14+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'RoleNameBlockScripts',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'checkRoleName',
+    'platform' => 'youyu',
+  ),
+)
+[ 2023-02-09T17:21:14+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2023-02-09T17:21:14+08:00 ][ info ] [ RUN ] app\scripts\controller\RoleNameBlockScripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\RoleNameBlockScripts.php ]
+[ 2023-02-09T17:21:14+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:21:14+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001056s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2023-02-09T17:21:14+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.002651s ]
+[ 2023-02-09T17:21:14+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_RoleNameBlockScripts' , 'checkRoleName' , '{\"action\":\"checkRoleName\",\"platform\":\"youyu\"}' , 1675934474 , 1675934474) [ RunTime:0.000937s ]
+[ 2023-02-09T17:21:14+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:21:14+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:21:14+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:21:26+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2023-02-09T17:21:26+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'RoleNameBlockScripts',
+    2 => 'run',
+  ),
+)
+[ 2023-02-09T17:21:26+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2023-02-09T17:21:26+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'RoleNameBlockScripts',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'checkRoleName',
+    'platform' => 'youyu',
+  ),
+)
+[ 2023-02-09T17:21:26+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2023-02-09T17:21:26+08:00 ][ info ] [ RUN ] app\scripts\controller\RoleNameBlockScripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\RoleNameBlockScripts.php ]
+[ 2023-02-09T17:21:26+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:21:26+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001050s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2023-02-09T17:21:26+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000746s ]
+[ 2023-02-09T17:21:26+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_RoleNameBlockScripts' , 'checkRoleName' , '{\"action\":\"checkRoleName\",\"platform\":\"youyu\"}' , 1675934486 , 1675934486) [ RunTime:0.001150s ]
+[ 2023-02-09T17:21:26+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:21:26+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:21:26+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:21:26+08:00 ][ error ] [8]Undefined index: platform[D:\phpstudy_pro\WWW\new_kefu_online\common\server\Scripts\RoleNameBlockScriptsServer.php:78]
+[ 2023-02-09T17:22:12+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2023-02-09T17:22:12+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'RoleNameBlockScripts',
+    2 => 'run',
+  ),
+)
+[ 2023-02-09T17:22:12+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2023-02-09T17:22:12+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'RoleNameBlockScripts',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'checkRoleName',
+    'platform' => 'youyu',
+  ),
+)
+[ 2023-02-09T17:22:12+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2023-02-09T17:22:12+08:00 ][ info ] [ RUN ] app\scripts\controller\RoleNameBlockScripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\RoleNameBlockScripts.php ]
+[ 2023-02-09T17:22:12+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:22:12+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001100s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2023-02-09T17:22:12+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000781s ]
+[ 2023-02-09T17:22:12+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_RoleNameBlockScripts' , 'checkRoleName' , '{\"action\":\"checkRoleName\",\"platform\":\"youyu\"}' , 1675934532 , 1675934532) [ RunTime:0.001108s ]
+[ 2023-02-09T17:22:12+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:22:12+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:22:12+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:22:27+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2023-02-09T17:22:27+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'RoleNameBlockScripts',
+    2 => 'run',
+  ),
+)
+[ 2023-02-09T17:22:27+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2023-02-09T17:22:27+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'RoleNameBlockScripts',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'checkRoleName',
+    'platform' => 'youyu',
+  ),
+)
+[ 2023-02-09T17:22:27+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2023-02-09T17:22:27+08:00 ][ info ] [ RUN ] app\scripts\controller\RoleNameBlockScripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\RoleNameBlockScripts.php ]
+[ 2023-02-09T17:22:27+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:22:27+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001101s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2023-02-09T17:22:27+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000696s ]
+[ 2023-02-09T17:22:27+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_RoleNameBlockScripts' , 'checkRoleName' , '{\"action\":\"checkRoleName\",\"platform\":\"youyu\"}' , 1675934547 , 1675934547) [ RunTime:0.001321s ]
+[ 2023-02-09T17:22:27+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:22:27+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:22:27+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:22:33+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2023-02-09T17:22:34+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'RoleNameBlockScripts',
+    2 => 'run',
+  ),
+)
+[ 2023-02-09T17:22:34+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2023-02-09T17:22:34+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'RoleNameBlockScripts',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'checkRoleName',
+    'platform' => 'youyu',
+  ),
+)
+[ 2023-02-09T17:22:34+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2023-02-09T17:22:34+08:00 ][ info ] [ RUN ] app\scripts\controller\RoleNameBlockScripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\RoleNameBlockScripts.php ]
+[ 2023-02-09T17:22:34+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:22:34+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001010s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2023-02-09T17:22:34+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000707s ]
+[ 2023-02-09T17:22:34+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_RoleNameBlockScripts' , 'checkRoleName' , '{\"action\":\"checkRoleName\",\"platform\":\"youyu\"}' , 1675934554 , 1675934554) [ RunTime:0.000887s ]
+[ 2023-02-09T17:22:34+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:22:34+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:22:34+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:22:34+08:00 ][ sql ] [ SQL ] SELECT * FROM `gr_run_log` WHERE  `id` = 885 LIMIT 1 [ RunTime:0.000271s ]
+[ 2023-02-09T17:22:34+08:00 ][ sql ] [ SQL ] UPDATE `gr_run_log`  SET `status`=1,`update_time`=1675934554  WHERE  `id` = 885 [ RunTime:0.000933s ]
+[ 2023-02-09T17:33:23+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2023-02-09T17:33:23+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'RoleNameBlockScripts',
+    2 => 'run',
+  ),
+)
+[ 2023-02-09T17:33:23+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2023-02-09T17:33:23+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'RoleNameBlockScripts',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'checkRoleName',
+    'platform' => 'youyu',
+  ),
+)
+[ 2023-02-09T17:33:23+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2023-02-09T17:33:23+08:00 ][ info ] [ RUN ] app\scripts\controller\RoleNameBlockScripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\RoleNameBlockScripts.php ]
+[ 2023-02-09T17:33:23+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:33:23+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001275s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2023-02-09T17:33:23+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000710s ]
+[ 2023-02-09T17:33:23+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_RoleNameBlockScripts' , 'checkRoleName' , '{\"action\":\"checkRoleName\",\"platform\":\"youyu\"}' , 1675935203 , 1675935203) [ RunTime:0.001190s ]
+[ 2023-02-09T17:33:23+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:33:23+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:33:23+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:33:23+08:00 ][ sql ] [ SQL ] SELECT * FROM `gr_run_log` WHERE  `id` = 886 LIMIT 1 [ RunTime:0.000273s ]
+[ 2023-02-09T17:33:23+08:00 ][ sql ] [ SQL ] UPDATE `gr_run_log`  SET `status`=1,`update_time`=1675935203  WHERE  `id` = 886 [ RunTime:0.000899s ]
+[ 2023-02-09T17:33:39+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2023-02-09T17:33:39+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'RoleNameBlockScripts',
+    2 => 'run',
+  ),
+)
+[ 2023-02-09T17:33:39+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2023-02-09T17:33:39+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'RoleNameBlockScripts',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'checkRoleName',
+    'platform' => 'youyu',
+  ),
+)
+[ 2023-02-09T17:33:39+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2023-02-09T17:33:39+08:00 ][ info ] [ RUN ] app\scripts\controller\RoleNameBlockScripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\RoleNameBlockScripts.php ]
+[ 2023-02-09T17:33:39+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:33:39+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001023s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2023-02-09T17:33:39+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000696s ]
+[ 2023-02-09T17:33:39+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_RoleNameBlockScripts' , 'checkRoleName' , '{\"action\":\"checkRoleName\",\"platform\":\"youyu\"}' , 1675935219 , 1675935219) [ RunTime:0.001232s ]
+[ 2023-02-09T17:33:39+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:33:39+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:33:39+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:33:39+08:00 ][ sql ] [ SQL ] SELECT * FROM `gr_run_log` WHERE  `id` = 887 LIMIT 1 [ RunTime:0.000289s ]
+[ 2023-02-09T17:33:39+08:00 ][ sql ] [ SQL ] UPDATE `gr_run_log`  SET `status`=1,`update_time`=1675935219  WHERE  `id` = 887 [ RunTime:0.001189s ]
+[ 2023-02-09T17:33:57+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2023-02-09T17:33:57+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'RoleNameBlockScripts',
+    2 => 'run',
+  ),
+)
+[ 2023-02-09T17:33:57+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2023-02-09T17:33:57+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'RoleNameBlockScripts',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'checkRoleName',
+    'platform' => 'youyu',
+  ),
+)
+[ 2023-02-09T17:33:57+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2023-02-09T17:33:57+08:00 ][ info ] [ RUN ] app\scripts\controller\RoleNameBlockScripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\RoleNameBlockScripts.php ]
+[ 2023-02-09T17:33:57+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:33:57+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001224s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2023-02-09T17:33:57+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000744s ]
+[ 2023-02-09T17:33:57+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_RoleNameBlockScripts' , 'checkRoleName' , '{\"action\":\"checkRoleName\",\"platform\":\"youyu\"}' , 1675935237 , 1675935237) [ RunTime:0.000885s ]
+[ 2023-02-09T17:33:57+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:33:57+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:33:57+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:34:06+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2023-02-09T17:34:06+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'RoleNameBlockScripts',
+    2 => 'run',
+  ),
+)
+[ 2023-02-09T17:34:06+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2023-02-09T17:34:06+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'RoleNameBlockScripts',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'checkRoleName',
+    'platform' => 'youyu',
+  ),
+)
+[ 2023-02-09T17:34:06+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2023-02-09T17:34:06+08:00 ][ info ] [ RUN ] app\scripts\controller\RoleNameBlockScripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\RoleNameBlockScripts.php ]
+[ 2023-02-09T17:34:06+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:34:06+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001047s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2023-02-09T17:34:06+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000745s ]
+[ 2023-02-09T17:34:06+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_RoleNameBlockScripts' , 'checkRoleName' , '{\"action\":\"checkRoleName\",\"platform\":\"youyu\"}' , 1675935246 , 1675935246) [ RunTime:0.000931s ]
+[ 2023-02-09T17:34:06+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:34:06+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:34:06+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:34:06+08:00 ][ sql ] [ SQL ] SELECT * FROM `gr_run_log` WHERE  `id` = 889 LIMIT 1 [ RunTime:0.000293s ]
+[ 2023-02-09T17:34:06+08:00 ][ sql ] [ SQL ] UPDATE `gr_run_log`  SET `status`=1,`update_time`=1675935246  WHERE  `id` = 889 [ RunTime:0.001024s ]
+[ 2023-02-09T17:34:24+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2023-02-09T17:34:24+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'RoleNameBlockScripts',
+    2 => 'run',
+  ),
+)
+[ 2023-02-09T17:34:24+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2023-02-09T17:34:24+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'RoleNameBlockScripts',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'checkRoleName',
+    'platform' => 'youyu',
+  ),
+)
+[ 2023-02-09T17:34:24+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2023-02-09T17:34:24+08:00 ][ info ] [ RUN ] app\scripts\controller\RoleNameBlockScripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\RoleNameBlockScripts.php ]
+[ 2023-02-09T17:34:24+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:34:24+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001083s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2023-02-09T17:34:24+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000682s ]
+[ 2023-02-09T17:34:24+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_RoleNameBlockScripts' , 'checkRoleName' , '{\"action\":\"checkRoleName\",\"platform\":\"youyu\"}' , 1675935264 , 1675935264) [ RunTime:0.001004s ]
+[ 2023-02-09T17:34:24+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:34:24+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:34:24+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:34:54+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2023-02-09T17:34:54+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'RoleNameBlockScripts',
+    2 => 'run',
+  ),
+)
+[ 2023-02-09T17:34:54+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2023-02-09T17:34:54+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'RoleNameBlockScripts',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'checkRoleName',
+    'platform' => 'youyu',
+  ),
+)
+[ 2023-02-09T17:34:54+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2023-02-09T17:34:54+08:00 ][ info ] [ RUN ] app\scripts\controller\RoleNameBlockScripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\RoleNameBlockScripts.php ]
+[ 2023-02-09T17:34:54+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:34:54+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001067s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2023-02-09T17:34:54+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000685s ]
+[ 2023-02-09T17:34:54+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_RoleNameBlockScripts' , 'checkRoleName' , '{\"action\":\"checkRoleName\",\"platform\":\"youyu\"}' , 1675935294 , 1675935294) [ RunTime:0.001471s ]
+[ 2023-02-09T17:34:54+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:34:54+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:34:54+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:35:55+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2023-02-09T17:35:55+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'RoleNameBlockScripts',
+    2 => 'run',
+  ),
+)
+[ 2023-02-09T17:35:55+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2023-02-09T17:35:55+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'RoleNameBlockScripts',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'checkRoleName',
+    'platform' => 'youyu',
+  ),
+)
+[ 2023-02-09T17:35:55+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2023-02-09T17:35:55+08:00 ][ info ] [ RUN ] app\scripts\controller\RoleNameBlockScripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\RoleNameBlockScripts.php ]
+[ 2023-02-09T17:35:55+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:35:55+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001010s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2023-02-09T17:35:55+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000664s ]
+[ 2023-02-09T17:35:55+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_RoleNameBlockScripts' , 'checkRoleName' , '{\"action\":\"checkRoleName\",\"platform\":\"youyu\"}' , 1675935355 , 1675935355) [ RunTime:0.001151s ]
+[ 2023-02-09T17:35:55+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:35:55+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:36:15+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2023-02-09T17:36:15+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'RoleNameBlockScripts',
+    2 => 'run',
+  ),
+)
+[ 2023-02-09T17:36:15+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2023-02-09T17:36:15+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'RoleNameBlockScripts',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'checkRoleName',
+    'platform' => 'youyu',
+  ),
+)
+[ 2023-02-09T17:36:15+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2023-02-09T17:36:15+08:00 ][ info ] [ RUN ] app\scripts\controller\RoleNameBlockScripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\RoleNameBlockScripts.php ]
+[ 2023-02-09T17:36:15+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:36:15+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001038s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2023-02-09T17:36:15+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000708s ]
+[ 2023-02-09T17:36:15+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_RoleNameBlockScripts' , 'checkRoleName' , '{\"action\":\"checkRoleName\",\"platform\":\"youyu\"}' , 1675935375 , 1675935375) [ RunTime:0.000800s ]
+[ 2023-02-09T17:36:15+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:36:15+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:36:15+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:43:31+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2023-02-09T17:43:31+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'RoleNameBlockScripts',
+    2 => 'run',
+  ),
+)
+[ 2023-02-09T17:43:31+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2023-02-09T17:43:31+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'RoleNameBlockScripts',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'checkRoleName',
+    'platform' => 'youyu',
+  ),
+)
+[ 2023-02-09T17:43:31+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2023-02-09T17:43:31+08:00 ][ info ] [ RUN ] app\scripts\controller\RoleNameBlockScripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\RoleNameBlockScripts.php ]
+[ 2023-02-09T17:43:31+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:43:31+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001295s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2023-02-09T17:43:31+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000826s ]
+[ 2023-02-09T17:43:31+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_RoleNameBlockScripts' , 'checkRoleName' , '{\"action\":\"checkRoleName\",\"platform\":\"youyu\"}' , 1675935811 , 1675935811) [ RunTime:0.006895s ]
+[ 2023-02-09T17:43:31+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:43:31+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:43:31+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:43:40+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2023-02-09T17:43:40+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'RoleNameBlockScripts',
+    2 => 'run',
+  ),
+)
+[ 2023-02-09T17:43:40+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2023-02-09T17:43:40+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'RoleNameBlockScripts',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'checkRoleName',
+    'platform' => 'youyu',
+  ),
+)
+[ 2023-02-09T17:43:40+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2023-02-09T17:43:40+08:00 ][ info ] [ RUN ] app\scripts\controller\RoleNameBlockScripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\RoleNameBlockScripts.php ]
+[ 2023-02-09T17:43:40+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:43:40+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001033s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2023-02-09T17:43:40+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000727s ]
+[ 2023-02-09T17:43:40+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_RoleNameBlockScripts' , 'checkRoleName' , '{\"action\":\"checkRoleName\",\"platform\":\"youyu\"}' , 1675935820 , 1675935820) [ RunTime:0.001061s ]
+[ 2023-02-09T17:43:40+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:43:40+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:43:40+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:45:48+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2023-02-09T17:45:48+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'RoleNameBlockScripts',
+    2 => 'run',
+  ),
+)
+[ 2023-02-09T17:45:48+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2023-02-09T17:45:48+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'RoleNameBlockScripts',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'checkRoleName',
+    'platform' => 'youyu',
+  ),
+)
+[ 2023-02-09T17:45:48+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2023-02-09T17:45:48+08:00 ][ info ] [ RUN ] app\scripts\controller\RoleNameBlockScripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\RoleNameBlockScripts.php ]
+[ 2023-02-09T17:45:48+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:45:48+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001034s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2023-02-09T17:45:48+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000781s ]
+[ 2023-02-09T17:45:48+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_RoleNameBlockScripts' , 'checkRoleName' , '{\"action\":\"checkRoleName\",\"platform\":\"youyu\"}' , 1675935948 , 1675935948) [ RunTime:0.001128s ]
+[ 2023-02-09T17:45:48+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:45:48+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T17:45:48+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T18:01:09+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2023-02-09T18:01:09+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'RoleNameBlockScripts',
+    2 => 'run',
+  ),
+)
+[ 2023-02-09T18:01:09+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2023-02-09T18:01:09+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'RoleNameBlockScripts',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'checkRoleName',
+    'platform' => 'youyu',
+  ),
+)
+[ 2023-02-09T18:01:09+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2023-02-09T18:01:09+08:00 ][ info ] [ RUN ] app\scripts\controller\RoleNameBlockScripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\RoleNameBlockScripts.php ]
+[ 2023-02-09T18:01:09+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T18:01:09+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001283s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2023-02-09T18:01:09+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000923s ]
+[ 2023-02-09T18:01:09+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_RoleNameBlockScripts' , 'checkRoleName' , '{\"action\":\"checkRoleName\",\"platform\":\"youyu\"}' , 1675936869 , 1675936869) [ RunTime:0.001397s ]
+[ 2023-02-09T18:01:09+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T18:01:09+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T18:01:09+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T18:01:09+08:00 ][ sql ] [ SQL ] SELECT * FROM `gr_run_log` WHERE  `id` = 897 LIMIT 1 [ RunTime:0.000294s ]
+[ 2023-02-09T18:01:09+08:00 ][ sql ] [ SQL ] UPDATE `gr_run_log`  SET `status`=1,`update_time`=1675936869  WHERE  `id` = 897 [ RunTime:0.001202s ]
+[ 2023-02-09T18:01:41+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2023-02-09T18:01:41+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'RoleNameBlockScripts',
+    2 => 'run',
+  ),
+)
+[ 2023-02-09T18:01:41+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2023-02-09T18:01:41+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'RoleNameBlockScripts',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'checkRoleName',
+    'platform' => 'youyu',
+  ),
+)
+[ 2023-02-09T18:01:41+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2023-02-09T18:01:41+08:00 ][ info ] [ RUN ] app\scripts\controller\RoleNameBlockScripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\RoleNameBlockScripts.php ]
+[ 2023-02-09T18:01:41+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T18:01:41+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001048s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2023-02-09T18:01:41+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000892s ]
+[ 2023-02-09T18:01:41+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_RoleNameBlockScripts' , 'checkRoleName' , '{\"action\":\"checkRoleName\",\"platform\":\"youyu\"}' , 1675936901 , 1675936901) [ RunTime:0.001156s ]
+[ 2023-02-09T18:01:41+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T18:01:41+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T18:01:41+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T18:01:41+08:00 ][ sql ] [ SQL ] SELECT * FROM `gr_run_log` WHERE  `id` = 898 LIMIT 1 [ RunTime:0.000338s ]
+[ 2023-02-09T18:01:41+08:00 ][ sql ] [ SQL ] UPDATE `gr_run_log`  SET `status`=1,`update_time`=1675936901  WHERE  `id` = 898 [ RunTime:0.001470s ]
+[ 2023-02-09T18:01:48+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2023-02-09T18:01:48+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'RoleNameBlockScripts',
+    2 => 'run',
+  ),
+)
+[ 2023-02-09T18:01:48+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2023-02-09T18:01:48+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'RoleNameBlockScripts',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'checkRoleName',
+    'platform' => 'youyu',
+  ),
+)
+[ 2023-02-09T18:01:48+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2023-02-09T18:01:48+08:00 ][ info ] [ RUN ] app\scripts\controller\RoleNameBlockScripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\RoleNameBlockScripts.php ]
+[ 2023-02-09T18:01:48+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T18:01:48+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001033s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2023-02-09T18:01:48+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.002605s ]
+[ 2023-02-09T18:01:48+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_RoleNameBlockScripts' , 'checkRoleName' , '{\"action\":\"checkRoleName\",\"platform\":\"youyu\"}' , 1675936908 , 1675936908) [ RunTime:0.001164s ]
+[ 2023-02-09T18:01:48+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T18:01:48+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T18:01:48+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T18:02:05+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2023-02-09T18:02:05+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'RoleNameBlockScripts',
+    2 => 'run',
+  ),
+)
+[ 2023-02-09T18:02:05+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2023-02-09T18:02:05+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'RoleNameBlockScripts',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'checkRoleName',
+    'platform' => 'youyu',
+  ),
+)
+[ 2023-02-09T18:02:05+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2023-02-09T18:02:05+08:00 ][ info ] [ RUN ] app\scripts\controller\RoleNameBlockScripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\RoleNameBlockScripts.php ]
+[ 2023-02-09T18:02:05+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T18:02:05+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001016s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2023-02-09T18:02:05+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.002441s ]
+[ 2023-02-09T18:02:05+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_RoleNameBlockScripts' , 'checkRoleName' , '{\"action\":\"checkRoleName\",\"platform\":\"youyu\"}' , 1675936925 , 1675936925) [ RunTime:0.001176s ]
+[ 2023-02-09T18:02:05+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T18:02:05+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T18:02:05+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T18:02:17+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2023-02-09T18:02:17+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'RoleNameBlockScripts',
+    2 => 'run',
+  ),
+)
+[ 2023-02-09T18:02:17+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2023-02-09T18:02:17+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'RoleNameBlockScripts',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'checkRoleName',
+    'platform' => 'youyu',
+  ),
+)
+[ 2023-02-09T18:02:17+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2023-02-09T18:02:17+08:00 ][ info ] [ RUN ] app\scripts\controller\RoleNameBlockScripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\RoleNameBlockScripts.php ]
+[ 2023-02-09T18:02:17+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T18:02:17+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001222s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2023-02-09T18:02:17+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000743s ]
+[ 2023-02-09T18:02:17+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_RoleNameBlockScripts' , 'checkRoleName' , '{\"action\":\"checkRoleName\",\"platform\":\"youyu\"}' , 1675936937 , 1675936937) [ RunTime:0.001153s ]
+[ 2023-02-09T18:02:17+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T18:02:17+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T18:02:17+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T18:02:30+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2023-02-09T18:02:30+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'RoleNameBlockScripts',
+    2 => 'run',
+  ),
+)
+[ 2023-02-09T18:02:30+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2023-02-09T18:02:30+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'RoleNameBlockScripts',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'checkRoleName',
+    'platform' => 'youyu',
+  ),
+)
+[ 2023-02-09T18:02:30+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2023-02-09T18:02:30+08:00 ][ info ] [ RUN ] app\scripts\controller\RoleNameBlockScripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\RoleNameBlockScripts.php ]
+[ 2023-02-09T18:02:30+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T18:02:30+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001013s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2023-02-09T18:02:30+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000677s ]
+[ 2023-02-09T18:02:30+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_RoleNameBlockScripts' , 'checkRoleName' , '{\"action\":\"checkRoleName\",\"platform\":\"youyu\"}' , 1675936950 , 1675936950) [ RunTime:0.001317s ]
+[ 2023-02-09T18:02:30+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T18:02:30+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T18:02:30+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T18:02:48+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2023-02-09T18:02:48+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'RoleNameBlockScripts',
+    2 => 'run',
+  ),
+)
+[ 2023-02-09T18:02:48+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2023-02-09T18:02:48+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'RoleNameBlockScripts',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'checkRoleName',
+    'platform' => 'youyu',
+  ),
+)
+[ 2023-02-09T18:02:48+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2023-02-09T18:02:48+08:00 ][ info ] [ RUN ] app\scripts\controller\RoleNameBlockScripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\RoleNameBlockScripts.php ]
+[ 2023-02-09T18:02:48+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T18:02:48+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001046s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2023-02-09T18:02:48+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000810s ]
+[ 2023-02-09T18:02:48+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_RoleNameBlockScripts' , 'checkRoleName' , '{\"action\":\"checkRoleName\",\"platform\":\"youyu\"}' , 1675936968 , 1675936968) [ RunTime:0.001060s ]
+[ 2023-02-09T18:02:48+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T18:02:48+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T18:02:48+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T18:02:55+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2023-02-09T18:02:55+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'RoleNameBlockScripts',
+    2 => 'run',
+  ),
+)
+[ 2023-02-09T18:02:55+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2023-02-09T18:02:55+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'RoleNameBlockScripts',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'checkRoleName',
+    'platform' => 'youyu',
+  ),
+)
+[ 2023-02-09T18:02:55+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2023-02-09T18:02:55+08:00 ][ info ] [ RUN ] app\scripts\controller\RoleNameBlockScripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\RoleNameBlockScripts.php ]
+[ 2023-02-09T18:02:55+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T18:02:55+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001026s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2023-02-09T18:02:55+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000637s ]
+[ 2023-02-09T18:02:55+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_RoleNameBlockScripts' , 'checkRoleName' , '{\"action\":\"checkRoleName\",\"platform\":\"youyu\"}' , 1675936975 , 1675936975) [ RunTime:0.001431s ]
+[ 2023-02-09T18:02:55+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T18:02:55+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T18:02:55+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T18:03:11+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2023-02-09T18:03:11+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'RoleNameBlockScripts',
+    2 => 'run',
+  ),
+)
+[ 2023-02-09T18:03:11+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2023-02-09T18:03:11+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'RoleNameBlockScripts',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'checkRoleName',
+    'platform' => 'youyu',
+  ),
+)
+[ 2023-02-09T18:03:11+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2023-02-09T18:03:11+08:00 ][ info ] [ RUN ] app\scripts\controller\RoleNameBlockScripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\RoleNameBlockScripts.php ]
+[ 2023-02-09T18:03:11+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T18:03:11+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001016s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2023-02-09T18:03:11+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000715s ]
+[ 2023-02-09T18:03:11+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_RoleNameBlockScripts' , 'checkRoleName' , '{\"action\":\"checkRoleName\",\"platform\":\"youyu\"}' , 1675936991 , 1675936991) [ RunTime:0.001094s ]
+[ 2023-02-09T18:03:11+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T18:03:11+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T18:03:11+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T18:03:21+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2023-02-09T18:03:21+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'RoleNameBlockScripts',
+    2 => 'run',
+  ),
+)
+[ 2023-02-09T18:03:21+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2023-02-09T18:03:21+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'RoleNameBlockScripts',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'checkRoleName',
+    'platform' => 'youyu',
+  ),
+)
+[ 2023-02-09T18:03:21+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2023-02-09T18:03:21+08:00 ][ info ] [ RUN ] app\scripts\controller\RoleNameBlockScripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\RoleNameBlockScripts.php ]
+[ 2023-02-09T18:03:21+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T18:03:21+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001013s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2023-02-09T18:03:21+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000694s ]
+[ 2023-02-09T18:03:21+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_RoleNameBlockScripts' , 'checkRoleName' , '{\"action\":\"checkRoleName\",\"platform\":\"youyu\"}' , 1675937001 , 1675937001) [ RunTime:0.001164s ]
+[ 2023-02-09T18:03:21+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T18:03:21+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T18:03:21+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T18:03:31+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2023-02-09T18:03:31+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'RoleNameBlockScripts',
+    2 => 'run',
+  ),
+)
+[ 2023-02-09T18:03:31+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2023-02-09T18:03:31+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'RoleNameBlockScripts',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'checkRoleName',
+    'platform' => 'youyu',
+  ),
+)
+[ 2023-02-09T18:03:31+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2023-02-09T18:03:31+08:00 ][ info ] [ RUN ] app\scripts\controller\RoleNameBlockScripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\RoleNameBlockScripts.php ]
+[ 2023-02-09T18:03:31+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T18:03:31+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001167s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2023-02-09T18:03:31+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000677s ]
+[ 2023-02-09T18:03:31+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_RoleNameBlockScripts' , 'checkRoleName' , '{\"action\":\"checkRoleName\",\"platform\":\"youyu\"}' , 1675937011 , 1675937011) [ RunTime:0.001112s ]
+[ 2023-02-09T18:03:31+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T18:03:31+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T18:03:31+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T18:03:46+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2023-02-09T18:03:46+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'RoleNameBlockScripts',
+    2 => 'run',
+  ),
+)
+[ 2023-02-09T18:03:46+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2023-02-09T18:03:46+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'RoleNameBlockScripts',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'checkRoleName',
+    'platform' => 'youyu',
+  ),
+)
+[ 2023-02-09T18:03:46+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2023-02-09T18:03:46+08:00 ][ info ] [ RUN ] app\scripts\controller\RoleNameBlockScripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\RoleNameBlockScripts.php ]
+[ 2023-02-09T18:03:46+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T18:03:46+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001015s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2023-02-09T18:03:46+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000680s ]
+[ 2023-02-09T18:03:46+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_RoleNameBlockScripts' , 'checkRoleName' , '{\"action\":\"checkRoleName\",\"platform\":\"youyu\"}' , 1675937026 , 1675937026) [ RunTime:0.001053s ]
+[ 2023-02-09T18:03:46+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T18:03:46+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T18:03:46+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T18:03:52+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2023-02-09T18:03:52+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'RoleNameBlockScripts',
+    2 => 'run',
+  ),
+)
+[ 2023-02-09T18:03:52+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2023-02-09T18:03:52+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'RoleNameBlockScripts',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'checkRoleName',
+    'platform' => 'youyu',
+  ),
+)
+[ 2023-02-09T18:03:52+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2023-02-09T18:03:52+08:00 ][ info ] [ RUN ] app\scripts\controller\RoleNameBlockScripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\RoleNameBlockScripts.php ]
+[ 2023-02-09T18:03:52+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T18:03:52+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001036s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2023-02-09T18:03:52+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000696s ]
+[ 2023-02-09T18:03:52+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_RoleNameBlockScripts' , 'checkRoleName' , '{\"action\":\"checkRoleName\",\"platform\":\"youyu\"}' , 1675937032 , 1675937032) [ RunTime:0.000916s ]
+[ 2023-02-09T18:03:52+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T18:03:52+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T18:03:52+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T18:04:12+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2023-02-09T18:04:12+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'RoleNameBlockScripts',
+    2 => 'run',
+  ),
+)
+[ 2023-02-09T18:04:12+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2023-02-09T18:04:12+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'RoleNameBlockScripts',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'checkRoleName',
+    'platform' => 'youyu',
+  ),
+)
+[ 2023-02-09T18:04:12+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2023-02-09T18:04:12+08:00 ][ info ] [ RUN ] app\scripts\controller\RoleNameBlockScripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\RoleNameBlockScripts.php ]
+[ 2023-02-09T18:04:12+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T18:04:12+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001240s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2023-02-09T18:04:12+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000701s ]
+[ 2023-02-09T18:04:12+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_RoleNameBlockScripts' , 'checkRoleName' , '{\"action\":\"checkRoleName\",\"platform\":\"youyu\"}' , 1675937052 , 1675937052) [ RunTime:0.001018s ]
+[ 2023-02-09T18:04:12+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T18:04:12+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T18:04:12+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T18:04:12+08:00 ][ error ] [10501]SQLSTATE[42S22]: Column not found: 1054 Unknown column 'reg_channel_id' in 'field list'[D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\library\think\db\Connection.php:453]
+[ 2023-02-09T18:05:31+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2023-02-09T18:05:31+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'RoleNameBlockScripts',
+    2 => 'run',
+  ),
+)
+[ 2023-02-09T18:05:31+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2023-02-09T18:05:31+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'RoleNameBlockScripts',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'checkRoleName',
+    'platform' => 'youyu',
+  ),
+)
+[ 2023-02-09T18:05:31+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2023-02-09T18:05:31+08:00 ][ info ] [ RUN ] app\scripts\controller\RoleNameBlockScripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\RoleNameBlockScripts.php ]
+[ 2023-02-09T18:05:31+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T18:05:31+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001055s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2023-02-09T18:05:31+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000711s ]
+[ 2023-02-09T18:05:31+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_RoleNameBlockScripts' , 'checkRoleName' , '{\"action\":\"checkRoleName\",\"platform\":\"youyu\"}' , 1675937131 , 1675937131) [ RunTime:0.001109s ]
+[ 2023-02-09T18:05:32+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T18:05:32+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T18:05:32+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T18:05:32+08:00 ][ sql ] [ SQL ] SELECT * FROM `gr_run_log` WHERE  `id` = 911 LIMIT 1 [ RunTime:0.000261s ]
+[ 2023-02-09T18:05:32+08:00 ][ sql ] [ SQL ] UPDATE `gr_run_log`  SET `update_time`=1675937132,`status`=1  WHERE  `id` = 911 [ RunTime:0.000927s ]
+[ 2023-02-09T18:07:37+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2023-02-09T18:07:37+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'RoleNameBlockScripts',
+    2 => 'run',
+  ),
+)
+[ 2023-02-09T18:07:37+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2023-02-09T18:07:37+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'RoleNameBlockScripts',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'checkRoleName',
+    'platform' => 'youyu',
+  ),
+)
+[ 2023-02-09T18:07:37+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2023-02-09T18:07:37+08:00 ][ info ] [ RUN ] app\scripts\controller\RoleNameBlockScripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\RoleNameBlockScripts.php ]
+[ 2023-02-09T18:07:37+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T18:07:37+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001055s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2023-02-09T18:07:37+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000693s ]
+[ 2023-02-09T18:07:37+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_RoleNameBlockScripts' , 'checkRoleName' , '{\"action\":\"checkRoleName\",\"platform\":\"youyu\"}' , 1675937257 , 1675937257) [ RunTime:0.000988s ]
+[ 2023-02-09T18:07:37+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T18:07:37+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T18:07:37+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T18:08:13+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2023-02-09T18:08:13+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'RoleNameBlockScripts',
+    2 => 'run',
+  ),
+)
+[ 2023-02-09T18:08:13+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2023-02-09T18:08:13+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'RoleNameBlockScripts',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'checkRoleName',
+    'platform' => 'youyu',
+  ),
+)
+[ 2023-02-09T18:08:13+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2023-02-09T18:08:13+08:00 ][ info ] [ RUN ] app\scripts\controller\RoleNameBlockScripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\RoleNameBlockScripts.php ]
+[ 2023-02-09T18:08:13+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T18:08:13+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001041s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2023-02-09T18:08:13+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000752s ]
+[ 2023-02-09T18:08:13+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_RoleNameBlockScripts' , 'checkRoleName' , '{\"action\":\"checkRoleName\",\"platform\":\"youyu\"}' , 1675937293 , 1675937293) [ RunTime:0.001039s ]
+[ 2023-02-09T18:08:13+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T18:08:13+08:00 ][ info ] [ DB ] INIT mysql
+[ 2023-02-09T18:08:13+08:00 ][ info ] [ DB ] INIT mysql

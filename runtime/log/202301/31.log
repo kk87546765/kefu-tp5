@@ -1,0 +1,471 @@
+---------------------------------------------------------------
+[ 2023-01-31T14:54:37+08:00 ] 127.0.0.1 GET api.newkefu.com/api/getBaseInfo/userRole?role_type=1&platform=youyu
+[运行时间：0.549014s] [吞吐率：1.82req/s] [内存消耗：4,822.28kb] [文件加载：193]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'getBaseInfo',
+    2 => 'userRole',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:108.0) Gecko/20100101 Firefox/108.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/api/getBaseInfo/userRole' => '',
+  'role_type' => '1',
+  'platform' => 'youyu',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\api\controller\GetBaseInfo->userRole[ D:\phpstudy_pro\WWW\new_kefu_online\application\api\controller\GetBaseInfo.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义数组索引: id[D:\phpstudy_pro\WWW\new_kefu_online\common\sql_server\BlockWaringSqlServer.php:56]
+---------------------------------------------------------------
+[ 2023-01-31T14:57:13+08:00 ] 127.0.0.1 GET api.newkefu.com/api/getBaseInfo/userRole?role_type=1&platform=youyu
+[运行时间：0.502339s] [吞吐率：1.99req/s] [内存消耗：4,780.30kb] [文件加载：191]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'getBaseInfo',
+    2 => 'userRole',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:108.0) Gecko/20100101 Firefox/108.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/api/getBaseInfo/userRole' => '',
+  'role_type' => '1',
+  'platform' => 'youyu',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\api\controller\GetBaseInfo->userRole[ D:\phpstudy_pro\WWW\new_kefu_online\application\api\controller\GetBaseInfo.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义数组索引: sid[D:\phpstudy_pro\WWW\new_kefu_online\common\sql_server\BlockWaringSqlServer.php:68]
+---------------------------------------------------------------
+[ 2023-01-31T14:57:39+08:00 ] 127.0.0.1 GET api.newkefu.com/api/getBaseInfo/userRole?role_type=1&platform=youyu
+[运行时间：0.452102s] [吞吐率：2.21req/s] [内存消耗：5,439.68kb] [文件加载：183]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'getBaseInfo',
+    2 => 'userRole',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:108.0) Gecko/20100101 Firefox/108.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/api/getBaseInfo/userRole' => '',
+  'role_type' => '1',
+  'platform' => 'youyu',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\api\controller\GetBaseInfo->userRole[ D:\phpstudy_pro\WWW\new_kefu_online\application\api\controller\GetBaseInfo.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2023-01-31T16:39:22+08:00 ] 127.0.0.1 GET api.newkefu.com/api/getBaseInfo/userRole?role_type=1&platform=youyu
+[运行时间：0.491369s] [吞吐率：2.04req/s] [内存消耗：4,833.93kb] [文件加载：194]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'getBaseInfo',
+    2 => 'userRole',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:108.0) Gecko/20100101 Firefox/108.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/api/getBaseInfo/userRole' => '',
+  'role_type' => '1',
+  'platform' => 'youyu',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\api\controller\GetBaseInfo->userRole[ D:\phpstudy_pro\WWW\new_kefu_online\application\api\controller\GetBaseInfo.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [10501]SQLSTATE[42S22]: Column not found: 1054 Unknown column 'es_id' in 'where clause'[D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\library\think\db\Connection.php:385]
+---------------------------------------------------------------
+[ 2023-01-31T16:40:20+08:00 ] 127.0.0.1 GET api.newkefu.com/api/getBaseInfo/userRole?role_type=1&platform=youyu
+[运行时间：0.496885s] [吞吐率：2.01req/s] [内存消耗：4,781.92kb] [文件加载：192]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'getBaseInfo',
+    2 => 'userRole',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:108.0) Gecko/20100101 Firefox/108.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/api/getBaseInfo/userRole' => '',
+  'role_type' => '1',
+  'platform' => 'youyu',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\api\controller\GetBaseInfo->userRole[ D:\phpstudy_pro\WWW\new_kefu_online\application\api\controller\GetBaseInfo.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [10501]SQLSTATE[42S22]: Column not found: 1054 Unknown column 'es_id' in 'where clause'[D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\library\think\db\Connection.php:385]
+---------------------------------------------------------------
+[ 2023-01-31T16:40:58+08:00 ] 127.0.0.1 GET api.newkefu.com/api/getBaseInfo/userRole?role_type=1&platform=youyu
+[运行时间：0.440981s] [吞吐率：2.27req/s] [内存消耗：4,778.28kb] [文件加载：191]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'getBaseInfo',
+    2 => 'userRole',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:108.0) Gecko/20100101 Firefox/108.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/api/getBaseInfo/userRole' => '',
+  'role_type' => '1',
+  'platform' => 'youyu',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\api\controller\GetBaseInfo->userRole[ D:\phpstudy_pro\WWW\new_kefu_online\application\api\controller\GetBaseInfo.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [8]未定义数组索引: openid[D:\phpstudy_pro\WWW\new_kefu_online\common\sql_server\RoleNameBlockWaringSqlServer.php:78]
+---------------------------------------------------------------
+[ 2023-01-31T16:41:06+08:00 ] 127.0.0.1 GET api.newkefu.com/api/getBaseInfo/userRole?role_type=1&platform=youyu
+[运行时间：0.494507s] [吞吐率：2.02req/s] [内存消耗：4,777.58kb] [文件加载：192]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'getBaseInfo',
+    2 => 'userRole',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:108.0) Gecko/20100101 Firefox/108.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/api/getBaseInfo/userRole' => '',
+  'role_type' => '1',
+  'platform' => 'youyu',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\api\controller\GetBaseInfo->userRole[ D:\phpstudy_pro\WWW\new_kefu_online\application\api\controller\GetBaseInfo.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [10501]SQLSTATE[21S01]: Insert value list does not match column list: 1136 Column count doesn't match value count at row 1[D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\library\think\db\Connection.php:453]
+---------------------------------------------------------------
+[ 2023-01-31T16:41:25+08:00 ] 127.0.0.1 GET api.newkefu.com/api/getBaseInfo/userRole?role_type=1&platform=youyu
+[运行时间：0.405611s] [吞吐率：2.47req/s] [内存消耗：4,777.52kb] [文件加载：192]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'getBaseInfo',
+    2 => 'userRole',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:108.0) Gecko/20100101 Firefox/108.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/api/getBaseInfo/userRole' => '',
+  'role_type' => '1',
+  'platform' => 'youyu',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\api\controller\GetBaseInfo->userRole[ D:\phpstudy_pro\WWW\new_kefu_online\application\api\controller\GetBaseInfo.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [10501]SQLSTATE[42S22]: Column not found: 1054 Unknown column 'platform_id' in 'field list'[D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\library\think\db\Connection.php:453]
+---------------------------------------------------------------
+[ 2023-01-31T16:42:43+08:00 ] 127.0.0.1 GET api.newkefu.com/api/getBaseInfo/userRole?role_type=1&platform=youyu
+[运行时间：0.479028s] [吞吐率：2.09req/s] [内存消耗：4,777.52kb] [文件加载：192]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'getBaseInfo',
+    2 => 'userRole',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:108.0) Gecko/20100101 Firefox/108.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/api/getBaseInfo/userRole' => '',
+  'role_type' => '1',
+  'platform' => 'youyu',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\api\controller\GetBaseInfo->userRole[ D:\phpstudy_pro\WWW\new_kefu_online\application\api\controller\GetBaseInfo.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [10501]SQLSTATE[42S22]: Column not found: 1054 Unknown column 'platform_id' in 'field list'[D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\library\think\db\Connection.php:453]
+---------------------------------------------------------------
+[ 2023-01-31T16:43:15+08:00 ] 127.0.0.1 GET api.newkefu.com/api/getBaseInfo/userRole?role_type=1&platform=youyu
+[运行时间：2.006792s] [吞吐率：0.50req/s] [内存消耗：4,711.01kb] [文件加载：189]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'getBaseInfo',
+    2 => 'userRole',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:108.0) Gecko/20100101 Firefox/108.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/api/getBaseInfo/userRole' => '',
+  'role_type' => '1',
+  'platform' => 'youyu',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\api\controller\GetBaseInfo->userRole[ D:\phpstudy_pro\WWW\new_kefu_online\application\api\controller\GetBaseInfo.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2023-01-31T16:45:35+08:00 ] 127.0.0.1 GET api.newkefu.com/api/getBaseInfo/userRole?role_type=1&platform=youyu
+[运行时间：2.264759s] [吞吐率：0.44req/s] [内存消耗：4,711.01kb] [文件加载：189]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'getBaseInfo',
+    2 => 'userRole',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:108.0) Gecko/20100101 Firefox/108.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/api/getBaseInfo/userRole' => '',
+  'role_type' => '1',
+  'platform' => 'youyu',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\api\controller\GetBaseInfo->userRole[ D:\phpstudy_pro\WWW\new_kefu_online\application\api\controller\GetBaseInfo.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2023-01-31T16:46:19+08:00 ] 127.0.0.1 GET api.newkefu.com/api/getBaseInfo/userRole?role_type=1&platform=youyu
+[运行时间：1.726581s] [吞吐率：0.58req/s] [内存消耗：4,710.95kb] [文件加载：189]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'getBaseInfo',
+    2 => 'userRole',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:108.0) Gecko/20100101 Firefox/108.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/api/getBaseInfo/userRole' => '',
+  'role_type' => '1',
+  'platform' => 'youyu',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\api\controller\GetBaseInfo->userRole[ D:\phpstudy_pro\WWW\new_kefu_online\application\api\controller\GetBaseInfo.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2023-01-31T16:46:25+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/scripts/run
+[运行时间：21.366795s] [吞吐率：0.05req/s] [内存消耗：6,105.60kb] [文件加载：261]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'scripts',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'dnt' => '1',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:108.0) Gecko/20100101 Firefox/108.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/scripts/run' => '',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\Scripts->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\Scripts.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ error ] [0]No alive nodes found in your cluster[D:\phpstudy_pro\WWW\new_kefu_online\vendor\elasticsearch\elasticsearch\src\Elasticsearch\ConnectionPool\StaticNoPingConnectionPool.php:64]
+---------------------------------------------------------------
+[ 2023-01-31T16:46:34+08:00 ] 127.0.0.1 GET api.newkefu.com/api/getBaseInfo/userRole?role_type=1&platform=youyu
+[运行时间：2.309154s] [吞吐率：0.43req/s] [内存消耗：5,014.77kb] [文件加载：197]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'getBaseInfo',
+    2 => 'userRole',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:108.0) Gecko/20100101 Firefox/108.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/api/getBaseInfo/userRole' => '',
+  'role_type' => '1',
+  'platform' => 'youyu',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\api\controller\GetBaseInfo->userRole[ D:\phpstudy_pro\WWW\new_kefu_online\application\api\controller\GetBaseInfo.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File

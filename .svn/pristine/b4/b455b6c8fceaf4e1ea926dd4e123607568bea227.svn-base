@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <title>后台管理系统</title>
+    <link rel="stylesheet" href="/assets/vendor/layui/css/layui.css"/>
+    <link rel="stylesheet" href="/assets/model/common/css/style.css"/>
+    <link rel="stylesheet" href="/assets/model/common/css/common.css"/>
+    <script type="text/javascript" src="/assets/vendor/layui/layui.js"></script>
+    <!--[if lt IE 9]>
+    <script src="/assets/model/common/js/html5shiv.min.js"></script>
+    <script src="/assets/model/common/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<div id="add_rejectappeal" style="display: none;">
+    <form class="layui-form" action="" style="padding: 20px;">
+        <div class="layui-form-item" >
+            <label class="layui-form-label">申诉原因: </label>
+            <div class="layui-input-inline" id="appeal_text">
+
+            </div>
+        </div>
+        <div class="layui-form-item" >
+            <label class="layui-form-label">申诉结果: </label>
+            <div class="layui-input-inline">
+                <select name="kf_id" lay-search="">
+                    <option value="0">申诉驳回</option>
+                    <option value="1">申诉完成</option>
+                </select>
+            </div>
+        </div>
+        <div class="layui-form-item" >
+            <label class="layui-form-label">拒绝原因: </label>
+            <div class="layui-input-inline">
+                <textarea id="reject_appeal_reason" name="reject_appeal_reason"></textarea>
+            </div>
+        </div>
+        <input type="hidden" id="reject_appeal_id" name="id" value="0">
+
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button type="submit" class="layui-btn" lay-submit lay-filter="submit_rejectappeal">提交</button>
+            </div>
+        </div>
+    </form>
+</div>
+<style type="text/css">
+    /*.layui-input-inline{
+        max-width: 150px;
+    }*/
+    .laytable-cell-checkbox .layui-disabled.layui-form-checked i {
+        background: #fff !important;
+    }
+</style>
+<body>
+<div style="padding: 12px;"  class="search_wrap">
+    <form class="layui-form" action="" id="search_form">
+
+        <div class="layui-inline">
+           <label class="layui-form-label">问题编号：</label>
+
+           <div class="layui-input-inline">
+               <input type="text" name="qc_num" autocomplete="off" class="layui-input">
+           </div>
+
+       </div>
+
+       <span id="common_search"></span>
+
+        <div class="layui-inline" style="margin-bottom: 6px;">
+            <label class="layui-form-label">会话来源：</label>
+            <div class="layui-input-inline">
+                <div id="select_kf_source" class="xm-select-demo" style="min-width: 210px"></div>
+            </div>
+        </div>
+
+        <div class="layui-inline" style="margin-bottom: 6px;">
+            <label class="layui-form-label">会话分类：</label>
+            <div class="layui-input-inline">
+                <select name="question_type" lay-search="" id="question_type">
+                    <option value="">选择或搜索</option>
+                    
+                </select>
+            </div>
+        </div>
+        <div class="layui-inline" style="margin-bottom: 6px;">
+            <label class="layui-form-label">质检类型：</label>
+            <div class="layui-input-inline">
+                <select name="qc_type" lay-search="" id="qc_type">
+                    <option value="">选择或搜索</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="layui-inline">
+            <label class="layui-form-label">会话日期：</label>
+
+            <div class="layui-input-inline" style="width: 150px;">
+                <input type="text" name="server_date" id="server_date" placeholder="" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-inline" style="margin-bottom: 6px;">
+            <label class="layui-form-label">用户分组：</label>
+            <div class="layui-input-inline">
+                <select name="group_id" lay-search="">
+                    <option value="">选择或搜索</option>
+                    
+                </select>
+            </div>
+        </div>
+
+        <div class="layui-inline" style="margin-bottom: 6px;">
+            <label class="layui-form-label">游戏名称：</label>
+            <div class="layui-input-inline">
+                <select name="game_type" lay-search="">
+                    <option value="">选择或搜索</option>
+                </select>
+            </div>
+        </div>
+
+
+
+        <div class="layui-inline" style="margin-bottom: 6px;">
+            <label class="layui-form-label">申诉状态：</label>
+            <div class="layui-input-inline">
+                <select name="status" lay-search="">
+                    <option value="">选择或搜索</option>
+                    
+                </select>
+            </div>
+        </div>
+
+        <div class="layui-inline" style="margin-bottom: 6px;">
+            <label class="layui-form-label">质检员：</label>
+            <div class="layui-input-inline">
+                <select name="admin_id" lay-search="">
+                    <option value="">选择或搜索</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="layui-inline" style="margin-bottom: 6px;">
+            <label class="layui-form-label">质检等级：</label>
+            <div class="layui-input-inline">
+                <select name="qc_level" lay-search="">
+                    <option value="">选择或搜索</option>
+                    
+                </select>
+            </div>
+        </div>
+
+        
+
+        <div class="layui-inline" style="margin-bottom: 6px;">
+            <label class="layui-form-label">客服解决：</label>
+            <div class="layui-input-inline">
+                <select name="kf_is_solve" lay-search="">
+                    <option value="">选择或搜索</option>
+                    <option value="0">否</option>
+                    <option value="1">是</option>
+                </select>
+            </div>
+        </div>
+        <div class="layui-inline" style="margin-bottom: 6px;">
+            <label class="layui-form-label">问题解决：</label>
+            <div class="layui-input-inline">
+                <select name="question_is_solve" lay-search="">
+                    <option value="">选择或搜索</option>
+                    <option value="0">否</option>
+                    <option value="1">是</option>
+                </select>
+            </div>
+        </div>
+        <div class="layui-inline" style="margin-bottom: 6px;">
+            <label class="layui-form-label">案例筛选：</label>
+            <div class="layui-input-inline">
+                <select name="is_example" lay-search="">
+                    <option value="">选择或搜索</option>
+                    <option value="0">否</option>
+                    <option value="1">是</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="layui-inline">
+           <label class="layui-form-label">得分：</label>
+
+           <div class="layui-input-inline" style="width: 80px;">
+               <input type="number" name="qc_score_start" min="0" autocomplete="off" class="layui-input">
+           </div>
+           -
+           <div class="layui-input-inline" style="width: 80px;">
+               <input type="number" name="qc_score_end" min="0" max="100" autocomplete="off" class="layui-input">
+           </div>
+
+       </div>
+
+        <div class="layui-inline">
+           <label class="layui-form-label">质检时间：</label>
+
+           <div class="layui-input-inline" style="width: 150px;">
+               <input type="text" name="start" id="sdate" placeholder="开始时间" autocomplete="off" class="layui-input">
+           </div>
+           -
+           <div class="layui-input-inline" style="width: 150px;">
+               <input type="text" name="end" id="edate"  placeholder="结束时间" autocomplete="off" class="layui-input">
+           </div>
+
+       </div>
+
+
+        <div class="layui-inline">
+           <label class="layui-form-label">内容搜索：</label>
+
+           <div class="layui-input-inline">
+               <input type="text" name="text" autocomplete="off" class="layui-input">
+           </div>
+
+       </div>
+
+    </form>
+</div>
+
+<div class="layui-btn-group demoTable" style="padding: 0 15px;">
+    <button class="layui-btn layui-btn-sm layui-power" id="Qc-logList" data-type="search">搜索</button>
+    <button class="layui-btn layui-btn-sm layui-power" id="Qc-logAdd" data-type="add">添加</button>
+
+    <!-- <button type="button" class="layui-btn layui-btn-sm layui-btn-danger" data-type="del"><i class="layui-icon"></i> 批量删除</button> -->
+</div>
+<div class="table_wrap" style="padding: 0 15px;">
+    <table id="idTest" lay-filter="demo" class="layui-table"></table>
+</div>
+
+<script>
+    var rejectappeal_open_index;
+
+    var lay_page = 1;
+    var pdata = {};
+    var layui_obj = layui.config({
+        version: true,
+        base: '/assets/model/'
+    }).extend({
+        common: 'common/js/common',
+        search: 'common/js/search',
+    }).use(['common','jquery','table','laydate','form','xmSelect','search'], function(){
+        var table   = layui.table,
+            form = layui.form,
+            laydate = layui.laydate;
+        var xmSelect = layui.xmSelect;
+        var $ = layui.jquery;
+        var common = layui.common;
+        var search = layui.search;
+
+        //日期
+        laydate.render({
+            elem: '#sdate',
+            trigger : 'click',
+            type: 'datetime'
+        });
+        laydate.render({
+            elem: '#edate',
+            trigger : 'click',
+            type: 'datetime'
+        });
+        laydate.render({
+            elem: '#server_date',
+            trigger : 'click',
+            // type: 'datetime'
+        });
+
+        common.initPowerShow(['Qc-logAdd','Qc-logList']);
+
+        initData();
+        
+        //监听提交
+        form.on('submit(submit_rejectappeal)', function(data){
+
+            var new_data = data.field;
+
+            common.req({
+                url: "Qc/rejectAppeal",
+                data: new_data,
+                type: "post",
+                dataType:"json",
+                success:function(res){
+                    if( res.code==0 ){
+                        layer.close(rejectappeal_open_index);//关闭当前页
+                        layer.msg(res.msg,{icon:1});
+                        window.location.reload();
+                    }else{
+                        layer.msg(res.msg,{icon:2});
+                    }
+                },
+                error:function(res){
+                    layer.alert('错误'+res.msg,{icon:2});
+                }
+            });
+            return false;
+        });
+        //监听工具条
+        table.on('tool(demo)', function(obj){
+            var data = obj.data;
+            if(obj.event === 'del'){
+                layer.confirm('真的删除行么', function(index){
+                    layer.close(index);
+                    common.req({
+                        url: "Qc/logDel",
+                        data: { id: data.id },
+                        type: "post",
+                        dataType:"json",
+                        success:function(res){
+                            if( res.code==0 ){
+                                obj.del();
+                                layer.msg(res.msg,{icon:1});
+                            }else{
+                                layer.msg(res.msg,{icon:2});
+                            }
+                        },
+                        error:function(data){
+                            layer.alert('错误'+data.msg,{icon:2});
+                        }
+                    });
+
+                });
+            }else if(obj.event === 'detail'){
+                //添加
+                let thisindex = layer.open({
+                    type: 2,
+                    title: "编辑质检",
+                    maxmin: true,
+                    shadeClose: true, //点击遮罩关闭层
+                    area : ['70%' , '70%'],
+                    content: "log_detail.html?id="+data.id
+                });
+                layer.full(thisindex);
+            }else if( obj.event=='rejectappeal' ){
+
+                $('#appeal_text').html(data.appeal_reason);
+                $('#reject_appeal_reason').html(data.reject_appeal_reason);
+                $('#reject_appeal_id').val(data.id);
+                //添加
+                rejectappeal_open_index = layer.open({
+                    type: 1,
+                    title: "申诉处理",
+                    maxmin: true,
+                    shadeClose: true, //点击遮罩关闭层
+                    area : ['400px' , '400px'],
+                    content: $('#add_rejectappeal')
+                });
+            }
+        });
+
+        $('.demoTable .layui-btn').on('click', function(){
+            var type = $(this).data('type');
+            if( type=='add' ){
+                //添加
+                let thisindex = layer.open({
+                    type: 2,
+                    title: "添加质检",
+                    maxmin: true,
+                    shadeClose: true, //点击遮罩关闭层
+                    area : ['70%' , '70%'],
+                    content: "log_detail.html"
+                });
+                layer.full(thisindex);
+            }else if( type=='search' ){
+                //搜索
+                let form_data = $('#search_form').serializeArray();
+                // console.log(form_data);return;
+                $.each(form_data,function(k,v){
+                    pdata[v.name] = v.value;
+                })
+                table.reload('idTest', {
+                    method: 'post'
+                    ,where: pdata
+                    ,page: {
+                        curr: lay_page
+                    }
+                    ,done:function(a,b,c){
+                        lay_page = b;
+                       
+                    }
+                });
+            }
+
+
+        });
+
+        function initData(){
+
+            var search_config_def = {
+                'platform':{
+                    'status':1
+                    ,'name':'platform_id'
+                }
+                ,'admin':{
+                    'status':1
+                    ,'p_data':{group_type:[1,4,5]}
+                    ,'title':'客服'
+                    ,'name':'kf_id'
+                    ,'radio':true
+                }
+            };
+
+            search.init('common_search',search_config_def);
+
+            common.req({
+                url: 'Qc/logListconfig' //获取游戏名称
+                ,async:false
+                ,success:function(json)
+                {
+                    var kf_source_data = [];
+                    var kf_score_data = [];
+                    var qc_admin_list_data = [];
+                    var base_config = json.data;
+
+                    $.each(base_config.kf_source_arr,function(k,v){
+                        var this_data = {};
+                        this_data.name = v;
+                        this_data.value = k;
+                        kf_source_data.push(this_data);
+                    });
+                    $.each(base_config.kf_score_arr,function(k,v){
+                        var this_data = {};
+                        this_data.name = v;
+                        this_data.value = k;
+                        kf_score_data.push(this_data);
+                    });
+                    $.each(base_config.qc_admin_list,function(k,v){
+                        $('select[name=admin_id]').append('<option value="'+v.id+'">'+v.name+'</option>');
+                    });
+                    $.each(base_config.game_type,function(k,v){
+                        $('select[name=game_type]').append('<option value="'+k+'">'+v+'</option>');
+                    });
+
+                    $.each(base_config.user_group_list,function(k,v){
+                        $('select[name=group_id]').append('<option value="'+v.id+'">'+v.name+'</option>');
+                    });
+
+                    $.each(base_config.question_type,function(k,v){
+                        $('select[name=question_type]').append('<option value="'+v.id+'">'+v.name+'</option>');
+                    });
+
+                    $.each(base_config.status_arr,function(k,v){
+                        $('select[name=status]').append('<option value="'+k+'">'+v+'</option>');
+                    });
+
+                    $.each(base_config.qc_level,function(k,v){
+                        $('select[name=qc_level]').append('<option value="'+v+'">'+v+'</option>');
+                    });
+    
+
+                    var select_kf_source = xmSelect.render({
+                        el: '#select_kf_source',
+                        // prop:{
+                        //     name:'reason',
+                        //     value:'reason',
+                        // },
+                        toolbar: {
+                            show: true,
+                            list: [ 'ALL', 'CLEAR', 'REVERSE' ]
+                        },
+                        data: kf_source_data,
+                        name:'kf_source',
+                        on: function(data){
+                            //arr:  当前多选已选中的数据
+                            var arr = data.arr;
+                            //change, 此次选择变化的数据,数组
+                            var change = data.change;
+                            //isAdd, 此次操作是新增还是删除
+                            var isAdd = data.isAdd;
+
+                            if(arr.length!=0){
+                                set_source_info(arr[0].value);
+                            }
+
+                            //可以return一个数组, 代表想选中的数据
+                            //return []
+                        },
+                    })
+
+                    form.render();
+                }
+            });
+
+            table.render({
+                elem: '#idTest'
+                ,height: 'full-120'
+                ,url: common.getUrl('Qc/logList') //数据接口
+                ,page: true //开启分页
+                ,limits:[20,50,100,200,500]
+                ,limit:20
+                ,method:'post'
+                // ,where:p_data
+                ,minWidth:1000
+                ,autoWidth:true
+                ,headers:common.getHeader()
+                ,cols: [[ //表头
+                    { type:'checkbox', minWidth:100, fixed: 'left' ,title:''}
+                    ,{field:'id', minWidth:80, sort: true,title:'ID'}
+                    ,{field:'admin_id_str',minWidth:80,title:'质检员'}
+                    ,{field:'create_time_str',minWidth:125,title:'质检时间'}
+                    ,{field:'kf_source_str',minWidth:90,title:'会话来源'}
+                    ,{field:'server_start_str',minWidth:90,title:'会话日期'}
+                    ,{field:'kf_name', minWidth:100,title:'客服姓名'}
+                    ,{field:'platform_id_str',title:'主体'}
+                    ,{field:'group_id_str',minWidth:120,title:'组别'}
+                    ,{field:'game_type', minWidth:90,title:'游戏名称'}
+                    ,{field:'question_type', minWidth:100,title:'会话分类'}
+                    ,{field:'qc_level',minWidth:90,title:'质检等级'}
+                    ,{field:'qc_type', minWidth:90,title:'质检类型'}
+                    ,{field:'kf_is_solve_str', minWidth:120,title:'客服是否解决'}
+                    ,{field:'question_is_solve_str', minWidth:120,title:'问题是否解决'}
+                    ,{field:'qc_score',title:'得分'}
+                    ,{field:'is_example_str', minWidth:110,title:'添加案例库'}
+                    ,{minWidth:100
+                        ,templet:function(d){
+                            let str = '';
+                            if(d.status == 2){
+                                str = '<span title='+d.reject_appeal_reason+'>'+d.status_str+'</span>';
+                            }else{
+                                str = '<span>'+d.status_str+'</span>';
+                            }        
+                            return str;
+                        },title:'状态'}
+                    ,{minWidth:115, align:'center', fixed: 'right'
+                        ,templet:function(d){
+                                let str = '';
+                                if(d.action){
+                                    $.each(d.action,function(k,v){
+                                        str+= action(v);
+                                    })
+                                }
+                                return str;
+                            }
+                        ,title:'操作'}
+                ]]
+                ,done:function(a,b,c){
+                    lay_page = b;
+                    if(c > 0){
+
+                    }
+                }
+            });
+        }
+        
+
+        function set_source_info(kf_source){
+            common.req({
+                url: "Qc/getSourceConfig",
+                data: {'kf_source':kf_source,keys:'question_type,qc_type'},
+                type: "post",
+                dataType:"json",
+                success:function(res){
+                    if( res.code==0 ){
+
+                        $.each(res.data, function (k, v) {
+                            if(k === 'qc_score_dec' || k === 'qc_score_inc'){
+                                let class_name = '.select_'+k;
+                                $(class_name).html('<option value="" data-score="0">请选择</option>');
+                                $.each(v,function (k1,v1){
+                                    $.each($(class_name),function (k,v){
+                                        let thisdataval = $(v).attr('data-val');
+                                        if(v1.reason === thisdataval){
+                                            // $(v).append(new Option(v1.reason,v1.score,true,true));
+                                            $(v).append('<option value="'+v1.reason+'" data-score="'+v1.score+'" selected>'+v1.reason+'</option>');
+                                            var this_score_input_obj = $(v).parent().parent().parent().find('.score_num').find('input');
+                                            this_score_input_obj.val(this_score_input_obj.attr('def-value'));
+                                        }else{
+                                            $(v).append('<option value="'+v1.reason+'" data-score="'+v1.score+'">'+v1.reason+'</option>');
+                                        }
+
+                                    })
+                                })
+                            }else{
+                                let this_id_obj = $('#'+k);
+                                this_id_obj.html('<option value="">请选择</option>');
+                                $.each(v,function (k1,v1){
+                                    let thisdataval = this_id_obj.attr('data-val');
+                                    if(v1 === thisdataval){
+                                        this_id_obj.append('<option value="'+v1+'"  selected>'+v1+'</option>');
+                                    }else{
+                                        this_id_obj.append('<option value="'+v1+'" >'+v1+'</option>');
+                                    }
+                                })
+                            }
+                            
+                        });
+                        layui.form.render("select");//重新渲染 固定写法
+                    }
+                },
+                error:function(data){
+                    layer.alert('错误'+data.msg,{icon:2});
+                }
+            });
+        }
+    });
+    //给子级调用
+    function res_msg(msg){
+        layer.msg(msg,{icon:1});
+        setTimeout(function(){
+            // window.location.reload();
+            layui_obj.table.reload('idTest', {
+                method: 'post'
+                ,where: pdata
+                ,page: {
+                    curr: lay_page
+                }
+            });
+        },1000);
+    }
+    function action(action,data){
+        let str = '';
+        switch (action) {
+            case 'logDetail':
+                str = '<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="detail">详细</a>';
+                break;
+            // case 'rejectappeal':
+            //     str = '<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="rejectappeal">申诉处理</a>';
+            //     break;
+            case 'logDel':
+                str = '<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>';
+                break;
+            default:
+
+                break;
+        }
+
+        return str;
+    }
+</script>
+</body>
+</html>

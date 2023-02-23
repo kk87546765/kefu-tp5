@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <title>后台管理系统</title>
+    <link rel="stylesheet" href="/assets/vendor/layui/css/layui.css"/>
+    <link rel="stylesheet" href="/assets/model/common/css/style.css"/>
+    <link rel="stylesheet" href="/assets/model/common/css/common.css"/>
+    <script type="text/javascript" src="/assets/vendor/layui/layui.js"></script>
+    <!--[if lt IE 9]>
+    <script src="/assets/model/common/js/html5shiv.min.js"></script>
+    <script src="/assets/model/common/js/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        .layui-col-space15 {
+            /* margin: -7.5px; */
+            margin:-7.5px 0 !important;
+        }
+    </style>
+</head>
+<style>
+    .laytable-cell-checkbox .layui-disabled.layui-form-checked i {
+        background: #fff !important;
+    }
+</style>
+<body>
+<!-- 页面加载loading -->
+<div class="page-loading">
+    <div class="ball-loader">
+        <span></span><span></span><span></span><span></span>
+    </div>
+</div>
+<!-- 正文开始 -->
+
+<div style="padding: 12px;"  class="search_wrap">
+    <blockquote class="layui-elem-quote">
+        <form class="layui-form" action="" id="search_form">
+            <div class="layui-inline" style="margin-bottom: 6px;">
+                <label class="layui-form-label">名称: </label>
+                <div class="layui-input-inline">
+                    <input type="input" name="title" class="layui-input" placeholder="请输入">
+                </div>
+            </div>
+
+            <div class="layui-inline">
+                <label class="layui-form-label w-auto">是否显示：</label>
+                <div class="layui-input-inline">
+                    <select name="status" >
+                        <option value="">请选择</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="layui-inline">
+                <label class="layui-form-label w-auto">父级：</label>
+                <div class="layui-input-inline">
+                    <select name="pid">
+                        <option value="">请选择</option>
+                        <option value="0">顶级</option>
+                    </select>
+                </div>
+            </div>
+
+        </form>
+    </blockquote>
+</div>
+
+<div class="table_wrap table-tool-mini">
+    <div class="layui-btn-group demoTable" style="padding: 0 15px;">
+        <button class="layui-btn layui-btn-sm layui-power" id="WorkSheet-typeList" data-type="search">搜索</button>
+    </div>
+    <table id="idTest" lay-filter="demo" class="layui-hide"></table>
+</div>
+
+
+
+<script>
+    var p_data = {};
+    var defaultToolbar = [
+        'filter'
+        , 'print'
+        , 'exports'
+    ];
+    var layui_obj = layui.config({
+        version: true,
+        base: '/assets/model/'
+    }).extend({
+        common: 'common/js/common',
+    }).use(['common','jquery','table','form'], function(){
+        var table   = layui.table;
+        var form = layui.form;
+        var layer = layui.layer;
+        var $ = layui.jquery;
+        var common = layui.common;
+
+
+        initData();
+
+        //监听工具条
+        table.on('tool(demo)', function(obj){
+            var data = obj.data;
+            if(obj.event === 'del'){
+                layer.confirm('真的删除行么', function(index){
+                    layer.close(index);
+                    common.req({
+                        url: "work_sheet/del",
+                        data: { ids: data.id },
+                        type: "post",
+                        dataType:"json",
+                        success:function(res){
+                            if( res.status==1 ){
+                                obj.del();
+                                layer.msg(res.msg,{icon:1});
+                            }else{
+                                layer.msg(res.msg,{icon:2});
+                            }
+                        },
+                        error:function(data){
+                            layer.alert('错误'+data.msg,{icon:2});
+                        }
+                    });
+
+                });
+            }else if(obj.event === 'detail'){
+                var title='编辑';
+                var url = 'type_detail.html?id='+data.id;
+
+                layer.open({
+                    type: 2,
+                    title: title+'详情',
+                    maxmin: true,
+                    shadeClose: true, //点击遮罩关闭层
+                    area : ['70%' , '70%'],
+                    content: url
+                });
+            }else if(obj.event === 'type_input_list'){
+                var title='编辑';
+                var url = 'type_input_list.html?work_sheet_type_id='+data.id;
+                var this_index = layer.open({
+                    type: 2,
+                    title: title+'详情',
+                    maxmin: true,
+                    shadeClose: true, //点击遮罩关闭层
+                    area : ['100%' , '100%'],
+                    content: url
+                });
+                
+            }
+
+        });
+
+        // 头部工具监听事件
+        table.on('toolbar(demo)', function(obj){
+            switch(obj.event){
+                case 'add':
+                    layer.open({
+                        type: 2,
+                        title: "添加",
+                        maxmin: true,
+                        shadeClose: true, //点击遮罩关闭层
+                        area : ['70%' , '70%'],
+                        content: "type_detail.html"
+                    });
+                    break;
+            };
+        });
+
+        //自定义工具事件
+        $('.demoTable .layui-btn').on('click', function(){
+            var type = $(this).data('type');
+            if( type=='add' ){
+                //添加
+                layer.open({
+                    type: 2,
+                    title: "添加",
+                    maxmin: true,
+                    shadeClose: true, //点击遮罩关闭层
+                    area : ['70%' , '70%'],
+                    content: "type_detail.html"
+                });
+            }else if( type=='search' ){
+                //搜索
+                let form_data = $('#search_form').serializeArray();
+                // console.log(form_data);return false;
+                $.each(form_data,function(k,v){
+                    p_data[v.name] = v.value;
+                })         
+
+                table.reload('idTest', {
+                    method: 'post'
+                    ,where: p_data
+                    ,page: {
+                        curr: 1
+                    }
+                });
+            }
+        });
+
+        function initData(){
+
+            common.initPowerShow([
+                ,'WorkSheet-typeList'
+            ]);
+
+            if(common.hasPower('WorkSheet-typeAdd')){
+                defaultToolbar.unshift({
+                    title: '添加' //标题
+                    ,layEvent: 'add' //事件名，用于 toolbar 事件中使用
+                    ,icon: 'layui-icon-add-1' //图标类名
+                });
+            }
+
+            common.req({
+                url: 'work_sheet/typeListConfig' //获取游戏名称
+                ,success:function(json)
+                {
+                    var base_config = json.data;
+
+                    $.each(base_config.status_arr,function(k,v){
+                        $('select[name=status]').append('<option value="'+k+'">'+v+'</option>');
+                    });
+
+                    $.each(base_config.sheet_type_arr,function(k,v){
+                        $('select[name=pid]').append('<option value="'+v.id+'">'+v.title+'</option>');
+                    });
+
+                    // 数据表格
+                    table.render({
+                        elem: '#idTest'
+                        ,height: 'full-120'
+                        ,url: common.getUrl('work_sheet/typeList') //数据接口
+                        ,headers:common.getHeader()
+                        ,page: true
+                        ,limits:[20,50,100,200,500]
+                        ,limit:20
+                        ,minWidth:1000
+                        ,autoWidth:true
+                        ,toolbar:'toolbar-test'
+                        ,defaultToolbar:defaultToolbar
+                        ,cols: [[ //表头
+                            {field:'id', width:80, sort: true, title:'ID'}
+                            ,{field:'title', width:100, title:'名称'}
+                            ,{field:'status_str', minWidth:80, title:'状态'}
+                            ,{field:'pid_str', minWidth:80, title:'等级'}
+                            ,{field:'admin_id_str', minWidth:88, title:'操作人'}
+                            ,{field:'create_time', minWidth:150, title:'添加时间'}
+                            ,{field:'update_time', minWidth:150, title:'最后修改时间'}
+                            ,{minWidth:140, align:'center', fixed: 'right', title:'操作'
+                            ,templet:function(d){
+                                    let str = '';
+                                    if(d.action && d.action.length>0){
+                                        $.each(d.action,function(k,v){
+                                            str+= action(v,d);
+                                        })
+                                    }
+                                    return str;
+                                }
+                            }
+                        ]]
+                        ,where:p_data
+                        ,method:'post'
+                        ,done:function(a,b,c){
+                            lay_page = b;
+                            if(c > 0){
+
+                            }
+                            common.isLoading(false);
+                        }
+                    });
+
+                    form.render();
+                }
+            });
+        }
+    });
+    //给子级调用
+    function res_msg(msg){
+        layer.msg(msg,{icon:1});
+        setTimeout(function(){
+            layui_obj.table.reload('idTest');
+        },1000);
+    }
+
+    function action(action,data){
+        let str = '';
+        switch (action) {
+            case 'typeDetail':
+                str = '<a class="layui-btn layui-btn-xs" lay-event="detail">详情</a>';
+                break;
+            case 'typeInputList':
+                if(data.pid == 0){
+                    str = '<a class="layui-btn layui-btn-xs" lay-event="type_input_list">扩展字段</a>';
+                }
+                break;
+            
+            default:
+
+                break;
+        }
+
+        return str;
+    }
+</script>
+</body>
+</html>

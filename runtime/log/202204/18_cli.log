@@ -1,0 +1,54 @@
+[ 2022-04-18T14:40:42+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-04-18T14:40:42+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'test',
+    2 => 'updateEveryMount',
+  ),
+)
+[ 2022-04-18T14:40:42+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-04-18T14:40:42+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'api',
+  'm' => 'test',
+  'a' => 'updateEveryMount',
+  'p' => 
+  array (
+  ),
+)
+[ 2022-04-18T14:40:42+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-04-18T14:40:42+08:00 ][ info ] [ RUN ] app\api\controller\Test->updateEveryMount[ D:\phpstudy_pro\WWW\new_kefu_online\application\api\controller\Test.php ]
+[ 2022-04-18T14:40:42+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-04-18T14:40:42+08:00 ][ error ] [10501]SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'partition_key is null
+				ORDER BY
+					id
+				LIMIT 0,
+				100' at line 6[D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\library\think\db\Connection.php:385]
+[ 2022-04-18T14:40:56+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-04-18T14:40:56+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'test',
+    2 => 'updateEveryMount',
+  ),
+)
+[ 2022-04-18T14:40:56+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-04-18T14:40:56+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'api',
+  'm' => 'test',
+  'a' => 'updateEveryMount',
+  'p' => 
+  array (
+  ),
+)
+[ 2022-04-18T14:40:56+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-04-18T14:40:56+08:00 ][ info ] [ RUN ] app\api\controller\Test->updateEveryMount[ D:\phpstudy_pro\WWW\new_kefu_online\application\api\controller\Test.php ]
+[ 2022-04-18T14:40:56+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-04-18T14:47:27+08:00 ][ error ] [8]Undefined offset: -1[D:\phpstudy_pro\WWW\new_kefu_online\application\api\controller\Test.php:68]

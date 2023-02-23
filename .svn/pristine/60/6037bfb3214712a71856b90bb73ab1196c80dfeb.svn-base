@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <title>后台管理系统</title>
+    <link rel="stylesheet" href="/assets/vendor/layui/css/layui.css"/>
+    <link rel="stylesheet" href="/assets/model/common/css/style.css"/>
+    <link rel="stylesheet" href="/assets/model/common/css/common.css"/>
+    <script type="text/javascript" src="/assets/vendor/layui/layui.js"></script>
+    <!--[if lt IE 9]>
+    <script src="/assets/model/common/js/html5shiv.min.js"></script>
+    <script src="/assets/model/common/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+    <!-- 加载动画 -->
+    <div class="page-loading">
+        <div class="ball-loader">
+            <span></span><span></span><span></span><span></span>
+        </div>
+    </div>
+    
+    <!-- Main content -->
+    <div style="padding: 12px 15px;" class="layui-btn-group demoTable">
+        <button type="button" id="Sysmanage-roleAdd" class="layui-btn layui-btn-sm layui-power" >添加初级分组</button>
+    </div>
+    <div id="menu_list" class="demo-tree demo-tree-box" style="padding: 20px; margin: 0 15px; border: 1px solid #aaa;"></div>
+
+    <script>
+    var click_name = 'sysmanage_role_click_id';
+    var action = [];
+
+    var layui_obj = layui.config({
+        version: true,
+        base: '/assets/model/'
+    }).extend({
+        common: 'common/js/common',
+    }).use(['common','tree','jquery'], function(){
+        var tree = layui.tree;
+        var common = layui.common;
+        var $ = layui.jquery;
+
+
+        //初始化权限显示
+        common.initPowerShow([
+            'Sysmanage-roleAdd'
+        ]);
+
+        initData();
+
+        $('#Sysmanage-roleAdd').click(function(){
+            layer.open({
+                type: 2,
+                title: "添加",
+                maxmin: true,
+                shadeClose: true, //点击遮罩关闭层
+                area : ['80%' , '60%'],
+                content: "/view/sysmanage/role_detail.html"
+            });
+        })
+
+        function initData(){
+
+            if(common.hasPower('Sysmanage-roleAdd')){
+                action.push({'type':'roleAdd','icon':'layui-icon-add-1','title':'添加'})
+            }
+
+            if(common.hasPower('Sysmanage-roleDetail')){
+                action.push({'type':'roleDetail','icon':'layui-icon-edit','title':'编辑'})
+            }
+            if(common.hasPower('Sysmanage-roleSetPermission')){
+                action.push({'type':'roleSetPermission','icon':'layui-icon-auz','title':'授权'})
+            }
+            if(common.hasPower('Sysmanage-roleDel')){
+                action.push({'type':'roleDel','icon':'layui-icon-delete','title':'删除'})
+            }
+            if(common.hasPower('User-list')){
+                action.push({'type':'userList','icon':'layui-icon-user','title':'查看用户'})
+            }
+
+
+            var click_id = common.getTempData(click_name);
+            common.req({
+                url: "Sysmanage/roleList",
+                data: {'click_id':click_id},
+                type: "post",
+                dataType:"json",
+                success:function(res){
+                    if( res.code==0 ){
+                        setTree(res.data);
+                        // layer.msg(res.msg,{icon:1});
+                    }else{
+                        layer.msg(res.msg,{icon:2});
+                    }
+                    //隐藏加载框
+                    common.isLoading(false);
+                },
+                error:function(res){
+                    layer.alert('错误'+res.msg,{icon:2});
+                }
+            });
+        }
+
+        function setTree(menus){
+            tree.render({
+                elem: '#menu_list'
+                ,data: menus
+                ,edit: action//操作节点的图标
+                ,onlyIconControl:2
+                ,click: function(obj){
+                    var data = obj.data; //得到当前节点的数据
+                        role_id   = data.role_id;
+                    change(role_id,obj.state);
+                }
+                ,operate: function(obj){ //操作事件
+                    var type = obj.type; //得到操作类型：add、edit、del
+                        data = obj.data; //得到当前节点的数据
+                        role_id   = data.role_id;
+
+                    if(!data.role_id){
+                        return false;
+                    }
+                    if( type=="roleDel" ){
+                        common.req({
+                            url: "Sysmanage/roleDel",
+                            data: { id: role_id },
+                            type: 'post',
+                            dataType: 'json',
+                            success: function(res){
+                                if( res.code==0 ){
+                                    res_msg(res.msg)
+                                }else{
+                                    layer.alert(res.msg,{icon:2});
+                                }
+                            },
+                            error: function(res){
+                                layer.alert("网络繁忙，请刷新重新操作！",{icon:2});
+                            }
+                        });
+                    }else if(type == 'roleAdd'){
+                         layer.open({
+                            type: 2,
+                            title: "添加",
+                            maxmin: true,
+                            shadeClose: true, //点击遮罩关闭层
+                            area : ['80%' , '60%'],
+                            content: "/view/sysmanage/role_detail.html?p_id="+role_id
+                        });
+                    }else if(type == 'roleSetPermission'){
+                        //授权
+                        layer.open({
+                            type: 2,
+                            title: "角色授权",
+                            maxmin: true,
+                            shadeClose: true, //点击遮罩关闭层
+                            area : ['80%' , '60%'],
+                            content: "/view/sysmanage/set_permission.html?role_id="+data.role_id
+                        });
+                    }else if(type == 'roleDetail'){
+                        //修改
+                        layer.open({
+                            type: 2,
+                            title: "修改",
+                            maxmin: true,
+                            shadeClose: true, //点击遮罩关闭层
+                            area : ['80%' , '60%'],
+                            content: "/view/sysmanage/role_detail.html?role_id="+role_id
+                        });
+                    }else if(type == 'userList'){
+                        //修改
+                        layer.open({
+                            type: 2,
+                            title: "修改",
+                            maxmin: true,
+                            shadeClose: true, //点击遮罩关闭层
+                            area : ['80%' , '60%'],
+                            content: "/view/user/list.html?role_id="+role_id
+                        });
+                    }
+
+                    return false;
+                    //Ajax 操作
+                }
+            });
+        }
+
+        function change(id,type){
+            var this_arr = common.getTempData(click_name);
+            console.log(this_arr,id,type);
+            if(typeof this_arr != 'object'){
+                this_arr = [];
+            }
+            this_arr = common.arrRemove(this_arr,id);
+
+            if(type=='open'){
+                this_arr.push(id);
+            }
+            console.log(this_arr);
+            common.putTempData(click_name,this_arr);
+        }
+
+    });
+
+    
+    //给子级调用
+    function res_msg(msg){
+        layer.msg(msg,{icon:1});
+        var url = GetUrlRelativePath()
+        setTimeout(function(){
+            window.location.href=url;
+        },1000);
+    }
+
+    function GetUrlRelativePath()
+    {
+        var url = document.location.toString();
+        var arrUrl = url.split("//");
+
+        var start = arrUrl[1].indexOf("/");
+        var relUrl = arrUrl[1].substring(start);//stop省略，截取从start开始到结尾的所有字符
+
+        if(relUrl.indexOf("?") != -1){
+            relUrl = relUrl.split("?")[0];
+        }
+        return relUrl;
+    }
+    function GetUrlPara()
+    {
+        var url = document.location.toString();
+        var arrUrl = url.split("?");
+
+        var para = arrUrl[1];
+        return para;
+    }
+</script>
+</body>
+</html>

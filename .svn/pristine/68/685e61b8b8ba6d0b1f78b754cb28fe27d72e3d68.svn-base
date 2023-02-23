@@ -1,0 +1,392 @@
+layui.define(["layer", "xmSelect","jquery",'common'], function(s) {
+    var $ = layui.jquery;
+    var layer = layui.layer;
+    var xmSelect = layui.xmSelect;
+    var common = layui.common;
+    var model = this;
+
+    var def_val = {};
+    var search_config_def = {
+        'platform':{
+            'status':1
+            ,'p_data':{}
+            ,'radio':false
+            ,'title':'平台'
+            ,'name':'platform_id'
+            ,'is_init':1
+        }
+        ,'game':{
+            'status':0
+            ,'p_data':{}
+            ,'radio':false
+            ,'title':'游戏'
+            ,'name':'p_g'
+            ,'is_init':1
+        }
+        ,'product':{
+            'status':0
+            ,'p_data':{}
+            ,'radio':false
+            ,'title':'产品'
+            ,'name':'p_p'
+            ,'is_init':1
+        }
+        ,'up_product':{
+            'status':0
+            ,'p_data':{}
+            ,'radio':false
+            ,'title':'唯一产品'
+            ,'name':'p_up'
+            ,'is_init':1
+        }
+        ,'admin':{
+            'status':0
+            ,'p_data':{}
+            ,'radio':false
+            ,'title':'专员'
+            ,'name':'admin_id'
+            ,'is_init':1
+        }
+    };
+
+    var html = '<div class="layui-inline" id="select_platform" style="margin-bottom: 6px;">';
+    html += '<label class="layui-form-label">主体：</label>';
+    html += '    <div class="layui-input-inline">';
+    html += '        <div id="select_platform_id" class="xm-select-demo" style="min-width: 210px"></div>';
+    html += '    </div>';
+    html += '</div>';
+
+    html += '<div class="layui-inline" id="select_up_product" style="margin-bottom: 6px;">';
+    html += '    <label class="layui-form-label">平台产品：</label>';
+    html += '    <div class="layui-input-inline">';
+    html += '        <div id="select_up_product_id" class="xm-select-demo" style="min-width: 210px"></div>';
+    html += '    </div>';
+    html += '</div>';
+
+    html += '<div class="layui-inline" id="select_product" style="margin-bottom: 6px;">';
+    html += '    <label class="layui-form-label">平台产品：</label>';
+    html += '    <div class="layui-input-inline">';
+    html += '        <div id="select_product_id" class="xm-select-demo" style="min-width: 210px"></div>';
+    html += '    </div>';
+    html += '</div>';
+
+    html += '<div class="layui-inline" id="select_game" style="margin-bottom: 6px;">';
+    html += '    <label class="layui-form-label">子游戏：</label>';
+    html += '    <div class="layui-input-inline">';
+    html += '        <div id="select_game_id" class="xm-select-demo" style="min-width: 210px"></div>';
+    html += '    </div>';
+    html += '</div>';
+
+    html += '<div class="layui-inline" id="select_admin" style="margin-bottom: 6px;">';
+    html += '    <label class="layui-form-label">专员：</label>';
+    html += '    <div class="layui-input-inline">';
+    html += '        <div id="select_admin_id" class="xm-select-demo" style="min-width: 210px"></div>';
+    html += '    </div>';
+    html += '</div>';
+
+    var select_game_id;
+    var select_platform_id;
+    var select_product_id;
+    var select_up_product_id;
+    var select_admin_id;
+
+    var obj = {
+        product_p_data:{}
+        ,up_product_p_data:{}
+        ,game_p_data:{}
+        ,admin_p_data:{
+            'group_type':[]
+        }
+        ,init:function(id,search_config){
+            if(common.isObject(search_config)){
+                search_config_def = common.merge(search_config_def,search_config);
+            }
+
+            $('#'+id).html(html);
+
+            //初始化
+            $.each(search_config_def,(k,v)=>{
+                
+                if(v.status == 1){
+                    $('#select_'+k).show();//控制显隐
+                    $('#select_'+k).find('.layui-form-label').html(v.title+'：');//控制显隐
+                    obj[k+'_p_data'] = common.merge(obj[k+'_p_data'],v.p_data);//基础参数赋值
+                }else{
+                    $('#select_'+k).hide();
+                }
+            })            
+
+            //游戏
+            select_game_id = xmSelect.render({
+                el: '#select_game_id',
+                radio: search_config_def.game.radio,
+                filterable: true,
+                toolbar: {
+                    show: true,
+                    list: [ 'ALL', 'CLEAR', 'REVERSE' ]
+                },
+                data: [],
+                initValue:[],
+                name:search_config_def.game.name,
+                on:(data)=>{
+                    var this_info = common.getSelectVal(data.arr);
+                    def_val.game = this_info;
+                }
+            });
+            // 平台
+            select_platform_id = xmSelect.render({
+                el: '#select_platform_id',
+                radio: search_config_def.platform.radio,
+                toolbar: {
+                    show: true,
+                    list: [ 'ALL', 'CLEAR', 'REVERSE' ]
+                },
+                data: [],
+                initValue:[],
+                name:search_config_def.platform.name,
+                on:(data)=>{
+                    var this_info = common.getSelectVal(data.arr);
+                    console.log(data);
+                    obj.product_p_data.platform_id = this_info;
+                    obj.up_product_p_data.platform_id = this_info;
+                    obj.game_p_data.platform_id = this_info;
+                    obj.admin_p_data.platform_id = this_info;
+                    if(this_info.length == 0){
+                        def_val = {};
+                    }
+                    
+                    set_admin_info();
+                    set_product_info();
+                    set_up_product_info();
+                    
+                },
+            })
+            // 唯一产品
+            select_up_product_id = xmSelect.render({
+                el: '#select_up_product_id',
+                radio: search_config_def.up_product.radio,
+                filterable: true,
+                toolbar: {
+                    show: true,
+                    list: [ 'ALL', 'CLEAR', 'REVERSE' ]
+                },
+                data: [],
+                initValue:[],
+                name:search_config_def.up_product.name,
+                on:(data)=>{
+                    // var this_info = common.getSelectVal(data.arr);
+                    // obj.game_p_data.p_up = this_info;
+                    // def_val.up_product = this_info;
+                    // set_game_info();
+                },
+            })
+            // 产品
+            select_product_id = xmSelect.render({
+                el: '#select_product_id',
+                radio: search_config_def.product.radio,
+                filterable: true,
+                toolbar: {
+                    show: true,
+                    list: [ 'ALL', 'CLEAR', 'REVERSE' ]
+                },
+                data: [],
+                initValue:[],
+                name:search_config_def.product.name,
+                on:(data)=>{
+                    var this_info = common.getSelectVal(data.arr);
+                    obj.game_p_data.p_p = this_info;
+                    def_val.product = this_info;
+                    set_game_info();
+                },
+            })
+            // 专员
+            select_admin_id = xmSelect.render({
+                el: '#select_admin_id',
+                radio: search_config_def.admin.radio,
+                filterable: true,
+                toolbar: {
+                    show: true,
+                    list: [ 'ALL', 'CLEAR', 'REVERSE' ]
+                },
+                data: [],
+                initValue:[],
+                name:search_config_def.admin.name,
+                on:(data)=>{
+                    var this_info = common.getSelectVal(data.arr);
+                    def_val.admin = this_info;
+                }
+            })
+
+            //初始化筛选数据
+            if(search_config_def.platform.is_init == 1) set_platform_info();
+            if(search_config_def.up_product.is_init == 1) set_up_product_info();
+            if(search_config_def.product.is_init == 1) set_product_info();
+            if(search_config_def.admin.is_init == 1) set_admin_info();
+        }
+    }
+
+    // 获取平台数据
+    function set_platform_info(){
+        common.req({
+            url: "Ajax/getPlatformList",
+            data: {},
+            type: "post",
+            dataType:"json",
+            success:function(res){
+                var this_list = [];
+                if( res.code==0 ){
+                    $.each(res.data,function(k,v){
+                        var this_data = {};
+                        this_data.name = v.name;
+                        this_data.value = v.platform_id;
+                        this_list.push(this_data);
+                    });
+                }
+                select_platform_id.update({
+                    data: this_list,
+                    // autoRow: true,
+                })
+            },
+            error:function(data){
+                layer.alert('错误'+data.msg,{icon:2});
+            }
+        });
+    }
+    // 获取唯一产品数据
+    function set_up_product_info(){
+        if(search_config_def.up_product.status != 1){
+            return false;
+        }
+        common.req({
+            url: "Ajax/getUProductList",
+            data: obj.up_product_p_data,
+            type: "post",
+            dataType:"json",
+            success:function(res){
+                var this_list = [];
+                if( res.code==0 ){
+                    $.each(res.data,function(k,v){
+                        var this_data = {};
+                        this_data.name = v.name;
+                        this_data.value = v.p_up;
+                        this_list.push(this_data);
+                    });
+                }
+                select_up_product_id.update({
+                    data: this_list,
+                    // autoRow: true,
+                })
+                console.log(def_val);
+                if(def_val.up_product != undefined){
+                    select_up_product_id.setValue(def_val.up_product)
+                }
+            },
+            error:function(data){
+                layer.alert('错误'+data.msg,{icon:2});
+            }
+        });
+    }
+    // 获取产品数据
+    function set_product_info(){
+        if(search_config_def.product.status != 1){
+            return false;
+        }
+        common.req({
+            url: "Ajax/getProductList",
+            data: obj.product_p_data,
+            type: "post",
+            dataType:"json",
+            success:function(res){
+                var this_list = [];
+                if( res.code==0 ){
+                    $.each(res.data,function(k,v){
+                        var this_data = {};
+                        this_data.name = v.product_name;
+                        this_data.value = v.p_p;
+                        this_list.push(this_data);
+                    });
+                }
+                select_product_id.update({
+                    data: this_list,
+                    // autoRow: true,
+                })
+                if(def_val.product != undefined){
+                    select_product_id.setValue(def_val.product)
+                }
+            },
+            error:function(data){
+                layer.alert('错误'+data.msg,{icon:2});
+            }
+        });
+    }
+    // 获取游戏数据
+    function set_game_info(){
+        if(search_config_def.game.status != 1){
+            return false;
+        }
+        common.req({
+            url: "Ajax/getGameList",
+            data: obj.game_p_data,
+            type: "post",
+            dataType:"json",
+            success:function(res){
+                var this_list = [];
+                if( res.code==0 ){
+                    $.each(res.data,function(k,v){
+                        var this_data = {};
+                        this_data.name = v.game_name;
+                        this_data.value = v.p_g;
+                        this_list.push(this_data);
+                    });
+                }
+                select_game_id.update({
+                    data: this_list,
+                    // autoRow: true,
+                })
+                if(def_val.game != undefined){
+                    select_game_id.setValue(def_val.game)
+                }
+            },
+            error:function(data){
+                layer.alert('错误'+data.msg,{icon:2});
+            }
+        });
+    }
+    // 获取专员数据
+    function set_admin_info(){
+        if(search_config_def.admin.status != 1){
+            return false;
+        }
+        common.req({
+            url: "Ajax/getUserListByPlatformId",
+            data: obj.admin_p_data,
+            type: "post",
+            dataType:"json",
+            success:function(res){
+                var this_list = [];
+                if( res.code==0 ){
+                    $.each(res.data,function(k,v){
+                        var this_data = {};
+                        this_data.name = v.name;
+                        this_data.value = v.id;
+                        this_list.push(this_data);
+                    });
+                }
+                select_admin_id.update({
+                    data: this_list,
+                    // autoRow: true,
+                })
+                if(def_val.admin != undefined){
+                    select_admin_id.setValue(def_val.admin)
+                }
+            },
+            error:function(data){
+                layer.alert('错误'+data.msg,{icon:2});
+            }
+        });
+    }
+
+
+
+    s("search", obj)
+});

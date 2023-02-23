@@ -1,0 +1,186 @@
+---------------------------------------------------------------
+[ 2022-04-24T14:06:30+08:00 ] 127.0.0.1 OPTIONS api.newkefu.com/admin/vip_statistic/userRechargeList
+[运行时间：0.099888s] [吞吐率：10.01req/s] [内存消耗：2,465.66kb] [文件加载：153]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'vip_statistic',
+    2 => 'userRechargeList',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'referer' => 'http://www.newkefu.com/',
+  'access-control-request-headers' => 'platform,token',
+  'access-control-request-method' => 'POST',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/vip_statistic/userRechargeList' => '',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-04-24T14:06:30+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/vip_statistic/userRechargeList
+[运行时间：0.129951s] [吞吐率：7.70req/s] [内存消耗：5,283.99kb] [文件加载：197]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'vip_statistic',
+    2 => 'userRechargeList',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '274',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NTA1MDg0MjEsImV4cCI6MTY1MzEwMDQyMSwidWlkIjoxNDN9.iw44xDU1vHfmx8LqwKQh1encxDkJ3dwWWSHj-R1xl6k',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/vip_statistic/userRechargeList' => '',
+  'page' => '1',
+  'limit' => '20',
+  'start_time' => '2022-04-14',
+  'end_time' => '2022-04-21',
+  'platform_id' => '',
+  'p_p' => '',
+  'p_g' => '',
+  'vip_commissioner' => '',
+  'pay_min' => '',
+  'pay_max' => '',
+  'user_name' => '',
+  'uid' => '',
+  'role_id' => '',
+  'role_name' => '',
+  'server_prefix' => '',
+  'server_id_min' => '',
+  'server_id_max' => '',
+  'server_suffix' => '',
+  'is_record' => '0',
+  'is_group' => '0',
+  'rp_apply_status' => '0',
+  'rp_examine_status' => '-1',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\VipStatistic->userRechargeList[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\VipStatistic.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001289s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.000905s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.014947s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_admin_log_n` [ RunTime:0.001023s ]
+[ sql ] [ SQL ] INSERT INTO `gr_admin_log_n` (`ip` , `admin_id` , `url` , `data` , `controller` , `action` , `add_time`) VALUES ('127.0.0.1' , 143 , '/admin/vip_statistic/userRechargeList' , '\"{\\\"\\\\\\/admin\\\\\\/vip_statistic\\\\\\/userRechargeList\\\":\\\"\\\",\\\"page\\\":\\\"1\\\",\\\"limit\\\":\\\"20\\\",\\\"start_time\\\":\\\"2022-04-14\\\",\\\"end_time\\\":\\\"2022-04-21\\\",\\\"platform_id\\\":\\\"\\\",\\\"p_p\\\":\\\"\\\",\\\"p_g\\\":\\\"\\\",\\\"vip_commissioner\\\":\\\"\\\",\\\"pay_min\\\":\\\"\\\",\\\"pay_max\\\":\\\"\\\",\\\"user_name\\\":\\\"\\\",\\\"uid\\\":\\\"\\\",\\\"role_id\\\":\\\"\\\",\\\"role_name\\\":\\\"\\\",\\\"server_prefix\\\":\\\"\\\",\\\"server_id_min\\\":\\\"\\\",\\\"server_id_max\\\":\\\"\\\",\\\"server_suffix\\\":\\\"\\\",\\\"is_record\\\":\\\"0\\\",\\\"is_group\\\":\\\"0\\\",\\\"rp_apply_status\\\":\\\"0\\\",\\\"rp_examine_status\\\":\\\"-1\\\"}\"' , 'VipStatistic' , 'userRechargeList' , 1650780390) [ RunTime:0.000789s ]
+---------------------------------------------------------------
+[ 2022-04-24T16:14:48+08:00 ] 127.0.0.1 OPTIONS api.newkefu.com/admin/vip_statistic/userRechargeList
+[运行时间：0.063056s] [吞吐率：15.86req/s] [内存消耗：2,465.67kb] [文件加载：153]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'vip_statistic',
+    2 => 'userRechargeList',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'referer' => 'http://www.newkefu.com/',
+  'access-control-request-headers' => 'platform,token',
+  'access-control-request-method' => 'POST',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => '*/*',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/vip_statistic/userRechargeList' => '',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-04-24T16:14:48+08:00 ] 127.0.0.1 POST api.newkefu.com/admin/vip_statistic/userRechargeList
+[运行时间：0.110116s] [吞吐率：9.08req/s] [内存消耗：5,283.99kb] [文件加载：197]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'vip_statistic',
+    2 => 'userRechargeList',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'referer' => 'http://www.newkefu.com/',
+  'connection' => 'close',
+  'origin' => 'http://www.newkefu.com',
+  'content-length' => '274',
+  'platform' => 'youyu',
+  'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImp0aSI6ImxYWGluZyJ9.eyJpc3MiOiJhcGkubmV3a2VmdS5jb20iLCJqdGkiOiJsWFhpbmciLCJpYXQiOjE2NTA1MDg0MjEsImV4cCI6MTY1MzEwMDQyMSwidWlkIjoxNDN9.iw44xDU1vHfmx8LqwKQh1encxDkJ3dwWWSHj-R1xl6k',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/admin/vip_statistic/userRechargeList' => '',
+  'page' => '1',
+  'limit' => '20',
+  'start_time' => '2022-04-14',
+  'end_time' => '2022-04-21',
+  'platform_id' => '',
+  'p_p' => '',
+  'p_g' => '',
+  'vip_commissioner' => '',
+  'pay_min' => '',
+  'pay_max' => '',
+  'user_name' => '',
+  'uid' => '',
+  'role_id' => '',
+  'role_name' => '',
+  'server_prefix' => '',
+  'server_id_min' => '',
+  'server_id_max' => '',
+  'server_suffix' => '',
+  'is_record' => '0',
+  'is_group' => '0',
+  'rp_apply_status' => '0',
+  'rp_examine_status' => '-1',
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\admin\controller\VipStatistic->userRechargeList[ D:\phpstudy_pro\WWW\new_kefu_online\application\admin\controller\VipStatistic.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001270s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_menu_new` [ RunTime:0.002246s ]
+[ sql ] [ SQL ] SELECT m.menu_id as id,`m`.`menu_name`,`m`.`p_id`,`m`.`controller`,`m`.`action`,`m`.`is_show`,`m`.`url`,`m`.`type` FROM `gr_menu_new` `m` ORDER BY `p_id` ASC,`sort` ASC,`id` ASC [ RunTime:0.002790s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_admin_log_n` [ RunTime:0.001296s ]
+[ sql ] [ SQL ] INSERT INTO `gr_admin_log_n` (`ip` , `admin_id` , `url` , `data` , `controller` , `action` , `add_time`) VALUES ('127.0.0.1' , 143 , '/admin/vip_statistic/userRechargeList' , '\"{\\\"\\\\\\/admin\\\\\\/vip_statistic\\\\\\/userRechargeList\\\":\\\"\\\",\\\"page\\\":\\\"1\\\",\\\"limit\\\":\\\"20\\\",\\\"start_time\\\":\\\"2022-04-14\\\",\\\"end_time\\\":\\\"2022-04-21\\\",\\\"platform_id\\\":\\\"\\\",\\\"p_p\\\":\\\"\\\",\\\"p_g\\\":\\\"\\\",\\\"vip_commissioner\\\":\\\"\\\",\\\"pay_min\\\":\\\"\\\",\\\"pay_max\\\":\\\"\\\",\\\"user_name\\\":\\\"\\\",\\\"uid\\\":\\\"\\\",\\\"role_id\\\":\\\"\\\",\\\"role_name\\\":\\\"\\\",\\\"server_prefix\\\":\\\"\\\",\\\"server_id_min\\\":\\\"\\\",\\\"server_id_max\\\":\\\"\\\",\\\"server_suffix\\\":\\\"\\\",\\\"is_record\\\":\\\"0\\\",\\\"is_group\\\":\\\"0\\\",\\\"rp_apply_status\\\":\\\"0\\\",\\\"rp_examine_status\\\":\\\"-1\\\"}\"' , 'VipStatistic' , 'userRechargeList' , 1650788088) [ RunTime:0.001110s ]

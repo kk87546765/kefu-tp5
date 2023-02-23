@@ -1,0 +1,571 @@
+---------------------------------------------------------------
+[ 2022-08-23T15:47:12+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/GameProduct/run?func=GameProduct
+[运行时间：29.045870s] [吞吐率：0.03req/s] [内存消耗：4,116.46kb] [文件加载：175]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GameProduct',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:103.0) Gecko/20100101 Firefox/103.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/GameProduct/run' => '',
+  'func' => 'GameProduct',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ DB ] INIT mysql
+[ info ] [ RUN ] app\scripts\controller\GameProduct->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\GameProduct.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001870s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.002088s ]
+[ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_GameProduct' , 'GameProduct' , '[\"\"]' , 1661240803 , 1661240803) [ RunTime:0.005323s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_run_log` WHERE  `id` = 340 LIMIT 1 [ RunTime:0.000463s ]
+[ sql ] [ SQL ] UPDATE `gr_run_log`  SET `update_time`=1661240832,`status`=1,`out_param`='{\"msg\":\"end\",\"0\":{\"code\":0,\"data\":[\"ok:1\"]},\"1\":{\"code\":0,\"data\":[\"ok:2\"]},\"2\":{\"code\":0,\"data\":[\"ok:4\"]},\"3\":{\"code\":1,\"data\":{\"msg\":\"接口返回错误\"}},\"4\":{\"code\":0,\"data\":[\"ok:6\"]},\"5\":{\"code\":0,\"data\":[\"ok:7\"]}}'  WHERE  `id` = 340 [ RunTime:0.003078s ]
+---------------------------------------------------------------
+[ 2022-08-23T15:47:43+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/GameProduct/run?func=GameProduct
+[运行时间：28.553365s] [吞吐率：0.04req/s] [内存消耗：3,958.77kb] [文件加载：172]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GameProduct',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:103.0) Gecko/20100101 Firefox/103.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/GameProduct/run' => '',
+  'func' => 'GameProduct',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\GameProduct->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\GameProduct.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001611s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.002057s ]
+[ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_GameProduct' , 'GameList' , '[\"\"]' , 1661240834 , 1661240834) [ RunTime:0.000960s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_run_log` WHERE  `id` = 341 LIMIT 1 [ RunTime:0.000373s ]
+[ sql ] [ SQL ] UPDATE `gr_run_log`  SET `update_time`=1661240863,`status`=1,`out_param`='{\"msg\":\"end\",\"0\":{\"code\":0,\"data\":[\"ok:1\"]},\"1\":{\"code\":0,\"data\":[\"ok:2\"]},\"2\":{\"code\":0,\"data\":[\"ok:4\"]},\"3\":{\"code\":1,\"data\":{\"msg\":\"接口返回错误\"}},\"4\":{\"code\":0,\"data\":[\"ok:6\"]},\"5\":{\"code\":0,\"data\":[\"ok:7\"]}}'  WHERE  `id` = 341 [ RunTime:0.001450s ]
+---------------------------------------------------------------
+[ 2022-08-23T15:48:00+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/GameProduct/run?func=GameProduct
+[运行时间：0.090204s] [吞吐率：11.09req/s] [内存消耗：2,591.83kb] [文件加载：159]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GameProduct',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:103.0) Gecko/20100101 Firefox/103.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/GameProduct/run' => '',
+  'func' => 'GameProduct',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\GameProduct->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\GameProduct.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-08-23T15:48:02+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/GameProduct/run?func=GameProduct
+[运行时间：0.061304s] [吞吐率：16.31req/s] [内存消耗：2,591.83kb] [文件加载：159]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GameProduct',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:103.0) Gecko/20100101 Firefox/103.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/GameProduct/run' => '',
+  'func' => 'GameProduct',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\GameProduct->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\GameProduct.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-08-23T15:48:14+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/GameProduct/run?func=GameProduct
+[运行时间：0.075307s] [吞吐率：13.28req/s] [内存消耗：3,791.55kb] [文件加载：169]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GameProduct',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:103.0) Gecko/20100101 Firefox/103.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/GameProduct/run' => '',
+  'func' => 'GameProduct',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\GameProduct->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\GameProduct.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001517s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.001419s ]
+[ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_GameProduct' , 'GameProduct' , '[\"\"]' , 1661240894 , 1661240894) [ RunTime:0.001275s ]
+---------------------------------------------------------------
+[ 2022-08-23T15:50:27+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/GameProduct/run?func=GameProduct&platform=youyu
+[运行时间：0.073417s] [吞吐率：13.62req/s] [内存消耗：2,592.12kb] [文件加载：159]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GameProduct',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:103.0) Gecko/20100101 Firefox/103.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/GameProduct/run' => '',
+  'func' => 'GameProduct',
+  'platform' => 'youyu',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\GameProduct->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\GameProduct.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-08-23T15:50:33+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/GameProduct/run?func=GameProduct&platform=youyu
+[运行时间：29.154875s] [吞吐率：0.03req/s] [内存消耗：3,989.04kb] [文件加载：172]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GameProduct',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:103.0) Gecko/20100101 Firefox/103.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/GameProduct/run' => '',
+  'func' => 'GameProduct',
+  'platform' => 'youyu',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\GameProduct->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\GameProduct.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002495s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.001852s ]
+[ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_GameProduct' , 'GameList' , '[\"\"]' , 1661241004 , 1661241004) [ RunTime:0.001308s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_run_log` WHERE  `id` = 343 LIMIT 1 [ RunTime:0.000368s ]
+[ sql ] [ SQL ] UPDATE `gr_run_log`  SET `update_time`=1661241033,`status`=1,`out_param`='{\"msg\":\"end\",\"0\":{\"code\":0,\"data\":[\"ok:1\"]},\"1\":{\"code\":0,\"data\":[\"ok:2\"]},\"2\":{\"code\":0,\"data\":[\"ok:4\"]},\"3\":{\"code\":1,\"data\":{\"msg\":\"接口返回错误\"}},\"4\":{\"code\":0,\"data\":[\"ok:6\"]},\"5\":{\"code\":0,\"data\":[\"ok:7\"]}}'  WHERE  `id` = 343 [ RunTime:0.000897s ]
+---------------------------------------------------------------
+[ 2022-08-23T15:50:49+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/GameProduct/run?func=GameProduct&platform=youyu
+[运行时间：0.087101s] [吞吐率：11.48req/s] [内存消耗：3,791.94kb] [文件加载：169]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GameProduct',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:103.0) Gecko/20100101 Firefox/103.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/GameProduct/run' => '',
+  'func' => 'GameProduct',
+  'platform' => 'youyu',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\GameProduct->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\GameProduct.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001470s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.001036s ]
+[ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_GameProduct' , 'GameProduct' , '[\"\"]' , 1661241049 , 1661241049) [ RunTime:0.001009s ]
+---------------------------------------------------------------
+[ 2022-08-23T15:51:26+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/GameProduct/run?func=GameProduct&platform=youyu
+[运行时间：28.493133s] [吞吐率：0.04req/s] [内存消耗：3,989.15kb] [文件加载：172]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GameProduct',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:103.0) Gecko/20100101 Firefox/103.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/GameProduct/run' => '',
+  'func' => 'GameProduct',
+  'platform' => 'youyu',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\GameProduct->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\GameProduct.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001211s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000785s ]
+[ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_GameProduct' , 'GameList' , '[\"\"]' , 1661241057 , 1661241057) [ RunTime:0.001143s ]
+[ sql ] [ SQL ] SELECT * FROM `gr_run_log` WHERE  `id` = 345 LIMIT 1 [ RunTime:0.000385s ]
+[ sql ] [ SQL ] UPDATE `gr_run_log`  SET `update_time`=1661241086,`status`=1,`out_param`='{\"msg\":\"end\",\"0\":{\"code\":0,\"data\":[\"ok:1\"]},\"1\":{\"code\":0,\"data\":[\"ok:2\"]},\"2\":{\"code\":0,\"data\":[\"ok:4\"]},\"3\":{\"code\":1,\"data\":{\"msg\":\"接口返回错误\"}},\"4\":{\"code\":0,\"data\":[\"ok:6\"]},\"5\":{\"code\":0,\"data\":[\"ok:7\"]}}'  WHERE  `id` = 345 [ RunTime:0.000867s ]
+---------------------------------------------------------------
+[ 2022-08-23T15:51:39+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/GameProduct/run?func=GameProduct&platform=youyu
+[运行时间：0.077020s] [吞吐率：12.98req/s] [内存消耗：3,791.94kb] [文件加载：169]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GameProduct',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:103.0) Gecko/20100101 Firefox/103.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/GameProduct/run' => '',
+  'func' => 'GameProduct',
+  'platform' => 'youyu',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\GameProduct->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\GameProduct.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001297s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.002757s ]
+[ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_GameProduct' , 'GameProduct' , '[\"\"]' , 1661241099 , 1661241099) [ RunTime:0.000997s ]
+---------------------------------------------------------------
+[ 2022-08-23T15:51:47+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/GameProduct/run?func=GameProduct&platform=youyu
+[运行时间：0.061206s] [吞吐率：16.34req/s] [内存消耗：2,592.12kb] [文件加载：159]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GameProduct',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:103.0) Gecko/20100101 Firefox/103.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/GameProduct/run' => '',
+  'func' => 'GameProduct',
+  'platform' => 'youyu',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\GameProduct->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\GameProduct.php ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2022-08-23T15:52:09+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/GameProduct/run?func=GameProduct&platform=youyu
+[运行时间：0.077969s] [吞吐率：12.83req/s] [内存消耗：3,791.94kb] [文件加载：169]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GameProduct',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:103.0) Gecko/20100101 Firefox/103.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/GameProduct/run' => '',
+  'func' => 'GameProduct',
+  'platform' => 'youyu',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\GameProduct->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\GameProduct.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001331s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.002521s ]
+[ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_GameProduct' , 'GameProduct' , '[\"\"]' , 1661241129 , 1661241129) [ RunTime:0.001423s ]
+---------------------------------------------------------------
+[ 2022-08-23T15:52:57+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/GameProduct/run?func=GameProduct&platform=youyu
+[运行时间：0.100213s] [吞吐率：9.98req/s] [内存消耗：3,843.32kb] [文件加载：170]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GameProduct',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:103.0) Gecko/20100101 Firefox/103.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/GameProduct/run' => '',
+  'func' => 'GameProduct',
+  'platform' => 'youyu',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\GameProduct->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\GameProduct.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011453s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000850s ]
+[ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_GameProduct' , 'GameProduct' , '[\"\"]' , 1661241177 , 1661241177) [ RunTime:0.002927s ]
+---------------------------------------------------------------
+[ 2022-08-23T15:55:19+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/GameProduct/run?func=GameProduct&platform=youyu
+[运行时间：0.092371s] [吞吐率：10.83req/s] [内存消耗：3,884.44kb] [文件加载：175]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GameProduct',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:103.0) Gecko/20100101 Firefox/103.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/GameProduct/run' => '',
+  'func' => 'GameProduct',
+  'platform' => 'youyu',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\GameProduct->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\GameProduct.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001400s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.001500s ]
+[ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_GameProduct' , 'GameProduct' , '[\"\"]' , 1661241319 , 1661241319) [ RunTime:0.001084s ]
+[ error ] [8]未定义数组索引: id[D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\GameProduct.php:84]
+---------------------------------------------------------------
+[ 2022-08-23T15:55:37+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/GameProduct/run?func=GameProduct&platform=youyu
+[运行时间：0.087564s] [吞吐率：11.42req/s] [内存消耗：3,791.94kb] [文件加载：169]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GameProduct',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:103.0) Gecko/20100101 Firefox/103.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/GameProduct/run' => '',
+  'func' => 'GameProduct',
+  'platform' => 'youyu',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\GameProduct->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\GameProduct.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001687s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000896s ]
+[ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_GameProduct' , 'GameProduct' , '[\"\"]' , 1661241337 , 1661241337) [ RunTime:0.002413s ]
+---------------------------------------------------------------
+[ 2022-08-23T15:55:54+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/GameProduct/run?func=GameProduct&platform=youyu
+[运行时间：0.086453s] [吞吐率：11.57req/s] [内存消耗：3,843.32kb] [文件加载：170]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GameProduct',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:103.0) Gecko/20100101 Firefox/103.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/GameProduct/run' => '',
+  'func' => 'GameProduct',
+  'platform' => 'youyu',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\GameProduct->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\GameProduct.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011273s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.001279s ]
+[ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_GameProduct' , 'GameProduct' , '[\"\"]' , 1661241354 , 1661241354) [ RunTime:0.001205s ]
+---------------------------------------------------------------
+[ 2022-08-23T15:56:08+08:00 ] 127.0.0.1 GET api.newkefu.com/scripts/GameProduct/run?func=GameProduct&platform=youyu
+[运行时间：0.288528s] [吞吐率：3.47req/s] [内存消耗：3,905.57kb] [文件加载：171]
+[ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu_online\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GameProduct',
+    2 => 'run',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'accept-encoding' => 'gzip, deflate',
+  'accept-language' => 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:103.0) Gecko/20100101 Firefox/103.0',
+  'host' => 'api.newkefu.com',
+)
+[ info ] [ PARAM ] array (
+  '/scripts/GameProduct/run' => '',
+  'func' => 'GameProduct',
+  'platform' => 'youyu',
+)
+[ info ] [ CACHE ] INIT redis
+[ info ] [ RUN ] app\scripts\controller\GameProduct->run[ D:\phpstudy_pro\WWW\new_kefu_online\application\scripts\controller\GameProduct.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001217s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.003056s ]
+[ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_GameProduct' , 'GameProduct' , '[\"\"]' , 1661241368 , 1661241368) [ RunTime:0.000901s ]

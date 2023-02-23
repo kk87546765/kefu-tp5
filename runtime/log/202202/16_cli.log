@@ -1,0 +1,848 @@
+[ 2022-02-16T15:43:51+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-16T15:43:51+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-16T15:43:51+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-16T15:43:51+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'register',
+    'platform' => 'zw',
+  ),
+)
+[ 2022-02-16T15:43:51+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-16T15:43:51+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-16T15:43:51+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-16T15:44:03+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-16T15:44:03+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-16T15:44:03+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-16T15:44:03+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'register',
+    'platform' => 'zw',
+  ),
+)
+[ 2022-02-16T15:44:03+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-16T15:44:03+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-16T15:44:03+08:00 ][ error ] [8]Undefined index: func[D:\phpstudy_pro\WWW\new_kefu\thinkphp\library\traits\controller\lxxScript.php:179]
+[ 2022-02-16T15:44:35+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-16T15:44:35+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-16T15:44:35+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-16T15:44:35+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'register',
+    'platform' => 'zw',
+  ),
+)
+[ 2022-02-16T15:44:35+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-16T15:44:35+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-16T15:45:30+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-16T15:45:30+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-16T15:45:30+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-16T15:45:30+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'register',
+    'platform' => 'zw',
+  ),
+)
+[ 2022-02-16T15:45:30+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-16T15:45:30+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-16T15:47:13+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-16T15:47:13+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-16T15:47:13+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-16T15:47:13+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'register',
+    'platform' => 'zw',
+  ),
+)
+[ 2022-02-16T15:47:13+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-16T15:47:13+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-16T15:47:32+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-16T15:47:32+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-16T15:47:32+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-16T15:47:32+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'register',
+    'platform' => 'zw',
+  ),
+)
+[ 2022-02-16T15:47:32+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-16T15:47:32+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-16T15:47:57+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-16T15:47:57+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-16T15:47:57+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-16T15:47:57+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'register',
+    'platform' => 'zw',
+  ),
+)
+[ 2022-02-16T15:47:57+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-16T15:47:57+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-16T15:48:14+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-16T15:48:14+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-16T15:48:14+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-16T15:48:14+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'register',
+    'platform' => 'zw',
+  ),
+)
+[ 2022-02-16T15:48:14+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-16T15:48:14+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-16T15:48:14+08:00 ][ error ] [8]Undefined offset: 0[D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php:51]
+[ 2022-02-16T15:48:19+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-16T15:48:19+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-16T15:48:19+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-16T15:48:19+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'register',
+    'platform' => 'zw',
+  ),
+)
+[ 2022-02-16T15:48:19+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-16T15:48:19+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-16T15:48:51+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-16T15:48:51+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-16T15:48:51+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-16T15:48:51+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'register',
+    'platform' => 'zw',
+  ),
+)
+[ 2022-02-16T15:48:51+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-16T15:48:51+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-16T15:49:25+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-16T15:49:25+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-16T15:49:25+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-16T15:49:25+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'register',
+    'platform' => 'zw',
+  ),
+)
+[ 2022-02-16T15:49:25+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-16T15:49:25+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-16T15:49:25+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-16T15:49:25+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.010736s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2022-02-16T15:49:25+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.007319s ]
+[ 2022-02-16T15:49:25+08:00 ][ error ] [8]Undefined offset: 0[D:\phpstudy_pro\WWW\new_kefu\thinkphp\library\think\db\Builder.php:120]
+[ 2022-02-16T15:52:16+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-16T15:52:16+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-16T15:52:16+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-16T15:52:16+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'register',
+    'platform' => 'zw',
+  ),
+)
+[ 2022-02-16T15:52:16+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-16T15:52:16+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-16T15:52:16+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-16T15:54:53+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-16T15:54:53+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-16T15:54:53+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-16T15:54:53+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'register',
+    'platform' => 'zw',
+  ),
+)
+[ 2022-02-16T15:54:53+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-16T15:54:53+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-16T15:54:53+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-16T15:54:53+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.002514s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2022-02-16T15:54:53+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.005110s ]
+[ 2022-02-16T15:54:53+08:00 ][ error ] [8]Undefined offset: 0[D:\phpstudy_pro\WWW\new_kefu\thinkphp\library\think\db\Builder.php:120]
+[ 2022-02-16T15:55:16+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-16T15:55:16+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-16T15:55:16+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-16T15:55:16+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'register',
+    'platform' => 'zw',
+  ),
+)
+[ 2022-02-16T15:55:16+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-16T15:55:16+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-16T15:55:24+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-16T15:55:24+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-16T15:55:24+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-16T15:55:24+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'register',
+    'platform' => 'zw',
+  ),
+)
+[ 2022-02-16T15:55:24+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-16T15:55:24+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-16T15:56:30+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-16T15:56:30+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-16T15:56:30+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-16T15:56:30+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'register',
+    'platform' => 'zw',
+  ),
+)
+[ 2022-02-16T15:56:30+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-16T15:56:30+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-16T15:56:30+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-16T15:56:30+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-16T15:57:22+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-16T15:57:22+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-16T15:57:22+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-16T15:57:22+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'register',
+    'platform' => 'zw',
+  ),
+)
+[ 2022-02-16T15:57:22+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-16T15:57:22+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-16T15:57:22+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-16T15:59:06+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-16T15:59:06+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-16T15:59:06+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-16T15:59:06+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'register',
+    'platform' => 'zw',
+  ),
+)
+[ 2022-02-16T15:59:06+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-16T15:59:06+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-16T15:59:06+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-16T15:59:06+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001492s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2022-02-16T15:59:06+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.003411s ]
+[ 2022-02-16T15:59:06+08:00 ][ error ] [8]Undefined offset: 0[D:\phpstudy_pro\WWW\new_kefu\thinkphp\library\think\db\Builder.php:120]
+[ 2022-02-16T16:02:27+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-16T16:02:27+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-16T16:02:27+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-16T16:02:27+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'register',
+    'platform' => 'zw',
+  ),
+)
+[ 2022-02-16T16:02:27+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-16T16:02:27+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-16T16:02:27+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-16T16:02:27+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001301s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2022-02-16T16:02:27+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.007944s ]
+[ 2022-02-16T16:02:27+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_GetBaseInfo' , 'userRegister' , '{\"action\":\"register\",\"platform\":\"zw\"}' , 1644998547 , 1644998547) [ RunTime:0.007995s ]
+[ 2022-02-16T16:06:12+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-16T16:06:12+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-16T16:06:12+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-16T16:06:12+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'register',
+    'platform' => 'zw',
+  ),
+)
+[ 2022-02-16T16:06:12+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-16T16:06:12+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-16T16:06:12+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-16T16:06:12+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001428s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2022-02-16T16:06:12+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.002780s ]
+[ 2022-02-16T16:06:12+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_GetBaseInfo' , 'userRegister' , '{\"action\":\"register\",\"platform\":\"zw\"}' , 1644998772 , 1644998772) [ RunTime:0.001062s ]
+[ 2022-02-16T16:06:23+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-16T16:06:23+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-16T16:06:23+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-16T16:06:23+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'register',
+    'platform' => 'zw',
+  ),
+)
+[ 2022-02-16T16:06:23+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-16T16:06:23+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-16T16:06:43+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-16T16:06:43+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-16T16:06:43+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-16T16:06:43+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'register',
+    'platform' => 'zw',
+  ),
+)
+[ 2022-02-16T16:06:43+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-16T16:06:43+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-16T16:06:58+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-16T16:06:58+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-16T16:06:58+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-16T16:06:58+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'register',
+    'platform' => 'zw',
+  ),
+)
+[ 2022-02-16T16:06:58+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-16T16:06:58+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-16T16:07:06+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-16T16:07:06+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-16T16:07:06+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-16T16:07:06+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'register',
+    'platform' => 'zw',
+  ),
+)
+[ 2022-02-16T16:07:06+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-16T16:07:06+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-16T16:07:15+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-16T16:07:15+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-16T16:07:15+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-16T16:07:15+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'register',
+    'platform' => 'zw',
+  ),
+)
+[ 2022-02-16T16:07:15+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-16T16:07:15+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-16T16:07:25+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-16T16:07:25+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-16T16:07:25+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-16T16:07:25+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'register',
+    'platform' => 'zw',
+  ),
+)
+[ 2022-02-16T16:07:25+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-16T16:07:25+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-16T16:07:34+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-16T16:07:34+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-16T16:07:34+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-16T16:07:34+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'register',
+    'platform' => 'zw',
+  ),
+)
+[ 2022-02-16T16:07:34+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-16T16:07:34+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-16T16:08:06+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-16T16:08:06+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-16T16:08:06+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-16T16:08:06+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'register',
+    'platform' => 'zw',
+  ),
+)
+[ 2022-02-16T16:08:06+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-16T16:08:06+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-16T16:08:06+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-16T16:08:06+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.011583s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2022-02-16T16:08:06+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.002357s ]
+[ 2022-02-16T16:08:06+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_GetBaseInfo' , 'userRegister' , '{\"action\":\"register\",\"platform\":\"zw\"}' , 1644998886 , 1644998886) [ RunTime:0.001173s ]
+[ 2022-02-16T16:08:30+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-16T16:08:30+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-16T16:08:30+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-16T16:08:30+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'register',
+    'platform' => 'zw',
+  ),
+)
+[ 2022-02-16T16:08:30+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-16T16:08:30+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-16T16:08:30+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-16T16:08:30+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001345s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2022-02-16T16:08:30+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000834s ]
+[ 2022-02-16T16:08:30+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_GetBaseInfo' , 'userRegister' , '{\"action\":\"register\",\"platform\":\"zw\"}' , 1644998910 , 1644998910) [ RunTime:0.001242s ]
+[ 2022-02-16T16:21:14+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-16T16:21:14+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-16T16:21:14+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-16T16:21:14+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'register',
+    'platform' => 'zw',
+  ),
+)
+[ 2022-02-16T16:21:14+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-16T16:21:14+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-16T16:21:14+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-16T16:21:14+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001625s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2022-02-16T16:21:14+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.003226s ]
+[ 2022-02-16T16:21:14+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_GetBaseInfo' , 'userRegister' , '{\"action\":\"register\",\"platform\":\"zw\"}' , 1644999674 , 1644999674) [ RunTime:0.001419s ]
+[ 2022-02-16T16:36:13+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-16T16:36:13+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-16T16:36:13+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-16T16:36:13+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'register',
+    'platform' => 'zw',
+  ),
+)
+[ 2022-02-16T16:36:13+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-16T16:36:13+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-16T16:36:13+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-16T16:36:13+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001467s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2022-02-16T16:36:13+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.002648s ]
+[ 2022-02-16T16:36:13+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_GetBaseInfo' , 'userRegister' , '{\"action\":\"register\",\"platform\":\"zw\"}' , 1645000573 , 1645000573) [ RunTime:0.001226s ]
+[ 2022-02-16T16:39:04+08:00 ][ info ] [ LANG ] D:\phpstudy_pro\WWW\new_kefu\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File
+[ 2022-02-16T16:39:04+08:00 ][ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'scripts',
+    1 => 'GetBaseInfo',
+    2 => 'run',
+  ),
+)
+[ 2022-02-16T16:39:04+08:00 ][ info ] [ HEADER ] array (
+)
+[ 2022-02-16T16:39:04+08:00 ][ info ] [ PARAM ] array (
+  'g' => 'scripts',
+  'm' => 'GetBaseInfo',
+  'a' => 'run',
+  'p' => 
+  array (
+    'action' => 'register',
+    'platform' => 'zw',
+  ),
+)
+[ 2022-02-16T16:39:04+08:00 ][ info ] [ CACHE ] INIT redis
+[ 2022-02-16T16:39:04+08:00 ][ info ] [ RUN ] app\scripts\controller\GetBaseInfo->run[ D:\phpstudy_pro\WWW\new_kefu\application\scripts\controller\GetBaseInfo.php ]
+[ 2022-02-16T16:39:04+08:00 ][ info ] [ DB ] INIT mysql
+[ 2022-02-16T16:39:04+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.010904s ] mysql:host=127.0.0.1;port=3306;dbname=gr_chat;charset=utf8
+[ 2022-02-16T16:39:04+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `gr_run_log` [ RunTime:0.000773s ]
+[ 2022-02-16T16:39:04+08:00 ][ sql ] [ SQL ] INSERT INTO `gr_run_log` (`controller` , `action` , `input_param` , `add_time` , `update_time`) VALUES ('script_GetBaseInfo' , 'userRegister' , '{\"action\":\"register\",\"platform\":\"zw\"}' , 1645000744 , 1645000744) [ RunTime:0.001213s ]
+[ 2022-02-16T16:39:04+08:00 ][ error ] [0]Fatal error: Call to undefined method common\sql_server\GetBaseInfoSqlServer::excuteSQL()[D:\phpstudy_pro\WWW\new_kefu\common\sql_server\GetBaseInfoSqlServer.php:268]
