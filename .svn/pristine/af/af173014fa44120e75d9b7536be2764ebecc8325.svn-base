@@ -1,9 +1,0 @@
-;layui.define("jquery", function(e) {
-    "use strict";
-    e("env", {
-        base_url:'www.kftest'//前端地址
-        ,api_url:'api.kftest'//接口地址
-        ,common_url:''//猜静态文件服务器地址
-
-    })
-});
