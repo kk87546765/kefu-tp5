@@ -109,9 +109,7 @@ class UpdateServerOpenTimeServer extends BasicServer
     {
 
         $tmp_game_abbr = $gameAbbr;
-
-        $gamekey = Common::getGameKey();
-//        $gamekey = Common::getConfig('gamekey');
+        $gamekey = Common::getConfig('gamekey');
         if($gameAbbr == 'shenqi' || $gameAbbr == 'shenqi2' || $gameAbbr == 'shenqi3' || $gameAbbr == 'shenqi4'){
             $gameAbbr = 'shenqi';
         }

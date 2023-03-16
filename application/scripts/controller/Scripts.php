@@ -4,7 +4,6 @@ namespace app\scripts\controller;
 
 use common\Libraries\{Common,CUtf8_PY,GameApi,Search,Suggest};
 
-use common\model\db_customer\Gamekey;
 use common\server\ActionBlock\ActionBlockServer;
 use common\server\Game\BlockServer;
 use common\server\keyword\KeywordServer;
@@ -37,10 +36,6 @@ class Scripts extends Base
 
     protected $last_check_keyword_time = RUNTIME_PATH.'last_check_keyword_time.txt';
 
-    protected $last_merge_check_keyword_time = RUNTIME_PATH.'last_merge_check_keyword_time.txt';
-
-
-
 
     public function test(){
         $time = time();
@@ -52,26 +47,24 @@ class Scripts extends Base
             $start_time = $time-60;
             $end_time = $time;
         }
-        $start_time = 1656496014;
-        $end_time = 1656496015;
-        $ScriptsLogics = new ScriptsServer();
+        $ScriptsLogics = new ScriptsLogics();
         $chat_info = $ScriptsLogics->getElasticSearchSuggestInfo($start_time,$end_time);
-
+        echo "<pre>";
         var_dumP($chat_info);exit;
     }
 
-    //处理聊天信息功能-处理关键词
+    //处理聊天信息功能
     public function run(){
 
         $ScriptsServer = new ScriptsServer();
         $start_time = file_exists($this->last_check_keyword_time) ? file_get_contents($this->last_check_keyword_time) : time();
         $time = time();
-        $start_time = $start_time??$time-10;
+        $start_time = $start_time??$time-60;
         $end_time = $time;
 
         //超过半小时延迟，放弃之前的时段
         if($time - $start_time > 1800){
-            $start_time = $time-10;
+            $start_time = $time-60;
             $end_time = $time;
         }
         //获取时间段内的聊天信息
@@ -81,36 +74,61 @@ class Scripts extends Base
 //        $chat_info = $ScriptsServer->getElasticSearchSuggestInfo($start_time,$end_time);
 
 
-        $msg = ' {
-    "id": "2302221714419445",
-    "gkey": "nbcqxyxyy",
-    "tkey": "youyu",
-    "sid": "S1409",
-    "uid": "23657731",
-    "uid_str": "23657731",
-    "uname": "强哥",
-    "roleid": "2685694986514731008",
-    "type": "1",
-    "content": "我佳你",
-    "content2": "我佳你",
-    "time": "1677057281",
-    "ip": "39.108.12.32",
-    "ip_id": "1676910146",
-    "to_uid": 0,
+        $chat_info = '{
+    "id": "2108252232397298",
+    "gkey": "shenqiios",
+    "tkey": "zw",
+    "sid": "S515",
+    "uid": "17302133",
+    "uname": "海宁",
+    "roleid": "1629269285000862700",
+    "type": "6",
+    "content": "哈",
+    "content2": "**你也来",
+    "time": "1629901955",
+    "ip": "112.17.247.250",
+    "ip_id": 0,
+    "to_uid": "",
     "to_uname": "",
-    "role_level": "124",
-    "imei": "20230221001912C50798F287316767D3D9",
-    "count_money": "128.00",
-    "reg_channel_id": "896151",
+    "role_level": "151",
+    "imei": "",
+    "count_money": 0,
+    "reg_channel_id": "145222",
     "ext": "",
     "openid": "",
-    "is_sensitive": 0,
-    "sensitive_keyword": "",
-    "request_time": 1677057281
+    "request_time": 1629901959
   }';
 
+        $chat_info2 = '{
+    "id": "2108252232397298",
+    "gkey": "shenqiios",
+    "tkey": "zw",
+    "sid": "S515",
+    "uid": "17302133",
+    "uname": "海宁",
+    "roleid": "1629269285000862700",
+    "type": "6",
+    "content": "哈",
+    "content2": "**你也来",
+    "time": "1629901955",
+    "ip": "112.17.247.250",
+    "ip_id": 0,
+    "to_uid": "",
+    "to_uname": "",
+    "role_level": "151",
+    "imei": "",
+    "count_money": 0,
+    "reg_channel_id": "145222",
+    "ext": "",
+    "openid": "",
+    "request_time": 1629901959
+  }';
 
-        $chat_info[] = json_decode($msg,1);
+        $empty[0] = json_decode($chat_info,1);
+        $empty[1] = json_decode($chat_info2,1);
+        $chat_info = $empty;
+
+
         //使用火山引擎处理聊天信息(暂停)
 //        $ScriptsLogics->checkChatTest($chat_info);
 
@@ -120,104 +138,39 @@ class Scripts extends Base
         //重置开始时间
         file_put_contents($this->last_check_keyword_time,$end_time);
 
-        $tmp_chat_info = [];
+        //处理关键词
+//        $ScriptsServer->dealChatKeyword($chat_info);
 
-        //按平台分好组处理
-        foreach($chat_info as $k=>$v){
-            $tmp_chat_info[$v['tkey']][] = $v;
-        }
-
-        $game_config = Common::getGameKey();
-
-        foreach($tmp_chat_info as $k1=>$v1){
-
-            //处理关键词
-            $ScriptsServer->dealChatKeyword($v1);
-
-            //处理上下文关键词
-//            $ScriptsServer->dealMergeChatKeyword($v1);
-
-            //根据uid禁言角色
-            $ScriptsServer->dealMonitoringUid($v1);
-        }
+        //处理上下文关键词
+        $ScriptsServer->dealMergeChatKeyword($chat_info);
 
 
     }
-
-
-
-    //处理聊天信息功能-上下文关键词
-    public function dealMergeChatKeyword(){
-
-        $ScriptsServer = new ScriptsServer();
-        $start_time = file_exists($this->last_merge_check_keyword_time) ? file_get_contents($this->last_merge_check_keyword_time) : time();
-        $time = time();
-        $start_time = $start_time??$time-15;
-        $end_time = $time;
-
-        //超过半小时延迟，放弃之前的时段
-        if($time - $start_time > 1800){
-            $start_time = $time-15;
-            $end_time = $time;
-        }
-
-        //使用elasticsearch获取聊天信息
-        $chat_info = $ScriptsServer->getElasticSearchSuggestInfo($start_time,$end_time);
-
-
-        //对内容进行过滤，包括去除白名单、去除特殊字符、转换中文为数字
-        $chat_info = $ScriptsServer->filterContent($chat_info);
-
-        //重置开始时间
-        file_put_contents($this->last_merge_check_keyword_time,$end_time);
-
-        $tmp_chat_info = [];
-
-        //按平台分好组处理
-        foreach($chat_info as $k=>$v){
-            $tmp_chat_info[$v['tkey']][] = $v;
-        }
-
-
-        foreach($tmp_chat_info as $k1=>$v1){
-
-            //处理上下文关键词
-            $ScriptsServer->dealMergeChatKeyword($v1);
-        }
-
-
-    }
-
 
 
     //行为封禁脚本
     public function dealActionBlock(){
-
-        ini_set('memory_limit', '2048M');
-        
         $start_time = time()-1200;
         $ScriptsServer = new ScriptsServer();
         $end_time = time();
 
         $info = $ScriptsServer->getElasticSearchSuggestInfo($start_time,$end_time);
         $redis = get_redis();
-
+//        //剔除已操作的信息
+        foreach($info as $k10=>$v10){
+            if($redis->get('action_block_1_'.$v10['uid']) || $redis->get('action_block_2_'.$v10['ip']) || $redis->get('action_block_2_'.$v10['imei'])){
+                unset($info[$k10]);
+            }
+        }
 
         //对内容进行过滤，包括去除白名单、去除特殊字符、转换中文为数字
         $info = $ScriptsServer->filterContent($info);
 
 
-        $game_config = Common::getGameKey();
-
         //整理聊天信息
         $new_arr = [];
         foreach($info as $k=>$v){
-
-            //判断是否开启行为封禁
-            if(!empty($game_config[$v['gkey']]['auto_action_block'])){
-                $new_arr[$v['tkey'].'_'.$v['gkey'].'_'.$v['uid']][] = $v;
-            }
-
+            $new_arr[$v['tkey'].'_'.$v['gkey'].'_'.$v['uid']][] = $v;
         }
 
         $new_arr1 = [];
@@ -232,7 +185,7 @@ class Scripts extends Base
         }
 
         //获取行为列表
-        $actions = ActionBlockServer::getAllByWhere(['status'=>1]);
+        $actions = ActionBlockServer::getOneByWhere(['status'=>1]);
 
         $limit_time = [];
         //获取需要计算的时间
@@ -264,8 +217,9 @@ class Scripts extends Base
         foreach($actions as $k5=>$v5){
             foreach($info_time_arr[$v5['limit_time']] as $k6=>$v6){
 
-                //剔除已经处理过的信息  action_block_type_ban_object_tkey_gkey_uid
-                if($redis->get('action_block_'.$v5['type'].'_'.$v5['ban_object'].'_'.$v6[0]['tkey'].'_'.$v6[0]['gkey'].'_'.$v6[0]['uid'])) {
+
+                //剔除已经处理过的信息  action_block_1_uid、action_block_2_ip、action_block_3_imei
+                if($redis->get('action_block_1_'.$v6[0]['uid']) || $redis->get('action_block_2_'.$v6[0]['ip']) || $redis->get('action_block_2_'.$v6[0]['imei'])){
                     continue;
                 }
 

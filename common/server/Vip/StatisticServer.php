@@ -134,17 +134,14 @@ class StatisticServer extends BasicServer
                         $result[$v['uid_platform']]['tmp_pay_count'] = $v['last_thirty_day_pay_count'];
                         $result[$v['uid_platform']]['last_thirty_day_highest_pay_game'] = $v['game_id'];
                     }
-                    $result[$v['uid_platform']]['last_thirty_day_pay_count'] +=$v['last_thirty_day_pay_count'];
                 }else {
                     $result[$v['uid_platform']]['tmp_pay_count'] = $v['last_thirty_day_pay_count'];
                     $result[$v['uid_platform']]['last_thirty_day_highest_pay_game'] = $v['game_id'];
                     $result[$v['uid_platform']]['last_thirty_day_pay_count'] =$v['last_thirty_day_pay_count'];
                 }
 
-
+                $result[$v['uid_platform']]['last_thirty_day_pay_count'] +=$v['last_thirty_day_pay_count'];
             }
-
-
         }
         if($result){
             foreach ($result as &$v) {
@@ -506,15 +503,11 @@ class StatisticServer extends BasicServer
                     B.ascription_vip,
                     SUM(A.amount_count) AS sumamount,
                     SUM(A.order_count) AS order_count,
-                    B.last_record_time,
-                    C.product_id,
-                    C.product_name
+                    B.last_record_time
                 FROM
-                    every_day_order_count AS A FORCE index(date)
-                INNER JOIN vip_user_info AS B force index (pu) ON A.platform_id = B.platform_id
-                 AND A.uid = B.uid
-                INNER JOIN platform_game_info AS C ON A.platform_id = C.platform_id AND A.game_id = C.game_id
-                ";
+                    every_day_order_count AS A
+                INNER JOIN vip_user_info AS B ON A.platform_id = B.platform_id
+                AND A.uid = B.uid ";
         $where = ' where 1=1 ';
 
         if(self::$user_data['is_admin'] == 0){
@@ -580,7 +573,7 @@ class StatisticServer extends BasicServer
             $this_where['static'] = 1;
             $this_where[] = getWhereDataArr($params['p_p'],"concat(platform_id,'_',product_id)");
 
-            $p_g_list = $PlatformGameInfo->field("concat(platform_id,'_',game_id) as p_g")->where(setWhereSql($this_where,''))->select()->toArray();
+            $p_g_list = $PlatformGameInfo->field("concat(platform_id,'_',game_id) as p_g",2)->where(setWhereSql($this_where,''))->select()->toArray();
 
             if(!$p_g_list){
                 $where.=' AND B.p_l_g = 0';
@@ -641,11 +634,7 @@ class StatisticServer extends BasicServer
             $where .= " and B.last_record_time = 0";
         }
 
-        if($params['is_group'] == 1){
-            $groupBy = " GROUP BY C.product_id,A.platform_id,A.uid";
-        }else{
-            $groupBy = " GROUP BY A.date,A.game_id,A.platform_id,A.uid";
-        }
+        $groupBy = " GROUP BY A.date,A.game_id,A.platform_id,A.uid";
 
         $having = '';
         if ($params['pay_min'] >0) {
@@ -674,15 +663,11 @@ class StatisticServer extends BasicServer
                                 SELECT
                                     A.platform_id,
                                     A.uid,
-                                    SUM(A.amount_count) AS sumamount,
-                                    C.product_id,
-                                    C.product_name
+                                    SUM(A.amount_count) AS sumamount
                                 FROM
-                                    every_day_order_count AS A FORCE index(date)
-                                INNER JOIN vip_user_info AS B force index (pu) ON A.platform_id = B.platform_id
-                                AND A.uid = B.uid
-                                INNER JOIN platform_game_info AS C ON A.platform_id = C.platform_id AND A.game_id = C.game_id
-                                ";
+                                    every_day_order_count AS A
+                                INNER JOIN vip_user_info AS B ON A.platform_id = B.platform_id
+                                AND A.uid = B.uid ";
             $sqlCount = $sqlCount.$where.$groupBy.$having." ) as C";
 
             $vipCount = $everyDayPayModel->query($sqlCount);

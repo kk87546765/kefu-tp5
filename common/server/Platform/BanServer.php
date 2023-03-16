@@ -7,11 +7,12 @@ namespace common\server\Platform;
 use common\base\BasicServer;
 use common\libraries\Curl;
 use common\libraries\Logger;
-use common\libraries\Common;
+use common\libraries\common;
 use common\sql_server\BanImeiLog;
 use common\sql_server\BanIpLog;
 use common\sql_server\BanUserLog;
 use common\sql_server\KefuCommonMember;
+use Quan\System\Config;
 
 
 class BanServer extends BasicServer
@@ -54,7 +55,6 @@ class BanServer extends BasicServer
     public function ban($data=[], $actionType=self::BAN_UID, $type=self::BAN, $banTime=0, $reason = '')
     {
 
-//        return ['fail' => [], 'succ' => []];
         $actionData = [
             'uid' => '',
             'ip' => '',
@@ -67,11 +67,8 @@ class BanServer extends BasicServer
         ];
         $failUid = $succ = [];
         $time = time();
-        $platform_list = Common::getPlatform();
         foreach ($data as $key=>$value) {
-            if(!isset($platform_list[$key])){
-                continue;
-            }
+
             $uids = array_column($value, 'sdkUid');
             $actionData[self::$actionType[$actionType]] = implode(',', $uids);
 
@@ -123,24 +120,32 @@ class BanServer extends BasicServer
         if (empty($banData) || ($banData['uid'] && $banData['ip'] && $banData['imei'] && $banData['user_name'])) {
             return $res;
         }
-
+        //没有指定的平台就获取session的
+        if (empty($platformSuffix)) {
+            $platformSuffix = $_SESSION['Platform_key'];
+        }
         //获取平台配置信息
-        $platformConfig =Common::getPlatformInfoBySuffixAndCache($platformSuffix);
+        $platformConfig = Common::getConfig(self::CONFIG_PIATFORM.'.'.$platformSuffix);
 
-        $url_key = $platformConfig['config']['url_key'] ?? '';
-
-        $signString = "type=".$banData['type']."action_type=".$banData['action_type']."time=".$banData['time']."key=".$url_key;
+        $signString = "type=".$banData['type']."action_type=".$banData['action_type']."time=".$banData['time']."key=".$platformConfig['url_key'];
         $sign = md5($signString);
-
+        Logger::write([
+            'tag' => 'sign',
+            'signString' => $signString,
+            'signMd5' => $sign
+        ]);
         $banData['sign'] = $sign;
-
-        $url = $platformConfig['config']['ban_url'] ?? '';
+        Logger::write([
+            'tag' => 'actionDataJson',
+            'msg' => json_encode($banData)
+        ]);
+        $url = $platformConfig['ban_url'];
         $curl   = new Curl();
         $res = $curl->post($url, $banData);
 
         Logger::write([
             'tag' => 'postRes',
-            'url' => $url.'||actionDataJson:'.json_encode($banData),
+            'url' => $url,
             'msg' => $res,
         ]);
         return $res;
@@ -151,13 +156,17 @@ class BanServer extends BasicServer
      * @param string $platformSuffix
      */
     public function ban_log($logData = [], $platformSuffix = ''){
-        $admin_user = self::$user_data['username'];
-
+        $admin_user = $_SESSION['username'];
         $insertData = [];
         if ($logData['action_type'] == self::BAN_UID || $logData['action_type'] == self::BAN_USER_NAME){
             //账号
             foreach ($logData['user'] as $v){
-
+                if ($logData['type'] == self::BAN){
+                    $res = $this->setBanCache($logData['action_type'], $v, $logData['ban_time'], $platformSuffix);
+                }else{
+                    $res = $this->deleteCache($logData['action_type'], $v, $platformSuffix);
+                }
+//                if (!$res) continue;
                 $tmpArr = [];
                 $tmpArr['admin_user'] = $admin_user;
                 if ($logData['action_type'] == self::BAN_UID){
@@ -189,6 +198,12 @@ class BanServer extends BasicServer
             //ip
             foreach ($logData['user'] as $v){
 
+                if ($logData['type'] == self::BAN){
+                    $res = $this->setBanCache($logData['action_type'], $v, $logData['ban_time'], $platformSuffix);
+                }else{
+                    $res = $this->deleteCache($logData['action_type'], $v, $platformSuffix);
+                }
+//                if (!$res) continue;
                 $tmpArr = [];
                 $tmpArr['admin_user'] = $admin_user;
                 $tmpArr['ip'] = $v;
@@ -207,7 +222,12 @@ class BanServer extends BasicServer
         }elseif ($logData['action_type'] == self::BAN_IMEI){
             //imei
             foreach ($logData['user'] as $v){
-
+                if ($logData['type'] === self::BAN){
+                    $res = $this->setBanCache($logData['action_type'], $v, $logData['ban_time'], $platformSuffix);
+                }else{
+                    $res = $this->deleteCache($logData['action_type'], $v, $platformSuffix);
+                }
+//                if (!$res) continue;
                 $tmpArr = [];
                 $tmpArr['admin_user'] = $admin_user;
                 $tmpArr['imei'] = $v;

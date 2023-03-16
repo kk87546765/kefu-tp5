@@ -45,14 +45,13 @@ class Block extends Oauth
     public function blockUser()
     {
 
-        $data['ids']    = $this->request->post('a_ids/a', null);
-        $data['uids']   = $this->request->post('uids/a', null);
-        $data['b_ids'] = $this->request->post('b_ids/a', null);
-        if( empty($data['ids']) ) $data['ids'] = $data['b_ids'];
+        $data['ids']    = (array)$this->request->post('a_ids', '');
+        $data['b_ids'] = (array)$this->request->post('b_ids/s', '');
+        if( empty($ids) ) $data['ids'] = $data['b_ids'];
         $data['blockid'] = (array)$this->request->post('blockid/d',0);
         $data['status'] = $this->request->post('type/s',  BlockServer::STATUS_BLOCK);
 
-        $data['block_time'] = $this->request->post('block_time/d',  BlockServer::BLOCK_TIME);//默认封禁1年
+        $data['block_time'] = $this->request->post('block_time/d',  self::BLOCK_TIME);//默认封禁1年
         $data['admin_user'] = $this->user_data['username'];
         $data['op_ip']      =  $this->user_data["last_ip"];
 
@@ -70,12 +69,11 @@ class Block extends Oauth
     public function blockChat()
     {
 
-        $data['ids'] = $this->request->post('a_ids/a',null);
-        $data['b_ids'] = $this->request->post('b_ids/a',null);
-        $data['uids']   = $this->request->post('uids/a', null);
+        $data['ids'] = $this->request->post('a_ids/a');
+        $data['b_ids'] = $this->request->post('b_ids/a');
         if( empty($data['ids']) ) $data['ids'] = $data['b_ids'];
 
-        $data['blockid'] = $this->request->post('blockid',0);
+        $data['blockid'] = $this->request->post('blockid');
         $data['status'] = $this->request->post('type', BlockServer::STATUS_BLOCK);
 
         $data['block_time'] = $this->request->post('block_time/d',BlockServer::CHAT_TIME);//默认封禁1年
@@ -108,8 +106,8 @@ class Block extends Oauth
     public function index()
     {
 
-        $data['page']            = $this->request->request('page/d',1);
-        $data['limit']           = $this->request->request('limit/d',20);
+        $data['page']            = $this->request->post('page/d',1);
+        $data['limit']           = $this->request->post('limit/d',20);
         $data['game']            = $this->request->post('game/s','');
         $data['rolename']        = $this->request->post('rolename/s','');
         $data['ip']              = $this->request->post('ip/s','');
@@ -124,9 +122,7 @@ class Block extends Oauth
         $data['reg_channel_id']  = $this->request->post('reg_channel_id/d', 0);
         $data['platform_id']     = $this->request->post('platform_id/d', 0);
         $data['status']          = $this->request->post('status');
-        $data['order']           = $this->request->post('order/s','id desc');
-        $data['keyword_id']      = $this->request->request('keyword_id/d',0);
-        $data['is_excel']        = $this->request->post('is_excel/d',0);
+        $data['order']           = $this->request->post('order/s','');
 
         $res = BlockServer::getList($data);
         $count = BlockServer::getCount($data);
@@ -203,14 +199,43 @@ class Block extends Oauth
 
 
     public function check_chat3(){
-        $data['uid']       = $this->request->get('uid', '');
-        $data['tkey']      = $this->request->get('tkey', '');
-        $res = ElasticSearchChatServer::getCheckChat($data);
-        $this->rs['code'] = 0;
-        $this->rs['msg'] = '获取成功';
-        $this->rs['data'] = $res;
-        return return_json($this->rs);
+        $uid       = $this->request->get('uid', '');
+        $tkey      = $this->request->get('tkey', '');
+        $this->es = new ElasticSearch();
+        $limit = 10000;
+        $page = 1;
 
+        $bool['bool']['filter']['bool']['must'][]['term']['uid'] = $uid;
+        $bool['bool']['filter']['bool']['must'][]['term']['tkey'] = $tkey;
+
+
+        $last_month = Common::GetMonth(1);
+        $now_month = date('Ym');
+        $next_month = Common::GetMonth(0);
+
+        $result = $this->es->search(
+            [
+                $this->es->index_name.'-'.$last_month,
+                $this->es->index_name.'-'.$now_month,
+                $this->es->index_name.'-'.$next_month
+            ],
+            $bool,
+            '',
+            ['time'=>['order'=>'desc']],
+            $page,
+            $limit
+        );
+
+        foreach ($result['data'] as &$v) {
+            $v['date'] = date('Y-m-d H:i:s', $v['time']);
+            $v['typename'] = $this->types[$v['type']];
+            $v['gkey'] = $this->gamelist[$v['gkey']]['name'];
+            $v['attribution'] = implode('', IP4datx::find($v['ip']));
+            $v['ip'] = $v['ip']."[{$v['attribution']}]";
+        }
+
+
+        $this->view->setVar('result',$result['data']);
     }
 
     public function getTypes()

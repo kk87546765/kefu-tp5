@@ -187,7 +187,6 @@ class VipConfig extends Oauth
             ['special_server_id','trim',''],
             ['is_server_remainder','int',0],
             ['remove_server_id','trim',0],
-            ['ext','array',[]],
             ['id','int',0]
         ]);
 

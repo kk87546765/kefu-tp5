@@ -42,7 +42,7 @@ class ElasticSearchChat extends Oauth
         $data['imei']       = $this->request->post('imei/s', '');
         $data['uname']      = $this->request->post('uname/s', '');
         $data['dateStart']  = $this->request->post('sdate/s', date('Y-m-d 00:00:00'));
-        $data['dateEnd']    = $this->request->post('edate/s',date('Y-m-d 23:59:59'));
+        $data['dateEnd']      = $this->request->post('edate/s');
         $data['sid_min']    = $this->request->post('sid_min/s', '');
         $data['sid_max']    = $this->request->post('sid_max/s', '');
         $data['keyword']    = $this->request->post('keyword/s', '');
@@ -51,8 +51,7 @@ class ElasticSearchChat extends Oauth
         $data['level_max']  = $this->request->post('level_max/s', '');
         $data['money_min']  = $this->request->post('money_min/s', '');
         $data['money_max']  = $this->request->post('money_max/s', '');
-        $data['platform_id']= $this->request->post('platform_id/d', 0);
-        $data['ext']        = $this->request->post('ext/s', '');
+        $data['platform_id']  = $this->request->post('platform_id/d', 0);
 
 //        $platform_key = $this->session->get('platform_key');
         $res = ElasticSearchChatServer::getList($data);
@@ -76,21 +75,63 @@ class ElasticSearchChat extends Oauth
 
     }
 
-    public function check_chat4()
-    {
-        $data['uname']  = urldecode($this->request->get('uname/s', ''));
-        $data['uid']    = $this->request->get('uid/d', 0);
-        $data['gkey']   = $this->request->get('gkey/s', '');
-        $data['date']   = $this->request->get('date/s', '');
-        $data['s_date'] = strtotime(date('Y-m-d', $data['date']));
-        $data['e_date'] = strtotime(date('Y-m-d', $data['date'])) + 86400;
+    public function check_chat4(){
+        $uid       = $this->request->get('uid','trim', '');
+        $date      = $this->request->get('date','trim', '');
+        $s_date = strtotime(date('Y-m-d',strtotime($date)));
+        $e_date = strtotime(date('Y-m-d',strtotime($date)))+86400;
 
-        $res = ElasticSearchChatServer::getCheckChat($data);
+        $query = Common::composePlatform();
+        $this->es = new ElasticSearch();
+        $limit = 10000;
+        $page = 1;
 
-        $this->rs['code'] = 0;
-        $this->rs['msg'] = '获取成功';
-        $this->rs['data'] = $res;
-        return return_json($this->rs);
+        $bool['bool']['filter']['bool']['should'][]['match']['uid'] = $uid;
+        $bool['bool']['filter']['bool']['should'][]['match']['to_uid'] = $uid;
+        $bool['bool']['filter']['bool']['minimum_should_match'] = 1;
+
+        if($s_date){
+            $range0['range']['time']['gte']  = $s_date;
+
+        }
+
+        if($e_date){
+            $range0['range']['time']['lte']  = $e_date;
+
+        }
+
+        if($range0){
+            $bool['bool']['filter']['bool']['must'][] = $range0;
+        }
+
+
+        $last_month = Common::GetMonth(1);
+        $now_month = date('Ym');
+        $next_month = Common::GetMonth(0);
+
+        $result = $this->es->search(
+            [
+                $this->es->index_name.'-'.$last_month,
+                $this->es->index_name.'-'.$now_month,
+                $this->es->index_name.'-'.$next_month
+            ],
+            $bool,
+            '',
+            ['time'=>['order'=>'desc']],
+            $page,
+            $limit
+        );
+
+        foreach ($result['data'] as &$v) {
+            $v['date'] = date('Y-m-d H:i:s', $v['time']);
+            $v['typename'] = $this->types[$v['type']];
+            $v['gkey'] = $this->gamelist[$v['gkey']]['name'];
+            $v['attribution'] = implode('', IP4datx::find($v['ip']));
+            $v['ip'] = $v['ip']."[{$v['attribution']}]";
+        }
+
+
+        $this->view->setVar('result',$result['data']);
     }
 
 }

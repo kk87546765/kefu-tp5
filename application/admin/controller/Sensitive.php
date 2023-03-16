@@ -56,20 +56,19 @@ class  Sensitive extends Oauth
     public function index()
     {
 
-        $data['page']       = $this->request->request('page/d', 1);
-        $data['limit']      = $this->request->request('limit/d',  20);
+        $data['page']       = $this->request->post('page/d', 1);
+        $data['limit']      = $this->request->post('limit/d',  20);
         $data['game']       = $this->request->post('game/s', '');
         $data['keyword']    = $this->request->post('keyword/s', '');
         $data['gamelist']   = $this->gamelist;
 
         $keywords = SensitiveServer::getList($data);
-        $total = SensitiveServer::getCount($data);
 
         if($keywords){
             $this->rs['code'] = 0;
             $this->rs['msg'] = '获取成功';
             $this->rs['data'] = $keywords;
-            $this->rs['count'] = $total;
+            $this->rs['total'] = 0;
         }else{
             $this->rs['code'] = -1;
             $this->rs['msg'] = '获取失败';

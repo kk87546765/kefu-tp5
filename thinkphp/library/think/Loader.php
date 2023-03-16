@@ -673,6 +673,5 @@ function __include_file($file)
  */
 function __require_file($file)
 {
-
     return require $file;
 }

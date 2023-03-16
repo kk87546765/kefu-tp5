@@ -12,7 +12,7 @@ class KefuUserRecharge extends BasicModel
     protected $resultSetType = 'collection';
     protected $pk = 'id';
 
-    const is_vip_total_pay = 500;//20221005 1000修改成500
+    const is_vip_total_pay = 1000;
     const is_vip_day_hign_pay = 500;
 
     /**

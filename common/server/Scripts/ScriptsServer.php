@@ -8,25 +8,26 @@
 namespace common\server\Scripts;
 
 use common\libraries\Common;
-use common\libraries\Dingding;
+use common\libraries\CUtf8_PY;
 use common\libraries\ElasticSearch;
 use common\libraries\Logger;
 use common\libraries\PinYin;
+use common\libraries\Search;
 use common\server\Game\BlockServer;
-
+use common\server\Game\RoleServer;
 use common\server\Platform\BanServer;
 use common\server\Sdk\UserServer as sdkUserServer;
 
-use common\server\SysServer;
-
+use common\sql_server\ActionBlockSqlServer;
 use common\sql_server\BlockSqlServer;
-use common\sql_server\BlockWaringSqlServer;
 use common\sql_server\KefuCommonMember;
 use common\sql_server\KeywordSqlServer;
 use common\sql_server\KeywordLogSqlServer;
-use common\sql_server\MonitoringUidSqlServer;
-use think\Config;
 
+use Quan\System\Cache\Adapter\Redis;
+use Phalcon\Di;
+use Quan\System\Config;
+use Volc\Service\AdBlocker;
 
 class ScriptsServer
 {
@@ -42,16 +43,13 @@ class ScriptsServer
     const BLOCK_LOGIN = 1;//封登录
     const BLOCK_CHAT = 2;//封禁言
 
-    const BLOCK_TIME = 365*86400;//封禁时长
-    const BAN_TIME = 10*86400;//禁言时长
-
     const ACTION_BLOCK = '行为封禁';
 
     protected $white_id = 'white_id';
     protected $BanLogicModel = '';
     protected $config,$redis = '';
     protected $block_keyword_key,$common_keyword_forbid,$block_keyword_forbid,$merge_chat_keyword,$block_resemble_key,$white_keyword_key,$white_name,
-        $check_chat_game,$check_merge_chat_game,$check_action_block_game;
+              $check_chat_game,$check_merge_chat_game,$check_action_block_game;
 
     public function __construct()
     {
@@ -60,8 +58,6 @@ class ScriptsServer
         $this->initKeywordList();
 
         $product_list = common::getProductList();
-        $this->BanLogicModel = new BanServer();
-
         foreach($product_list as $k=>$v){
 
             //白名单
@@ -69,36 +65,15 @@ class ScriptsServer
 
         }
 
-        $gamekey = Common::getGameKey();
 
-
-        $need_check_game_arr = [];
-        $need_check_action_game_arr = [];
-        $need_check_merge_game_arr = [];
-
-        foreach($gamekey as $k=>$v){
-            if($v['auto_block'] == 1){
-                $need_check_game_arr[] = $k;
-            }
-
-            if($v['auto_action_block'] == 1){
-                $need_check_action_game_arr[] = $k;
-            }
-
-            if($v['auto_merge_block'] == 1){
-                $need_check_merge_game_arr[] = $k;
-            }
-
-        }
-
-        //关键词封禁适用游戏
-        $this->check_chat_game = $need_check_game_arr;
+        //自动封禁适用游戏
+        $this->check_chat_game = ['mori','555','shenqi','jzxjz','555fl-ll','lmzh','cyd','sxj','tjqy','y9cq','shenqiios'];
 
         //行为封禁适用游戏
-        $this->check_action_block_game = $need_check_action_game_arr;
+        $this->check_action_block_game = ['mori','555','shenqi','jzxjz','555fl-ll','lmzh','cyd','sxj','tjqy','y9cq'];
 
         //上下文封禁适用游戏
-        $this->check_merge_chat_game = $need_check_merge_game_arr;
+        $this->check_merge_chat_game = ['mori','555','shenqi','jzxjz','555fl-ll','lmzh','cyd'];
     }
 
     public function initKeywordList(){
@@ -258,52 +233,33 @@ class ScriptsServer
 
             foreach($v6 as $k7=>$v7){
                 $var = 'block_keyword_set_'.$v7['gkey'];
-
-                if(!isset($this->$var)){
-                    continue;
-                }
                 $preg_str = $this->$var;
-                $word_list = explode('|',$preg_str);
 
-                $t_content = str_replace(array(".", "+", ""," "), array("", "", "",""), $v7['content2']);
+                $t_content = str_replace(array(".", "+"), array("", ""), $v7['content']);
+                $res = preg_match_all("/{$preg_str}/", $t_content, $keywrods);
 
-                foreach ($word_list as $k0=>&$v0){
+                if($res && !empty($preg_str)){
 
-                    $new_game_word_list[$k0] =  urlencode($v0);
-
-                    $res = preg_match("/{$new_game_word_list[$k0]}/",$t_content, $keywords);
-
-                    if ($res && !empty($v0) && mb_strpos(urldecode($t_content),$v0) !== false) {
-
-                        unset($new_arr5[$k6][$k7]);
-                    }
+                    unset($new_arr5[$k6][$k7]);
                 }
-
-
             }
         }
+
 
         //合并上下文聊天信息
         $merge_arr = [];
 
-
         foreach($new_arr5 as $k1=>$v1){
             $content = '';
-            $content2 = '';
             foreach($v1 as $k2=>$v2){
-
                 $content .= $v2['content'];
-                $content2 .= $v2['content2'];
             }
-
-            //将内容合并到第一条信息上
-            $v1[0]['content2'] = $content2;
             $v1[0]['content'] = $content;
 
             array_push($merge_arr,$v1[0]);
         }
 
-        $need_deal_arr = [];
+
         //判断聊天信息是否触发限制，是的话返回待处理的聊天信息
         foreach($merge_arr as $k8=>$v8){
             $res = $this->autoForbidWord($v8,'',1);
@@ -311,7 +267,7 @@ class ScriptsServer
             //灰度测试
             if($res){
                 //人员白名单跳过封禁
-                if(isset($this->white_name[$v8['gkey']]) && in_array($v8['uid'],$this->white_name[$v8['gkey']])){
+                if(in_array($v8['uid'],$this->white_name[$v8['gkey']])){
                     continue;
                 }
                 //判断游戏是否开启自动封禁
@@ -323,6 +279,10 @@ class ScriptsServer
                 }
             }
 
+            //正式
+//            if($res){
+//                $need_deal_arr[$v8['uid']] = $res;
+//            }
         }
 
         //对违规聊天信息内容进行封禁
@@ -337,14 +297,11 @@ class ScriptsServer
     private function autoForbidWord($data,$imei,$type=0)
     {
 
-        $res = false;
         $data['imei'] = $imei;
-        $data['chat_type'] = !empty($data['type']) ? $data['type'] : 0 ;
         $data['type'] = $type;
 
-        $gkey = isset($data['gkey']) ? $data['gkey'] : '';
 
-        if( $data['content'] == '' || $imei == "00000000-0000-0000-0000-000000000000" || empty($gkey)){
+        if( $data['content'] == '' || $imei == "00000000-0000-0000-0000-000000000000" ){
             return false;
         }
 
@@ -352,96 +309,74 @@ class ScriptsServer
         //检测该游戏的关键词
         $game_word_list = $this->redis->SMEMBERS($this->block_keyword_key.'_'.$data['gkey']);
 
-        if( !empty($game_word_list) ) {
+        $word_list = $this->redis->SMEMBERS($this->block_keyword_key.'_'.'autoforbid');
 
-            $t_content = str_replace(array(".", "+", ""), array("", "", ""), $data['content2']);
 
-            foreach ($game_word_list as $k0=>&$v0){
+        $preg_str = implode("|",$game_word_list);
+        $preg_str = '哈哈';
+        if( !empty($preg_str) || !empty($word_list) ) {
 
-                $new_game_word_list[$k0] =  urlencode($v0);
+            $t_content = str_replace(array(".", "+",""), array("", "",""), $data['content']);
 
-                $res = preg_match("/{$new_game_word_list[$k0]}/",$t_content, $keywords);
-
-                if ($res && !empty($v0) && mb_strpos(urldecode($t_content),urldecode($v0)) !== false) {
-
+            if(!empty($preg_str)){
+                $res = preg_match_all("/{$preg_str}/", $t_content, $keywrods);
+                if($res){
                     $data['tmp_keyword_game'] = $data['gkey'];
-                    break;
                 }
             }
-        }
 
-        //检测公共词库的关键词
-        if(empty($res)){
 
-            $word_list = $this->redis->SMEMBERS($this->block_keyword_key.'_'.'autoforbid');
+            //检测公共词库的关键词
+            if(empty($res)){
 
-            if(!empty($word_list)){
+                $preg_str = implode("|",$word_list);
 
-                $t_content = str_replace(array(".", "+",""), array("", "",""), $data['content2']);
+                $t_content = str_replace(array(".", "+",""), array("", "",""), $data['content']);
 
-                foreach ($word_list as $k1=>&$v1){
-
-                    $word_list[$k1] =  urlencode($v1);
-
-                    $res = preg_match("/{$word_list[$k1]}/",$t_content , $keywords);
-
-                    if($res && !empty($v1) && mb_strpos(urldecode($t_content),urldecode($v1)) !== false){
-
+                if(!empty($preg_str)){
+                    $res = preg_match_all("/{$preg_str}/", $t_content, $keywrods);
+                    if($res){
                         $data['tmp_keyword_game'] = 'autoforbid';
-                        break;
                     }
                 }
 
-            }
-
-        }
-
-
-        //判断是否符合谐音
-        if(!empty($res) && preg_match('/[\x{4e00}-\x{9fa5}]/u', $data['content']) ){
-
-            $pinyin_list = $this->redis->SMEMBERS($this->block_resemble_key);
-
-            $pinyin_preg_str = implode("|",$pinyin_list);
-            if(!empty($pinyin_preg_str) ){
-                $pinyin = new PinYin();
-                $t_content = str_replace(array("."," "), array("", ""),$pinyin->main($data['content'],true,true));
-
-                $pinyin_preg_str = str_replace(array(".", "+"," "), array("", "",""),$pinyin_preg_str);
-
-                $res = preg_match_all("/{$pinyin_preg_str}/", $t_content, $keywords);
 
             }
 
 
-        }
+            //判断是否符合谐音
+            if(!$res && preg_match('/[\x{4e00}-\x{9fa5}]/u', $data['content']) ){
+
+                $pinyin_list = $this->redis->SMEMBERS($this->block_resemble_key);
+
+                $pinyin_preg_str = implode("|",$pinyin_list);
+                if(!empty($pinyin_preg_str) ){
+                    $pinyin = new PinYin();
+                    $t_content = str_replace(array("."," "), array("", ""),$pinyin->main($data['content'],true,true));
+
+                    $pinyin_preg_str = str_replace(array(".", "+"," "), array("", "",""),$pinyin_preg_str);
+
+                    $res = preg_match_all("/{$pinyin_preg_str}/", $t_content, $keywrods);
+
+                }
 
 
-        if ($res) {
-
-            //触发记录
-            $this->add_keyword_log($data,$keywords);
-
-            $return = $this->check_keyword_block($data,$keywords);
+            }
 
 
-            if ($return['status']) {
+            if ($res) {
 
-                $data['block_type']      = $return['data']['type'];
-                $data['hit_keyword_id']  = $return['data']['keyword_id'];
-                $data['tmp_keyword']     = $return['data']['tmp_keyword'];
-                $data['block_time']      = $return['data']['block_time'];
-                $data['ban_time']        = $return['data']['ban_time'];
-                $tmp_res = $this->checkBlockWaring($data);
+                //触发记录
+                $this->add_keyword_log($data,$keywrods);
 
-                if($tmp_res){
+                $return = $this->check_keyword_block($data,$keywrods);
+
+                if ($return['status']) {
+                    $data['block_type'] = $return['type'];
                     return $data;
                 }else{
                     return false;
                 }
-
-            }else{
-                return false;
             }
         }
     }
@@ -459,20 +394,15 @@ class ScriptsServer
             $info = KefuCommonMember::getUnameByUid([$data['uid']],$data['tkey']);
         }
 
+
         $k = new KeywordLogSqlServer();
-
-        foreach ($keywords as $keyword){
-
-            if(empty($keyword)){
-                continue;
-            }
-
+        foreach ($keywords[0] as $keyword){
             $add_data = [
                 'uid'=>$data['uid'],
                 'uname'=>isset($info[$data['uid']])?$info[$data['uid']]:'',
                 'gkey'=>$data['gkey']?:'',
                 'sid'=>$data['sid']?:'',
-                'keyword'=>urldecode($keyword),
+                'keyword'=>$keyword,
                 'content'=>$data['content']?:'',
                 'roleid'=>$data['roleid']?:'',
                 'rolename'=>$data['uname']?:'',
@@ -500,43 +430,31 @@ class ScriptsServer
 
 
         $flag = false;
-        $return = ['data'=>[],'status'=>$flag];
-        foreach ($keywords as $keyword){
-
-            if(empty($keyword)){
-                continue;
-            }
+        $return = ['type'=>[],'status'=>$flag];
+        foreach ($keywords[0] as $keyword){
 
             $keyword = urldecode($keyword);
-            $infos = KeywordSqlServer::getAllByWhere( "keyword='{$keyword}' and game='{$data['tmp_keyword_game']}'" );
 
-            foreach($infos as $k=>$info){
+            $info = KeywordSqlServer::getOneByWhere( "keyword='{$keyword}' and game='{$data['tmp_keyword_game']}'" );
 
-                if(!empty($info['status'])){
+            if(isset($info['status']) && !empty($info['status'])){
 
-                    $count = $this->get_keyword_count($data['uid'],$keyword,$data['tkey']);
-
-                    if($info['num'] <= $count &&
-                        $data['count_money'] >= $info['money_min']&&$data['count_money'] <= $info['money_max'] &&
-                        $data['role_level'] >= $info['level_min'] && $data['role_level'] <= $info['level_max']){
-
-                        $return['status'] = true;
-                        $return['data']['type'] = $info['type'];
-                        $return['data']['keyword_id'] = $info['id'];
-                        $return['data']['tmp_keyword'] = $info['keyword'];
-                        $return['data']['block_time'] = $info['block_time'];
-                        $return['data']['ban_time'] = $info['ban_time'];
-                        break 2;
-                    }
-                    $return['status'] = false;
-                }else{
-                    $return['status'] = false;
-
+                $count = $this->get_keyword_count($data['uid'],$keyword,$data['tkey']);
+                if($info['num'] <= $count &&
+                    $data['count_money'] >= $info['money_min']&&$data['count_money'] <= $info['money_max'] &&
+                    $data['role_level'] >= $info['level_min'] && $data['role_level'] <= $info['level_max']){
+                    $return['status'] = true;
+                    $return['type'][] = $info['type'];
+                    break;
                 }
+            }elseif(isset($info['resemble_status']) && !empty($info['resemble_status'])){
+                $return['status'] = true;
+                break;
+            }else{
+                $return['status'] = false;
+
             }
-
         }
-
 
         return $return;
     }
@@ -567,23 +485,27 @@ class ScriptsServer
             //灰度测试
             if($res){
                 //人员白名单跳过封禁
-                if(isset($this->white_name[$v['gkey']]) && in_array($v['uid'],$this->white_name[$v['gkey']])){
+                if(in_array($v['uid'],$this->white_name[$v['gkey']])){
                     continue;
                 }
                 //判断游戏是否开启自动封禁
                 elseif(in_array($v['gkey'],$this->check_chat_game)){
-
-                    //一个用户只处理一次，不管几个关键词
                     $need_deal_arr[$v['uid']] = $res;
                 }
                 else{
-
                     continue;
                 }
             }
 
-        }
 
+            //正式
+//                if($res){
+//                    $need_deal_arr[$v['uid']] = $res;
+//                }
+
+
+
+        }
 
         if(!empty($need_deal_arr)){
             $this->autoBlockChat($need_deal_arr);
@@ -597,118 +519,46 @@ class ScriptsServer
 
         $info = sdkUserServer::getUserInfoByMixGameUids($chat_info);
 
-        unset($info['failUid']);
-
-        $product_list = Common::getGameKey();
 
         foreach($data as $k=>$v){
+            foreach($v['block_type'] as $k1=>$v1){
 
-            $ban_add_time = 0;
-            $ban_nums = BlockSqlServer::getCount(['uid'=>$v['uid'],'tkey'=>$v['tkey'],'gkey'=>$v['gkey'],'type'=>[['=','CHAT'],['=','AUTOCHAT'],'or']]);
+                switch ($v1){
+                    //封号+禁言
+                    case 1:
+//                        var_dumP(1);
+                    BlockServer::blockChat($chat_info,$info,1,10*86400,'AUTOCHAT','触发关键词自动禁言');
 
-            //根据禁言次数累加禁言时间
-            if(isset($product_list[$v['gkey']]['chat_time_limit'])){
-                $ban_add_time = $ban_nums * $product_list[$v['gkey']]['chat_time_limit'];
-
-                $ban_add_time = $ban_add_time>72 ? 72*3600 : $ban_add_time*3600;
-            }
-
-            $block_time = !empty($v['block_time']) ? $v['block_time'] : self::BLOCK_TIME;
-            $ban_time = !empty($v['ban_time']) ? $v['ban_time'] : self::BAN_TIME;
-            $ban_time = $ban_time + $ban_add_time;
-
-            switch ($v['block_type']){
-
-                //封号+禁言
-                case 1:
-
-                    BlockServer::blockChat([$v],$info,1,$ban_time,'AUTOCHAT','触发关键词自动禁言');
-                    BlockServer::blockOrLoginOut([$v], $info,$block_time,'AUTO','触发关键词自动封禁');
+                        BlockServer::blockOrLoginOut($chat_info, $info,365*86400,'AUTO','触发关键词自动封禁');
+                    $this->BanLogicModel = new BlockServer();
+                    $block_time = 365*86400;
 
                     //封禁用户uid
                     $this->blockUids($info,$block_time);
-                    break;
-                //禁言
-                case 2:
+                        break;
+                    //禁言
+                    case 2:
+//                        var_dumP(2);
+                        BlockServer::blockChat($chat_info,$info,1,10*86400,'AUTOCHAT','触发关键词自动禁言');
+                        break;
+                    //封号
+                    case 3:
+//                        var_dumP(3);
+                        BlockServer::blockOrLoginOut($chat_info, $info,365*86400,'AUTO','触发关键词自动封禁');
+                    $this->BanLogicModel = new BanServer();
+                    $block_time = 365*86400;
 
-                    BlockServer::blockChat([$v],$info,1,$ban_time,'AUTOCHAT','触发关键词自动禁言');
-                    break;
-                //封号
-                case 3:
-
-                    BlockServer::blockOrLoginOut([$v], $info,$block_time,'AUTO','触发关键词自动封禁');
-
-                    //封禁用户uid
+                        //封禁用户uid
                     $this->blockUids($info,$block_time);
-                    break;
-                default:
-                    break;
+                        break;
+                    default:
+                        break;
+                }
             }
-
         }
         return true;
     }
 
-
-
-    private function checkBlockWaring($data)
-    {
-        $res = true;
-        //data['block_type'] 1:封号+禁言 2:禁言 3：封号
-        $base_config = (new SysServer)->getAllConfigByCache();
-
-        $block_waring_money = isset($base_config['block_waring_money']) ? $base_config['block_waring_money'] : 5000;
-        $block_waring_type = isset($base_config['block_waring_type']) ? $base_config['block_waring_type'] : [];
-
-        //block_waring_type 0:block 1:chat
-        if(isset($data['count_money']) && $data['count_money'] >= $block_waring_money){
-
-            if($data['block_type'] == 1) $res = false;
-
-            if($data['block_type'] == 2 && in_array('chat',$block_waring_type)) $res = false;
-
-            if($data['block_type'] == 3 && in_array('block',$block_waring_type)) $res = false;
-
-        }
-
-        if($res == false){
-            BlockWaringSqlServer::insert($data);
-
-            //钉钉报警
-            Dingding::checkBlockWaringDingding($data);
-      
-        }
-
-
-        return $res;
-
-    }
-
-    //处理uid自动禁言
-    public function dealMonitoringUid($chatInfo)
-    {
-
-        $keyword_key = Config::get('keyword_key')['keyword_key'];
-
-        $info = sdkUserServer::getUserInfoByMixGameUids($chatInfo);
-
-        unset($info['failUid']);
-
-        foreach($chatInfo as $k=>$v){
-            $monitoring_uids = $this->redis->SMEMBERS($keyword_key['platform_monitoring_uid'].'_'.$v['tkey']);
-
-            if(!empty($monitoring_uids) && in_array($v['uid'],$monitoring_uids)){
-                $where = ['uid'=>$v['uid'],'status'=>1];
-
-                $res = MonitoringUidSqlServer::getOneByWhere($where);
-
-               if(!empty($res)){
-                   BlockServer::blockChat([$v],$info,1,$res['ban_time'],'AUTOCHAT','自动根据用户ID禁言角色');
-               }
-            }
-
-        }
-    }
 
     private function blockUids($info,$block_time = 0,$reason = '自动封禁'){
 
@@ -943,26 +793,11 @@ class ScriptsServer
             }
         }
 
-       //增加封禁金额限制
-        $check_arr = $user_chat[0];
-        $check_arr['block_type'] = $rule['type'] == 1 ? 3 : 2;
-        $check_arr['chat_type'] = $check_arr['type'];
-        $check_arr['tmp_keyword'] = '触发【后台系统】行为封禁';
-        $check_arr['hit_keyword_id'] = '9999999999';
-        $res = $this->checkBlockWaring($check_arr);
-
-        if($res == false){
-            return false;
-        }
 
         //正式
 //        foreach ($user_chat as $v) {
 //            $chat_info[$v['uid']] = $v;
 //        }
-
-        if(empty($chat_info)){
-            return false;
-        }
 
         //判断封禁类型 1：封登录 2：封禁言
         switch ($rule['type']){
@@ -970,15 +805,23 @@ class ScriptsServer
             case self::BLOCK_LOGIN:
                 if($rule['ban_object'] == self::BAN_UID){
                     //封禁用户uid
-                    $this->blockUids($info,$rule['ban_time']*60,self::ACTION_BLOCK.'触发规则id为：'.$rule['id'].','.$rule['name']);
+                    $success = $this->blockUids($info,$rule['ban_time']*60,self::ACTION_BLOCK.'触发规则id为：'.$rule['id'].','.$rule['name']);
                 }elseif($rule['ban_object'] == self::BAN_IP){
                     //封禁用户ips
-                    $this->blockIps($user_chat,$info,$rule['ban_time']*60,self::ACTION_BLOCK.'触发规则id为：'.$rule['id'].','.$rule['name']);
+                    $success = $this->blockIps($user_chat,$info,$rule['ban_time']*60,self::ACTION_BLOCK.'触发规则id为：'.$rule['id'].','.$rule['name']);
                 }elseif($rule['ban_object'] == self::BAN_IMEI){
                     //封禁用户imei
-                    $this->blockImeis($user_chat,$info,$rule['ban_time']*60,self::ACTION_BLOCK.'触发规则id为：'.$rule['id'].','.$rule['name']);
+                    $success = $this->blockImeis($user_chat,$info,$rule['ban_time']*60,self::ACTION_BLOCK.'触发规则id为：'.$rule['id'].','.$rule['name']);
                 }
 
+                //设置操作缓存，已处理的用户，不再进行操作
+                if(!empty($success)){
+                    foreach($success as $key=>$value){
+                        if($redis->set('action_block_'.$rule['ban_object'].'_'.$value,1)) {
+                            $redis->Expire('action_block_'.$rule['ban_object'].'_'.$value, 1800);
+                        }
+                    }
+                }
 
                 //拼接聊天信息
                 BlockServer::blockOrLoginOut($chat_info, $info,$rule['ban_time']*60,'ACTION','触发规则id为：'.$rule['id'].','.$rule['name']);
@@ -991,13 +834,6 @@ class ScriptsServer
                 return false;
 
         }
-
-        //设置操作缓存，已处理的用户，不再进行操作
-        foreach($chat_info as $key=>$value){
-            if($redis->set('action_block_'.$rule['type'].'_'.$rule['ban_object'].'_'.$value['tkey'].'_'.$value['gkey'].'_'.$value['uid'],1)) {
-                $redis->Expire('action_block_'.$rule['type'].'_'.$rule['ban_object'].'_'.$value['tkey'].'_'.$value['gkey'].'_'.$value['uid'], 1800);
-            }
-        }
     }
 
 
@@ -1008,9 +844,6 @@ class ScriptsServer
             return false;
         }
         foreach($chat_info as $k=>$v){
-
-            $chat_info[$k] = $this->filterSpecial($v);
-
 
             //去除包含白名单的聊天信息
             $white_list = $this->redis->SMEMBERS($this->white_keyword_key);
@@ -1028,13 +861,8 @@ class ScriptsServer
             }
 
 
-
-
             //去除特殊符号
-//            $chat_info[$k]['content'] = Common::replace_specialChar($chat_info[$k]['content']);
-            $chat_info[$k]['content2'] = Common::replace_specialChar($chat_info[$k]['content2']);
-
-            $chat_info[$k]['content2'] = urlencode($chat_info[$k]['content2']);
+            $chat_info[$k]['content'] = Common::replace_specialChar($chat_info[$k]['content']);
 
             //将中文转成数字
 //            $chat_info[$k]['content'] = (string)Common::checkNatInt($chat_info[$k]['content']);
@@ -1045,21 +873,30 @@ class ScriptsServer
     }
 
 
-    //特殊过滤cp坐标内容
-    private function filterSpecial($chat_info)
-    {
-        $arr1 = ['nbcq','nbcqios','nbcq2zw','nbcq2youyu','dxcq','dxcq2'];
-        if(in_array($chat_info['gkey'],$arr1)){
-            $flag = '/\{[p|i]:.*\}/';
+    public function insertBlockLog($chat_info,$type = 'AUTO'){
+        $time = time();
+        $admin_user = 'auto';
+        $op_ip      = '127.0.0.1';
+        foreach ($chat_info as $k=>$v){
 
+            $v['blocktime'] = empty($block_time) ?: $block_time*24*60*60;
+            $v['keyword']       = $v['content'];
+            $v['rolename']      = $v['uname'];
+            $v['uid']           = $v['uid'];
+            $v['uname']         = '';
+            $v['addtime']       = $time;
+            $v['op_ip']         = $op_ip;
+            $v['op_admin_id']   = $admin_user;
+            $v['tkey']          = $v['tkey'];
 
-            $chat_info['content'] = preg_replace($flag,'',$chat_info['content']);
-            $chat_info['content2'] = preg_replace($flag,'',$chat_info['content2']);
+            $v['role_level'] = empty($v['role_level']) ? 0 : $v['role_level'];
+            $v['count_money'] = empty($v['count_money']) ? '0.0' : $v['count_money'];
+            $v['ip'] = empty($v['ip']) ? '' : $v['ip'];
+            $succ[] = $v;
         }
-
-
-        return $chat_info;
+        Block::insertBlock($succ,$type);
     }
+
 
     //文本相似度匹配
     public function similarityContent($a){
@@ -1071,6 +908,66 @@ class ScriptsServer
     }
 
 
+    public function checkChatTest($chat_info){
+        Logger::init([
+            'path' => RUNTIME_PATH.'admin/'.__FUNCTION__,
+            'filename' => date('Y-m-d', time())
+        ]);
 
+        $client = AdBlocker::getInstance();
+        $client->setAccessKey("AKLTMWUyNWI0NTc2NzUzNDkwMTgxMGQ5NzU4MGYwYzVjNDg");
+        $client->setSecretKey("T1RjNE9XUmtNMlkwTkRBNE5EWTNPV0UxWWprMlltUmpNelE0T0dVMU9EWQ==");
+        $type = [1=>'single',2=>'world',3=>'single',4=>'other',5=>'guild',6=>'guild',7=>'other',8=>'world',9=>'other',10=>'world'];
+        if(empty($chat_info)){
+            return false;
+        }
+
+        foreach($chat_info as $k=>$v){
+            if($v['gkey'] !== 'shenqi'){
+                continue;
+            }
+            $pay_num = empty($v['count_money']) ? -1 : 3;
+            $params = [
+                'account_id'=>$v['uid'],
+                'chat_text'=> strip_tags($v['content']),
+                'channel_type'=> $type[$v['type']],
+                'server_id'=>$v['sid'],
+                'operate_time'=>$v['time'],
+                'ip'=>$v['ip'],
+                'device_fp'=>md5($v['imei']),
+                'sender_role_id'=>$v['roleid'],
+                'sender_nickname'=>"{$v['uname']}",
+                'sender_role_level'=>$v['role_level'],
+                'sender_role_ce'=>$v['count_money'],
+                'sender_pay_total'=>$pay_num,
+                'sender_role_create_time'=>$v['ip_id'],
+                'receiver_account_id'=>$v['to_uid'],
+                'receiver_role_id'=>$v['to_uname'],
+                'receiver_nickname'=>$v['to_uname'],
+
+            ];
+
+
+            $str = json_encode($params);
+            if(!empty($str)){
+                $res = $client->adBlock(238209, "chat", $str);
+
+                $res = json_decode($res,1);
+
+                Logger::write([
+                    'tag' => 'actionDataJson',
+                    'msg' => json_encode($res),
+                    'data' => $str
+                ]);
+
+                if($res['Result']['Code'] == 0 && $res['Result']['Data']['Decision'] == 'BLOCK'){
+                    $chat_info[$k]['need_block'] == 1;
+                }
+            }
+
+        }
+
+        return $chat_info;
+    }
 
 }

@@ -20,7 +20,6 @@ class Oauth extends BasicController
     public $common_data;//公共数据
 
     protected $no_oauth = ['test'];//不需权限控制方法，controller下自定义
-    protected $no_login = [];
 
     public function _initialize()
     {
@@ -30,8 +29,7 @@ class Oauth extends BasicController
 
         $this->checkPower();//权限控制
 
-
-//        $this->saveLog();//接口日志记录
+        $this->saveLog();//接口日志记录
 
     }
 
@@ -41,9 +39,6 @@ class Oauth extends BasicController
          *
          * @return string
          */
-        if($this->checkNoLogin()){
-            return true;
-        }
         $token = $this->req->header('token');
 
         if(empty($token))
@@ -138,11 +133,7 @@ class Oauth extends BasicController
                 'adminLogList',
                 'adminLogStatistic',
             ],
-            'Ajax'=>'all',
-            'ElasticSearchChat'=>
-                [
-                    'index'
-                ]
+            'Ajax'=>'all'
         ];
 
         $dispatch = $this->req->dispatch();
@@ -185,21 +176,6 @@ class Oauth extends BasicController
 
         return $model->create($log_data);
 
-    }
-
-    protected function checkNoLogin(){
-
-        $action = $this->req->action();
-
-        if($this->no_login){
-            foreach ($this->no_login as $v){
-                if($action == strtolower($v)){
-                    return true;
-                }
-            }
-        }
-
-        return false;
     }
 
     public function getPost($param){

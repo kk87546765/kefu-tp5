@@ -14,7 +14,7 @@ use common\server\AdminServer;
 use common\server\SysServer;
 use common\sql_server\DistributionalGameServerSqlServer;
 use common\sql_server\KefuUserRoleSqlServer;
-use common\sql_server\GameServerStatisticSqlServer;
+use common\sql_server\ServerStatisticSqlServer;
 
 
 
@@ -40,7 +40,7 @@ class DistributionalGameServerServer extends BasicServer
 
         foreach($list as $k=>&$v){
 
-            $server_total_info = GameServerStatisticSqlServer::getTimeRegAndMoney($v['game_id'],$v['platform_id'],$v['server_id'],$v['open_time'],120);
+            $server_total_info = ServerStatisticSqlServer::getTimeRegAndMoney($v['game_id'],$v['platform_id'],$v['server_id'],$v['open_time'],120);
 
 
             if($server_total_info){
@@ -53,7 +53,7 @@ class DistributionalGameServerServer extends BasicServer
                 $days = $diff->days;
 
                 for($j = 0 ;$j < $days ;$j++){
-                    if(@$server_total_info[$j]['days'] != $j){
+                    if($server_total_info[$j]['days'] != $j){
                         $v['LTV-'.($j+1)] = bcdiv($pay_money,$server_total_info[0]['reg_num'],2);
                     }else{
                         $pay_money += $server_total_info[$j]['pay_money'];

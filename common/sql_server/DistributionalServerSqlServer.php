@@ -202,16 +202,6 @@ class DistributionalServerSqlServer extends BaseSqlServer
     }
 
 
-    public static function getRoleInfo($platform_suffix,$role_id,$server_id)
-    {
-        $model = new DistributionalServerSqlServer();
-        $sql = "select login_date,role_name,server_id,reg_gid from db_customer_{$platform_suffix}.kefu_user_role where role_id = '{$role_id}' and server_id = '{$server_id}'";
-
-        $info = $model->query($sql);
-
-        return $info;
-    }
-
 
 
 

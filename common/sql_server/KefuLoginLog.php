@@ -34,9 +34,8 @@ class KefuLoginLog extends BaseSqlServer
 
     public function getList($where,$page=1,$limit=20,$order = 'id desc',$platform_suffix)
     {
-        $offset = ($page-1)*$limit;
         $model = CommonServer::getPlatformModel('KefuLoginLog',$platform_suffix);
-        $list = $model->where($where)->limit($offset,$limit)->order($order)->select();
+        $list = $model->where($where)->limit($page,$limit)->order($order)->select();
         $list = isset($list) ? $list->toArray() : [];
         return $list;
     }

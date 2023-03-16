@@ -3,7 +3,6 @@
 namespace app\admin\controller;
 
 
-use common\server\Platform\BanServer;
 use common\sql_server\BanImeiLog;
 use common\sql_server\BanIpLog;
 use common\sql_server\BanUserLog;
@@ -166,25 +165,6 @@ class Player extends Oauth
         $this->rs['data'] = $log;
         $this->rs['count'] = $total;
         return return_json($this->rs);
-
-    }
-
-
-    /**
-     * 平台封禁操作
-     */
-    public function platformBan()
-    {
-
-        //封禁时长，单位分钟
-        $post_data['ban_time'] = $this->request->post('ban_time/d', 1);
-        $post_data['ban_list'] = $this->request->post('ban_list/s', '');
-        $post_data['ban_type'] = $this->request->post('ban_type/d');
-        $post_data['action_type'] = $this->request->post('action_type/d');
-        $post_data['ban_account_radio'] = $this->request->post('ban_account_radio/s','');
-        $post_data['platform'] = $this->common_data['def_platform'];
-
-        $res = BanUserLog::platformBan($post_data);
 
     }
 }

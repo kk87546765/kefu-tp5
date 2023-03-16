@@ -79,8 +79,8 @@ class AccountSearchServer extends BasicServer
                 }
 
                 $tmp_data = AccountSearch::getUserTotalPay($v1['uid'],$v1['platform_id']);
-                $data[$k][$k1]['total_pay'] = !empty($tmp_data[0]['total_pay']) ? $tmp_data[0]['total_pay'] : 0;
-                $data[$k][$k1]['day_hign_pay'] = !empty($tmp_data[0]['day_hign_pay']) ? $tmp_data[0]['day_hign_pay'] : 0;
+                $data[$k][$k1]['total_pay'] = !empty($tmp_data['total_pay']) ? $tmp_data['total_pay'] : 0;
+                $data[$k][$k1]['day_hign_pay'] = !empty($tmp_data['day_hign_pay']) ? $tmp_data['day_hign_pay'] : 0;
             }
 
         }

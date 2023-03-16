@@ -13,7 +13,7 @@ class LtvServerStatistic extends Base
 {
     protected $reg_data = [],$type_arr=[];
     protected $reg_model = '',$recharge_model = '';
-    protected $platform_arr = array('ll','mh','asjd','zw','xll','youyu','bx');
+    protected $platform_arr = array('ll','mh','asjd','zw','xll','youyu');
 
 
     //线上

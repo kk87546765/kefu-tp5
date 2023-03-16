@@ -19,9 +19,6 @@ class VipKfDay extends Base
         'month',#月-整合：统计
         'history',#历史：累计
     ];
-    const FUNC_ARR_EXT = [
-        'ascriptionCleanToday',
-    ];
 
     const ACTIVE_LIMIT = 1000;
 
@@ -51,11 +48,7 @@ class VipKfDay extends Base
             $allow_func = explode(',',$allow_func);
         }
         if(!$allow_func){
-            if($this->is_get){
-                $allow_func = array_merge(self::FUNC_ARR_EXT,self::FUNC_ARR);
-            }else{
-                $allow_func = self::FUNC_ARR;
-            }
+            $allow_func = self::FUNC_ARR;
         }
 
 
@@ -67,7 +60,7 @@ class VipKfDay extends Base
             $this->today = strtotime('yesterday');
         }
 
-        $func_list = arrMID(array_merge(self::FUNC_ARR_EXT,self::FUNC_ARR),$allow_func);
+        $func_list = arrMID(self::FUNC_ARR,$allow_func);
 
         foreach ($func_list['ai_com'] as $v){
             $this->base($v);
@@ -84,37 +77,7 @@ class VipKfDay extends Base
 
         $this->end();
     }
-    public function runUpdate(){
-        $this->is_get = 1;
 
-        $allow_func = [
-            'ascriptionCleanToday',#清除当天：分配相关数据
-            'ascription',#当天：新增分配、新增分配活跃
-            'month',#月-整合：统计
-            'history',#历史：累计
-        ];
-
-        $today_cache_name = 'script_vip_kf_day_runUpdate';//脚本执行时间
-//        cache($today_cache_name,strtotime(20221128),3600*24*3);
-        $this->today = cache($today_cache_name);
-
-        if($this->today){
-
-            foreach ($allow_func as $v){
-                $this->base($v);
-            }
-
-            if($this->today< strtotime('yesterday')){
-                $this->cleanCache('all');
-                $this->today+=3600*24;
-
-                cache($today_cache_name,$this->today,3600*24*3);
-                $this->s_json('ok:'.date('Y-m-d',$this->today));
-            }
-        }
-
-        $this->end();
-    }
     /**
      * 设置脚本时间-没有默认当天
      * @param day Y-m-d
@@ -756,42 +719,15 @@ class VipKfDay extends Base
         return $func_end;
     }
 
-    #清零当日数据
-    protected function ascriptionCleanToday($page){
-        $thisModel = new thisModel();
-        /*业务前logic*/
-
-        /*业务 begin*/
-        $time_arr = timeCondition('day',$this->today);//yesterday
-
-        $day = $time_arr['starttime'];
-        $where = [];
-        $where['day'] = $day;
-
-        $thisModel->where($where)->update([
-            'add_user_count'=>0,
-            'add_user_str'=>'',
-            'add_user_count_month'=>0,
-            'add_user_str_month'=>'',
-            'add_user_active_month'=>0,
-            'add_user_active_str_month'=>'',
-            'add_user_active_amount_month'=>0,
-            'add_user_count_all'=>0,
-            'active_count_all'=>0,
-            'active_user_str_all'=>0,
-        ]);
-
-        return 1;
-    }
-
     protected function cleanCache($name){
 
-        $arr = array_merge(self::FUNC_ARR_EXT,self::FUNC_ARR);
+        $arr = self::FUNC_ARR;
 
         if(!in_array($name,$arr)){
             if($name != 'all'){
                 dd('no');
             }
+
         }
 
         if($name == 'all'){
@@ -815,7 +751,7 @@ class VipKfDay extends Base
     }
 
     protected function end(){
-        $this->f_json('end',[],2001);
+        $this->f_json('end',[],1001);
     }
 
 

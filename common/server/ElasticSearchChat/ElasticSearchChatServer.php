@@ -34,8 +34,7 @@ class ElasticSearchChatServer extends BasicServer
         self::TYPE_IMEI => '封IMEI',
         self::TYPE_AUTO => '自动封禁',
         self::TYPE_AUTOCHAT => '自动禁言',
-        self::TYPE_ACTION => '行为封禁',
-        self::TYPE_ACTIONCHAT => '行为禁言',
+        self::TYPE_ACTIONCHAT => '行为封禁',
 
     ];
 
@@ -50,7 +49,6 @@ class ElasticSearchChatServer extends BasicServer
         8  => '附近',
         9  => '其他',
         10 => '跨服',
-        15 => '未知'
     ];
 
     static $redis_set_name = 'account_registration';
@@ -59,9 +57,6 @@ class ElasticSearchChatServer extends BasicServer
     static $mix_game = [
         'shenqi'=>['youyu','zw'],
         'shenqiios'=>['youyu','zw'],
-        'nbcq'=>['youyu','zw'],
-        'dxcq'=>['youyu','zw'],
-        'jmxy'=>['bx','zw','youyu'],
     ];
 
     static $gamelist = [];
@@ -89,12 +84,14 @@ class ElasticSearchChatServer extends BasicServer
                 $es->index_name.'-'.$now_month,
                 $es->index_name.'-'.$next_month
             ],
-            $return['data'],
+            $data['data'],
             '',
             ['time'=>['order'=>'desc']],
             $data['page'],
             $data['limit']
         );
+
+
 
 
 
@@ -105,28 +102,23 @@ class ElasticSearchChatServer extends BasicServer
 
 
             $v['date'] = date('Y-m-d H:i:s', $v['time']);
-            $v['typename'] = isset(self::$types[$v['type']]) ? self::$types[$v['type']] : '';
-            $v['platform_gkey'] = self::$gamelist[$v['gkey']]['name'];
-            $v['gkey'] = $v['gkey'];
+            $v['typename'] = self::$types[$v['type']];
+            $v['gkey'] = self::$gamelist[$v['gkey']]['name'];
             $v['platform_key'] = $platform_list[$v['tkey']]['name'];
-            $v['attribution'] = !empty($v['ip']) ?implode('', IP4datx::find($v['ip'])) : ''  ;
+            $v['attribution'] = implode('', IP4datx::find($v['ip']));
             $v['ip'] = $v['ip']."[{$v['attribution']}]";
             $v['is_account_registration'] =$redis->Sismember(self::$redis_set_name,trim($v['sid'],'S').'_'.$v['roleid'].'_'.$v['uname']);
 
             $status = BlockSqlServer::getBlockByUid([$v['uid']],[$v['roleid']]);
 
-            $v['status'] = isset($status[$v['uid']]) ? $status[$v['uid']] : 0;
+            $v['status'] = $status[$v['uid']];
 
-            if($v['gkey'] == 'y9cqjh' && !empty($v['ext']) && $v['tkey'] == 'zw'){
-                $v['platform_key'] = '渠道平台';
-                $v['channel_id'] = $v['ext'];
-            }
         }
 
         $return['code'] = 0;
         $return['msg'] = '获取成功';
         $return['data'] = $result['data'];
-        $return['total'] = $result['total'];
+        $return['total'] = 1;
         return $return;
     }
 
@@ -145,8 +137,10 @@ class ElasticSearchChatServer extends BasicServer
     private static function dealData($data){
 
         $return = ['code'=>-1,'msg'=>'获取失败','data'=>''];
+        $data['edate'] = empty($data['dateEnd'])?date("Y-m-d 23:59:59"):$data['dateEnd'];
 
-        $data['tkey'] = isset($data['tkey']) ? $data['tkey'] : '';
+        $platform_info = Common::getPlatformInfoByPlatformIdAndCache($data['platform_id']);
+        $data['tkey'] = $platform_info['platform_suffix'];
 
         $bool = [];
         $range = [];
@@ -155,8 +149,8 @@ class ElasticSearchChatServer extends BasicServer
         $need_search_arr = [];
         $need_search_arr[] = 'asjd';
 
-        if(empty($data['tkey']) && empty($data['game'])){
-            $return['msg'] = '平台和游戏必须选一个';
+        if(empty($data['tkey'])){
+            $return['msg'] = '平台必选';
             return $return;
         }
 
@@ -182,13 +176,6 @@ class ElasticSearchChatServer extends BasicServer
                 $need_search_arr[] = 'mh';
                 $need_search_arr[] = 'asjd';
             }
-
-//
-            if($data['tkey'] == 'youyu' && $data['game'] == 'y9cqjh' && self::$common_data['def_platform'] == 'zw'){
-                $need_search_arr = [];
-                $need_search_arr[] = 'youyu';
-            }
-
 
         }
 
@@ -282,13 +269,13 @@ class ElasticSearchChatServer extends BasicServer
         $platform_list = Common::getPlatform();
 
         if($data['game']){
-            if(strpos($platform_list[self::$common_data['def_platform']]['see_game_limit'],$data['game']) === false){
+            if(strpos($platform_list[$data['tkey']]['see_game_limit'],$data['game']) === false){
                 $return['msg'] = '没有查看权限';
                 return $return;
             };
         }else{
 
-            $arr = explode(',',$platform_list[self::$common_data['def_platform']]['see_game_limit']);
+            $arr = explode(',',$platform_list[$data['tkey']]['see_game_limit']);
 
             $bool['bool']['filter']['bool']['must'][]['terms']['gkey'] = $arr;
 
@@ -301,78 +288,6 @@ class ElasticSearchChatServer extends BasicServer
 
 
     }
-
-
-    public static  function getCheckChat($data)
-    {
-        $es = new ElasticSearch();
-        $limit = 10000;
-        $page = 1;
-
-        if(!empty($data['gkey'])){
-            $bool['bool']['filter']['bool']['must'][]['match']['gkey'] =  $data['gkey'];
-        }
-
-        if(!empty($data['tkey'])){
-            $bool['bool']['filter']['bool']['must'][]['match']['tkey'] =  $data['tkey'];
-        }
-
-        if(!empty($data['uid'])){
-            $bool['bool']['filter']['bool']['should'][]['match']['uid'] = $data['uid'];
-        }
-
-        if(!empty($data['uname'])){
-            $bool['bool']['filter']['bool']['should'][]['match']['to_uname'] = $data['uname'];
-        }
-
-        $bool['bool']['filter']['bool']['minimum_should_match'] = 1;
-
-        if(!empty($data['s_date'])){
-            $range0['range']['time']['gte']  = $data['s_date'];
-
-        }
-
-        if(!empty($data['e_date'])){
-            $range0['range']['time']['lte']  = $data['e_date'];
-
-        }
-
-        if(!empty($range0)){
-            $bool['bool']['filter']['bool']['must'][] = $range0;
-        }
-
-
-        $last_month = Common::GetMonth(1);
-        $now_month = date('Ym');
-        $next_month = Common::GetMonth(0);
-
-        $result = $es->search(
-            [
-                $es->index_name.'-'.$last_month,
-                $es->index_name.'-'.$now_month,
-                $es->index_name.'-'.$next_month
-            ],
-            $bool,
-            '',
-            ['time'=>['order'=>'desc']],
-            $page,
-            $limit
-        );
-
-        foreach ($result['data'] as &$v) {
-            $v['date'] = date('Y-m-d H:i:s', $v['time']);
-            $v['typename'] = self::$types[$v['type']];
-//            $v['gkey'] = $this->gamelist[$v['gkey']]['name'];
-            $v['attribution'] =  !empty($v['ip']) ?implode('', IP4datx::find($v['ip'])) : ''  ;
-            $v['ip'] = $v['ip']."[{$v['attribution']}]";
-        }
-
-
-        return $result['data'];
-    }
-
-
-
 
 
 

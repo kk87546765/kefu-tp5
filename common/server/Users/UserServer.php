@@ -4,10 +4,9 @@
 namespace common\server\Users;
 
 
-use common\libraries\Logger;
-use common\libraries\Common;
+use Common\libraries\Logger;
 
-use common\libraries\Curl;
+use Common\libraries\Curl;
 
 class UserServer
 {
@@ -27,10 +26,10 @@ class UserServer
      ];
      if (empty($uids)) return $res;
 
-     $configInfo = Common::getConfig(self::POLYMERIZA_CONFIG_KEY);
+     $configInfo = Config::items(self::POLYMERIZA_CONFIG_KEY);
      $time = time();
-     $key = $configInfo['getPlatformKey'];
-     $url = $configInfo['getPlatformUrl'];
+     $key = $configInfo['configKey']['getPlatformKey'];
+     $url = $configInfo['configKey']['getPlatformUrl'];
      $platformSuffix = $configInfo['platformSuffix'];
 
      if (is_array($uids)) $uids = implode(',', $uids);
@@ -42,7 +41,7 @@ class UserServer
      ];
      $url .= '?'.http_build_query($data);
      $curl = new Curl();
-     $resultJson = $curl->get($url, true);
+     $resultJson = $curl->getUrl($url, true);
         Logger::write([
             'tag' => 'postRes',
             'data' => $data,

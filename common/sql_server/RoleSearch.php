@@ -33,8 +33,7 @@ class RoleSearch extends BaseSqlServer
                         r.reg_time as role_reg_time,
                         r.server_id,
                         r.login_date,
-                        s.amount,
-                        {$platform_id} as platform_id 
+                        s.amount
                      FROM
                      db_customer_{$platform_suffix}.kefu_user_role r 
                     LEFT JOIN	

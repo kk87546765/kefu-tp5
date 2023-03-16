@@ -42,8 +42,8 @@ class DistributionalGameServer extends Oauth
         $data['start_time']           = $this->request->post('start_time/s', '');
         $data['is_excel']             = $this->request->post('is_excel/d', 0);
         $data['only_admin']           = $this->request->post('only_admin/d', 0);
-        $data['page']                 = $this->request->request('page/d', 1);
-        $data['limit']                = $this->request->request('limit/d', 20);
+        $data['page']                 = $this->request->get('page/d', 1);
+        $data['limit']                = $this->request->get('limit/d', 20);
         $data['init']                 = $this->request->get('init/d', 0);
 
 

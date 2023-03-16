@@ -16,15 +16,6 @@ class SensitiveSqlServer extends BaseSqlServer
 
     }
 
-    public static function getCount($data)
-    {
-        $model = new Sensitive();
-
-        $count = $model->where($data['where'])->count();
-
-        return isset($count) ? $count : 0;
-    }
-
     public static function getOne($where)
     {
         $model = new Sensitive();

@@ -199,7 +199,7 @@ class DistributionalServerServer extends BasicServer
                 $tmp_list[$k1]['LTV_15'] = $v1['LTV-10'];
                 $tmp_list[$k1]['LTV_20'] = $v1['LTV-20'];
                 $tmp_list[$k1]['LTV_30'] = $v1['LTV-30'];
-                $tmp_list[$k1]['login_time'] = $v1['login_time'] ?? '';
+                $tmp_list[$k1]['login_time'] = $v1['login_time'];
                 $tmp_list[$k1]['is_end'] = $v1['is_end'];
                 $tmp_list[$k1]['status'] = $v1['status'];
                 $tmp_list[$k1]['start_time'] = $v1['start_time'];
@@ -356,28 +356,6 @@ class DistributionalServerServer extends BasicServer
                 'msg' => "修改成功",
             ];
         }
-    }
-
-    public static function getUserRoleLastLoginTime($data){
-        if(empty($data['role_id']) || empty($data['server_id'])){
-            return false;
-        }
-        $platform = Common::getPlatformList();
-
-        $platform_suffix = '';
-        foreach($platform as $k=>$v){
-            if($v['platform_id'] == $data['platform_id']){
-                $platform_suffix = $v['platform_suffix'];
-            }
-        }
-        if(!$platform_suffix){
-            return false;
-        }
-
-        //通过角色id和区服id获取信息，有可能不是唯一，所以通过游戏id核对产品id
-        $info = DistributionalServerSqlServer::getRoleInfo($platform_suffix,$data['role_id'],$data['server_id']);
-        return $info[0]['login_date'];
-
     }
 
 }

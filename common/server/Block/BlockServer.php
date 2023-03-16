@@ -22,7 +22,7 @@ class BlockServer extends BasicServer
     const STATUS_BLOCK = 1;
     const STATUS_NORMAL = 2;
     const BLOCK_TIME = 86400*365*1;
-    const CHAT_TIME = 86400*10;
+    const CHAT_TIME = 86400*365*1;
     const BAN = 1; //封禁
     const U_BAN = 2; //解封
     const BAN_UID = 1;
@@ -43,12 +43,6 @@ class BlockServer extends BasicServer
             $return['code'] = $tmp_data['code'];
             return $return;
         }
-
-        if($data['is_excel'] == 1){
-            ini_set('memory_limit','1024M');
-            $data['limit'] = 999999999;
-        }
-
         $blocks = BlockSqlServer::getList($tmp_data['where'],$data['page'],$data['limit'],$data['order']);
 
         if($blocks){
@@ -62,19 +56,16 @@ class BlockServer extends BasicServer
 
                 $res = Common::getPlatformUserInfo($k1,$arr_uids,1);
 
-                if(is_array($res)){
-                    foreach($res as $k2=>$v2){
+                foreach($res as $k2=>$v2){
 
-                        $platform = Common::getPlatformInfoBySuffixAndCache($v2['platform']);
+                    $platform = Common::getPlatformInfoBySuffixAndCache($v2['platform']);
 
-                        $tmp_data = KefuCommonMember::getRegChannelByUid([$v2['uid']],$platform);
-                        if($tmp_data){
-                            $tmp_res[$v2['uid']] = $tmp_data;
-                        }
-
+                    $tmp_data = KefuCommonMember::getRegChannelByUid([$v2['uid']],$platform);
+                    if($tmp_data){
+                        $tmp_res[$v2['uid']] = $tmp_data;
                     }
-                }
 
+                }
 
             }
 
@@ -84,24 +75,15 @@ class BlockServer extends BasicServer
                 $block['reg_channel_id'] = isset($tmp_res[$block['platform_uid']]['id']) ? $tmp_res[$block['platform_uid']]['id'] : '';
                 $block['game_name']     = $gamelist[$block['gkey']]['name'];
 
-                $block['type_name']     = isset($block['type']) ? ElasticSearchChatServer::$blocktypes[$block['type']] : '';
+                $block['type_name']     = ElasticSearchChatServer::$blocktypes[$block['type']];
                 $block['addtime']       = date('Y-m-d H:i:s',$block['addtime']);
                 $block['expect_unblock_time']       = date('Y-m-d H:i:s',$block['expect_unblock_time']);
-                $block['blocktime'] = round($block['blocktime']/3600,2);
+                $block['blocktime'] = $block['blocktime']/60;
 //                $block['blocktime']     = $block['blocktime'] == 0?'':date('Y-m-d H:i:s',$block['blocktime']);
                 $block['unblock_time']  = $block['unblock_time'] == 0?'':date('Y-m-d H:i:s',$block['unblock_time']);
                 $block['count_money']   = $block['count_money']>0? "<span style='color:red;'>{$block['count_money']}</span>": $block['count_money'];
 
-                if($data['is_excel'] == 1){
-
-                    unset($block['ban_type'],$block['ext'],$block['op_ip'],
-                        $block['platform_tkey'],$block['tkey'],$block['openid'],
-                        $block['type_name'],$block['id'],$block['gkey'],$block['platform_uid'],
-                        $block['type'],$block['status'],$block['imei'],$block['hit_keyword_id']);
-
-                }
             }
-
         }
 
 
@@ -134,10 +116,10 @@ class BlockServer extends BasicServer
         $return = ['code'=>-1,'msg'=>'获取失败','where'=>''];
         $where = ' 1=1 ';
 
-//        if(!$data['platform_id']){
-//            $return['msg'] = '平台不能为空';
-//            return $return;
-//        }
+        if(!$data['platform_id']){
+            $return['msg'] = '平台不能为空';
+            return $return;
+        }
 
         if($data['dateStart']){
             $dateStart = strtotime($data['dateStart']);
@@ -152,10 +134,6 @@ class BlockServer extends BasicServer
         if ( $data['game'] && $data['game']!='common' ) {
             $where .= " AND gkey = '{$data['game']}'";
 
-        }
-
-        if ($data['keyword_id']) {
-            $where .= " AND id = {$data['keyword_id']}";
         }
 
         if ($data['rolename']) {
@@ -190,39 +168,24 @@ class BlockServer extends BasicServer
             $where .= " AND op_admin_id = '{$data['admin']}'";
         }
 
-        if (is_numeric($data['status'])) {
+        if ($data['status'] !== '') {
             $where .= " AND status = '{$data['status']}'";
         }
 
-        if ($data['op_type'] == 'other') {
-            $where .= " AND ( type != 'AUTOCHAT' AND  type != 'AUTO')";
-        }else if ($data['op_type'] == 'admin'){
-            $where .= " AND ( type = 'AUTOCHAT' or  type = 'AUTO')";
-        }
+
+//        if ($data['op_type'] == 'admin') {
+//            $where .= " AND op_admin_id = {$data['op_type']}";
+//            $bind['op_admin_id'] = $op_type;
+//        }else if ($op_type == 'other'){
+//            $condition .= ' AND op_admin_id != :op_admin_id:';
+//            $bind['op_admin_id'] = 'admin';
+//        }
 
         $platform_list = Common::getPlatformList();
 
 
-        if(!empty($data['platform_id'])){
-            $arr = explode(',',$platform_list[$data['platform_id']]['config']['see_game_limit']);
-        }else{
-            $platform_ids = self::$user_data['platform_id'];
-            $tmp = [];
-            foreach ($platform_ids as $platform_id) {
-                $arr = explode(',',$platform_list[$platform_id]['config']['see_game_limit']);
-                $arr = array_values($arr);
-
-                $tmp =  array_merge($tmp,$arr);
-
-            }
-            $arr = $tmp;
-
-        }
-
         if($data['game'] && $data['game'] !== 'common'){
-
-
-            if(in_array($data['game'],$arr) === false){
+            if(strpos($platform_list[$data['platform_id']]['config']['see_game_limit'],$data['game']) === false){
 
                 $return['code'] = -1;
                 $return['msg'] = '没有查看权限';
@@ -230,6 +193,8 @@ class BlockServer extends BasicServer
 
             };
         }else{
+
+            $arr = explode(',',$platform_list[$data['platform_id']]['config']['see_game_limit']);
 
             $where .= ' AND (';
             foreach($arr as $k=>$v){
@@ -251,29 +216,31 @@ class BlockServer extends BasicServer
     }
 
 
-    public static function block($data)
+    public static function block()
     {
         $return = ['code' => -1, 'msg' => '操作失败', 'succ' => '', 'fail' => '', 'isBlocked' => ''];
+        if (empty($data['block_time'])) {
+            $block_time = self::BLOCK_TIME;
+        }
 
-
-        if (empty($data['block_time']) || (isset($data['block_time']) && $data['block_time']> self::BLOCK_TIME)) {
+        if ($data['block_time'] > self::BLOCK_TIME) {
             $data['block_time'] = self::BLOCK_TIME;
         }
+//        $block_time = 365*86400;
 
 
         if ($data['ids']) {
             //elasticSearch找到对应的用户信息
-            $result = Common::newGetbyIds($data['ids'],$data['uids']);
+            $result = Common::getbyIds($data['ids']);
 
             $chat_info = [];
             $fail = $isBlocked = $platformUids = $polymerizaUids = [];
             $is_block_arr = [];
-            $is_block_str = '';
             if ($result) {
                 $tmp_tkey = [];
                 //拼接聊天信息
                 foreach ($result as $k => $v) {
-                    $tmp_tkey[$v['tkey']][] = $v;
+                    $tmp_tkey[] = $v['tkey'];
                     //判断该内容是否已经封禁过
                     $block_info = BlockSqlServer::getBlockByUserInfo([$v['uid']], [$v['roleid']], [$v['sid']]);
 
@@ -290,12 +257,6 @@ class BlockServer extends BasicServer
                 }
 
 
-                if(empty($chat_info)){
-                    $return['msg']  = '没有需要封禁的用户';
-                    $return['code'] = 0;
-                    return $return;
-                }
-
                 if (count($tmp_tkey) > 1) {
                     $return['msg'] = '不同平台不能同时处理';
                     return $return;
@@ -309,23 +270,8 @@ class BlockServer extends BasicServer
                 unset($info['failUid']);
 
 
-
-                if(empty($info)){
-                    $return['msg']  = '该用户不存在，请到平台处理';
-                    $return['code'] = 0;
-                    return $return;
-                }
-
-
                 //先踢用户下线或者cp封禁
-                $tmp_res = GameBlockServer::blockOrLoginOut($chat_info, $info, $data['block_time']);
-
-                //如果用户找不到就提示错误
-                if($tmp_res['code'] == 0){
-                    $return['msg']  = $tmp_res['msg'];
-                    $return['code'] = 0;
-                    return $return;
-                }
+                GameBlockServer::blockOrLoginOut($chat_info, $info, $block_time);
 
                 $is_block_str = '';
                 if (!empty($is_block_arr)) {
@@ -338,28 +284,23 @@ class BlockServer extends BasicServer
                     $info,
                     self::BAN_UID,
                     self::BAN,
-                    $data['block_time'],
+                    $block_time,
                     '聊天封禁');
             }
 
-            $return['code'] = isset($res['code']) ? $res['code'] : 1;
-            $return['msg']  = isset($res['msg'])  ? $res['msg'] : '操作成功';
-            $return['succ'] = isset($res['succ']) ? implode(",", $res['succ']) : '';
-            $return['fail'] = isset($res['fail']) ? implode(",", array_merge($res['fail'], $fail)) : '';
+            $return['code'] = 1;
+            $return['code'] = '操作成功';
+            $return['succ'] = implode(",", $res['succ']);
+            $return['fail'] = implode(",", array_merge($res['fail'], $fail));
             $return['isBlocked'] = $is_block_str;
-
-
 
         } elseif ($data['blockid']) {
 
             $banDta = $succ = $fail = $log = [];
-            $blockid = $data['blockid'];
-            $info = BlockSqlServer::getBlockById($blockid);
+            $info = BlockSqlServer::getBlockById($data['blockid']);
             $new_info = [];
 
-
-//            $gamekey = Common::getConfig('gamekey');
-            $gamekey = Common::getGameKey();
+            $gamekey = Common::getConfig('gamekey');
 
             $gamekey_list = [];
             foreach ($gamekey as $k1 => $v1) {
@@ -370,42 +311,34 @@ class BlockServer extends BasicServer
             foreach ($info as $k1 => $v1) {
                 $new_info[$v1['uid']]['uid'] = $v1['uid'];
                 $new_info[$v1['uid']]['gkey'] = $v1['gkey'];
-                $new_info[$v1['uid']]['tkey'] = $v1['platform_tkey'];
-                $new_info[$v1['uid']]['roleid'] = $v1['roleid'];
+                $new_info[$v1['uid']]['tkey'] = $v1['tkey'];
 
                 $uid = $v1['uid'];
 
                 //判断uid是否需要转换成聚合的sdkuid
                 $res = GameBlockServer::checkNeedChangeUid($v1, $gamekey_list[$v1['gkey']]['need_change_uid']);
 
-                if (isset($gamekey_list[$v1['gkey']]['need_change_uid']) && $gamekey_list[$v1['gkey']]['need_change_uid'] == 1) {
+                if ($gamekey_list[$v1['gkey']]['need_change_uid'] == 1) {
                     $v1['uid'] = $res['openid'];
                 }
 
 
-                //后置操作
-                $v1 = GameBlockServer::dealGameParams($v1,$v1['gkey'],2);
-
-                $tmp_data = $v1;
-                if ( isset($gamekey_list[$v1['gkey']]['need_cp_deal']) && $gamekey_list[$v1['gkey']]['need_cp_deal'] == 1) {
-
-                    $tmp_data['need_cp_deal'] = 1;
-                }
-
                 if ($v1['type'] == "CHAT" || $v1['type'] == "AUTOCHAT" || $v1['type'] == "ACTIONCHAT") {
-
+                    $data = $v1;
                     //聊天解禁参数
-                    $tmp_data['addtime'] = time();
-                    $tmp_data['ban_time'] = 0;
-
-                    RoleServer::roleChat($tmp_data,2);
+                    $data['type'] = 2;
+                    $data['addtime'] = time();
+                    $data['ban_time'] = 0;
+                    RoleServer::roleChat($data);
                 } else {
                     //如果使用的是cp封禁+sdk封禁模式则需要解封cp
                     if ($v1['ban_type'] == 2) {
-                        $tmp_data['addtime'] = time();
+                        $data = $v1;
+                        $data['addtime'] = time();
                         //判断封禁还是解禁
-                        $tmp_data['ban_time'] = 0;
-                        RoleServer::roleBlock($tmp_data,2);
+                        $data['is_block'] = 2;
+                        $data['ban_time'] = 0;
+                        RoleServer::roleBlock($data);
                     }
                 }
 
@@ -422,7 +355,7 @@ class BlockServer extends BasicServer
                 0,
                 '解封');
 
-            $return['code'] = 0;
+            $return['code'] = 1;
             $return['msg'] = '操作成功';
             $return['succ'] = implode(",", $res['succ']);
             $return['fail'] = implode(",", array_merge($res['fail'], $fail));
@@ -430,8 +363,7 @@ class BlockServer extends BasicServer
 
             //更新成功更改封禁日志状态
             if ($res['succ']) {
-
-                BlockSqlServer::updateBlockStatus($blockid, $data['admin_user']);
+                BlockSqlServer::updateBlockStatus($data['blockid'], $data['admin_user']);
             }
         }
 
@@ -453,14 +385,41 @@ class BlockServer extends BasicServer
 
         if ($data['ids']) {
 
-            $result     = Common::newGetbyIds($data['ids'],$data['uids']);
+//            $result     = Common::getbyIds($data['ids']);
+            $arr = '{
+    "id": "2201281405569561",
+    "gkey": "y8cl",
+    "tkey": "zw",
+    "sid": "S63",
+    "uid": "20965291",
+    "uname": "飘逸游民",
+    "roleid": "83941228",
+    "type": "1",
+    "content": "谁给的寂寞，在不？",
+    "content2": "谁给的寂寞，在不？",
+    "time": "1643349939",
+    "ip": "222.209.27.115",
+    "ip_id": "1643346638",
+    "to_uid": "",
+    "to_uname": "0",
+    "role_level": "303",
+    "imei": "",
+    "count_money": 0,
+    "reg_channel_id": "524024",
+    "ext": "",
+    "openid": "",
+    "is_sensitive": 1,
+    "sensitive_keyword": "在不",
+    "request_time": 1643349956
+  }';
 
+            $result[] = json_decode($arr,1);
             $chat_info  = [];
             $succ       = $fail = $isBlocked =  [];
             if($result ) {
                 $tmp_tkey = [];
                 foreach ($result as $v) {
-                    $tmp_tkey[$v['tkey']][] = $v;
+                    $tmp_tkey[] = $v['tkey'];
                     $chat_info[$v['uid']] = $v;
                 }
 
@@ -494,23 +453,21 @@ class BlockServer extends BasicServer
 
             }
            return $return;
-        } elseif (!empty($data['blockid'])) {
-            $tmp_data = $succ = $fail = $log = [];
-            $info = BlockSqlServer::getBlockById([$data['blockid']]);
-
+        } elseif ($data['blockid']) {
+            $data = $succ = $fail = $log = [];
+            $info = BlockSqlServer::getBlockById($data['blockid']);
             foreach ($info as $value){
-                $tmp_data[$value['uid']] = $value;
+                $data[$value['uid']] = $value;
             }
-
             //解禁言操作
-            $res = GameBlockServer::blockRelieveChat($tmp_data,$data['blockid']);
+            $res = GameBlockServer::blockRelieveChat($data,$data['blockid']);
 
             if (count($data) == count($res['fail'])){
                 $result['fail'] = $res['fail'];
             }else{
 
 
-                $return['code'] = 0;
+                $return['code'] = 1;
                 $return['msg'] = '操作成功';
                 $return['succ'] = $res['succ'];
                 $return['fail'] = $res['fail'];
@@ -518,8 +475,11 @@ class BlockServer extends BasicServer
 
         }
 
+
         return $return;
     }
+
+
     public static function unblockMixed($data)
     {
         $return = ['code' => -1, 'msg' => '操作失败', 'succ' => '', 'fail' => '', 'isBlocked' => ''];
@@ -539,17 +499,19 @@ class BlockServer extends BasicServer
                 if ($v1['type'] == "CHAT" || $v1['type'] == "AUTOCHAT" || $v1['type'] == "ACTIONCHAT") {
                     $data = $v1;
                     //聊天解禁参数
+                    $data['type'] = 2;
                     $data['addtime'] = time();
                     $data['ban_time'] = 0;
-                    RoleServer::roleChat($data,2);
+                    RoleServer::roleChat($data);
                 } else {
                     //如果使用的是cp封禁+sdk封禁模式则需要解封cp
                     if ($v1['ban_type'] == 2) {
                         $data = $v1;
                         $data['addtime'] = time();
-
+                        //判断封禁还是解禁
+                        $data['is_block'] = 2;
                         $data['ban_time'] = 0;
-                        RoleServer::roleBlock($data,2);
+                        RoleServer::roleBlock($data);
                     }
                 }
 
@@ -579,5 +541,6 @@ class BlockServer extends BasicServer
         }
         return $return;
     }
+
 
 }

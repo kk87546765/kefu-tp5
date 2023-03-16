@@ -357,8 +357,6 @@ class Admin extends Oauth
             ['limit','int',20],
             ['admin_id','int',0],
             ['ca','trim',''],
-            ['controller','trim',''],
-            ['action','trim',''],
             ['start_time','trim',''],
             ['end_time','trim',''],
         ]);
@@ -451,32 +449,6 @@ class Admin extends Oauth
 
 //        $this->rs['data'] = AdminServer::getAdminLogStatisticConfig();
 
-        return return_json($this->rs);
-    }
-
-    public function getRedis()
-    {
-        $p_data = $this->getPost([
-            ['key_name','trim',''],
-            ['type','trim',''],
-            ['hash_name','trim',''],
-        ]);
-
-
-        $redis = get_redis();
-
-        $redis->hset('a','uid',json_encode(['a'=>1,'b'=>2]));
-
-        if($p_data['type'] == 1){
-            $res = $redis->GET($p_data['key_name']);
-        }elseif($p_data['type'] == 2){
-            $res = $redis->SMEMBERS($p_data['key_name']);
-        }elseif($p_data['type'] == 3 && !empty($p_data['hash_name'])){
-            $res = $redis->hget($p_data['key_name'],$p_data['hash_name']);
-
-        }
-
-        $this->rs['data'] = $res;
         return return_json($this->rs);
     }
 

@@ -132,14 +132,6 @@ class ActionBlockServer extends BasicServer
         return $data;
     }
 
-    public static function getAllByWhere($where)
-    {
-
-        $data = ActionBlockSqlServer::getList(['conditions'=>$where]);
-
-        return $data;
-    }
-
 
 
 }

@@ -9,14 +9,10 @@ namespace common\server\GetBaseInfo;
 use common\base\BasicServer;
 use common\libraries\Common;
 use common\libraries\ApiUserInfoSecurity;
-use common\server\CustomerPlatform\CommonServer;
-use common\server\RoleNameKeyword\RoleNameKeywordServer;
 use common\server\SysServer;
-use common\server\Vip\LossUserServer;
 use common\sql_server\GetBaseInfoSqlServer;
 use common\sql_server\KefuCommonMember;
 use common\sql_server\BanUserLog;
-use common\sql_server\RecallPlanPeopleLogSqlServer;
 use think\Db;
 use app\scripts\controller\GetBaseInfo;
 
@@ -158,7 +154,6 @@ class GetBaseInfoServer extends BasicServer
                 $reg_arr['uid'] = $v['uid'];
 //                $reg_arr['user_name'] = empty($v['uname']) ? '' : $v['uname'];
                 $reg_arr['user_name'] = empty($v['uname']) ? '' : addslashes($v['uname']);
-
                 $reg_arr['reg_date'] = empty($v['action_time']) ? 0 : $v['action_time'];
                 $reg_arr['reg_channel'] =  empty($v['reg_channel']) ? '' : $v['reg_channel'];
                 $reg_arr['mobile'] =  empty($v['mobile']) ? '' : ApiUserInfoSecurity::encrypt($v['mobile']);
@@ -173,13 +168,7 @@ class GetBaseInfoServer extends BasicServer
                 $reg_arr['id_card'] =  empty($v['id_card']) ? '' : $v['id_card'];
                 $reg_arr['real_name_time'] =  empty($v['login_date']) ? 0 : $v['login_date'];
                 $reg_arr['user_type'] =  empty($v['user_type']) ? 0 : $v['user_type'];
-                $reg_arr['udid'] =  empty($v['udid']) ? '' : $v['udid'];
-
                 array_push($dataArray, $reg_arr);
-
-                if($platform == 'youyu'){
-                    $this->updateLossUserInfo($reg_arr,$platform);
-                }
             }
 
             if (!empty($dataArray)) {
@@ -293,8 +282,6 @@ class GetBaseInfoServer extends BasicServer
                 $add_data['real_name'] =  empty($v['real_name']) ? '' : $v['real_name'];
                 $add_data['id_card'] =  empty($v['id_card']) ? '' : $v['id_card'];
                 $add_data['real_name_time'] =  empty($v['real_name_time']) ? 0 : $v['real_name_time'];
-                $add_data['udid'] =  empty($v['udid']) ? '' : $v['udid'];
-                $add_data['reg_time'] =  empty($v['reg_time']) ? 0 : $v['reg_time'];
 
                 array_push($dataArray, $add_data);
 
@@ -320,11 +307,6 @@ class GetBaseInfoServer extends BasicServer
                         if(!empty($update_data['mobile']) || !empty($update_data['login_date']) || !empty($update_data['login_ip'])){
 
                             $this->model->updateUserLoginTime($update_data);
-
-                            if($platform == 'youyu'){
-                                $this->updateLossUserInfo($add_data,$platform);
-                                $this->checkRecall($add_data,$platform);
-                            }
 
                         }
                     }
@@ -527,7 +509,7 @@ class GetBaseInfoServer extends BasicServer
 
 
 
-    //用户角色日志接口
+    //用户充值日志接口
     public function getUserRole($params){
 
         $time = $params->time;
@@ -565,14 +547,10 @@ class GetBaseInfoServer extends BasicServer
     private function role_log($url,$dataArr,$platform)
     {
 
-
         $return_res = $this->getDataS($url,$dataArr);
 
-        $platform_info = Common::getPlatformInfoBySuffixAndCache($platform);
-
-        if (!empty($return_res) && is_array($return_res)){
-
-            $count = count($return_res);
+        $count = count($return_res);
+        if (!empty($return_res)){
             $dataArray = [];
             $serverArray = [];
             foreach ($return_res as $k => $v) {
@@ -603,7 +581,7 @@ class GetBaseInfoServer extends BasicServer
                     $user_info = $this->model->getLastUserRoleLoginTime($v['uid'],$v['role_id']);
 
                     //如果已经存在用户，则不插入只更新
-                    if(!isset($user_info['uid'])){
+                    if(empty($user_info['uid'])){
                         array_push($dataArray, $add_data);
                     }
 
@@ -626,7 +604,6 @@ class GetBaseInfoServer extends BasicServer
                             $res = $this->model->updateUserRoleLoginTime($update_data);
 
                         }
-
                     }
                 }
             }
@@ -841,7 +818,7 @@ class GetBaseInfoServer extends BasicServer
                     if ($type == 1){
 
                         $res = $this->model->getTotalCount($type,'kefu_pay_order','pay_time',$start_time,$end_time);
-                        $different_time = $this->hourDifferent('userPay',$return_res,$res,$start_time,$end_time);
+                        $different_time = $this->hourDifferent('userPay',$return_res,$res);
 
                     }elseif ($type == 2){
 
@@ -869,7 +846,7 @@ class GetBaseInfoServer extends BasicServer
 
 
 
-    private function hourDifferent($interface_name,$return_res,$res,$start_time,$end_time='')
+    private function hourDifferent($interface_name,$return_res,$res,$start_time,$end_time)
     {
         $dataArray = [];
         foreach ($res as $k=>$v){
@@ -973,118 +950,6 @@ class GetBaseInfoServer extends BasicServer
 
         return true;
     }
-
-
-
-    public function updateUdid($obj)
-    {
-        $start_uid = 0;
-
-
-        if(is_file(RUNTIME_PATH.'uid_udid.txt')){
-            $start_uid = file_get_contents(RUNTIME_PATH.'uid_udid.txt');
-            if(empty($start_uid)){
-                $start_uid= 15075121;
-            }
-
-        }else{
-            $start_uid= 15075121;
-        }
-
-
-        $obj = new \common\model\db_customer_youyu\Test();
-        $model = CommonServer::getPlatformModel('KefuCommonMember','youyu');
-
-        $res = $obj->where("uid>{$start_uid} and udid is not null")->limit(5000)->order('uid asc')->select();
-
-        if($res){
-            foreach($res as $k=>$v){
-                if(!empty($v['udid'])){
-                    $res2 = $model->isUpdate(1)->update(['udid'=>$v['udid']],['uid'=>$v['uid']]);
-
-                    if($res2 !== false){
-                        file_put_contents(RUNTIME_PATH.'uid_udid.txt',$v['uid']);
-                    }
-                }
-
-
-            }
-
-
-        }
-
-
-    }
-
-    //更新流失用户表
-    public function updateLossUserInfo($params,$platform)
-    {
-
-        if(empty($platform)){
-            return false;
-        }
-        $params['uname'] = !empty($params['user_name']) ? $params['user_name'] :  $params['uname'];
-        $params['reg_time'] = !empty($params['reg_date']) ? $params['reg_date'] : $params['reg_time'];
-
-
-        $platform_info = Common::getPlatformInfoBySuffixAndCache($platform);
-
-        //登录或注册有手机 有则查副表
-        if(!empty($params['mobile'])){
-
-            $res = LossUserServer::getByWhere(['platform_id'=>$platform_info['platform_id'],'phone'=>$params['mobile']]);
-
-            //主表不存在则插入主表和副表
-            if(!empty($res[0])){
-                $this->isExistLossSub($platform_info,$params);
-            }else{
-                $i_res = LossUserServer::insertInfo(['platform_id' => $platform_info['platform_id'], 'mobile' => $params['mobile'], 'udid' => $params['udid'], 'reg_time' => $params['reg_time'],'login_date' => $params['login_date']]);
-                if($i_res){
-                    $this->isExistLossSub($platform_info,$params);
-                }
-            }
-
-        }else{
-            //无手机则查udid，判断流失用户表是否存在udid，有则插入到副表，无则跳过
-            $info = LossUserServer::getByWhere(['platform_id'=>$platform_info['platform_id'],'udid'=>$params['udid']]);
-
-            if(!empty($info[0]['phone'])){
-
-                $tmp_data = $params;
-
-                //如果找出多个udid相同的手机号则全部插入副表
-                foreach($info as $k=>$v){
-
-                    $tmp_data['mobile'] = $v['phone'];
-                    $this->isExistLossSub($platform_info,$tmp_data);
-                }
-
-
-
-            }
-        }
-
-    }
-
-
-    //判断副表是否存在用户，不存在则插入
-    private function isExistLossSub($platform_info,$params)
-    {
-        $is_exist = LossUserServer::getSubByWhere(['platform_id' => $platform_info['platform_id'], 'phone' => $params['mobile'], 'uid' => $params['uid']]);
-        if(empty($is_exist[0])){
-            LossUserServer::insertInfoSub(['platform_id' => $platform_info['platform_id'], 'mobile' => $params['mobile'], 'udid' => $params['udid'], 'uid' => $params['uid'],'uname' => $params['uname']]);
-
-        }
-    }
-
-
-    public function checkRecall($data,$platform)
-    {
-        $platform_info = Common::getPlatformInfoBySuffixAndCache($platform);
-
-        RecallPlanPeopleLogSqlServer::checkRecall($data,$platform_info['platform_id']);
-    }
-
 
 
     /**

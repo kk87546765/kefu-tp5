@@ -51,20 +51,16 @@ class QcConfig extends BasicModel
         'api_ip_write',
         'api_ip_black_open',
         'api_ip_black',
-        'block_waring_type',
-        'block_waring_money',
-        'platform_recall',
     ];
 
     /*保存字段控制-数组*/
     public static $array_key_arr = [
-        'sobot',
-        'platform_recall',
+        'sobot'
     ];
 
     /*需要逗号拆分字段*/
     public static $split_field_arr = [
-        'user_group_type','position_grade_arr','api_ip_write','api_ip_black'
+        'user_group_type','position_grade_arr','api_ip_write','api_ip_black',
     ];
 
     /*

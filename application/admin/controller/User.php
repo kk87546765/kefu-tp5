@@ -12,7 +12,6 @@ use think\Env;
 class User extends Oauth
 {
     protected $no_oauth = ['editPassword','index','model','clear','logout','listConfig'];
-    protected $no_login = [];
 
     /**
      * 获取用户信息
@@ -130,18 +129,12 @@ class User extends Oauth
             return return_json($this->rs);
         }
 
-        $save_data = getDataByField($this->user_data,['id','phone']);
+        $res = $this->user_data->save(['password'=>pwd_method($param['new_pass'])]);
 
-        $save_data['password'] = $param['new_pass'];
-
-        $res = AdminServer::userSave($save_data);
-
-//        $res = $this->user_data->save(['password'=>pwd_method($param['new_pass'])]);
-
-        if($res['code'])
+        if(!$res)
         {
-            $this->rs['code'] = $res['code'];
-            $this->rs['msg'] = $res['msg'];
+            $this->rs['code'] = 2;
+            $this->rs['msg'] = '修改失败';
             return return_json($this->rs);
         }
 

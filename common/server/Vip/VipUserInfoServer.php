@@ -100,6 +100,7 @@ class VipUserInfoServer extends BasicServer
             $value['date'] = $date;
             $value['add_time'] = $strTime;
             $value['channel_id'] = $value['pay_channel'];
+            $value['user_name'] = !empty($value['user_name']) ? addslashes($value['user_name']) : '';
             $value['game_name'] = !empty($value['game_name']) ? addslashes($value['game_name']) : '';
             $value['server_name'] = !empty($value['server_name']) ? addslashes($value['server_name']) : '';
             $value['role_name'] = !empty($value['role_name']) ? addslashes($value['role_name']) : '';
@@ -107,34 +108,12 @@ class VipUserInfoServer extends BasicServer
             $value['p_u'] = $value['platform_id'].'_'.$value['uid'];
             $value['p_g'] = $value['platform_id'].'_'.$value['game_id'];
             $value['p_g_s'] = $value['platform_id'].'_'.$value['game_id'].'_'.$value['server_id'];
-            $insertData[] = getDataByField($value,[
-                'date'
-                ,'uid'
-                ,'platform_id'
-                ,'role_id'
-                ,'role_name'
-                ,'game_id'
-                ,'game_name'
-                ,'server_id'
-                ,'server_name'
-                ,'channel_id'
-                ,'amount_count'
-                ,'day_hign_pay'
-                ,'order_count'
-                ,'big_order_count'
-                ,'big_order_sum'
-                ,'pay_time'
-                ,'p_u'
-                ,'p_g'
-                ,'p_g_s'
-                ,'add_time'
-            ]);
+            $insertData[] = $value;
         }
-
         unset($date);
-        $model = new EveryDayOrderCount();
+        $keFuUserRechargeModel = new KefuUserRecharge();
 
-        return $model->allowField(true)->insertAll($insertData);
+        return $keFuUserRechargeModel->insertAll($insertData);
     }
 
     /**
@@ -252,7 +231,7 @@ class VipUserInfoServer extends BasicServer
 
 
         $count_data = $EveryDayOrderCount
-            ->field($field)
+            ->field($field,2)
             ->where(setWhereSql($where,''))
             ->group('p_u')
             ->select()
@@ -843,34 +822,10 @@ class VipUserInfoServer extends BasicServer
 
             $pay_count = $EveryDayCountModel->field('sum(amount_count)')->where(setWhereSql($where,''))->find()->toArray();
 
-            $model->where(getDataByField($item,['platform_id','uid']))->update(['remark_pay'=>!empty($pay_count[0])?$pay_count[0]:0]);
+            $model->where(getDataByField($item,['platform_id','uid']))->update(['remark_pay'=>$pay_count[0]?$pay_count[0]:0]);
         }
 
         return true;
-    }
-
-    /**
-     * @param $param platform_info date
-     * @return int
-     * @throws \think\db\exception\BindParamException
-     * @throws \think\exception\PDOException
-     */
-    public static function updateVipRoleInfo($param){
-
-        $platform_info = getArrVal($param,'platform_info',[]);
-
-        $date = getArrVal($param,'date',strtotime('yesterday'));
-
-        $time_arr = timeCondition('day',$date);
-
-        $sql = "UPDATE vip_user_info v LEFT JOIN db_customer_".$platform_info['suffix'].".kefu_user_role r ON v.uid = r.uid AND v.role_id = r.role_id SET v.role_level = r.role_level,v.role_zs_level = r.trans_level";
-        $sql.=" WHERE v.platform_id = ".$platform_info['platform_id']." AND v.role_level!= r.role_level";
-        $sql.=" AND r.login_date >=".$time_arr['starttime'];
-        $sql.=" AND r.login_date <=".$time_arr['endtime'];
-
-        $model = new VipUserInfo();
-
-        return $model->execute($sql);
     }
 
 }

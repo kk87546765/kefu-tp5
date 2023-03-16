@@ -78,15 +78,13 @@ class VipStatistic extends Oauth
 
     #vip用户充值-列表
     public function userRechargeList(){
-        ini_set('memory_limit', '2048M');
-        set_time_limit(360);
+
         $params = $this->getPost([
             ['page','int',1],
             ['limit','int',20],
             ['pay_min','int',0],
             ['pay_max','int',0],
             ['is_record','int',0],
-            ['is_group','int',0],
             ['rp_examine_status','int',-1],
             ['rp_apply_status','int',0],
             ['uid','int',0],

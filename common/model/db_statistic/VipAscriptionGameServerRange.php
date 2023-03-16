@@ -19,10 +19,4 @@ class VipAscriptionGameServerRange extends BasicModel
         1=>'开启',
         2=>'关闭',
     ];
-
-
-    protected $type = [
-        'ext'      =>  'json',
-    ];
-
 }

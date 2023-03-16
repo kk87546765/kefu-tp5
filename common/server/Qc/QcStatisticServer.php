@@ -208,7 +208,7 @@ class QcStatisticServer extends BasicServer
         $where = getDataByField($param,['kf_id','question_type','game_type','qc_type',],1);
         $where['status'] = 0;
         if(isset($param['group_id']) && $param['group_id'] ){
-            $ids = SysServer::getAdminListByGroupIds($param['group_id'],2);
+            $ids = AdminServer::getAdminIdsByGroupId($param['group_id']);
             if($ids){
                 $where[] = ['kf_id','in',$ids];
             }else{
@@ -283,7 +283,7 @@ class QcStatisticServer extends BasicServer
             $sql.=' limit '.(($page - 1) * $limit).','.$limit;
         }
 
-        $list = $model->query($sql);
+        $list = $model->query($sql)->toArray();
 
         $admin_list = SysServer::getAdminListCache();
         $all_count = ['kf_id_str'=>'总'];

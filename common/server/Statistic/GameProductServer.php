@@ -10,7 +10,6 @@ use common\libraries\Curl;
 use common\model\db_customer\PlatformList as PlatformListModel;
 use common\model\db_statistic\PlatformGameInfo;
 use common\model\db_statistic\GameProduct;
-use common\model\db_statistic\UpGameProduct;
 use common\model\db_statistic\SellerCommissionConfig;
 use common\server\SysServer;
 
@@ -250,8 +249,6 @@ class GameProductServer extends BasicServer
                 $reg_arr['product_name'] = empty($v['product_name']) ? '' : $v['product_name'];
                 $reg_arr['add_time'] =  $time;
                 $reg_arr['static'] =  empty($v['status']) ? 2 : 1;
-                $reg_arr['up_id'] =  empty($v['up_id']) ? 0 : $v['up_id'];
-                $reg_arr['up_name'] =  empty($v['up_name']) ? '' : $v['up_name'];
                 array_push($dataArray, $reg_arr);
                 continue;
             }
@@ -260,14 +257,6 @@ class GameProductServer extends BasicServer
 
             if(!empty($v['product_name']) && $this_info->product_name != $v['product_name']){
                 $save_data['product_name'] = $v['product_name'];
-            }
-
-            if(!empty($v['up_name']) && $this_info->up_name != $v['up_name']){
-                $save_data['up_name'] = $v['up_name'];
-            }
-
-            if(!empty($v['up_id']) && $this_info->up_id != $v['up_id']){
-                $save_data['up_id'] = $v['up_id'];
             }
 
             if(!empty($v['status']) && $this_info->static != $v['status']){
@@ -386,94 +375,6 @@ class GameProductServer extends BasicServer
     }
 
 
-    public static function updateUniqueProductInfo($platformInfo,$param){
-
-        $time = time();
-        $num = 10000;
-
-        $platform_id = getArrVal($platformInfo,'platform_id',0);
-        $platform_config = $platformInfo['config'];
-        $key = $platform_config['url_key'];
-        $url = $platform_config['unique_product_list'] ?? '';
-
-        if (empty($key) || empty($url)) {
-            return ['code'=>1,'msg'=>'no key or no url'];
-        }
-
-        $sign = self::getGameProductSign($param['start_time'],$param['end_time'],$time,$platform_config['url_key']);
-
-        $data = getDataByField($param,['start_time','end_time']);
-        $data = array_merge($data,compact('num','time','sign'));
-        $data['platform_id'] = $platform_id;
-        $data['page'] = getArrVal($param,'page',1);
-
-
-        $return_res = self::getData($url,$data);
-
-        sleep(1);
-
-        if($return_res['code'] != 0) return $return_res;
-
-        $dataArray = [];
-        $model = new UpGameProduct();
-
-        $data_list = getArrVal($return_res,'data',[]);
-
-        if(!$data_list){
-            return ['code'=>1,'msg'=>'data list'];
-        }
-
-        foreach ($data_list as $k => $v) {
-            $this_up_id = getArrVal($v,'up_id',0);
-            if(!$this_up_id) continue;
-            $where = [];
-            $where['platform_id'] = $platform_id;
-            $where['up_id'] = $this_up_id;
-
-            $this_info = $model->where($where)->find();
-
-            if(!$this_info){
-                $reg_arr = [];
-                $reg_arr['platform_id'] = $platform_id;
-                $reg_arr['up_id'] = $this_up_id;
-                $reg_arr['up_name'] = empty($v['up_name']) ? '' : $v['up_name'];
-                $reg_arr['add_time'] =  $time;
-                $reg_arr['status'] =  empty($v['status']) ? 2 : 1;
-                array_push($dataArray, $reg_arr);
-                continue;
-            }
-
-            $save_data = [];
-
-
-            if(!empty($v['up_name']) && $this_info->up_name != $v['up_name']){
-                $save_data['up_name'] = $v['up_name'];
-            }
-
-            if(!empty($v['status']) && $this_info->static != $v['status']){
-                $save_data['status'] = $v['status'];
-            }
-
-            if(!$save_data) continue;
-
-            $this_info->save($save_data);
-        }
-
-        if (!empty($dataArray)) {
-            $res = $model->insertAll($dataArray);
-        }
-
-        $res = ['code'=>0,'data'=>['ok:'.$platform_id]];
-
-        if(count($data_list) == $num){
-            $param['page'] = $data['page']+1;
-            $res['data'] = array_merge($res['data'],self::updateUniqueProductInfo($platformInfo,$param));
-        }
-
-        return $res;
-    }
-
-
     /**
      * @param $url
      * @param array $opt
@@ -499,30 +400,5 @@ class GameProductServer extends BasicServer
 
     private static function getGameProductSign($start_time,$end_time,$time,$key){
         return md5("start_time={$start_time}end_time={$end_time}time={$time}key={$key}");
-    }
-
-    /**
-     * 获取产品列表
-     * @param $where
-     * @return mixed
-     */
-    public static function getUpProductList($where)
-    {
-        $model = new UpGameProduct();
-        $list = $model
-            ->field('id,platform_id,up_id,concat(platform_id,"_",up_id) as p_up,up_name as name')
-            ->where($where)
-            ->order('platform_id desc,up_id desc')
-            ->select()
-            ->toArray();
-        return $list;
-    }
-
-    public static function getUpProductById($platform_id,$up_id)
-    {
-        $model = new UpGameProduct();
-        $res = $model->field('GROUP_CONCAT(`up_name`)as up_name')->where("platform_id = {$platform_id} and up_id in( {$up_id})")->group('platform_id')->find();
-        $res = isset($res) ? $res->toArray() : [];
-        return $res['up_name'];
     }
 }

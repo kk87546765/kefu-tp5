@@ -15,11 +15,9 @@ use common\model\gr_chat\Admin;
 use common\model\gr_chat\UserGroup;
 use common\server\CustomerPlatform\CommonServer;
 
-use common\sql_server\GameProductSqlServer;
 use common\sql_server\PlatformList;
 use common\server\Statistic\GameProductServer as GameProduct;
 use common\libraries\ElasticSearch;
-use extend\ApiSms;
 use think\Config;
 
 class Common
@@ -77,32 +75,6 @@ class Common
         return $new_platform_list;
     }
 
-
-    //获取平台信息
-    public static function getGameKey()
-    {
-
-        $platform_list = SysServer::getGameKey();
-        $new_platform_list = [];
-        foreach ($platform_list as $k => $v) {
-            $new_platform_list[$v['game_code']]['code'] = $v['game_code'];
-            $new_platform_list[$v['game_code']]['name'] = $v['game_name'];
-            $new_platform_list[$v['game_code']]['type'] = $v['type'];
-            $new_platform_list[$v['game_code']]['key'] = $v['key'];
-            $new_platform_list[$v['game_code']]['id'] = $v['id'];
-
-            if (!empty($v['config'])) {
-                foreach ($v['config'] as $k1 => $v1) {
-                    $new_platform_list[$v['game_code']][$k1] = $v1;
-                }
-            }
-        }
-
-        return $new_platform_list;
-    }
-
-
-
     //获取指定配置文件内容
     public static function getConfig($config_name)
     {
@@ -120,13 +92,12 @@ class Common
     public static function getProductList($type = 1)
     {
 
-        $product_list = Common::getGameKey();
-//        $product_list = Config::get('gamekey');
+        $product_list = Config::get('gamekey');
 
         $arr = [];
         //需要按id分组
         if ($type == 1) {
-            foreach ($product_list as $k => $v) {
+            foreach ($product_list['gamekey'] as $k => $v) {
 
                 $arr[$v['id']]['id'] = $v['id'];
                 $arr[$v['id']]['name'] = $v['name'];
@@ -136,7 +107,7 @@ class Common
 
             //不需要按id分组
         } elseif ($type == 2) {
-            foreach ($product_list as $k => $v) {
+            foreach ($product_list['gamekey'] as $k => $v) {
                 $arr[$k]['id'] = $v['id'];
                 $arr[$k]['name'] = $v['name'];
                 $arr[$k]['code'] = $k;
@@ -209,7 +180,6 @@ class Common
 //            'static' => 1
         ];
         $res = PlatformList::getPlatformList($where);
-
         if (!empty($res) && is_array($res)) {
             $result = $res[0];
             $redisModel->hset($key, $field, json_encode($result));
@@ -669,43 +639,6 @@ class Common
 
         );
 
-        foreach($result['data'] as &$v){
-            if($v['uid'] == 0 && !empty($v['uid_str'])){
-                $v['uid'] = $v['uid_str'];
-            }
-        }
-
-        return empty($result) ? [] : $result['data'];
-    }
-
-    /**
-     * elasticSearch获取指定id
-     * @param string $keySuffix
-     * @return string
-     */
-    public static function newGetbyIds($ids,$uids)
-    {
-        $es = new ElasticSearch();
-        $query['bool']['must'][]['terms']['id'] = $ids;
-        $query['bool']['must'][]['terms']['uid'] = $uids;
-
-
-        $last_month = Common::GetMonth(1);
-        $now_month = date('Ym');
-        $next_month = Common::GetMonth(0);
-
-        $result = $es->search(
-            [
-                $es->index_name.'-'.$last_month,
-                $es->index_name.'-'.$now_month,
-                $es->index_name.'-'.$next_month
-            ],
-            $query,
-            '',
-            ['time'=>['order'=>'desc']]
-
-        );
-
         return empty($result) ? [] : $result['data'];
     }
 
@@ -722,62 +655,5 @@ class Common
     public static function  uncamelize($camelCaps,$separator='_')
     {
         return strtolower(preg_replace('/([a-z])([A-Z])/', "$1" . $separator . "$2", $camelCaps));
-    }
-
-    function is_json($string) {
-        json_decode($string);
-        return (json_last_error() == JSON_ERROR_NONE);
-    }
-
-
-    //发送登录验证码
-    public static function sendLoginSms($username = '',$mobile = '')
-    {
-        $return = -1;
-        $redis = get_redis();
-        $frequency = $redis->get('newkefu_login_frequency_'.$username);
-        if($frequency){
-            $redis->set('newkefu_login_frequency_'.$username,$frequency+1,180);
-        }else{
-            $redis->set('newkefu_login_frequency_'.$username,1,180);
-        }
-
-        if($frequency>3){
-            $return = -3;
-            return $return;
-        }
-
-
-        $randNumber=mt_rand(100000,999999);
-        str_shuffle($randNumber);
-
-
-        $objSms = ApiSms::init('tencent');
-
-
-        $rs = $objSms::sendSms([$mobile], [$randNumber],'1342129');
-//        $rs = true;
-        if($rs){
-            $red_res = $redis->set('newkefu_login_code_'.$username,$randNumber,180);
-            if($red_res){
-                $return = 0;
-
-            }
-        }
-
-
-        return $return;
-    }
-
-
-    public static function getCustomerProduct($gid,$platform_id)
-    {
-        if(!isset($gid) || !is_int($gid)){
-            return false;
-        }
-
-        $info = GameProductSqlServer::getCustomerProductOne($gid,$platform_id);
-
-        return $info;
     }
 }

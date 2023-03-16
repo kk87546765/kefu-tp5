@@ -10,8 +10,7 @@ class UpdateBlockStatus extends Base
 {
 
     protected $func_arr = [
-        'update'    =>['func'=>'updateBlockStatus','param'=>[],'delay_time'=>0,'runtime'=>60,'limit'=>0,'is_single'=>1],
-        'update2'    =>['func'=>'updateRoleNameBlockStatus','param'=>[],'delay_time'=>0,'runtime'=>60,'limit'=>0,'is_single'=>1],
+        'udpate'    =>['func'=>'updateBlockStatus','param'=>[],'delay_time'=>0,'runtime'=>86400,'limit'=>0,'is_single'=>1],
 
     ];
 
@@ -30,22 +29,6 @@ class UpdateBlockStatus extends Base
         $obj = new UpdateBlockStatusServer();
         $res = $obj->updateBlockStatus();
         return ['code'=>$res['code'],'data'=>$res['data']];
-    }
-
-
-    public function updateRoleNameBlockStatus()
-    {
-        $obj = new UpdateBlockStatusServer();
-        $res = $obj->updateRoleNameBlockStatus();
-        return ['code'=>$res['code'],'data'=>$res['data']];
-    }
-
-
-    public function clean()
-    {
-        $func = !empty($_GET['func']) ? $_GET['func'] : 'all';
-
-        $this->apiClean($func);
     }
 
 

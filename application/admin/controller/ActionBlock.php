@@ -58,15 +58,12 @@ class ActionBlock extends Oauth
 
     public function add(){
 
-        $product_list = Common::getProductList();
-
         $data['name']         =  $this->request->post('name/s','');
         $data['type']         =  $this->request->post('type/d',0);
         $data['ban_time']     =  $this->request->post('ban_time/d',0);
         $data['ban_object']   =  $this->request->post('ban_object/d',0);
         $data['ban_reason']   =  $this->request->post('ban_reason/s','');
         $data['product']      =  $this->request->post('product/d',0);
-
         $data['min_level']    =  $this->request->post('min_level/d', 0);
         $data['max_level']    =  $this->request->post('max_level/d', 0);
         $data['min_money']    =  $this->request->post('min_money/d', 0);
@@ -79,7 +76,7 @@ class ActionBlock extends Oauth
         $data['limit_figure_length'] =  $this->request->post('limit_figure_length/s', '');
         $data['limit_char_length']   =  $this->request->post('limit_char_length/s', '');
         $data['add_time'] = time();
-        $data['product_name']        =  empty($product_list[$data['product']]['code']) ? '' : $product_list[$data['product']]['code'];
+
 
         $return = ActionBlockServer::add($data);
         $this->rs['code'] = $return['status'];

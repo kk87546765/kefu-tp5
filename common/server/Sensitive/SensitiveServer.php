@@ -33,7 +33,7 @@ class SensitiveServer extends BasicServer
 
         foreach ($keywords as &$keyword) {
 
-            $keyword['game_name'] = isset($data['gamelist'][$keyword['game']]) ? $data['gamelist'][$keyword['game']]['name'] : '';
+            $keyword['game_name'] = $data['gamelist'][$keyword['game']]['name'];
             $keyword['addtime']   = date("Y-m-d H:i:s",$keyword['addtime']);
             $keyword['status']    = $keyword['status']?'开启':'关闭';
 //            $keyword['total']     = $es->getLikeWords('sensitive_keyword',$keyword['keyword']);
@@ -46,7 +46,7 @@ class SensitiveServer extends BasicServer
     {
         $where = self::dealData($data);
 
-        $count = SensitiveSqlServer::getCount(['where'=>$where]);
+        $count = SensitiveSqlServer::getCount($where);
 
         return $count;
     }

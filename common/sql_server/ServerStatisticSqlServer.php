@@ -76,7 +76,7 @@ class ServerStatisticSqlServer extends BaseSqlServer
 
         $res = $model->query($sql);
 
-        return $res;
+        return !empty($res)? $res->toArray() : false;
     }
 
 
@@ -98,7 +98,7 @@ class ServerStatisticSqlServer extends BaseSqlServer
 
         $res = $model->query($sql);
 
-        return $res;
+        return !empty($res)? $res->toArray() : false;
     }
 
 
@@ -110,14 +110,9 @@ class ServerStatisticSqlServer extends BaseSqlServer
     public function insertInfo($data)
     {
         $model = new ServerStatistic();
-
-        $sql = "insert into db_statistic.server_statistic(`date`,`center_product_id`,`product_id`,`product_name`,`server_name`,`server_id`,`count_money`,`reg_num`,`add_time`,`platform_id`) values";
+        $sql = "insert into db_statistic.server_statistic(`date`,`center_product_id`,`product_id`,`product_name`,`server_name`,`server_id`,`count_money`,`role_reg_num`,`reg_num`,`add_time`,`platform_id`) values";
         foreach( $data as $v ){
 
-            if(empty($v['date'])){
-
-                continue;
-            }
             $sql .= "('{$v['date']}',".
                 "{$v['center_product_id']},".
                 "{$v['product_id']},".
@@ -125,16 +120,19 @@ class ServerStatisticSqlServer extends BaseSqlServer
                 "'{$v['server_name']}',".
                 "'{$v['server_id']}',".
                 "{$v['pay_money']},".
+                "{$v['role_reg_num']},".
                 "{$v['reg_num']},".
                 "'{$v['add_time']}',".
                 "{$v['platform_id']}),";
-
+         
         }
 
 
         $sql = trim($sql,",");
         $sql .= ' ON DUPLICATE KEY UPDATE count_money = values(count_money),
-                  reg_num = values(reg_num)';
+        reg_num = values(reg_num),
+        role_reg_num = values(role_reg_num),
+        ';
 
         $res = $model->execute($sql);
 

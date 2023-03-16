@@ -91,7 +91,7 @@ class VipUserInfo extends BasicModel
                 "'{$v['platform_id']}_{$v['last_pay_game_id']}_{$v['server_id']}',".
                 "{$v['last_pay_time']},".
                 "{$v['total_time']},".
-                "".strtotime($v['update_time']).",".
+                "{$v['update_time']},".
                 "{$v['vip_time']},".
                 "$nowTime,".
                 "{$v['last_login_time']}),";

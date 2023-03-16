@@ -127,7 +127,7 @@ class QcQuestionServer extends BasicServer
                         $where['admin_id'] = self::$user_data['id'];
                     }elseif(self::$user_data['position_grade'] == QcConfig::POSITION_GRADE_LEADER){
 
-                        $ids = SysServer::getAdminListByGroupIds(self::$user_data['group_id'],2);
+                        $ids = AdminServer::getAdminIdsByGroupId(self::$user_data['group_id']);
                         if(!$ids){
                             $ids = [0];
                         }
@@ -217,7 +217,7 @@ class QcQuestionServer extends BasicServer
 
 
         if(!empty($p_data['text'])){
-            $where[] = ['text','like',"%{$p_data['text']}%"];
+            $where[] = ['text','like',"%{$p_data[text]}%"];
         }
 
         $model = new QcQuestion();
@@ -1011,7 +1011,7 @@ class QcQuestionServer extends BasicServer
         }
 
         if(!empty($p_data['group_id'])){
-            $ids = SysServer::getAdminListByGroupIds($p_data['group_id'],2);
+            $ids = AdminServer::getAdminIdsByGroupId($p_data['group_id']);
             if(!$ids){
                 $ids = [0];
             }
@@ -1347,7 +1347,7 @@ class QcQuestionServer extends BasicServer
             $log_save_data['create_time'] = $log_save_data['update_time']= time();
             $log_save_data['update_user'] = self::$user_data['id'];
 
-            $id = $model->insertGetId($log_save_data);
+            $id = $model->insert($log_save_data);
             if(!$id){
                 return false;
             }
@@ -1998,41 +1998,7 @@ class QcQuestionServer extends BasicServer
             }
         }
     }
-    /**
-     * 会话html转array
-     * @param $text
-     * @return array
-     */
-    public static function getTextData($text){
-        // echo "<pre>";
-        // print_r($text);
-        // echo "<br>";
-        $crawler = new Crawler();
-        $crawler->addHtmlContent($text);
-        $text_info = $crawler->filter('.chat')->each(function (Crawler $node, $i) {
-            $this_data = [];
-            $this_data['type'] = $node->attr('data-type');
-            if($node->filter('.name')->count()>0){
-                $this_data['name'] = $node->filter('.name')->text();
-            }else{
-                $this_data['name'] = '';
-            }
-            if($node->filter('.time')->count()>0){
-                $this_data['time'] = $node->filter('.time')->text();
-            }else{
-                $this_data['time'] = '';
-            }
-            if($node->filter('.ct2')->count()>0){
-                $this_data['text'] = $node->filter('.ct2')->text();
-            }else{
-                $this_data['text'] = '';
-            }
 
-            return $this_data;
-        });
-
-        return $text_info;
-    }
     protected static function testImg($old,$text){
 
         $old = str_replace('\\','\\\\',$old);

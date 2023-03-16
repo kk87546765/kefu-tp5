@@ -48,7 +48,7 @@ class BatchBlock extends Oauth
         $data['op_admin'] = $this->user_data['username'];
 
         $res = BatchBlockServer::Block($data);
-        $return = [];
+
         $return['code'] = $res['code'];
         $return['msg'] = $res['msg'];
 
@@ -89,13 +89,13 @@ class BatchBlock extends Oauth
         $list = BatchBlockServer::getList($data);
         $total = BatchBlockServer::getCount($data);
 
-        $return = [];
 
-        $return['code'] = 0;
-        $return['msg'] = '获取成功';
-        $return['data'] = $list;
-        $return['count'] = $total;
-
+        if($list){
+            $return['code'] = 0;
+            $return['msg'] = '获取成功';
+            $return['data'] = $list;
+            $return['count'] = $total;
+        }
 
         return return_json($return);
 

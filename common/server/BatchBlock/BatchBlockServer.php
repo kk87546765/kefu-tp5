@@ -90,9 +90,7 @@ class BatchBlockServer extends BasicServer
     public static function block($data)
     {
         $return = ['code'=>-1,'msg'=>'封禁失败'];
-
-        $res = Common::getGameKey();
-//        $res = Common::getConfig('gamekey');
+        $res = Common::getConfig('gamekey');
 
         if(!isset($res[$data['game']]['batch_block']) || $res[$data['game']]['batch_block'] != 1) {
             $return['msg'] = '该游戏未开通手动角色封禁';
@@ -101,9 +99,6 @@ class BatchBlockServer extends BasicServer
 
         $fail = [];
         $succ = [];
-
-        $data['need_cp_deal'] = !empty($res[$data['game']]['need_cp_deal']) ? 1 : 0;
-
         $accounts = explode("\n",$data['account']);
 
         foreach($accounts as $v){

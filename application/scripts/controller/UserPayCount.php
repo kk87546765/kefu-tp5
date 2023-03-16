@@ -4,7 +4,6 @@ namespace app\scripts\controller;
 use common\model\db_statistic\KefuUserRecharge;
 use common\model\db_statistic\VipUserInfo;
 use common\server\CustomerPlatform\CommonServer;
-use common\server\Vip\LossUserServer;
 use common\server\Vip\VipUserInfoServer;
 
 class UserPayCount extends Base
@@ -34,12 +33,6 @@ class UserPayCount extends Base
         ['func'=>'vipAscriptionDistributionNew','param'=>[0=>''],'delay_time'=>3600*9,'runtime'=>0,'limit'=>2],#分配vip用户
 
         ['func'=>'updateUserRechargeThirtyDayPay','param'=>[0=>''],'delay_time'=>60*25,'runtime'=>0,'limit'=>1,'is_single'=>1],#分配vip用户
-
-        ['func'=>'updateLossUserInfo','param'=>[0=>''],'delay_time'=>60*65,'runtime'=>0,'limit'=>1],#流失用户数据更新
-
-        ['func'=>'updateVipRoleLevel','param'=>[0=>'date=yesterday'],'delay_time'=>60*68,'runtime'=>3600,'limit'=>1],#更新vip角色信息
-
-        ['func'=>'updateVipRoleLevel','param'=>[0=>'date=today'],'delay_time'=>3600*8,'runtime'=>3600,'limit'=>2],#更新vip角色信息
     ];
 
     const INSERT_NUMBER = 2000;
@@ -50,28 +43,17 @@ class UserPayCount extends Base
     }
 
     public function test(){
-        echo '<pre>';
-        $params = $this->request->param();
-
-        $func = getArrVal($params,'func','');
-        $param = getArrVal($params,'param','');
-        print_r(compact('params','func','param'));
-        if(!$func){
-            echo 'no func';die;
-        }
-        print_r($this->$func([0=>$param]));
+        dd($this->updateUserRechargeThirtyDayPay([]));
     }
 
     public function check()
     {
-        echo '<pre>';
-        print_r($this->apiCheckFuncList());
+        dd($this->apiCheckFuncList());
     }
 
     public function clean()
     {
-        echo '<pre>';
-        print_r($this->apiClean('all'));
+        dd($this->apiClean('all'));
     }
 
     /**
@@ -249,7 +231,7 @@ class UserPayCount extends Base
      * 生成vip用户数据
      * @param array $params
      */
-    public function updateEveryDayOrderCount($params)
+    public function updateEveryDayOrderCount(array $params)
     {
         ini_set('memory_limit', '2048M');
 
@@ -282,7 +264,7 @@ class UserPayCount extends Base
                 continue;
             }
             $tmp_time = $start_time;
-            while ($tmp_time <= $end_time) {
+            while ($tmp_time < $end_time) {
                 VipUserInfoServer::everyDayOrderCountNew($tmp_time, $k,$v);
                 $tmp_time += 86400;
             }
@@ -621,11 +603,7 @@ class UserPayCount extends Base
     public function checkUserRechargeOverTimeMonthPay($params){
         ini_set('memory_limit', '2048M');
 
-        if(isset($params[0])){
-            $p_r = [];
-            parse_str($params[0],$p_r);
-            extract($p_r);
-        }
+        parse_str($params[0]);
 
         $result = ['code'=>1, 'data'=>[]];
 
@@ -657,11 +635,7 @@ class UserPayCount extends Base
     public function updateUserRemarkPay(array $params = []){
         ini_set('memory_limit', '2048M');
 
-        if(isset($params[0])){
-            $p_r = [];
-            parse_str($params[0],$p_r);
-            extract($p_r);
-        }
+        parse_str($params[0]);
 
         $result = ['code'=>1, 'data'=>[]];
 
@@ -680,58 +654,6 @@ class UserPayCount extends Base
 
         foreach ($platformSuffix as $key=>$value){
             VipUserInfoServer::updateUserRemarkPay(['platform_info'=>['platform_id'=>$value,'suffix'=>$key]]);
-        }
-
-        return $result;
-    }
-
-    public function updateLossUserInfo(array $params = []){
-
-        ini_set('memory_limit', '2048M');
-
-        if(isset($params[0])){
-            $p_r = [];
-            parse_str($params[0],$p_r);
-            extract($p_r);
-        }
-
-        $result = ['code'=>1, 'data'=>[]];
-
-        $date = !empty($date)?$date:strtotime('yesterday');
-
-        LossUserServer::updateUserInfo(compact('date'));
-
-        return $result;
-    }
-
-    public function updateVipRoleLevel(array $params = []){
-        ini_set('memory_limit', '2048M');
-
-        if(isset($params[0])){
-            $p_r = [];
-            parse_str($params[0],$p_r);
-            extract($p_r);
-        }
-
-        $result = ['code'=>1, 'data'=>[]];
-
-        $platformSuffix = [];
-        if (!empty($platform) && isset($this->config['platform_suffix'][$platform])){
-            $platformSuffix[$platform] = $this->config['platform_suffix'][$platform];
-        }else{
-            //没有指定具体的平台数据，轮询获取
-            $platformSuffix = $this->config['platform_suffix'];
-        }
-
-        if(!$platformSuffix){
-            $result['data']['msg'] = 'no platform';
-            return $result;
-        }
-
-        $date = !empty($date)?strtotime($date):strtotime('yesterday');
-
-        foreach ($platformSuffix as $key=>$value){
-            $res = VipUserInfoServer::updateVipRoleInfo(['platform_info'=>['platform_id'=>$value,'suffix'=>$key],'date'=>$date]);
         }
 
         return $result;

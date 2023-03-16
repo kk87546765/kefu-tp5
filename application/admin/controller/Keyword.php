@@ -95,11 +95,10 @@ class Keyword extends Oauth
     {
 
 
-        $data['page']    = $this->request->request('page',  1);
-        $data['limit']   = $this->request->request('limit',  20);
+        $data['page']    = $this->request->get('page',  1);
+        $data['limit']   = $this->request->get('limit',  20);
         $data['game']    = $this->request->post('game',  '');
         $data['keyword'] = $this->request->post('keyword','');
-        $data['id']      = $this->request->post('id','');
 
 
         $keywords = KeywordServer::getList($data);
@@ -111,7 +110,7 @@ class Keyword extends Oauth
 
         foreach ($keywords as &$keyword) {
 
-            $keyword['game_name'] = $this->gamelist[$keyword['game']]['name'] ?? '';
+            $keyword['game_name'] = $this->gamelist[$keyword['game']]['name'];
             $keyword['addtime']   = date("Y-m-d H:i:s",$keyword['addtime']);
             $keyword['status']   = $keyword['status']?'开启':'关闭';
         }
@@ -150,7 +149,7 @@ class Keyword extends Oauth
     public function add()
     {
 
-        $post_data['game'] = $this->request->post('game',  '');
+        $post_data['game'] = $this->request->post('game',  'autoforbid');
         $post_data['keywords'] = $this->request->post('keywords');
         $post_data['num'] = $this->request->post('num/d',0);
         $post_data['status'] = $this->request->post('status/d', 0);
@@ -160,14 +159,6 @@ class Keyword extends Oauth
         $post_data['money_max'] = $this->request->post('money_max/d',  0);
         $post_data['resemble_status'] = $this->request->post('resemble_status/d', 0);
         $post_data['type'] = $this->request->post('type/d', 1);
-        $post_data['block_time'] = $this->request->post('block_time/d', 0);
-        $post_data['ban_time'] = $this->request->post('ban_time/d', 0);
-
-        if(empty($post_data['game'])){
-            $this->rs['code'] = -1;
-            $this->rs['msg'] = '游戏不能为空';
-            return return_json($this->rs);
-        }
 
 
         $post_data['admin_user'] = $this->user_data['username'];
@@ -191,7 +182,7 @@ class Keyword extends Oauth
     public function edit()
     {
         $post_data['id'] = $this->request->post('id/d',  0);
-        $post_data['game'] = $this->request->post('game',  '');
+        $post_data['game'] = $this->request->post('game',  'autoforbid');
         $post_data['keywords'] = $this->request->post('keywords');
         $post_data['num'] = $this->request->post('num/d',0);
         $post_data['status'] = $this->request->post('status/d', 0);
@@ -201,16 +192,9 @@ class Keyword extends Oauth
         $post_data['money_max'] = $this->request->post('money_max/d',  0);
         $post_data['resemble_status'] = $this->request->post('resemble_status/d', 0);
         $post_data['type'] = $this->request->post('type/d', 1);
-        $post_data['block_time'] = $this->request->post('block_time/d', 0);
-        $post_data['ban_time'] = $this->request->post('ban_time/d', 0);
 
         $post_data['admin_user'] = $this->user_data['username'];
 
-        if(empty($post_data['game'])){
-            $this->rs['code'] = -1;
-            $this->rs['msg'] = '游戏不能为空';
-            return return_json($this->rs);
-        }
 
         $res = KeywordServer::edit($post_data);
 
@@ -231,9 +215,6 @@ class Keyword extends Oauth
         $id = $this->request->post('id', 0);
 
         $res = KeywordServer::getOne($id);
-
-        $res['block_time'] = round($res['block_time']/3600,1);
-        $res['ban_time'] = round($res['ban_time']/3600,1);
 
         $this->rs['code'] = 0;
         $this->rs['msg'] = '获取成功';

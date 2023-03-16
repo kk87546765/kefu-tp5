@@ -16,15 +16,6 @@ header('Access-Control-Max-Age:86400');
 //header('Access-Control-Allow-Origin:'.$_SERVER['HTTP_ORIGIN']);
 header('Access-Control-Allow-Origin:*');
 
-if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS'){
-
-    header("Access-Control-Allow-Origin: *");
-    header('Access-Control-Allow-Headers:*');
-    echo 200;exit;
-
-
-}
-
 // [ 应用入口文件 ]
 
 // 定义应用目录

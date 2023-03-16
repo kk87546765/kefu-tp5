@@ -20,11 +20,11 @@ final class ElasticSearch
             $this->host = $params['host'];
         }
 
-//        if(isset($params['host']) && !empty($params['index'])){
-//            $this->index_name = $params['index'];
-//        }else{
-//            $this->index_name = $this->index_name.'-'.date('Ym');
-//        }
+        if(isset($params['host']) && !empty($params['index'])){
+            $this->index_name = $params['index'];
+        }else{
+            $this->index_name = $this->index_name.'-'.date('Ym');
+        }
 
         $this->client = ClientBuilder::create()->setHosts($this->host)->build();
     }
@@ -61,16 +61,6 @@ final class ElasticSearch
     }
 
 
-    public function getStat()
-    {
-        $params = [
-            'index' => $this->index_name,
-        ];
-
-        $a = $this->client->indices()->stats($params);
-        return $a;
-    }
-
     /**
      * elasticSearch搜索
      * @param $index_name string 索引名
@@ -106,7 +96,7 @@ final class ElasticSearch
         $res = $this->client->search($params);
 
         $total = $res['hits']['total']['value'];
-//        $results = $res['hits']['hits'][0]['_source'];
+        $results = $res['hits']['hits'][0]['_source'];
         $tmp_arr = [];
         foreach($results = $res['hits']['hits'] as $k=>$v){
             array_push($tmp_arr,$v['_source']);

@@ -10,7 +10,7 @@ namespace app\admin\controller;
 use common\server\AccountSearch\AccountSearchServer;
 use common\sql_server\KefuCommonMember;
 use common\libraries\Common;
-use common\libraries\Ipip\IP4datx;
+use common\Libraries\Ipip\IP4datx;
 use common\server\CustomerPlatform\CommonServer;
 class AccountSearch extends Oauth
 {

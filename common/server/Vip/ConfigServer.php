@@ -203,7 +203,7 @@ class ConfigServer extends BasicServer
             ->alias('bvs')
             ->join('game_product gp','gp.id = bvs.vip_game_product_id')
             ->where(setWhereSql($where,''))
-//            ->fetchSql()
+            ->fetchSql()
             ->count();
 
         $listObj = $model->alias('bvs')->field($field)->join('game_product gp','gp.id = bvs.vip_game_product_id')->where(setWhereSql($where,''));
@@ -428,7 +428,7 @@ class ConfigServer extends BasicServer
     public static function serverManageDetail($id){
 
         $config = [];
-        $config['admin_list'] = SysServer::getUserListByAdminInfo(self::$user_data,['group_type'=>[QcConfig::USER_GROUP_VIP],'is_active'=>1]);
+        $config['admin_list'] = SysServer::getUserListByAdminInfo(self::$user_data,['group_type'=>[QcConfig::USER_GROUP_VIP,'is_active'=>1]]);
         $gameProductArr = SysServer::getGameProductByPower();
 
         $detail = [
@@ -441,9 +441,6 @@ class ConfigServer extends BasicServer
             $detailObj = $model->where('id',$id)->find();
             if($detailObj){
                 $detail = $detailObj->toArray();
-                if(!empty($detail['ext'])){
-                    $detail = arrToFormData($detail);
-                }
             }
         }
         $gameProductList = [];
@@ -474,13 +471,12 @@ class ConfigServer extends BasicServer
 
             $p_data['edit_admin_id'] = self::$user_data['id'];
 
-            $res = $model->isUpdate(1)->save($p_data,$id);
+            $res = $model->where('id',$id)->update($p_data);
 
             if(!$res){
                 $id = 0;
             }
         }else{
-            $p_data['ext'] = json_encode($p_data['ext']);
             $p_data['add_admin_id'] = self::$user_data['id'];
             $p_data['add_time'] = time();
             $id = $model->insertGetId($p_data);
@@ -922,7 +918,7 @@ class ConfigServer extends BasicServer
         $form_data = [];
         $form_data['list_month'] = date('Y-m');
 
-        $group_list = SysServer::getGroupListByAdminInfo(QcConfig::USER_GROUP_VIP,self::$user_data);
+        $group_list = SysServer::getAdminGroupListShow();
 
         $admin_list = SysServer::getUserListByAdminInfo(self::$user_data,['group_type'=>[QcConfig::USER_GROUP_VIP,'is_active'=>1]]);
 
@@ -1032,7 +1028,7 @@ class ConfigServer extends BasicServer
             return [];
         }
 
-        $admin_list = SysServer::getUserListByAdminInfo(self::$user_data,['group_type'=>[QcConfig::USER_GROUP_VIP,'is_active'=>1]]);
+        $admin_list = SysServer::getAdminListCache();//用户列表
 
         $where = [];
 
@@ -1044,7 +1040,7 @@ class ConfigServer extends BasicServer
 
         $SellerKpiConfig = new SellerKpiConfig();
 
-        $kpi_list = $SellerKpiConfig->where(setWhereSql($where,''))->select()->toArray();
+        $kpi_list = $SellerKpiConfig->where($where)->select()->toArray();
 
         foreach ($group_list as $gl_k => &$gl_v) {
             $gl_v['admin_list'] = [];

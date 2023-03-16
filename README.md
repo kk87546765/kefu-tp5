@@ -165,11 +165,9 @@ public/static/module_name
 │     ├─controller      控制器目录
 │     ├─model           模型目录
 │     ├─view            视图目录
-│     ├─layui           layui目录
-│     │   └─lay  
-│     │     └─modules
-│     │         └─env.js  公共配置文件
 │     └─ ...            更多类库目录
+│  ├─lay 
+        ├─env.js        公共配置目录
 ├─view           应用目录
 │  ├─controller_name    控制器
 │     ├─index.php       操作
@@ -178,18 +176,3 @@ public/static/module_name
 
 ## 其他
 * 百度编辑器配置问题，修改/assets/plug/uediortext/uedior.config.js 里面serverUrl修改指向后台对应配置接口
-
-## 本地配置
-   ~~~
-   最少需要2个域名或者2个端口
-       例如：
-           域名
-               静态文件 www.pt 指向/public/static/admin/
-               接口 api.pt 指向/public/
-   修改文件
-        .env 
-        public/static/admin/assets/vendor/layui/lay/modules/env.js
-        public/static/admin/assets/plug/uediortext/ueditor.config.js      
-   ~~~ # kefu-tp5
-# kefu-tp5
-# kefu-tp5

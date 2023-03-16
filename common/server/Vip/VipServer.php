@@ -12,7 +12,6 @@ use common\model\db_statistic\GameProduct;
 use common\model\db_statistic\KefuUserRecharge;
 use common\model\db_statistic\SellWorkOrder;
 use common\model\db_statistic\UserPrivacyInfo;
-use common\model\db_statistic\VipKfDayStatistic;
 use common\model\db_statistic\VipUserInfo;
 use common\model\db_statistic\VipUserOtherInfo;
 use common\model\db_statistic\VipUserWelfare;
@@ -701,7 +700,7 @@ class VipServer extends BasicServer
             $where_p_g_i = [];
             $where_p_g_i[] = ["concat(platform_id,'_',product_id)",'in',splitToArr($param['p_p'])];
 
-            $game_list = $PlatformGameInfo->field('platform_id,game_id')->where(setWhereSql($where_p_g_i,''))->select()->toArray();
+            $game_list = $PlatformGameInfo->field('platform_id,game_id',2)->where(setWhereSql($where_p_g_i,''))->select()->toArray();
 
             if($game_list){
                 $this_info = [];
@@ -1019,7 +1018,7 @@ class VipServer extends BasicServer
 
         }elseif (in_array($adminUserInfo['position_grade'],[2,3])) {
 
-            $ids = SysServer::getAdminListByGroupIds($adminUserInfo['group_id'],2);
+            $ids = SysServer::getAdminListByGroupIds($adminUserInfo['group_id']);
 
             if(!$ids){
                 $ids = [0];
@@ -1077,21 +1076,6 @@ class VipServer extends BasicServer
         if (!empty($params['thirty_day_pay_min'])) {
             $where[] =['thirty_day_pay','>=',$params['thirty_day_pay_min']];
         }
-
-        if (!empty($params['role_level_min'])) {
-            $where[] =['role_level','>=',$params['role_level_min']];
-        }
-        if (!empty($params['role_level_max'])) {
-            $where[] =['role_level','<=',$params['role_level_max']];
-        }
-
-        if (!empty($params['role_zs_level_min'])) {
-            $where[] =['role_zs_level','>=',$params['role_zs_level_min']];
-        }
-        if (!empty($params['role_zs_level_max'])) {
-            $where[] =['role_zs_level','<=',$params['role_zs_level_max']];
-        }
-
         if (!empty($params['thirty_day_pay_max'])) {
             $where[] =['thirty_day_pay','<=',$params['thirty_day_pay_max']];
         }
@@ -1347,9 +1331,6 @@ class VipServer extends BasicServer
             $where[] = ['id','in',$this_info];
         }
         $model = new VipUserInfo();
-
-        $list = $model->where(setWhereSql($where,''))->select();
-
         $tmpTime = time();
         $data = [
             'ascription_vip' => 0,
@@ -1360,64 +1341,10 @@ class VipServer extends BasicServer
         $res = $model->where(setWhereSql($where,''))->update($data);
 
         if($res){
-            self::updateVipDistributeInfo($list);
             return ['code'=>0,'msg'=>$code[0].$res];
         }else{
             return ['code'=>2,'msg'=>$code[2]];
         }
-    }
-
-    public static function updateVipDistributeInfo($list){
-
-        $model = new VipKfDayStatistic();
-
-        $first_distribute_time = 0;
-
-        foreach ($list as $item){
-            $where = [];
-            $where['p_g'] = $item['p_l_g'];
-            $where['admin_id'] = $item['ascription_vip'];
-            $where['day'] = strtotime(date('Y-m-d',$item['first_distribute_time']));
-
-            if(!$first_distribute_time || $where['day']<$first_distribute_time){
-                $first_distribute_time = $where['day'];
-            }
-
-            $this_info = $model->where($where)->find();
-
-            if(!$this_info || !$this_info->add_user_count){
-                continue;
-            }
-
-            $add_user_str = splitToArr($this_info->add_user_str);
-
-            $mid = arrMID($add_user_str,[$item['uid']]);
-
-            if(!$mid['ai_com']){
-                continue;
-            }
-
-            $this_info->add_user_count -=1;
-            $this_info->add_user_count_month-=1;
-            $this_info->add_user_count_all -=1;
-
-
-            $this_info->add_user_str = $mid['ad_del']?explode(',',$mid['ad_del']):'';
-            $this_info->add_user_str_month = str_replace(','.$item['uid'],'',$this_info->add_user_str_month);
-            $this_info->add_user_str_month = str_replace($item['uid'],'',$this_info->add_user_str_month);
-
-            $this_info->save();
-        }
-
-        $cache_name_updateAscription = 'script_vip_kf_day_runUpdate';
-        $cache_info = cache($cache_name_updateAscription);
-        if($cache_info){
-            if($first_distribute_time>=$cache_info){
-                $first_distribute_time = 0;
-            }
-        }
-
-        if($first_distribute_time) cache($cache_name_updateAscription,$first_distribute_time,3600*12);
     }
 
     public static function userOtherInfoList($param){
@@ -2210,8 +2137,6 @@ class VipServer extends BasicServer
         }
 
         $p_data['platform_id'] = $platform_id;
-
-        $p_data['p_u'] = $platform_id.'_'.$p_data['uid'];
 
         if(isset($p_data['product_id'])){
             if($p_data['product_id']){

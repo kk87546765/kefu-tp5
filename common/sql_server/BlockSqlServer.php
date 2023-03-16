@@ -37,8 +37,8 @@ class BlockSqlServer extends BaseSqlServer
      * @param string $type
      * @return mixed
      */
-    public static function insertBlock($info=[]){
-        $sql = "insert into gr_block(`gkey`,`sid`,`uid`,`platform_uid`,`reg_channel_id`,`uname`,`roleid`,`rolename`,`role_level`,`count_money`,`ip`,`tkey`,`platform_tkey`,`addtime`,`expect_unblock_time`,`op_admin_id`,`status`,`type`,`op_ip`,`imei`,`blocktime`,`ext`,`reason`,`ban_type`,`openid`,`hit_keyword_id`,`keyword`) values";
+    public static function insertBlock($info=[],$type="USER"){
+        $sql = "insert into gr_block(`gkey`,`sid`,`uid`,`platform_uid`,`reg_channel_id`,`uname`,`roleid`,`rolename`,`role_level`,`count_money`,`ip`,`tkey`,`platform_tkey`,`addtime`,`expect_unblock_time`,`op_admin_id`,`status`,`type`,`op_ip`,`imei`,`blocktime`,`ext`,`reason`,`ban_type`,`openid`,`keyword`) values";
         foreach( $info as $v ){
             $sql .= "('{$v['gkey']}',".
                     "'{$v['sid']}',".
@@ -57,17 +57,15 @@ class BlockSqlServer extends BaseSqlServer
                     "{$v['expect_unblock_time']},".
                     "'{$v['op_admin_id']}',".
                     "1,".
-                    "'{$v['type']}',".
+                    "'{$type}',".
                     "'{$v['op_ip']}',".
                     "'{$v['imei']}',".
                     "'{$v['blocktime']}',".
                     "'{$v['ext']}',".
                     "'{$v['reason']}',".
                     "{$v['ban_type']},".
-                    "'{$v['openid']}',".
-                    "{$v['hit_keyword_id']},";
+                    "'{$v['openid']}',";
             if (isset($v['keyword'])) {
-
                 $sql .= "'{$v['keyword']}'),";
             }else{
                 $sql .= "''),";
@@ -89,14 +87,12 @@ class BlockSqlServer extends BaseSqlServer
      */
     public static function getBlockById($ids=[]){
         if( empty($ids) ) return [];
-        $ids = is_array($ids) ? implode(',',$ids) : $ids;
+
         $model = new Block();
 
         $blocked = $model->where("id in ({$ids})")->select();
-        $blocked = isset($blocked) ? $blocked->toArray() : [];
-
+        $ret = [];
         foreach( $blocked as $v ){
-
             $ret[$v["id"]] = $v;
         }
         return $ret;
@@ -116,11 +112,10 @@ class BlockSqlServer extends BaseSqlServer
 
         $ret = [];
         foreach( $blocked as $v ){
-            if($v['type'] == 'USER' || $v['type'] == 'AUTO' || $v['type'] == 'ACTION'){
-                $ret[$v['uid']] = 1;
-            }
-            elseif($v['type'] == 'CHAT' || $v['type'] == 'AUTOCHAT' || $v['type'] == 'ACTIONCHAT'){
+            if($v['type'] == 'CHAT' || $v['type'] == 'AUTOCHAT' || $v['ACTIONCHAT']){
                 $ret[$v['uid']] = 2;
+            }elseif($v['type'] == 'USER' || $v['type'] == 'AUTO' || $v['type'] == 'ACTION'){
+                $ret[$v['uid']] = 1;
             }else{
                 $ret[$v['uid']] = 0;
             }
@@ -227,12 +222,8 @@ class BlockSqlServer extends BaseSqlServer
     public static function getBlockByUserInfo($uid=[],$roleid=[],$sid=[]){
 
         $model = new Block();
-        $roleid = is_array($roleid) ? implode(',',$roleid) : $roleid;
-        $uid = is_array($uid) ? implode(',',$uid) : $uid;
-        $sid = is_array($sid) ? implode(',',$sid) : $sid;
 
-        $blocked =  $model->where("uid in ({$uid}) and roleid in ('{$roleid}') and sid in ('{$sid}') and status=1 and type='USER'")->select();
-        $blocked = isset($blocked) ? $blocked->toArray() : [];
+        $blocked =  $model->where("uid in ({$uid}) and roleid in ({$roleid}) and sid in ({$sid}) and status=1 and type='USER'")->select();
         $ret = [];
         foreach( $blocked as $v ){
             $t_key  =  $v['uid'].$v['roleid'].$v['sid'];
@@ -245,9 +236,9 @@ class BlockSqlServer extends BaseSqlServer
      * @param array $blockid
      * @return false
      */
-    public static function updateBlockStatus($blockid = [],$unblock_admin='auto'){
+    public static function updateBlockStatus($blockid=[],$unblock_admin='auto'){
         if( empty($blockid) ) return false;
-        $blockid = is_array($blockid) ? implode(",",$blockid) : $blockid;
+        $blockid = implode(",",$blockid);
 
         $unblock_time = time();
         $sql   = "update gr_block set status=0,unblock_time={$unblock_time},unblock_admin='{$unblock_admin}' where id in({$blockid})";

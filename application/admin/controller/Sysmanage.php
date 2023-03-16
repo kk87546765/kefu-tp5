@@ -281,7 +281,6 @@ class Sysmanage extends Oauth
     public function commonConfigList(){
 
         $this->rs['data'] = AdminServer::getCommonConfigDetail();
-        $this->rs['form_data'] = arrToFormData($this->rs['data']);
         $this->rs['config'] = AdminServer::getCommonConfigBaseInfo();
 
         return return_json($this->rs);
@@ -377,96 +376,6 @@ class Sysmanage extends Oauth
 
         return return_json($this->rs);
     }
-
-
-    #游戏-列表
-    public function gameList(){
-
-        $page = $this->req->post('page/d',1);
-        $limit = $this->req->post('limit/d',20);
-        $p_data['name'] = $this->req->post('name/s','');
-
-        list($list,$count) = AdminServer::getGameList($p_data,$page,$limit);
-
-        $this->rs['data'] = $list;
-        $this->rs['count'] = $count;
-
-        return return_json($this->rs);
-    }
-    #游戏-详情
-    public function gameDetail(){
-
-        $id = $this->req->post('id');
-
-        if($id){
-            $info = AdminServer::getgameDetail($id);
-
-
-            if(!$info){
-                $this->rs['code'] = 2;
-                $this->rs['msg'] = '数据不存在';
-                return return_json($this->rs);
-            }
-
-            $this->rs['data'] = $info;
-        }
-
-//        $this->rs['config'] = AdminServer::platformConfig();
-
-        return return_json($this->rs);
-    }
-    #游戏-添加
-    public function gameAdd(){
-
-
-        $this->rs['data'] = $this->req->post();
-
-        $ret = AdminServer::gameSave($this->rs['data']);
-
-        if( $ret ){
-            $this->rs['msg'] = '添加成功！';
-        }else{
-            $this->rs['msg'] = '添加失败！';
-        }
-
-
-
-        return return_json($this->rs);
-    }
-    #游戏-修改
-    public function gameEdit(){
-
-        $this->rs['data'] = $this->req->post();
-
-        $ret = AdminServer::gameSave($this->rs['data']);
-
-        if( $ret ){
-            $this->rs['msg'] = '修改成功！';
-        }else{
-            $this->rs['msg'] = '修改失败！';
-        }
-
-        return return_json($this->rs);
-    }
-
-    #游戏-删除
-    public function gameDel(){
-
-        $id = $this->req->post('id');
-
-        $ret = AdminServer::gameDel($id);
-
-        if( $ret ){
-            $this->rs['msg'] = '删除成功！';
-        }else{
-            $this->rs['msg'] = '删除失败！';
-        }
-
-        return return_json($this->rs);
-
-    }
-
-
     #平台-公共参数检查
     protected function platformCommonCheck(){
         $p_data = $this->req->post();

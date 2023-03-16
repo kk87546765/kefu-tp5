@@ -26,8 +26,7 @@ class CountBlockSqlServer extends BaseSqlServer
                         sum(if(`type`='CHAT',1,0)) as type_chat,
                         gkey
                     FROM
-                        (select * from  gr_block where {$tmp_data['condition']}  GROUP BY
-                       uid,type,{$tmp_data['group']} )c
+                        gr_block a
                         
                     WHERE
                        {$tmp_data['condition']}

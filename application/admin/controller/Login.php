@@ -1,7 +1,6 @@
 <?php
 namespace app\admin\controller;
 use common\model\gr_chat\Admin;
-use common\server\AdminServer;
 use common\server\SysServer;
 use think\Db;
 use common\base\BasicController;
@@ -47,21 +46,6 @@ class Login extends BasicController
             $this->rs['msg'] = '用户名或密码不对';
             return return_json($this->rs);
         }
-
-        $redis = get_redis();
-
-        $phone_code = $redis->get('newkefu_login_code_'.$param['username']);
-
-        //核实手机验证码
-        if(config('env_status')){
-            if(empty($phone_code) || $phone_code !== $param['phone_code'])
-            {
-                $this->rs['code'] = 7;
-                $this->rs['msg'] = '验证码不正确';
-                return return_json($this->rs);
-            }
-        }
-
         $model = new Admin();
         //查询用户
         $user_data = $model->where('username',$param['username'])->find();
@@ -93,7 +77,7 @@ class Login extends BasicController
         $redis = get_redis();
         $session_code = md5(config('sign_md5').$user_data['id']);//token存储key
 
-        $redis->set($session_code,$token,Env::get('login_expiration',0)*3600*24);
+        $redis->set($session_code,$token,Env::get('login_expiration')*3600*24);
 
         //登陆记录新增一次
         $user_data->setInc('login_times');
@@ -109,18 +93,5 @@ class Login extends BasicController
         $this->rs['msg'] = '登录成功';
 
         return return_json($this->rs);
-    }
-
-
-    public function sendPhoneCode()
-    {
-        $data['username'] = $this->request->post('username/s', '');
-        $data['phone']     = $this->request->post('phone/s', '');
-        $res = AdminServer::sendSms($data);
-
-        $this->rs['code'] = $res['code'];
-        $this->rs['msg'] = $res['msg'];
-        return return_json($this->rs);
-
     }
 }

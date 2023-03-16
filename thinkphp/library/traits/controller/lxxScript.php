@@ -203,7 +203,16 @@ trait lxxScript
         }
 
         if($lock_flag || $common_lock_flag){
-            return false;
+            if(in_array($func,[
+//                'ascription',
+//                'washed_away',
+//                'month',
+//                'history',
+            ])){
+
+            }else{
+                return false;
+            }
         }
 
         $this_func_limit = cache($limit_cache_name);

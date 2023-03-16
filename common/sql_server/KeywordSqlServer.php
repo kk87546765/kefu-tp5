@@ -11,7 +11,7 @@ use common\model\gr_chat\Keyword;
 class KeywordSqlServer extends BaseSqlServer
 {
 
-    public static function getList($where,$offset=0,$limit=100000,$order = 'id asc')
+    public static function getList($where,$offset=1,$limit=100000,$order = 'id asc')
     {
         $model = new Keyword();
         if(isset($offset) && isset($limit)){
@@ -86,17 +86,6 @@ class KeywordSqlServer extends BaseSqlServer
         $model = new Keyword();
 
         $data = $model->where($where)->find();
-
-        $data = isset($data) ? $data->toArray() : '';
-
-        return $data;
-    }
-
-    public static function getAllByWhere($where)
-    {
-        $model = new Keyword();
-
-        $data = $model->where($where)->select();
 
         $data = isset($data) ? $data->toArray() : '';
 

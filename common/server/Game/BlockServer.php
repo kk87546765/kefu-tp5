@@ -7,16 +7,12 @@ use common\base\BasicServer;
 use common\libraries\{Common};
 use common\server\Platform\BanServer;
 use common\server\Platform\Youyu\YouyuCommonMember;
-
 use common\server\Sdk\UserLogics as sdkUserLogics;
 use common\server\Sdk\UserServer;
-use common\server\RoleNameBlock\RoleNameBlockServer;
 use common\sql_server\BlockSqlServer;
 use common\sql_server\BatchBlockSqlServer;
-use common\sql_server\KefuUserRoleSqlServer;
-use common\model\gr_chat\Block;
-//use Quan\Common\Models\Block;
-use common\sql_server\RoleNameBlockSqlServer;
+//use common\Models\Block;
+use Quan\Common\Models\Block;
 use Quan\System\Config;
 
 
@@ -33,7 +29,6 @@ class BlockServer extends BasicServer
 
     const GAME_SIGN_PATH = EXTEND_PATH."/GamekeySign";
 
-    static $game_obj = '';
 
     /**
      * @param array $chat_info
@@ -47,19 +42,8 @@ class BlockServer extends BasicServer
 
         $res = ['code' => 0, 'msg' =>''];
         if (empty($chat_info) || empty($info)) {
-            $res['msg'] = '聊天信息或者用户信息有误';
             return $res;
         }
-
-        $gamekey = Common::getGameKey();
-//        $gamekey = Common::getConfig('gamekey');
-
-        $gamekey_list = [];
-        foreach($gamekey as $k1=>$v1){
-            $gamekey_list[$k1] = $v1;
-        }
-
-
 
 
         $admin_user = self::$user_data['username'];
@@ -68,7 +52,6 @@ class BlockServer extends BasicServer
 
         $userInfo = [];
         foreach ($info as $key => $value){
-
             foreach ($value as $v){
                 $userInfo[$v['uid']]['user_name'] = $v['user_name'];
                 $userInfo[$v['uid']]['sdkUid'] = $v['sdkUid'];
@@ -76,56 +59,65 @@ class BlockServer extends BasicServer
             }
         }
 
+        $gamekey = Common::getConfig('gamekey');
+
+        $gamekey_list = [];
+        foreach($gamekey as $k1=>$v1){
+            $gamekey_list[$k1] = $v1;
+        }
         $succ = [];
         foreach ($chat_info as $k=>$v){
 
-            $v['blocktime']           = empty($block_time) ?: $block_time;
-            $v['keyword']             = $v['content'];
-            $v['rolename']            = get_magic_quotes_gpc() == false ? addslashes($v['uname']) : $v['uname'];
-            $v['uname']               = get_magic_quotes_gpc() == false ? addslashes($v['uname']) : $v['uname'];
-            $v['addtime']             = $time;
-            $v['op_ip']               = $op_ip;
-            $v['op_admin_id']         = $admin_user;
-            $v['reason']              = $reason;
-            $v['ban_time']            = $block_time;
-            $v['reg_channel_id']      = empty($v['reg_channel_id']) ? 0 : $v['reg_channel_id'];;
+            $v['blocktime'] = empty($block_time) ?: $block_time;
+            $v['keyword']       = $v['content'];
+            $v['rolename']      = get_magic_quotes_gpc() == false ? addslashes($v['uname']) : $v['uname'];
+            $v['uid']           = $v['uid'];
+            $v['uname']         = get_magic_quotes_gpc() == false ? addslashes($v['uname']) : $v['uname'];
+            $v['addtime']       = $time;
+            $v['op_ip']         = $op_ip;
+            $v['op_admin_id']   = $admin_user;
+            $v['tkey']          = $v['tkey'];
+            $v['reason']        = $reason;
+            $v['ban_time']      = $block_time;
+            $v['reg_channel_id'] = empty($v['reg_channel_id']) ? 0 : $v['reg_channel_id'];;
             $v['expect_unblock_time'] = $v['addtime'] + $v['ban_time']; //增加预估解封日期
-            $v['platform_uid']        = empty($userInfo[$v['uid']]['platformSuffix']) ? 0 : $userInfo[$v['uid']]['sdkUid']; //判断阿斯加德是否存在平台账号
-            $v['platform_tkey']       = empty($userInfo[$v['uid']]['platformSuffix']) ? '' : $userInfo[$v['uid']]['platformSuffix']; //判断阿斯加德是否存在平台账号
-            $uid                      = $v['uid'];
-            $gkey                     = $v['gkey'] ?? '';
-            $need_change_uid          = $gamekey_list[$gkey]['need_change_uid'] ?? 0;
+            $v['platform_uid'] = empty($userInfo[$v['uid']]['platformSuffix']) ? 0 : $userInfo[$v['uid']]['sdkUid']; //判断阿斯加德是否存在平台账号
+            $v['platform_tkey'] = empty($userInfo[$v['uid']]['platformSuffix']) ? '' : $userInfo[$v['uid']]['platformSuffix']; //判断阿斯加德是否存在平台账号
+            $uid = $v['uid'];
 
-
-            $v = self::dealGameParams($v,$gkey,1);
+            //游戏类特殊操作,转换uid,比如神器ios需要将掌玩uid换成游娱uid
+            if(file_exists(self::GAME_SIGN_PATH."/{$v['gkey']}.php")){
+                include_once( self::GAME_SIGN_PATH."/{$v['gkey']}.php");
+                if(class_exists($v['gkey'])){
+                    $game_class = new $v['gkey'];
+                    if(method_exists($game_class,'changeData')){
+                        //覆盖旧数据
+                        $v = $game_class->changeData($v);
+                    }
+                }
+            }
 
             //判断uid是否需要转换成聚合的sdkuid
-            $v = self::checkNeedChangeUid($v,$need_change_uid);
-
-            $v = self::dealGameParams($v,$gkey,2);
+            $v = self::checkNeedChangeUid($v,$gamekey_list[$v['gkey']]['need_change_uid']);
+            if($gamekey_list[$v['gkey']]['need_change_uid'] == 1){
+                $v['uid'] = $v['openid'];
+            }
 
             //判断封禁的模式 1为踢下线+sdk封禁 2为cp封禁+sdk封禁
-            if(isset($gamekey_list[$gkey]['type']) && $gamekey_list[$gkey]['type'] == 1){
-
+            if($gamekey_list[$v['gkey']]['type'] == 1){
                 $v['ban_type'] = 1;
-                $api_res = RoleServer::roleLoginOut($v);
+                RoleServer::roleLoginOut($v);
 
-            }elseif(isset($gamekey_list[$gkey]['type']) && $gamekey_list[$gkey]['type'] == 2){
-
+            }else{
 
                 $v['ban_type'] = 2;
-                $tmp_v = $v;
-                $tmp_v['need_cp_deal'] = $gamekey_list[$gkey]['need_cp_deal'] ?? 0;
-
-                $api_res = RoleServer::roleBlock($tmp_v);
-
+                RoleServer::roleBlock($v);
             }
-            $v['hit_keyword_id']   = isset($v['hit_keyword_id']) ? $v['hit_keyword_id'] : 0;
-            $v['role_level']       = empty($v['role_level']) ? 0 : $v['role_level'];
-            $v['count_money']      = empty($v['count_money']) ? '0.0' : $v['count_money'];
-            $v['ip']               = empty($v['ip']) ? '' : $v['ip'];
-            $v['uid']              = $uid;
 
+            $v['role_level'] = empty($v['role_level']) ? 0 : $v['role_level'];
+            $v['count_money'] = empty($v['count_money']) ? '0.0' : $v['count_money'];
+            $v['ip'] = empty($v['ip']) ? '' : $v['ip'];
+            $v['uid'] = $uid;
             $succ[] = $v;
         }
 
@@ -136,10 +128,88 @@ class BlockServer extends BasicServer
     }
 
 
+
+    /**
+     * 不再使用
+     * @param array $chat_info
+     * @param array $info
+     * @param int $block_time
+     * @return array
+     */
+    public static function blockLoginOut($chat_info=[], $info=[], $block_time = 0)
+    {
+        $res = ['code' => 0, 'msg' =>''];
+        if (empty($chat_info) || empty($info)) {
+            return $res;
+        }
+
+        $admin_user = self::$user_data['username'];
+        $op_ip      = self::$user_data['last_ip'];
+
+        $time       = time();
+
+        $userInfo = [];
+        foreach ($info as $key => $value){
+            foreach ($value as $v){
+                $userInfo[$v['uid']]['user_name'] = $v['user_name'];
+                $userInfo[$v['uid']]['sdkUid'] = $v['sdkUid'];
+                $userInfo[$v['uid']]['platformSuffix'] = $key;
+            }
+        }
+
+        $gamekey = Common::getConfig('gamekey');
+        $gamekey_list = [];
+        foreach($gamekey as $k1=>$v1){
+            $gamekey_list[$v1['code']] = $v1;
+        }
+        $succ = [];
+        foreach ($chat_info as $k=>$v){
+
+            $v['blocktime'] = empty($block_time) ?: $block_time*24*60*60;
+            $v['keyword']       = $v['content'];
+            $v['rolename']      = $v['uname'];
+            $v['uid']           = $v['uid'];
+            $v['uname']         = $v['uname'];
+            $v['addtime']       = $time;
+            $v['op_ip']         = $op_ip;
+            $v['op_admin_id']   = $admin_user;
+            $v['reg_channel_id'] = empty($v['reg_channel_id']) ? 0 : $v['reg_channel_id'];;
+            $v['tkey']          = empty($userInfo[$v['uid']]['platformSuffix']) ? $v['tkey'] : $userInfo[$v['uid']]['platformSuffix']; //判断阿斯加德是否存在平台账号，不存在则同聊天信息平台;
+
+            $uid = $v['uid'];
+
+            //判断uid是否需要转换成聚合的sdkuid
+            $v = self::checkNeedChangeUid($v,$gamekey_list[$v['gkey']]['need_change_uid']);
+            if($gamekey_list[$v['gkey']]['need_change_uid'] == 1){
+                $v['uid'] = $v['openid'];
+            }
+
+            //判断封禁模式，1为踢下线+sdk封禁，2为cp封禁+sdk封禁
+            if($gamekey_list[$v['gkey']]['type'] == 1){
+                RoleServer::roleLoginOut($v);
+            }else{
+                //封禁账号
+                $v['type'] = 1;
+                RoleServer::roleBlock($v);
+            }
+
+            $v['role_level'] = empty($v['role_level']) ? 0 : $v['role_level'];
+            $v['count_money'] = empty($v['count_money']) ? '0.0' : $v['count_money'];
+            $v['ip'] = empty($v['ip']) ? '' : $v['ip'];
+            $v['uid'] = $uid;
+            $succ[] = $v;
+        }
+
+        //还有一个操作就是操作记录入库
+        BlockServer::insertBlock($succ, self::TYPE_USER);
+        $res = ['code' => 1, 'msg' =>'success'];
+        return $res;
+    }
+
     /**
      * @param array $chat_info
      * @param array $info
-     * @param int $type type为1时表示封接口，type为2时表示解封接口
+     * @param int $type type为1时表示封ip接口，type为2时表示解封ip接口
      * @param int $block_time
      * @return array
      */
@@ -165,8 +235,8 @@ class BlockServer extends BasicServer
             }
         }
 
-        $gamekey = Common::getGameKey();
-//        $gamekey = Common::getConfig('gamekey');
+
+        $gamekey = Common::getConfig('gamekey');
 
         $gamekey_list = [];
         foreach($gamekey as $k1=>$v1){
@@ -176,56 +246,58 @@ class BlockServer extends BasicServer
 
         $succ = [];
         foreach ($chat_info as $k=>$v){
-            $v['blocktime']           = empty($block_time) ?: $block_time;
-            $v['keyword']             = $v['content'];
-            $v['rolename']            = $v['uname'];
-            $v['addtime']             = $time;
-            $v['op_ip']               = $op_ip;
-            $v['type']                = $type;
-            $v['ban_time']            = !empty($block_time)?$block_time:60*60*24*10; //默认禁言10天
+            $v['blocktime'] = empty($block_time) ?: $block_time;
+            $v['keyword']       = $v['content'];
+            $v['rolename']      = $v['uname'];
+            $v['uid']           = $v['uid'];
+            $v['uname']         = $v['uname'];
+            $v['tkey']          = $v['tkey'];
+            $v['addtime']       = $time;
+            $v['op_ip']         = $op_ip;
+            $v['type']          = $type;
+            $v['ban_time']      = !empty($block_time)?$block_time:60*60*24*10; //默认禁言10天
             $v['expect_unblock_time'] = $v['addtime'] + $v['ban_time']; //增加预估解封日期
-            $v['op_admin_id']         = $admin_user;
-            $v['reason']              = $reason;
-            $v['reg_channel_id']      = empty($v['reg_channel_id']) ? 0 : $v['reg_channel_id'];
-            $v['platform_uid']        = empty($userInfo[$v['uid']]['platformSuffix']) ? 0 : $userInfo[$v['uid']]['sdkUid']; //判断阿斯加德是否存在平台账号
-            $v['platform_tkey']       = empty($userInfo[$v['uid']]['platformSuffix']) ? '' : $userInfo[$v['uid']]['platformSuffix'];
+            $v['op_admin_id']   = $admin_user;
+            $v['reason']        = $reason;
+            $v['reg_channel_id'] = empty($v['reg_channel_id']) ? 0 : $v['reg_channel_id'];
+            $v['platform_uid'] = empty($userInfo[$v['uid']]['platformSuffix']) ? 0 : $userInfo[$v['uid']]['sdkUid']; //判断阿斯加德是否存在平台账号
 
+            $v['platform_tkey'] = empty($userInfo[$v['uid']]['platformSuffix']) ? '' : $userInfo[$v['uid']]['platformSuffix'];
             $uid = $v['uid'];
 
-            $gkey = $v['gkey']?? '';
 
-            $need_change_uid = $gamekey_list[$gkey]['need_change_uid'] ?? 0;
-
-            $need_cp_deal = $gamekey_list[$gkey]['need_cp_deal'] ?? 0;
-
-            //前置转换
-            $v = self::dealGameParams($v,$gkey,1);
+            //游戏类特殊操作,转换uid,比如神器ios需要将掌玩uid换成游娱uid
+            if(file_exists(self::GAME_SIGN_PATH."/{$v['gkey']}.php")){
+                include_once( self::GAME_SIGN_PATH."/{$v['gkey']}.php");
+                if(class_exists($v['gkey'])){
+                    $game_class = new $v['gkey'];
+                    if(method_exists($game_class,'changeData')){
+                        //覆盖旧数据
+                        $v = $game_class->changeData($v);
+                    }
+                }
+            }
 
             //判断uid是否需要转换成聚合的sdkuid
-            $v = self::checkNeedChangeUid($v,$need_change_uid);
+            $v = self::checkNeedChangeUid($v,$gamekey_list[$v['gkey']]['need_change_uid']);
 
-            //后置转换
-            $v = self::dealGameParams($v,$gkey,2);
+            if($gamekey_list[$v['gkey']]['need_change_uid'] == 1){
+                $v['uid'] = $v['openid'];
+            }
 
-            $tmp_v = $v;
-            $tmp_v['need_cp_deal'] = $need_cp_deal;
-            $tmp_res = RoleServer::roleChat($tmp_v,$type);
+            if (RoleServer::roleChat($v)){
+                $v['role_level'] = empty($v['role_level']) ? 0 : $v['role_level'];
+                $v['count_money'] = empty($v['count_money']) ? '0.0' : $v['count_money'];
+                $v['ip'] = empty($v['ip']) ? '' : $v['ip'];
+                $v['ban_type']    = empty($v['ban_type']) ? 1 : $v['ban_type'];
+                $v['uid'] = $uid;
 
-            if ($tmp_res){
-                $v['role_level']     = empty($v['role_level']) ? 0 : $v['role_level'];
-                $v['count_money']    = empty($v['count_money']) ? '0.0' : $v['count_money'];
-                $v['ip']             = empty($v['ip']) ? '' : $v['ip'];
-                $v['ban_type']       = empty($v['ban_type']) ? 1 : $v['ban_type'];
-                $v['uid']            = $uid;
-                $v['hit_keyword_id'] = isset($v['hit_keyword_id']) ? $v['hit_keyword_id'] : 0;
                 $succ[] = $v;
                 $res['succ'][] = $k;
                 $res['code'] = 1;
             }else{
                 $res['fail'][] = $k;
             }
-
-
 
         }
         //还有一个操作就是操作记录入库
@@ -236,92 +308,102 @@ class BlockServer extends BasicServer
     /**
      * @param $info
      * @return array
-     * 解除禁言
      */
     public static function blockRelieveChat($info,$blockid)
-    {
-        $res = ['code' => 0, 'succ' =>[] , 'fail' => []];
-        if (empty($info)) {
-            return $res;
-        }
-        $admin_user = self::$user_data['username'];
-        $op_ip      = self::$user_data["last_ip"];
-        $time       = time();
-
-        $gamekey = Common::getGameKey();
-//        $gamekey = Common::getConfig('gamekey');
-
-        $gamekey_list = [];
-        foreach($gamekey as $k1=>$v1){
-            $gamekey_list[$k1] = $v1;
-        }
-
-        $succ = [];
-
-
-        foreach ($info as $k=>$v){
-            $rolename = $v['rolename'];
-            $uname = $v['uname'];
-            $v['blocktime'] = 0;
-            $v['uname']         = $rolename;
-            $v['addtime']       = $time;
-            $v['op_ip']         = $op_ip;
-            $v['type']          = 2;
-            $v['op_admin_id']   = $admin_user;
-            $v['reason']   = '聊天解封';
-
-            $uid = isset($v['uid']) ? $v['uid']: 0;
-
-            $gkey =  isset($v['gkey']) ? $v['gkey']: '';
-
-            $need_change_uid = $gamekey_list[$gkey]['need_change_uid'] ?? 0 ;
-            $need_cp_deal = $gamekey_list[$gkey]['need_cp_deal'] ?? 0 ;
-
-            $v = self::dealGameParams($v,$gkey,1);
-
-            //判断uid是否需要转换成聚合的sdkuid
-            $v = self::checkNeedChangeUid($v,$need_change_uid);
-
-            $v = self::dealGameParams($v,$gkey,2);
-
-            $tmp_v = $v;
-            $tmp_v['need_cp_deal'] = $need_cp_deal;
-            $tmp_res = RoleServer::roleChat($tmp_v,2);
-            if ($tmp_res){
-                $v['uname'] = $uname;
-                $v['role_level'] = empty($v['role_level']) ? 0 : $v['role_level'];
-                $v['count_money'] = empty($v['count_money']) ? '0.0' : $v['count_money'];
-                $v['ip'] = empty($v['ip']) ? '' : $v['ip'];
-                $v['uid'] = $uid;
-                $succ[] = $v;
-                $res['succ'][] = $k;
-                $res['code'] = 1;
-            }else{
-                $res['fail'][] = $k;
-            }
-
-        }
-
-        if($res['succ']){
-            $unblock_admin = self::$user_data['username'];
-            BlockSqlServer::updateBlockStatus($blockid,$unblock_admin);
-        }
-
+{
+    $res = ['code' => 0, 'succ' =>[] , 'fail' => []];
+    if (empty($info)) {
         return $res;
+    }
+    $admin_user = $_SESSION['username'];
+    $op_ip      = $_SESSION["last_ip"];
+    $time       = time();
+
+    $gamekey = Common::getConfig('gamekey');
+
+    $gamekey_list = [];
+    foreach($gamekey as $k1=>$v1){
+        $gamekey_list[$k1] = $v1;
+    }
+
+    $succ = [];
+    foreach ($info as $k=>$v){
+        $rolename = $v['rolename'];
+        $uname = $v['uname'];
+        $v['blocktime'] = 0;
+        $v['uname']         = $rolename;
+        $v['addtime']       = $time;
+        $v['op_ip']         = $op_ip;
+        $v['type']          = 2;
+        $v['op_admin_id']   = $admin_user;
+        $v['reason']   = '聊天解封';
+
+        $uid = $v['uid'];
+
+        //游戏类特殊操作,转换uid,比如神器ios需要将掌玩uid换成游娱uid
+        if(file_exists(self::GAME_SIGN_PATH."/{$v['gkey']}.php")){
+            include_once( self::GAME_SIGN_PATH."/{$v['gkey']}.php");
+            if(class_exists($v['gkey'])){
+                $game_class = new $v['gkey'];
+                if(method_exists($game_class,'changeData')){
+                    //覆盖旧数据
+                    $v = $game_class->changeData($v);
+                }
+            }
+        }
+
+        //判断uid是否需要转换成聚合的sdkuid
+        $v = self::checkNeedChangeUid($v,$gamekey_list[$v['gkey']]['need_change_uid']);
+
+        if($gamekey_list[$v['gkey']]['need_change_uid'] == 1){
+            $v['uid'] = $v['openid'];
+        }
+
+
+        if (RoleServer::roleChat($v)){
+            $v['uname'] = $uname;
+            $v['role_level'] = empty($v['role_level']) ? 0 : $v['role_level'];
+            $v['count_money'] = empty($v['count_money']) ? '0.0' : $v['count_money'];
+            $v['ip'] = empty($v['ip']) ? '' : $v['ip'];
+            $v['uid'] = $uid;
+            $succ[] = $v;
+            $res['succ'][] = $k;
+            $res['code'] = 1;
+        }else{
+            $res['fail'][] = $k;
+        }
+
+    }
+
+    if($res['succ']){
+        $unblock_admin = self::$user_data['username'];
+        BlockSqlServer::updateBlockStatus($blockid,$unblock_admin);
+    }
+    //还有一个操作就是操作记录入库
+//    Block::insertBlock($succ, self::TYPE_CHAT);
+    return $res;
     }
 
 
 
-    public static function insertBlock($info, $type = ''){
-        if (empty($info)) {
-            return false;
-        }
-        foreach ($info as $k=>&$v){
-            $v['type']          = $type;
-        }
-        //还有一个操作就是操作记录入库
-        BlockSqlServer::insertBlock($info);
-        return true;
+    public static function insertBlock($info, $type = 1){
+    if (empty($info)) {
+        return false;
+    }
+    $admin_user = self::$user_data['username'];
+    $op_ip      = self::$user_data["last_ip"];
+    $time       = time();
+    foreach ($info as $k=>$v){
+        $uname = $v['uname'];
+        $v['blocktime'] = 0;
+        $v['addtime']       = $time;
+        $v['op_ip']         = $op_ip;
+        $v['type']          = $type;
+        $v['op_admin_id']   = $admin_user;
+    }
+    //还有一个操作就是操作记录入库
+    BlockServer::insertBlock($info);
+    return true;
     }
 
 
@@ -364,45 +446,21 @@ class BlockServer extends BasicServer
     //判断uid是否需要转换成聚合的sdkuid
     public static function checkNeedChangeUid($one_chat_info,$need_change_uid){
 
+
         if($need_change_uid == 1){
             $one_chat_info['need_change_uid'] = 1;
-
-            include_once( self::GAME_SIGN_PATH."/{$one_chat_info['gkey']}.php");
-
-            if(class_exists($one_chat_info['gkey'])){
-
-                $game_model = new $one_chat_info['gkey'];
-
-                if(empty($one_chat_info['openid']) && method_exists($game_model,'uid_to_sdkid_url')){
-
-                    if(property_exists($game_model,'from')){
-                        $game_model->from = $one_chat_info['tkey'];
-                    }
-
-                    $open_info = $game_model->uid_to_sdkid_url($one_chat_info['uid']);
-
-                    if(is_array($open_info) && $game_model->return_form == 2){
-
-                        foreach($open_info as $k=>$v){
-                            $one_chat_info[$k] = $v;
+            if(empty($one_chat_info['openid'])){
+                include_once( self::GAME_SIGN_PATH."/{$one_chat_info['gkey']}.php");
+                if(class_exists($one_chat_info['gkey'])){
+                    $game_model = new $one_chat_info['gkey'];
+                    if(method_exists($game_model,'uid_to_sdkid_url')){
+                        $open_id = $game_model->uid_to_sdkid_url($one_chat_info['uid']);
+                        if($open_id){
+                            $one_chat_info['openid'] = $open_id;
                         }
-
-                    }else{
-
-                        $one_chat_info['openid'] = $open_info;
-
                     }
-                }
-
-                //自定义处理游戏参数
-                if(method_exists($game_model,'diyData')){
-                    $one_chat_info = $game_model->diyData($one_chat_info);
                 }
             }
-
-            //转换uid
-            $one_chat_info['uid'] = $one_chat_info['openid'] ?? $one_chat_info['uid'];
-
 
         }else{
 
@@ -416,17 +474,16 @@ class BlockServer extends BasicServer
 
 
     //对封禁记录进行解封
-    public static function unblockAndChat($blockid = []){
+    public function unblockAndChat($blockid = []){
         $banDta = $succ = $fail = $log = [];
         $info = BlockSqlServer::getBlockById($blockid);
         $new_info = [];
 
-        $gamekey = Common::getGameKey();
-//        $gamekey = Common::getConfig('gamekey');
+        $gamekey = Common::getConfig('gamekey');
 
         $gamekey_list = [];
-        foreach($gamekey as $k=>$v){
-            $gamekey_list[$k] = $v;
+        foreach($gamekey as $k1=>$v1){
+            $gamekey_list[$k1] = $v1;
         }
 
 
@@ -434,81 +491,81 @@ class BlockServer extends BasicServer
             $new_info[$v1['uid']]['uid'] = $v1['uid'];
             $new_info[$v1['uid']]['gkey'] = $v1['gkey'];
             $new_info[$v1['uid']]['tkey'] = $v1['tkey'];
-            $new_info[$v1['uid']]['roleid'] = $v1['roleid'];
 
             $uid = $v1['uid'];
 
-            self::dealGameParams($v1,$v1['gkey'],1);
+            //游戏类特殊操作,转换uid,比如神器ios需要将掌玩uid换成游娱uid
+            if(file_exists(self::GAME_SIGN_PATH."/{$v1['gkey']}.php")){
+                include_once( self::GAME_SIGN_PATH."/{$v1['gkey']}.php");
+                if(class_exists($v1['gkey'])){
+                    $game_class = new $v1['gkey'];
+                    if(method_exists($game_class,'changeData')){
+                        //覆盖旧数据
+                        $v1 = $game_class->changeData($v1);
+                    }
+                }
+            }
 
             //判断uid是否需要转换成聚合的sdkuid
-            $v1 = BlockServer::checkNeedChangeUid($v1,$gamekey_list[$v1['gkey']]['need_change_uid']);
+            $res = BlockServer::checkNeedChangeUid($v1,$gamekey_list[$v1['gkey']]['need_change_uid']);
 
-            self::dealGameParams($v1,$v1['gkey'],2);
+            if($gamekey_list[$v1['gkey']]['need_change_uid'] == 1){
+                $v1['uid'] = $res['openid'];
+            }
 
 
             if($v1['type'] == "CHAT" || $v1['type'] == "AUTOCHAT" || $v1['type'] == "ACTIONCHAT"){
                 $data = $v1;
                 //聊天解禁参数
-
+                $data['type'] = 2;
                 $data['addtime'] = time();
                 $data['ban_time'] = 0;
-                $res1 = RoleServer::roleChat($data,2); //解除禁言
-                if($res1){
-                    BlockSqlServer::updateBlockStatus($v1['id'],'auto');
-                }
-
+                RoleServer::roleChat($data);
             }else{
                 //如果使用的是cp封禁+sdk封禁模式则需要解封cp
                 if($v1['ban_type'] == 2){
                     $data = $v1;
                     $data['addtime'] = time();
                     //判断封禁还是解禁
+                    $data['is_block'] = 2;
                     $data['ban_time'] = 0;
-                    $res2 = RoleServer::roleBlock($data,2);
-                    if($res2){
-                        $new_info[$uid]['uid'] = $uid;
-                    }
-
+                    RoleServer::roleBlock($data);
                 }
             }
 
+            $new_info[$uid]['uid'] = $uid;
+
+        }
+        $banDta = UserServer::getUserInfoByMixGameUids($new_info);
+
+        $BanLogicModel = new BanServer();
+        $res = $BanLogicModel->ban(
+            $banDta,
+            1, //对用户uid解封
+            2,      //解封
+            0,
+            '解封');
+
+
+        //更新成功更改封禁日志状态
+        if($res['succ']){
+            BlockSqlServer::updateBlockStatus($blockid,'auto');
+            return true;
         }
 
-        //处理sdk账号
-        if(!empty($new_info)){
-            $banDta = UserServer::getUserInfoByMixGameUids($new_info);
-
-            $BanLogicModel = new BanServer();
-            $res = $BanLogicModel->ban(
-                $banDta,
-                1, //对用户uid解封
-                2,      //解封
-                0,
-                '解封');
-
-            //更新成功更改封禁日志状态
-            if($res['succ']){
-                BlockSqlServer::updateBlockStatus($blockid,'auto');
-
-            }
-        }
-
-
-        return true;
+        return false;
     }
 
-    public static function getBlockInfo()
+    public function getBlockInfo()
     {
         $time = time();
-        $model =  new Block();
-        $block_info_obj = $model->where("status=1 and expect_unblock_time < {$time} and expect_unblock_time !=0 and addtime>=1631581200 ")->limit(200)->select();
+        $model = new BlockSqlServer();
+        $block_info_obj = $model->where("status=1 and expect_unblock_time < {$time} and expect_unblock_time !=0 and addtime>=1631581200 ")->select();
 
         $block_info_obj = empty($block_info_obj) ? [] : $block_info_obj->toArray();
 
         return $block_info_obj;
     }
-
-
 
     public static function BathBlock($data)
     {
@@ -520,15 +577,15 @@ class BlockServer extends BasicServer
         $new_data['gkey'] = $data['game'];
         $new_data['roleid'] = $data['roleid'];
         $new_data['sid'] = $data['sid'];
-//        $new_data['is_block'] = $data['type'];
+        $new_data['is_block'] = $data['type'];
         $new_data['addtime'] = $time;
-        $new_data['need_cp_deal'] = $data['need_cp_deal'];
+        $new_data['addtime'] = $time;
 
         $res2 = false;
 
         //cp封禁
-        $res = RoleServer::BatchRoleBlock($new_data,$data['type']);
-
+//        $res = RoleServer::BatchRoleBlock($new_data);
+        $res = 1;
         if($res === 1){
 
             //整理插入记录表数据
@@ -550,421 +607,6 @@ class BlockServer extends BasicServer
 
         return $res2;
 
-    }
-
-    public static function dealGameParams($chat_info,$gkey,$type)
-    {
-
-        //游戏类特殊操作,转换uid,比如神器ios需要将掌玩uid换成游娱uid
-        if(isset($gkey) && file_exists(self::GAME_SIGN_PATH."/{$gkey}.php")){
-            include_once( self::GAME_SIGN_PATH."/{$gkey}.php");
-
-            if(class_exists($gkey)) {
-
-                self::$game_obj = new $gkey;
-            }
-        }
-
-
-        //前置置换
-        if($type == 1){
-
-            if(method_exists(self::$game_obj,'beforeChangeData') && in_array('beforeChangeData',get_class_methods(self::$game_obj))){
-                //覆盖旧数据
-                $chat_info = self::$game_obj->beforeChangeData($chat_info);
-            }
-        }
-
-        //后置置换
-        if($type == 2){
-
-            if(method_exists(self::$game_obj,'afterChangeData') && in_array('afterChangeData',get_class_methods(self::$game_obj)) ){
-                //覆盖旧数据
-                $chat_info = self::$game_obj->afterChangeData($chat_info);
-
-            }
-        }
-
-        return $chat_info;
-
-    }
-
-
-
-    /**
-     * @param array $chat_info
-     * @param array $info
-     * @param int $block_time
-     * @return array
-     */
-    public static function roleNameBlockOrLoginOut($user_info=[], $info=[], $block_time = 365*86400,$type = self::TYPE_USER,$reason = '封禁')
-    {
-
-
-        $res = ['code' => 0, 'msg' =>''];
-        if (empty($user_info) || empty($info)) {
-            $res['msg'] = '用户信息有误';
-            return $res;
-        }
-
-        $gamekey = Common::getGameKey();
-
-        $gamekey_list = [];
-        foreach($gamekey as $k1=>$v1){
-            $gamekey_list[$k1] = $v1;
-        }
-
-
-        $admin_user = self::$user_data['username'];
-        $op_ip      = self::$user_data['last_ip'];
-        $time       = time();
-
-        $userInfo = [];
-        foreach ($info as $key => $value){
-
-            foreach ($value as $v){
-                $userInfo[$v['uid']]['user_name'] = $v['user_name'];
-                $userInfo[$v['uid']]['sdkUid'] = $v['sdkUid'];
-                $userInfo[$v['uid']]['platformSuffix'] = $key;
-            }
-        }
-
-        $succ = [];
-        foreach ($user_info as $k=>$v){
-
-            $v['blocktime']           = empty($block_time) ?: $block_time;
-            $v['keyword']             = $v['role_name'];
-            $v['rolename']            = get_magic_quotes_gpc() == false ? addslashes($v['role_name']) : $v['role_name'];
-
-            $v['addtime']             = $time;
-            $v['op_ip']               = $op_ip;
-            $v['op_admin_id']         = $admin_user;
-            $v['reason']              = $reason;
-            $v['ban_time']            = $block_time;
-            $v['reg_gid']             = empty($v['reg_gid']) ? 0 : $v['reg_gid'];;
-            $v['reg_channel_id']      = empty($v['reg_channel']) ? 0 : $v['reg_channel'];;
-            $v['expect_unblock_time'] = $v['addtime'] + $v['ban_time']; //增加预估解封日期
-            $uid                      = $v['uid'];
-            $gkey                     = $v['gkey'] ?? '';
-
-            $v['sid']                 = $v['server_id'];
-            $v['roleid']              = $v['role_id'];
-
-            $need_change_uid          = $gamekey_list[$gkey]['need_change_uid'] ?? 0;
-
-
-            $v = self::dealGameParams($v,$gkey,1);
-
-            //判断uid是否需要转换成聚合的sdkuid
-            $v = self::checkNeedChangeUid($v,$need_change_uid);
-
-            $v = self::dealGameParams($v,$gkey,2);
-
-            //判断封禁的模式 1为踢下线+sdk封禁 2为cp封禁+sdk封禁
-            if(isset($gamekey_list[$gkey]['type']) && $gamekey_list[$gkey]['type'] == 1){
-
-                $v['ban_type'] = 1;
-                $api_res = RoleServer::roleLoginOut($v);
-
-            }elseif(isset($gamekey_list[$gkey]['type']) && $gamekey_list[$gkey]['type'] == 2){
-
-
-                $v['ban_type'] = 2;
-                $tmp_v = $v;
-                $tmp_v['need_cp_deal'] = $gamekey_list[$gkey]['need_cp_deal'] ?? 0;
-
-                $api_res = RoleServer::roleBlock($tmp_v);
-
-            }else{
-
-                $v['ban_type'] = 0;
-            }
-
-
-            $v['hit_keyword_id']   = isset($v['hit_keyword_id']) ? $v['hit_keyword_id'] : 0;
-            $v['role_level']       = empty($v['role_level']) ? 0 : $v['role_level'];
-            $v['count_money']      = empty($v['count_money']) ? '0.0' : $v['count_money'];
-            $v['openid']          = $v['uid'] != $uid ? $v['uid'] : '';
-            $v['uid']              = $uid;
-            $v['ext']              = $v['ext'] ?? '';
-
-
-            $succ[] = $v;
-        }
-
-        //还有一个操作就是操作记录入库
-        RoleNameBlockServer::insertBlock($succ, $type);
-        $res = ['code' => 1, 'msg' =>'success'];
-        return $res;
-    }
-
-
-    /**
-     * @param array $chat_info
-     * @param array $info
-     * @param int $type type为1时表示封接口，type为2时表示解封接口
-     * @param int $block_time
-     * @return array
-     */
-    public static function roleNameBlockChat($user_info=[], $info=[], $type = 1, $block_time = 0,$type2 = self::TYPE_CHAT,$reason = '禁言')
-    {
-
-
-        $res = ['code' => 0, 'succ' =>[] , 'fail' => []];
-        if (empty($user_info) || empty($info)) {
-            return $res;
-        }
-        $admin_user = self::$user_data['username'];
-        $op_ip      = self::$user_data['last_ip'];
-
-        $time       = time();
-
-        $userName = [];
-        foreach ($info as $key => $value){
-            foreach ($value as $v){
-                $userInfo[$v['uid']]['user_name'] = $v['user_name'];
-                $userInfo[$v['uid']]['sdkUid'] = $v['sdkUid'];
-                $userInfo[$v['uid']]['platformSuffix'] = $key;
-            }
-        }
-
-        $gamekey = Common::getGameKey();
-
-        $gamekey_list = [];
-        foreach($gamekey as $k1=>$v1){
-            $gamekey_list[$k1] = $v1;
-        }
-
-
-        $succ = [];
-        foreach ($user_info as $k=>$v){
-            $v['blocktime']           = empty($block_time) ?: $block_time;
-            $v['keyword']             = $v['role_name'];
-            $v['rolename']            = $v['role_name'];
-
-            $v['addtime']             = $time;
-            $v['op_ip']               = $op_ip;
-            $v['type']                = $type;
-            $v['ban_time']            = !empty($block_time)?$block_time:60*60*24*10; //默认禁言10天
-            $v['expect_unblock_time'] = $v['addtime'] + $v['ban_time']; //增加预估解封日期
-            $v['op_admin_id']         = $admin_user;
-            $v['reason']              = $reason;
-            $v['reg_channel_id']      = empty($v['reg_channel']) ? 0 : $v['reg_channel'];
-
-
-            $uid = $v['uid'];
-
-            $gkey = $v['gkey']?? '';
-
-            $need_change_uid = $gamekey_list[$gkey]['need_change_uid'] ?? 0;
-
-            $need_cp_deal = $gamekey_list[$gkey]['need_cp_deal'] ?? 0;
-
-            //前置转换
-            $v = self::dealGameParams($v,$gkey,1);
-
-            //判断uid是否需要转换成聚合的sdkuid
-            $v = self::checkNeedChangeUid($v,$need_change_uid);
-
-            //后置转换
-            $v = self::dealGameParams($v,$gkey,2);
-
-            $tmp_v = $v;
-            $tmp_v['need_cp_deal'] = $need_cp_deal;
-
-            $tmp_res = RoleServer::roleChat($tmp_v,$type);
-
-//            $tmp_res = 1;
-            if ($tmp_res){
-                $v['role_level']     = empty($v['role_level']) ? 0 : $v['role_level'];
-                $v['count_money']    = empty($v['count_money']) ? '0.0' : $v['count_money'];
-                $v['ban_type']       = empty($v['ban_type']) ? 1 : $v['ban_type'];
-                $v['openid']        = $v['uid'] != $uid ? $v['uid'] : '';
-
-                $v['uid']            = $uid;
-                $v['hit_keyword_id'] = isset($v['hit_keyword_id']) ? $v['hit_keyword_id'] : 0;
-                $v['ext']            = $v['ext'] ?? '';
-
-                $succ[] = $v;
-                $res['succ'][] = $k;
-                $res['code'] = 1;
-            }else{
-                $res['fail'][] = $k;
-            }
-        }
-
-
-        //还有一个操作就是操作记录入库
-        RoleNameBlockServer::insertBlock($succ, $type2);
-        return $res;
-    }
-
-    /**
-     * @param $info
-     * @return array
-     * 解除禁言
-     */
-    public static function roleNameBlockRelieveChat($info,$blockid)
-    {
-        $res = ['code' => 0, 'succ' =>[] , 'fail' => []];
-        if (empty($info)) {
-            return $res;
-        }
-        $admin_user = self::$user_data['username'];
-        $op_ip      = self::$user_data["last_ip"];
-        $time       = time();
-
-        $gamekey = Common::getGameKey();
-//        $gamekey = Common::getConfig('gamekey');
-
-        $gamekey_list = [];
-        foreach($gamekey as $k1=>$v1){
-            $gamekey_list[$k1] = $v1;
-        }
-
-        $succ = [];
-
-
-        foreach ($info as $k=>$v){
-            $rolename = $v['rolename'];
-            $uname = $v['uname'];
-            $v['blocktime'] = 0;
-            $v['uname']         = $rolename;
-            $v['addtime']       = $time;
-            $v['op_ip']         = $op_ip;
-            $v['type']          = 2;
-            $v['op_admin_id']   = $admin_user;
-            $v['reason']   = '聊天解封';
-
-            $uid = isset($v['uid']) ? $v['uid']: 0;
-
-            $gkey =  isset($v['gkey']) ? $v['gkey']: '';
-
-            $need_change_uid = $gamekey_list[$gkey]['need_change_uid'] ?? 0 ;
-            $need_cp_deal = $gamekey_list[$gkey]['need_cp_deal'] ?? 0 ;
-
-            $v = self::dealGameParams($v,$gkey,1);
-
-            //判断uid是否需要转换成聚合的sdkuid
-            $v = self::checkNeedChangeUid($v,$need_change_uid);
-
-            $v = self::dealGameParams($v,$gkey,2);
-
-            $tmp_v = $v;
-            $tmp_v['need_cp_deal'] = $need_cp_deal;
-            $tmp_res = RoleServer::roleChat($tmp_v,2);
-//            $tmp_res =1;
-            if ($tmp_res){
-                $v['uname'] = $uname;
-                $v['role_level'] = empty($v['role_level']) ? 0 : $v['role_level'];
-                $v['count_money'] = empty($v['count_money']) ? '0.0' : $v['count_money'];
-                $v['ip'] = empty($v['ip']) ? '' : $v['ip'];
-                $v['uid'] = $uid;
-                $succ[] = $v;
-                $res['succ'][] = $k;
-                $res['code'] = 1;
-            }else{
-                $res['fail'][] = $k;
-            }
-
-        }
-
-        if($res['succ']){
-            $unblock_admin = self::$user_data['username'];
-
-            RoleNameBlockSqlServer::updateROleNameBlockStatus($blockid,$unblock_admin);
-
-
-        }
-
-        return $res;
-    }
-
-
-    //对封禁记录进行解封
-    public static function roleNameUnblockAndChat($blockid = []){
-
-        $banDta = $succ = $fail = $log = [];
-
-        $info = RoleNameBlockSqlServer::getBlockById($blockid);
-        $new_info = [];
-
-        $gamekey = Common::getGameKey();
-//        $gamekey = Common::getConfig('gamekey');
-
-        $gamekey_list = [];
-        foreach($gamekey as $k=>$v){
-            $gamekey_list[$k] = $v;
-        }
-
-
-        foreach($info as $k1=>$v1){
-            $new_info[$v1['uid']]['uid'] = $v1['uid'];
-            $new_info[$v1['uid']]['gkey'] = $v1['gkey'];
-            $new_info[$v1['uid']]['tkey'] = $v1['tkey'];
-            $new_info[$v1['uid']]['roleid'] = $v1['roleid'];
-
-            $uid = $v1['uid'];
-
-            self::dealGameParams($v1,$v1['gkey'],1);
-
-            //判断uid是否需要转换成聚合的sdkuid
-            $v1 = BlockServer::checkNeedChangeUid($v1,$gamekey_list[$v1['gkey']]['need_change_uid']);
-
-            self::dealGameParams($v1,$v1['gkey'],2);
-
-
-            if($v1['type'] == "CHAT" || $v1['type'] == "AUTOCHAT" || $v1['type'] == "ACTIONCHAT"){
-                $data = $v1;
-                //聊天解禁参数
-
-                $data['addtime'] = time();
-                $data['ban_time'] = 0;
-//                $res1 = RoleServer::roleChat($data,2); //解除禁言
-                $res1 = false;
-                if($res1){
-                    RoleNameBlockSqlServer::updateRoleNameBlockStatus($v1['id'],'auto');
-                }
-
-            }else{
-                //如果使用的是cp封禁+sdk封禁模式则需要解封cp
-                if($v1['ban_type'] == 2){
-                    $data = $v1;
-                    $data['addtime'] = time();
-                    //判断封禁还是解禁
-                    $data['ban_time'] = 0;
-                    $res2 = RoleServer::roleBlock($data,2);
-//                    $res2 = true;
-                    if($res2){
-                        $new_info[$uid]['uid'] = $uid;
-                    }
-
-                }
-            }
-
-        }
-
-        //处理sdk账号
-        if(!empty($new_info)){
-            $banDta = UserServer::getUserInfoByMixGameUids($new_info);
-
-            $BanLogicModel = new BanServer();
-            $res = $BanLogicModel->ban(
-                $banDta,
-                1, //对用户uid解封
-                2,      //解封
-                0,
-                '解封');
-
-            //更新成功更改封禁日志状态
-            if($res['succ']){
-                RoleNameBlockSqlServer::updateRoleNameBlockStatus($blockid,'auto');
-
-            }
-        }
-
-
-        return true;
     }
 
 

@@ -21,12 +21,7 @@ class ServerinfoStatistics extends Base
 //        $index = $this->request->get('action');
         $params = $this->request->get('p/a',[]);
         $index = $params['action'] ?: '';
-        $no_cache = $params['no_cache'] ?? 0;
-        if($no_cache){
-            if(isset($this->func_arr[$index]['func'])){
-                $this->clean($this->func_arr[$index]['func']);
-            }
-        }
+
 
         $this->func_arr[$index]['param'] = isset($params) && !empty($params) ? $params : '';
 
@@ -76,13 +71,6 @@ class ServerinfoStatistics extends Base
         return ['code'=>$res,'data'=>[]];
 
     }
-
-    public function clean($name)
-    {
-        $this->apiClean($name);
-    }
-
-
 
 
 

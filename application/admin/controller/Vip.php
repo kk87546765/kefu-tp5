@@ -347,10 +347,6 @@ class Vip extends Oauth
             ['is_remark','int',0],
             ['is_record_data', 'int', 0],
             ['ascription_vip', 'int', 0],
-            ['role_level_min', 'int', 0],
-            ['role_level_max', 'int', 0],
-            ['role_zs_level_min', 'int', 0],
-            ['role_zs_level_max', 'int', 0],
             ['user_name', 'trim', ''],
             ['server_prefix', 'trim', ''],
             ['server_suffix', 'trim', ''],
@@ -817,7 +813,6 @@ class Vip extends Oauth
             ['platform_id','int',0],//平台id
             ['game_id','int',0],//平台id
             ['content','trim',''],//工单内容
-            ['update_time','trim',''],//更新时间
         ];
 
         if($type == 2){//销售

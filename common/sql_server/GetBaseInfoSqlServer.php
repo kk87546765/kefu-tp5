@@ -9,15 +9,12 @@ namespace common\sql_server;
 
 
 use common\libraries\Common;
-
 use common\model\db_customer_platform\KefuCommonMember;
 use common\model\db_customer_platform\KefuPayOrder;
 use common\model\db_customer_platform\KefuUserRole;
 use common\model\db_customer_platform\KefuLoginLog;
 use common\model\db_customer_platform\KefuServerList;
-use common\model\db_statistic\KefuUserRecharge;
 use common\server\CustomerPlatform\CommonServer;
-
 use think\Db;
 
 class GetBaseInfoSqlServer extends BaseSqlServer
@@ -33,31 +30,28 @@ class GetBaseInfoSqlServer extends BaseSqlServer
 
 
     public function insertReg($info){
-        if(!empty($info)){
-            $sql = "insert into db_customer_{$this->platform}.kefu_common_member(`uid`,`user_name`,`reg_date`,`login_date`,`reg_channel`,`mobile`,`reg_gid`,`status`,`imei`,`idfa`,`udid`,`reg_ip`) values";
-            foreach( $info as $v ){
-                $sql .= "('{$v['uid']}',".
-                    "'{$v['user_name']}',".
-                    "'{$v['reg_date']}',".
-                    "{$v['login_date']},".
-                    "'{$v['reg_channel']}',".
-                    "'{$v['mobile']}',".
-                    "{$v['reg_gid']},".
-                    "{$v['status']},".
-                    "'{$v['imei']}',".
-                    "'{$v['idfa']}',".
-                    "'{$v['udid']}',".
-                    "'{$v['reg_ip']}'";
+        $sql = "insert into db_customer_{$this->platform}.kefu_common_member(`uid`,`user_name`,`reg_date`,`login_date`,`reg_channel`,`mobile`,`reg_gid`,`status`,`imei`,`idfa`,`reg_ip`) values";
+        foreach( $info as $v ){
+            $sql .= "('{$v['uid']}',".
+                "'{$v['user_name']}',".
+                "'{$v['reg_date']}',".
+                "{$v['login_date']},".
+                "'{$v['reg_channel']}',".
+                "'{$v['mobile']}',".
+                "{$v['reg_gid']},".
+                "{$v['status']},".
+                "'{$v['imei']}',".
+                "'{$v['idfa']}',".
+                "'{$v['reg_ip']}'";
 
-                $sql .= "),";
-            }
-            $sql = trim($sql,",");
-
-            $model = new KefuCommonMember();
-            $ret = $model->execute($sql);
-
-            return $ret;
+            $sql .= "),";
         }
+        $sql = trim($sql,",");
+
+        $model = new KefuCommonMember();
+        $ret = $model->execute($sql);
+
+        return $ret;
     }
 
     /**
@@ -76,7 +70,6 @@ class GetBaseInfoSqlServer extends BaseSqlServer
                     ,`status`
                     ,`imei`
                     ,`idfa`
-                    ,`udid`
                     ,`reg_ip`
                     ) values";
         foreach( $info as $v ){
@@ -90,7 +83,6 @@ class GetBaseInfoSqlServer extends BaseSqlServer
                 "{$v['status']},".
                 "'{$v['imei']}',".
                 "'{$v['idfa']}',".
-                "'{$v['udid']}',".
                 "'{$v['reg_ip']}'";
             $sql .= "),";
         }
@@ -101,76 +93,69 @@ class GetBaseInfoSqlServer extends BaseSqlServer
     }
 
     public  function insertLogin($info){
-        if(!empty($info)){
-            $sql = "insert into db_customer_{$this->platform}.kefu_login_log(`uid`,`month`,`uname`,`gid`,`game_name`,`login_date`,`login_channel`,`imei`,`idfa`,`mobile`,`real_name`,`id_card`,`real_name_time`,`udid`,`login_ip`) values";
-            foreach( $info as $v ){
-                $sql .= "('{$v['uid']}',".
-                    "{$v['month']},".
-                    "'{$v['uname']}',".
-                    "'{$v['gid']}',".
-                    "'{$v['game_name']}',".
-                    "'{$v['login_date']}',".
-                    "'{$v['login_channel']}',".
-                    "'{$v['imei']}',".
-                    "'{$v['idfa']}',".
-                    "'{$v['mobile']}',".
-                    "'{$v['real_name']}',".
-                    "'{$v['id_card']}',".
-                    "{$v['real_name_time']},".
-                    "'{$v['udid']}',".
-                    "'{$v['login_ip']}'";
+        $sql = "insert into db_customer_{$this->platform}.kefu_login_log(`uid`,`month`,`uname`,`gid`,`game_name`,`login_date`,`login_channel`,`imei`,`idfa`,`mobile`,`real_name`,`id_card`,`real_name_time`,`login_ip`) values";
+        foreach( $info as $v ){
+            $sql .= "('{$v['uid']}',".
+                "{$v['month']},".
+                "'{$v['uname']}',".
+                "'{$v['gid']}',".
+                "'{$v['game_name']}',".
+                "'{$v['login_date']}',".
+                "'{$v['login_channel']}',".
+                "'{$v['imei']}',".
+                "'{$v['idfa']}',".
+                "'{$v['mobile']}',".
+                "'{$v['real_name']}',".
+                "'{$v['id_card']}',".
+                "{$v['real_name_time']},".
+                "'{$v['login_ip']}'";
 
-                $sql .= "),";
-            }
-            $sql = trim($sql,",");
-
-            $model = new KefuLoginLog();
-            $ret = $model->execute($sql);
-
-            return $ret;
+            $sql .= "),";
         }
+        $sql = trim($sql,",");
+
+        $model = new KefuLoginLog();
+        $ret = $model->execute($sql);
+
+        return $ret;
     }
 
 
     public function insertOrders($info){
+        $sql = "INSERT INTO db_customer_{$this->platform}.kefu_pay_order(`order_id`,`uid`,`user_name`,`amount`,`role_id`,`role_name`,`gid`,`game_name`,`server_id`,`server_name`,`pay_channel`,`imei`,`idfa`,`dateline`,`third_party_order_id`,`reg_channel`,`payment`,`yuanbao_status`,`first_login_game_id`,`first_login_game_time`,`pay_time`) values";
+        foreach( $info as $v ){
+            $sql .= "('{$v['order_id']}',".
+                "{$v['uid']},".
+                "'{$v['user_name']}',".
+                "{$v['amount']},".
+                "'{$v['role_id']}',".
+                "'".addslashes($v['role_name'])."',".
+                "'{$v['gid']}',".
+                "'{$v['game_name']}',".
+                "'{$v['server_id']}',".
+                "'{$v['server_name']}',".
+                "'{$v['pay_channel']}',".
+                "'{$v['imei']}',".
+                "'{$v['idfa']}',".
+                "'{$v['dateline']}',".
 
-        if(!empty($info)){
-            $sql = "INSERT INTO db_customer_{$this->platform}.kefu_pay_order(`order_id`,`uid`,`user_name`,`amount`,`role_id`,`role_name`,`gid`,`game_name`,`server_id`,`server_name`,`pay_channel`,`imei`,`idfa`,`dateline`,`third_party_order_id`,`reg_channel`,`payment`,`yuanbao_status`,`first_login_game_id`,`first_login_game_time`,`pay_time`) values";
-            foreach( $info as $v ){
-                $sql .= "('{$v['order_id']}',".
-                    "{$v['uid']},".
-                    "'{$v['user_name']}',".
-                    "{$v['amount']},".
-                    "'{$v['role_id']}',".
-                    "'".addslashes($v['role_name'])."',".
-                    "'{$v['gid']}',".
-                    "'{$v['game_name']}',".
-                    "'{$v['server_id']}',".
-                    "'{$v['server_name']}',".
-                    "'{$v['pay_channel']}',".
-                    "'{$v['imei']}',".
-                    "'{$v['idfa']}',".
-                    "'{$v['dateline']}',".
+                "'{$v['third_party_order_id']}',".
+                "'{$v['reg_channel']}',".
+                "'{$v['payment']}',".
+                "{$v['yuanbao_status']},".
+                "{$v['first_login_game_id']},".
+                "{$v['first_login_game_time']},".
 
-                    "'{$v['third_party_order_id']}',".
-                    "'{$v['reg_channel']}',".
-                    "'{$v['payment']}',".
-                    "{$v['yuanbao_status']},".
-                    "{$v['first_login_game_id']},".
-                    "{$v['first_login_game_time']},".
+                "{$v['pay_time']}";
 
-                    "{$v['pay_time']}";
-
-                $sql .= "),";
-            }
-            $sql = trim($sql,",");
-
-            $model = new KefuPayOrder();
-            $ret = $model->execute($sql);
-
-            return $ret;
+            $sql .= "),";
         }
+        $sql = trim($sql,",");
 
+        $model = new KefuPayOrder();
+        $ret = $model->execute($sql);
+
+        return $ret;
     }
 
 
@@ -269,7 +254,7 @@ class GetBaseInfoSqlServer extends BaseSqlServer
 
         $model = new KefuLoginLog();
 
-        $ret = $model->query($sql);
+        $ret = $model->execute($sql);
 
         $num = empty($ret)? 0 : $ret[0]['num'];
 
@@ -292,6 +277,8 @@ class GetBaseInfoSqlServer extends BaseSqlServer
         $model = new KefuPayOrder();
 
         $ret = $model->query($sql);
+
+        $ret = isset($ret) ? $ret->toArray() : 0;
 
         $num = empty($ret)? 0 : $ret[0]['num'];
 
@@ -375,8 +362,8 @@ class GetBaseInfoSqlServer extends BaseSqlServer
     public function updateUserRoleLoginTime($update_data)
     {
 
-        $sql1 = $sql2 = '';
-        if(!empty(($update_data['role_level']))){
+
+        if(!empty(($update_data['mobile']))){
             $sql1 = ",role_level = '{$update_data['role_level']}'";
         }
         if(!empty(($update_data['login_date']))){
@@ -532,6 +519,7 @@ class GetBaseInfoSqlServer extends BaseSqlServer
 
         return $res;
     }
+
 
 
 

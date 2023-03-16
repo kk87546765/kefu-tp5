@@ -5,15 +5,13 @@ namespace common\Server\Platform;
 
 use common\base\BasicServer;
 use common\Libraries\Logger;
-use common\server\CustomerPlatform\CommonServer;
 use common\server\Platform\Mh\MhCommonMember;
 use common\server\Platform\Ll\LlCommonMember;
 use common\server\Platform\Zw\ZwCommonMember;
 use common\server\Platform\Xll\XllCommonMember;
 use common\server\Platform\Youyu\YouyuCommonMember;
-use common\server\Platform\Bx\BxCommonMember;
-use common\sql_server\KefuUserRoleSqlServer;
-use Quan\Common\Models\KefuUserRole;
+
+
 
 
 class Platform extends BasicServer
@@ -23,7 +21,6 @@ class Platform extends BasicServer
     const PLATFORM_ZW = 'zw';
     const PLATFORM_XLL = 'xll';
     const PLATFORM_YOUYU = 'youyu';
-    const PLATFORM_BX = 'bx';
     public static $commonMemberSuffix = 'CommonMember';
 
     public static $platformLIst = [
@@ -44,7 +41,6 @@ class Platform extends BasicServer
         $res = ['failUid' => []];
         if (empty($uids)) return $res;
         $uids = array_unique($uids);
-
         $uidArr = $uids;
 
         /*if (!empty($platform)  && class_exists(ucfirst($platform).self::$commonMemberSuffix, false)){
@@ -93,9 +89,6 @@ class Platform extends BasicServer
                 case self::PLATFORM_YOUYU:
                     $result = YouyuCommonMember::getCommonMemberInfoByuids($uidArr);
                     break;
-                case self::PLATFORM_BX:
-                    $result = BxCommonMember::getCommonMemberInfoByuids($uidArr);
-                    break;
             }
             $res = $result;
 
@@ -133,12 +126,6 @@ class Platform extends BasicServer
                     $result = YouyuCommonMember::getCommonMemberInfoByuids($uidArr);
                     $uidArr = !empty($result['failUid']) ? $result['failUid'] : [];
                     if (!empty($result['youyu'])) $res['youyu'] = $result['youyu'];
-                }
-                if (!empty($uidArr)) {
-                    //找Bx的
-                    $result = BxCommonMember::getCommonMemberInfoByuids($uidArr);
-                    $uidArr = !empty($result['failUid']) ? $result['failUid'] : [];
-                    if (!empty($result['bx'])) $res['bx'] = $result['bx'];
                 }
 
                 $res['failUid'] = $uidArr;
@@ -234,40 +221,6 @@ class Platform extends BasicServer
 //        $return['msg'] = $res['state']['msg'];
 
         return $return;
-
-    }
-
-
-
-    public static function getCommonMemberInfoByUidAndRoleID($chat_info,$uids=[], $platform='')
-    {
-
-        $succUid = [];
-        foreach($uids as $k=>$v){
-            if(isset($chat_info[$v]['roleid'])){
-                $res = KefuUserRoleSqlServer::getRoleInfoByUid($platform,$v,$chat_info[$v]['roleid'],'uid,uname');
-                if ($res){
-                    $tmp['uid'] = $res[0]['uid'];
-                    $tmp['sdkUid'] = $res[0]['uid'];  //多组装一个sdkUid回去处理逻辑
-                    $tmp['user_name'] = $res[0]['uname'];
-                    $tmp_res[$platform][] = $tmp;
-                    $succUid[] = $res[0]['uid'];
-                }
-            }
-
-
-        }
-
-        //找出失败的uids
-        foreach ($uids as $k2=>$v2){
-            if (in_array($v2, $succUid)){
-                unset($uids[$k2]);
-            }
-        }
-
-        $tmp_res['failUid'] = $uids;
-
-        return $tmp_res;
 
     }
 }

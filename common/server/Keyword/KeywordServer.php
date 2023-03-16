@@ -10,7 +10,7 @@ namespace common\server\Keyword;
 
 use common\base\BasicServer;
 use common\server\Platform\{BanServer,Platform};
-use common\libraries\Common;
+use common\Libraries\Common;
 use common\libraries\PinYin;
 use common\sql_server\{KeywordSqlServer};
 use think\Config;
@@ -58,9 +58,7 @@ class KeywordServer extends BasicServer
                 $add_data['num'] =  $data['num'];
                 $add_data['status'] =  $data['status'] == 1 ? 1 : 0;
                 $add_data['resemble_status'] = empty( $data['resemble_status']) ? 0 :  $data['resemble_status'];
-                $add_data['type'] = empty($data['type']) ? 1 : $data['type'];
-                $add_data['block_time'] = !empty($data['block_time']) ? $data['block_time']*3600 : 86400*365;
-                $add_data['ban_time'] = !empty($data['ban_time']) ? $data['ban_time']*3600 : 86400*10;
+                $add_data['type'] = empty($type) ? 1 : $type;
 
                 $res = KeywordSqlServer::add($add_data);
 
@@ -120,9 +118,7 @@ class KeywordServer extends BasicServer
                     $edit_data['num'] = $data['num'];
                     $edit_data['status'] = $data['status'] == 1 ? 1 : 0;
                     $edit_data['resemble_status'] = empty($data['resemble_status']) ? 0 : $data['resemble_status'];
-                    $edit_data['type'] = empty($data['type']) ? 1 : $data['type'];
-                    $edit_data['block_time'] = !empty($data['block_time']) ? $data['block_time']*3600 : 86400*365;
-                    $edit_data['ban_time'] = !empty($data['ban_time']) ? $data['ban_time']*3600 : 86400*10;
+                    $edit_data['type'] = empty($type) ? 1 : $type;
 
                     $res = KeywordSqlServer::edit($edit_data);
 
@@ -221,11 +217,6 @@ class KeywordServer extends BasicServer
             $where .= " and keyword like '{$data['keyword']}%'";
         }
 
-        if ( $data['id'] ) {
-            $where .= " and id = {$data['id']}";
-        }
-
-        $data['offset'] = ($data['page']-1)*$data['limit'];
         $new_data['where']  = $where;
         $new_data['offset'] = $data['offset'] ?? 0;
         $new_data['limit']  = $data['limit'] ?? 20;
@@ -236,7 +227,7 @@ class KeywordServer extends BasicServer
 
     public static function modiftKeywordList()
     {
-        $res = KeywordSqlServer::getList('status= 1',0,100000,'block_time DESC,id desc');
+        $res = KeywordSqlServer::getList('1=1');
 
         $product_list = Common::getProductList(1);
 

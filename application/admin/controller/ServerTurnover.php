@@ -43,9 +43,9 @@ class ServerTurnover extends Oauth
         $data['page']       = $this->request->post('page',1);
         $data['limit']      = $this->request->post('limit', 20);
 
-        $list = ServerTurnoverServer::getList($data);
-
-        $count = ServerTurnoverServer::getCount($data);
+//        $list = ServerTurnoverServer::getList($data);
+        $list = [];
+//        $count = ServerTurnoverServer::getCount($data);
 
 
         $return['code'] = 0;

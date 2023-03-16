@@ -24,9 +24,7 @@
         "symfony/dom-crawler": "5.2",
         "symfony/css-selector": "5.2",
         "phpoffice/phpspreadsheet": "1.17",
-		"elasticsearch/elasticsearch": "^7.17",
-		"tencentcloud/sms": "^3.0",
-        "tencentcloud/tencentcloud-sdk-php": "^3.0"
+		"elasticsearch/elasticsearch": "^7.17"
     },
     "autoload": {
         "psr-4": {

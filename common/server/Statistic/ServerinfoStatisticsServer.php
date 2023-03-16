@@ -62,22 +62,20 @@ class ServerinfoStatisticsServer extends BasicServer
                 if(empty($v3['center_product_id']) || empty($v3['server_id'])){
                     continue;
                 }
-
                 //使用中心产品id，用于区分唯一性，避免不同平台产品id相同
-                @$new_arr[$k2.'_'.$v3['center_product_id'].'_'.$v3['server_id']]['pay_money'] += $v3['pay_money'];
-                @$new_arr[$k2.'_'.$v3['center_product_id'].'_'.$v3['server_id']]['reg_num'] = 0;
-                @$new_arr[$k2.'_'.$v3['center_product_id'].'_'.$v3['server_id']]['role_reg_num'] = 0;
-                @$new_arr[$k2.'_'.$v3['center_product_id'].'_'.$v3['server_id']]['date'] =  $v3['date'];
-                @$new_arr[$k2.'_'.$v3['center_product_id'].'_'.$v3['server_id']]['game_id'] = $v3['game_id'];
-                @$new_arr[$k2.'_'.$v3['center_product_id'].'_'.$v3['server_id']]['add_time'] = $time;
-                @$new_arr[$k2.'_'.$v3['center_product_id'].'_'.$v3['server_id']]['center_product_id'] =  $v3['center_product_id'];
-                @$new_arr[$k2.'_'.$v3['center_product_id'].'_'.$v3['server_id']]['platform_id'] = $v3['platform_id'];
-                @$new_arr[$k2.'_'.$v3['center_product_id'].'_'.$v3['server_id']]['product_id'] = $v3['product_id'];
-                @$new_arr[$k2.'_'.$v3['center_product_id'].'_'.$v3['server_id']]['product_name'] = $v3['product_name'];
+                $new_arr[$k2.'_'.$v3['center_product_id'].'_'.$v3['server_id']]['pay_money'] += $v3['pay_money'];
+                $new_arr[$k2.'_'.$v3['center_product_id'].'_'.$v3['server_id']]['reg_num'] = 0;
+                $new_arr[$k2.'_'.$v3['center_product_id'].'_'.$v3['server_id']]['role_reg_num'] = 0;
+                $new_arr[$k2.'_'.$v3['center_product_id'].'_'.$v3['server_id']]['date'] =  $v3['date'];
+                $new_arr[$k2.'_'.$v3['center_product_id'].'_'.$v3['server_id']]['game_id'] = $v3['game_id'];
+                $new_arr[$k2.'_'.$v3['center_product_id'].'_'.$v3['server_id']]['add_time'] = $time;
+                $new_arr[$k2.'_'.$v3['center_product_id'].'_'.$v3['server_id']]['center_product_id'] =  $v3['center_product_id'];
+                $new_arr[$k2.'_'.$v3['center_product_id'].'_'.$v3['server_id']]['platform_id'] = $v3['platform_id'];
+                $new_arr[$k2.'_'.$v3['center_product_id'].'_'.$v3['server_id']]['product_id'] = $v3['product_id'];
+                $new_arr[$k2.'_'.$v3['center_product_id'].'_'.$v3['server_id']]['product_name'] = $v3['product_name'];
 
-                @$new_arr[$k2.'_'.$v3['center_product_id'].'_'.$v3['server_id']]['server_id'] = $v3['server_id'];
-                @$new_arr[$k2.'_'.$v3['center_product_id'].'_'.$v3['server_id']]['server_name'] = $v3['server_name'];
-
+                $new_arr[$k2.'_'.$v3['center_product_id'].'_'.$v3['server_id']]['server_id'] = $v3['server_id'];
+                $new_arr[$k2.'_'.$v3['center_product_id'].'_'.$v3['server_id']]['server_name'] = $v3['server_name'];
             }
         }
 

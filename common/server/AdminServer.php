@@ -4,7 +4,6 @@ namespace common\server;
 
 
 use common\base\BasicServer;
-use common\model\db_customer\Gamekey;
 use common\model\db_customer\PlatformList;
 use common\model\db_customer\QcConfig;
 use common\model\gr_chat\Admin;
@@ -16,9 +15,6 @@ use common\model\gr_chat\RoleMenu;
 use common\model\gr_chat\RunLog;
 use common\model\gr_chat\UserGroup;
 use common\sql_server\AdminSqlServer;
-use common\libraries\Common;
-use extend\ApiSms;
-use common\libraries\Ipip\IP;
 use think\Db;
 
 class AdminServer extends BasicServer
@@ -287,12 +283,9 @@ class AdminServer extends BasicServer
      * 用户-登出
      * @return mixed
      */
-    public static function Logout($uid = 0){
-        if(!$uid){
-            $uid = self::$user_data['id'];
-        }
+    public static function Logout(){
         $redis = get_redis();
-        $session_code = md5(config('sign_md5').$uid);//token存储key
+        $session_code = md5(config('sign_md5').self::$user_data['id']);//token存储key
         return $redis->del($session_code);
     }
     /**
@@ -303,7 +296,7 @@ class AdminServer extends BasicServer
     public static function userSave($param){
 
 
-        $code = [0=>'成功',1=>'信息不存在',2=>'密码长度6至20位',3=>'失败',4=>'用户已存在',5=>'手机号格式不正确'];
+        $code = [0=>'成功',1=>'信息不存在',2=>'密码长度6至20位',3=>'失败'];
 
         $model = new Admin();
 
@@ -315,19 +308,12 @@ class AdminServer extends BasicServer
             }
         }
 
-
-        if(empty($param['phone']) || !isphone($param['phone'])  ){
-            return ['code'=>5,'msg'=>$code[5]];
-        }
-
-        if(!isset($param['status'])){
-            $param['status'] = 2;
+        if(isset($param['status'])){
+            $param['status'] = $param['status']=="on"?1:2;
         }
 
         if(isset($param['is_admin'])){
             $param['is_admin'] = $param['is_admin']=="on"?1:0;
-        }else{
-            $param['is_admin'] = 0;
         }
 
         if(isset($param['password'])){
@@ -348,25 +334,20 @@ class AdminServer extends BasicServer
             $param['vip_game_product_ids'] = implode(',',$param['vip_game_product_ids']);
         }
 
-        if(!empty($param['extra'])){
-            $param['extra'] = json_encode($param['extra']);
-        }
-
         $common_field = [
             'realname',
             'password',
             'role_id',
             'status',
+            'is_admin',
             'platform',
             'group_id',
-            'phone',
             'position_grade',
             'vip_game_product_ids',
-            'extra',
         ];
 
-        if(self::$user_data['is_admin'] == 1 ){
-            $common_field[] = 'is_admin';
+        if(self::$user_data['is_admin'] == 0 ){
+            unset($common_field['is_admin']);
         }
 
         if($id){
@@ -389,13 +370,7 @@ class AdminServer extends BasicServer
 
             $data = getDataByField($param,$common_field,[]);
 
-            $info = $model->where(['username'=>$data['username']])->find();
-            $info = !empty($info)? $info->toArray() : '';
-            if(!empty($info)){
-                return ['code'=>4,'msg'=>$code[4]];
-            }
-
-            $ret = $model->create($data);
+            $ret = $model->insert($data);
 
         }
 
@@ -453,14 +428,6 @@ class AdminServer extends BasicServer
 
             $v['position_grade_str'] = isset($position_grade_arr[$v['position_grade']])?$position_grade_arr[$v['position_grade']]:'普通';
 
-            $this_ip_data = IP::find($v['last_ip']);
-            if(is_array($this_ip_data)){
-                $v['last_ip_str'] = implode('|',$this_ip_data);
-            }else{
-                $v['last_ip_str'] = '';
-            }
-
-
             $v['status_str'] = getArrVal($status_arr,$v['status'],'');
 
             $v['action'] = ListActionServer::checkAdminListAction($v);
@@ -502,10 +469,7 @@ class AdminServer extends BasicServer
      */
     public static function userDetail($id = 0){
 
-        $admin = [
-            'id'=>$id
-            ,'is_admin'=>0
-        ];
+        $admin = ['id'=>$id];
 
         $admin_info = self::$user_data;
 
@@ -518,12 +482,6 @@ class AdminServer extends BasicServer
                 $admin = $admin_res->toArray();
 
                 unset($admin['password']);
-
-                $extra_data = json_decode($admin['extra'],true);
-
-                if($extra_data){
-                    $admin = array_merge($admin,arrToFormData($extra_data,'extra'));
-                }
             }
         }
 
@@ -541,7 +499,6 @@ class AdminServer extends BasicServer
         $config = SysServer::getAllConfigByCache();
 
         $position_grade_arr = $config['position_grade_arr'];
-        $user_group_type = getArrVal($config,'user_group_type',[]);
 
         $group_list = SysServer::getAdminGroupListShow(0);//所有
 
@@ -570,18 +527,16 @@ class AdminServer extends BasicServer
 
         // 获取所有平台
         $platform_list = SysServer::getPlatformList();
-//        $platform_list = SysServer::getPlatformListByAdminInfo(self::$user_data,1);
 
         $adminConfig = self::userListConfig();
         $roles = $adminConfig['roles'];
 
         return compact('position_grade_arr',
-        'admin',
-        'admin_info',
-        'roles',
-        'new_group_list',
-        'platform_list',
-        'user_group_type'
+            'admin',
+            'admin_info',
+            'roles',
+            'new_group_list',
+            'platform_list'
         );
     }
 
@@ -673,128 +628,6 @@ class AdminServer extends BasicServer
 
         return $flag;
     }
-
-    /**
-     * 游戏-列表
-     * @param $p_data
-     * @param $page
-     * @param $limit
-     * @return array
-     */
-    public static function getGameList($p_data,$page,$limit){
-
-        $where = [];
-
-        if($p_data['name']){
-            $where['game_name'] = ['like','%'.$p_data['name'].'%'];
-        }
-
-        $model = new Gamekey();
-
-        $count = $model->where($where)->count();
-
-        if($count == 0){
-            return [[],0];
-
-        }
-        $list = $model->where($where)->page($page,$limit)->order('id desc')->select()->toArray();
-
-        if($list){
-
-            $status = Gamekey::$status;
-            $admin_list = SysServer::getAdminListCache();
-            foreach ($list as $k => $v) {
-//                    $list[$k]['add_time_str'] = $v['add_time']?date('y-m-d H:i',$v['add_time']):'未知';
-//                    $list[$k]['edit_time_str'] = $v['edit_time']?date('y-m-d H:i',$v['edit_time']):'未知';
-                $list[$k]['admin_id'] = isset($admin_list[$v['admin_id']])?$admin_list[$v['admin_id']]['name']:'未知';
-//                $list[$k]['edit_user_id_name'] = isset($admin_list[$v['edit_user_id']])?$admin_list[$v['edit_user_id']]['name']:'未知';
-                $list[$k]['status'] = isset($status[$v['status']])?$status[$v['status']]:'';
-                $list[$k]['action'] = ListActionServer::checkPlatformListAction($v);
-
-            }
-        }
-        return [$list,$count];
-    }
-    /**
-     * 游戏-详情
-     * @param $id
-     * @return array|false|mixed|string|null
-     */
-    public static function getGameDetail($id){
-
-        $model = new Gamekey();
-
-        $info = $model->where('id',$id)->find();
-
-        return $info;
-    }
-    /**
-     * 游戏-保存
-     * @param $param
-     * @return array|gameList|false|mixed
-     */
-    public static function gameSave($param){
-
-        $model = new Gamekey();
-
-        $id = getArrVal($param,'id',0);
-
-
-
-        if(isset($param['config']) && $param['config']){
-            $param['config'] = json_encode($param['config']);
-        }
-
-
-        if($id){
-            $info = $model->where('id',$id)
-                ->find();
-
-            if(!$info){
-                return false;
-            }
-//            $param['admin_id'] = self::$user_data['id'];
-
-            $res = $info->save($param);
-
-        }else{
-            if(isset($param['id'])) unset($param['id']);
-            $param['admin_id'] = self::$user_data['id'];
-            $res = $model->allowField(true)->create($param);
-        }
-
-        //更新缓存
-        SysServer::getGameKey(1);
-//        $redisModel = get_redis();
-//        $key = Common::creatCacheKey(PlatformList::PLATFORM_SUFFIX_INFO_KEY);
-//        $fieldArr = $redisModel->hkeys($key);
-//        if (!empty($fieldArr) && is_array($fieldArr)) {
-//            foreach ($fieldArr as $v) {
-//                $redisModel->hdel($key,$v);
-//            }
-//        }
-
-        return $res;
-    }
-    /**
-     * 平台-删除
-     * @param $id
-     * @return false
-     */
-    public static function gameDel($id){
-
-        $model = new Gamekey();
-
-        $info = $model->where('id',$id)->find();
-
-        if(!$info){
-            return false;
-        }
-
-        return $info->delete();
-    }
-
-
 
     /**
      * 平台-列表
@@ -1040,32 +873,22 @@ class AdminServer extends BasicServer
 
         return $info->delete();
     }
-
     /**
      * 用户组-获取分组adminIds
-     * @param $g_id
+     * @param int $g_id
      * @return array
      */
-    public static function getAdminIdsByGroupId($g_id){
+    public static function getAdminIdsByGroupId(int $g_id){
         $admin_list = SysServer::getAdminListCache();
 
         $select_ids = [];
 
         if($admin_list){
-            $g_id_arr = [];
-            if(is_array($g_id)){
-                $g_id_arr = $g_id;
-            }else{
-                $g_id_arr[] = $g_id;
-            }
-
             foreach ($admin_list as $k => $v) {
                 if($v['group_id']){
                     $this_group_id_arr = explode(',', $v['group_id']);
 
-                    $res = arrMID($g_id_arr,$this_group_id_arr);
-
-                    if(!empty($res['ai_com'])){
+                    if(in_array($g_id, $this_group_id_arr)){
                         $select_ids[] = $v['id'];
                     }
                 }
@@ -1197,21 +1020,6 @@ class AdminServer extends BasicServer
                 $v['ca_str'] = '未知';
             }
             $v['data_info'] = json_decode($v['data'],true);
-
-            $this_data_limit = getArrVal(json_decode($v['data_info'],true),'limit',20);
-
-
-            if($this_data_limit>=500){
-                $v['warning_type'] = 4;
-            }elseif($this_data_limit>=200){
-                $v['warning_type'] = 3;
-            }elseif($this_data_limit>=100){
-                $v['warning_type'] = 2;
-            }elseif($this_data_limit>=50){
-                $v['warning_type'] = 1;
-            }else{
-                $v['warning_type'] = 0;
-            }
             $v['action_str'] = $v['action'];
             $v['action'] = ['data_info'];
         }
@@ -1452,9 +1260,8 @@ class AdminServer extends BasicServer
         $role_id_menu_id = $roleMenuModel->where('role_id',$role_id)->column('menu_id');//目标角色已拥有菜单id
 
         foreach ($menu_list as $k=>$v){
-
-            if(in_array($v['id'],$role_id_menu_id) && $v['type'] ==2){//分配接口默认选中 && $v['type'] ==2
-                $menu_list[$k]['checked'] = true;
+            if(in_array($v['id'],$role_id_menu_id)){//分配接口默认选中 $v['type'] ==2 &&
+                $menu_list[$k]['checked'] = 1;
             }
         }
         //转换成layui树状结构
@@ -1570,19 +1377,9 @@ class AdminServer extends BasicServer
         $list = $list_obj->order('add_time desc')->select()->toArray();
 
         foreach ($list as $k => &$v) {
-
-            $v['data_info']['input_param_data'] = $v['input_param'];
-            $v['data_info']['out_param_data'] = $v['out_param'];
+            $v['data_info']['input_param_data'] = json_decode($v['input_param'],true);
+            $v['data_info']['out_param_data'] = json_decode($v['out_param'],true);
             $v['status_str'] = getArrVal(RunLog::STATUS_ARR,$v['status'],'');
-            $v['abs'] = '';
-            if($v['status'] == 1){
-                $seconds = strtotime($v['update_time'])-strtotime($v['add_time']);
-                if($seconds){
-                    $v['abs'] = changeCountDown($seconds)['str'];
-                }else{
-                    $v['abs'] = '<1s';
-                }
-            }
         }
 
         return [$list,$count];
@@ -1648,30 +1445,5 @@ class AdminServer extends BasicServer
         }
 
         return $list;
-    }
-
-
-    public static function sendSms($params = [])
-    {
-        $return_code = [0=>'发送成功',-1=>'发送失败',-2=>'账号不能为空',-3=>'请求过于频繁，请5分钟后再试',-4=>'账号手机号为空'];
-        $return = ['code'=>-1,'msg'=>'发送失败'];
-
-        if(empty($params['username'])){
-            $return['msg'] = $return_code[-2];
-            return $return;
-        }
-
-        $phone = AdminSqlServer::getAdminInfo($params);
-
-        if(!$phone){
-            $return['msg'] = $return_code[-4];
-            return $return;
-        }
-
-        $res = Common::sendLoginSms($params['username'],$phone);
-        $return['code'] = $res;
-        $return['msg'] = $return_code[$res];
-        $return['code'] = $return['code'];
-        return $return;
     }
 }

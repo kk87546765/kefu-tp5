@@ -75,7 +75,6 @@ class SettledServer extends BasicServer
         $s_open_time = strtotime($data['s_open_time']);
         $e_open_time = strtotime($data['e_open_time']);
 
-        $arrange_info = [];
         for($i=0;$i<$diff->days+31;$i++){
             $date = mktime(0,0,0,date('m',$s_open_time),date('d',$s_open_time)+$i,date('Y',$s_open_time));
 

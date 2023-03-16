@@ -48,30 +48,4 @@ class AdminSqlServer extends BaseSqlServer
 
         return $model->where(setWhereSql($where,''));
     }
-
-    public static function getAdminInfo($params = [])
-    {
-        $model = new Admin();
-        $sql = "select phone from gr_admin where username = '{$params['username']}' and status= 1";
-        $res = $model->query($sql);
-        if(!empty($res[0]['phone'])){
-            return $res[0]['phone'];
-        }else{
-            return false;
-        }
-
-    }
-
-    public static function getAdminInfoByWhere($where='')
-    {
-        $model = new Admin();
-        $sql = "select * from gr_admin where {$where} ";
-        $res = $model->query($sql);
-
-        if(!empty($res[0])){
-            return $res[0];
-        }else{
-            return false;
-        }
-    }
 }

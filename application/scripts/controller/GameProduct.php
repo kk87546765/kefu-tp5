@@ -11,7 +11,6 @@ class GameProduct extends Base
     protected $func_arr = [
         ['func'=>'GameProduct','param'=>[0=>''],'delay_time'=>60*5,'runtime'=>60*5,'limit'=>0,'is_single'=>1],//拉取产品
         ['func'=>'GameList','param'=>[0=>''],'delay_time'=>60*5,'runtime'=>60*5,'limit'=>0,'is_single'=>1],//拉取游戏
-        ['func'=>'UpGameProduct','param'=>[0=>''],'delay_time'=>60*5,'runtime'=>60*5,'limit'=>0,'is_single'=>1],//拉取游戏
     ];
     #脚本调用
     public function run()
@@ -130,49 +129,6 @@ class GameProduct extends Base
         foreach ($platformList as $k=>$v) {
             if (empty($v['config'])) continue;
             $result['data'][] = GameProductServer::updateGameInfo($v,$param);
-
-        }
-
-        return $result;
-    }
-
-
-    protected function UpGameProduct(array $params)
-    {
-        ini_set('memory_limit', '2048M');
-
-        parse_str($params[0],$param);
-
-        $result = ['code'=>1, 'data'=>['msg'=>'end']];
-
-        set_time_limit(0);
-
-        $param['end_time'] = isset($param['end_time']) ? strtotime(date('Y-m-d', strtotime($param['end_time']))) : time();
-        $param['start_time']= isset($param['start_time']) ? strtotime(date('Y-m-d', strtotime($param['start_time']))) : (time() - 10*60);
-
-        //获取平台列表
-
-        $platformList = [];
-        if ( !empty($param['platform']) ){
-            $platform_id = getArrVal($this->config['platform_suffix'],$param['platform'],0);
-            if(!$platform_id){
-                $result['data']['msg'] = 'platform error';
-                return $result;
-            }
-            $platformList[] = $this->config['platform_list'][$platform_id];
-
-        }else {
-            $platformList = $this->config['platform_list'];
-        }
-
-        if(!$platformList){
-            $result['data']['msg'] = 'no platform';
-            return $result;
-        }
-
-        foreach ($platformList as $k=>$v) {
-            if (empty($v['config'])) continue;
-            $result['data'][] = GameProductServer::updateUniqueProductInfo($v,$param);
 
         }
 

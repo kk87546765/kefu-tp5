@@ -14,6 +14,15 @@ use common\server\AccountRegistrationLog\AccountRegistrationLogServer;
 use common\server\GarrisonProduct\GarrisonProductServer;
 use common\server\SysServer;
 
+//
+//use common\Models\Admin;
+//use common\Models\GarrisonProduct;
+//use common\Models\AccountRegistration;
+//use common\Models\AccountRegistrationLog;
+//use common\Models\KefuCommonMember;
+//use common\Models\KefuUserRole;
+//use common\Models\Statistic\GameProduct;
+
 
 class AccountRegistration extends Oauth
 {
@@ -24,8 +33,8 @@ class AccountRegistration extends Oauth
     public function index()
     {
 
-        $data['page']       = $this->request->request('page/d',  1);
-        $data['limit']      = $this->request->request('limit/d', 20);
+        $data['page']       = $this->request->post('page/d',  1);
+        $data['limit']      = $this->request->post('limit/d', 20);
         $data['garrison_product_id']  = $this->request->post('garrison_product_id/s','');
         $data['sid'] = $this->request->post('sid/s', '');
         $data['status'] = $this->request->post('status/d', 0);

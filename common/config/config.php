@@ -35,8 +35,7 @@ return [
     'auto_bind_module'       => false,
     // 注册的根命名空间
     'root_namespace'         => [
-        'common'=>COMMON_PATH,
-        'extend'=>EXTEND_PATH
+        'common'=>COMMON_PATH
     ],
     // 扩展函数文件
     'extra_file_list'        => [THINK_PATH . 'helper' . EXT,CONF_PATH.'common' . EXT],
@@ -270,7 +269,4 @@ return [
     // +----------------------------------------------------------------------
     'sign_md5'=>'&Hg8KqeptwFF4MIwW4wfgyuWrUML7k^h',
     'api_key'=>Env::get('api.key',''),
-    'common_prefix'=>'_new',
-    'env_status'=>Env::get('env_status','product')=='test'?0:1,
-
 ];

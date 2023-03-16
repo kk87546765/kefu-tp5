@@ -6,7 +6,6 @@ namespace common\server\CountBlock;
 use common\base\BasicServer;
 use common\libraries\Common;
 use common\sql_server\CountBlockSqlServer;
-use common\sql_server\AdminSqlServer;
 
 
 
@@ -49,9 +48,8 @@ class CountBlockServer extends BasicServer
             $condition.= " and gkey = '{$data['game']}'";
         }
         if($data['op_admin_id']){
-            $AdminServerModel = new AdminSqlServer();
-            $user_info = $AdminServerModel->getAdminInfoByWhere("id={$data['op_admin_id']}");
-
+            $AdminServerModel = new AdminServer();
+            $user_info = $AdminServerModel->getAdminInfoByWhere(['id'=>$data['op_admin_id']]);
             $condition .= " and op_admin_id = '{$user_info['username']}'";
         }
         if($data['s_time']){
@@ -68,12 +66,6 @@ class CountBlockServer extends BasicServer
         $tmp_data['condition'] = $condition;
 
         $offset = ($data['page'] - 1) * $data['limit'] ;
-
-        if(!empty($data['is_excel'])){
-            $offset = 0;
-            $data['limit'] = 100000;
-        }
-
         $tmp_data['offset'] = $offset;
         $tmp_data['limit'] = $data['limit'];
 

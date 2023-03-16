@@ -6,13 +6,11 @@ namespace common\server;
 
 
 use common\base\BasicServer;
-use common\model\db_customer\Gamekey;
 use common\model\db_customer\PlatformList;
 use common\model\db_customer\QcConfig;
 use common\model\db_statistic\GameProduct;
 use common\model\db_statistic\PlatformGameInfo;
 use common\model\db_statistic\PlatformPaymentInfo;
-use common\model\db_statistic\UpGameProduct;
 use common\model\gr_chat\Admin;
 use common\model\gr_chat\Menu;
 use common\model\gr_chat\RoleList;
@@ -51,18 +49,6 @@ class SysServer extends BasicServer
 
         return $info;
     }
-    public static function getPlatformInfo($id,$f5=0){
-
-        $platform_list = self::getPlatformList($f5);
-        $platform_info = [];
-        foreach ($platform_list as $item){
-            if($item['platform_id'] == $id){
-                $platform_info = $item;
-                break;
-            }
-        }
-        return $platform_info;
-    }
 
     /**
      * 根据账号获取平台列表
@@ -92,7 +78,7 @@ class SysServer extends BasicServer
      */
     public static function getAllConfigByCache($f5=0){
 
-        $cache_name = 'admin_common_config'.config('common_prefix');
+        $cache_name = 'admin_common_config';
 
         $info = cache($cache_name);
 
@@ -294,7 +280,6 @@ class SysServer extends BasicServer
             ,role_id
             ,last_login_time
             ,is_admin
-            ,extra
         ';
         $list = (new Admin())->field($field)->where($where)->select();
 
@@ -525,7 +510,7 @@ class SysServer extends BasicServer
             }
             //20210916 管理一下不显示离职用户
             $admin_info_position_grade = getArrVal($admin_info,'position_grade',1);
-            if(getArrVal($param,'is_active',1)){//$admin_info_position_grade < QcConfig::POSITION_GRADE_MANAGER ||
+            if($admin_info_position_grade < QcConfig::POSITION_GRADE_MANAGER){
                 $admin_list_extra['is_active'] = 1;
             }
         }
@@ -534,7 +519,6 @@ class SysServer extends BasicServer
 
         foreach ($admin_list as $k =>$v){
             $admin_list[$k]['name'] .= "[$v[username]]";
-            $admin_list[$k]['extra'] = json_decode(getArrVal($v,'extra',''),true);
         }
 
         if($platform_id_arr){
@@ -560,12 +544,6 @@ class SysServer extends BasicServer
                 $this_info = arrMID($v['user_group_type_arr'],$group_type_arr);
                 if(!$this_info['ai_com']){
                     unset($admin_list[$k]);
-                }
-                if(isset($v['extra']['group_show'])){
-                    $this_info = arrMID($v['extra']['group_show'],$group_type_arr);
-                    if(!$this_info['ai_com']){
-                        unset($admin_list[$k]);
-                    }
                 }
             }
         }
@@ -744,132 +722,4 @@ class SysServer extends BasicServer
 
         return  $new_list;
     }
-
-    /**
-     * 获取用户唯一产品（有权限）
-     * @return array
-     */
-    public static function getUpProductByPower(){
-
-        $admin_info = self::$user_data;
-
-        $platform_arr = getArrVal($admin_info,'platform_id',[]);
-
-        if(!$platform_arr){
-            return [];
-        }
-        $list = [];
-        foreach ($platform_arr as $v){
-            $list = array_merge($list,self::getUpProductCache($v));
-        }
-
-        return $list;
-    }
-
-    /**
-     * 根据平台获取唯一产品
-     * @param int $platform_id 平台id
-     * @param int $f5 0 读取缓存 1 读取数据库
-     * @return array
-     */
-    public static function getUpProductCache($platform_id = 0,$f5 = 0){
-
-        $cache_name = __CLASS__.'AllUpProduct_'.$platform_id;
-
-        $info = cache($cache_name);
-
-        if($info && $f5 == 0){
-            return $info;
-        }
-
-        $model = new UpGameProduct();
-
-        $where = [];
-
-        if($platform_id){
-            $where['platform_id'] = $platform_id;
-        }
-
-        $info = $model->field('id,up_name AS name,platform_id,up_id')->where($where)->select()->toArray();
-
-        $new_data = [];
-
-        if($info){
-            $platform_list = self::getPlatformList();
-            foreach ($info as $k => $v) {
-
-                if(isset($platform_list[$v['platform_id']])){
-                    $v['name'].='('.$platform_list[$v['platform_id']]['name'].')';
-                }else{
-                    $v['name'].='(未知平台)';
-                }
-
-                $v['id_str'] = $v['platform_id'].'_'.$v['up_id'];
-
-                $new_data[$v['id']] = $v;
-            }
-
-            cache($cache_name,$new_data,1800);
-        }
-
-        return $new_data;
-    }
-
-    public static function getUpNameById($id,$platform_id){
-
-        if(!$id){
-            return [];
-        }
-
-        if(!is_array($id)){
-            $id_arr = splitToArr($id);
-        }else{
-            $id_arr = $id;
-        }
-
-        $list = self::getUpProductCache($platform_id);
-
-        $name_arr = [];
-        foreach ($list as $item){
-            if(in_array($item['up_id'],$id_arr)){
-                $name_arr[] = $item['name'];
-            }
-        }
-
-        return $name_arr;
-    }
-
-
-    /**
-     * 获取所有游戏信息
-     * @param int $f5
-     * @return array|mixed
-     */
-    public static function getGameKey($f5 = 0){
-        $cache_name = __CLASS__.'gamekey';
-
-        if(!$f5){
-            $info = cache($cache_name);
-            if($info){
-                return $info;
-            }
-        }
-
-        $model = new Gamekey();
-
-        $list = $model->field('id,game_name,game_code,type,key,config')->where('status=1')->select()->toArray();
-        $info = [];
-        if($list){
-            foreach ($list as $v){
-                $info[$v['game_code']] = $v;
-            }
-        }
-        if($info){
-            cache($cache_name,$info,3600);
-        }
-
-        return $info;
-    }
-
-
 }

@@ -4,7 +4,6 @@
    # is_direct_game 是否直接对接平台，1直接 :0先对接阿斯加德
    # role_block_url 角色封禁地址
    # batch_block 是否支持角色封禁
-   # need_cp_deal 是否对接cp的文档，走cp的统一接口，内容写在游戏类中
    use think\Env;
    return [
        'gamekey'=>
@@ -192,8 +191,6 @@
                        'need_change_uid'=> 0,
                        'is_direct_game'=>1,
                        'batch_block'=>1,
-                       'sell_list'=>'ht.cqly.app.9125flying.com/extapi?action=get_logstall',
-                       'insider_list'=>'ht.cqly.app.9125flying.com/extapi?action=own_resources'
 
                    ],
 
@@ -407,12 +404,10 @@
                        'ip_url'=> "https://isp.hhycdk.com/toSn/extend/forbidTalk_gr6_ip/107/h0091/frx_gr_6",
                        'chat_url'=> "https://isp.hhycdk.com/toSn/extend/forbidTalk_gr6/107/h0091/frx_gr_6",
                        'loginout_url'=> "https://isp.hhycdk.com/toSn/extend/forbidTalk_gr6_uid/107/h0091/frx_gr_6",
-//                       'role_block_url'=> "https://isp-dev.hhycdk.com/toSn/extend/forbidTalk_gr6_role/107/h0091/frx_gr_6",//测试服
-                       'role_block_url'=> "https://isp.hhycdk.com/toSn/extend/forbidTalk_gr6_role/107/h0091/frx_gr_6",
-
+                       'role_block_url'=> "",
                        'need_change_uid'=> 1,
                        'is_direct_game'=>1,
-                       'batch_block'=>1
+                       'batch_block'=>0
                    ],
 
                'xycq' =>
@@ -438,310 +433,16 @@
                        'name'=> '奇迹',
                        'type'=> 2,
                        'key'=> "2xAWaEingwY07zNEOrBdQF0dxlQ6xiQY",
-                       'block_url'=> "https://fa.xy.com/fasdk/banuser/tanwan/14/1",
-                       'ip_url'=> "",
-                       'chat_url'=> "https://fa.xy.com/fasdk/banuser/tanwan/14/3",
-                       'loginout_url'=> "",
-                       'role_block_url'=> "https://fa.xy.com/fasdk/banuser/tanwan/14/1",
-                       'server_list'=> "",
-                       'need_change_uid'=> 1,
-                       'is_direct_game'=>1,
-                       'batch_block'=>1
-                   ],
-
-               'yscqios' =>
-                   [
-                       'id'=> 27,
-                       'name'=> '原始传奇ios',
-                       'type'=> 2,
-                       'key'=> "YM0uDyIQ6OGRmsbmb92JP0xj6RVlDQDv",
-                       'block_url'=> "http://ht.yssy.baimaniu.com/extapi?action=sqbanUser",
-                       'ip_url'=> "",
-                       'chat_url'=> "http://ht.yssy.baimaniu.com//extapi?action=sqbanChat",
-                       'loginout_url'=> "",
-                       'role_block_url'=> "",
-                       'server_list'=> "",
-                       'need_change_uid'=> 1,
-                       'is_direct_game'=>1,
-                       'batch_block'=>0
-                   ],
-
-               'jzezf' =>
-                   [
-                       'id'=> 28,
-                       'name'=> '九州e专服',
-                       'type'=> 2,
-                       'key'=> "EbMRjB62wmC7Tlt1vNefcXieQBHOa8Rd",
-                       'block_url'=> "https://nknedd.51pbnet.com/jthy/api/sdk/game.php/llE/playerBan",
-                       'ip_url'=> "https://nknedd.51pbnet.com/jthy/api/sdk/game.php/llE/playerIpBan",
-                       'chat_url'=> "https://nknedd.51pbnet.com/jthy/api/sdk/game.php/llE/playerShutUp",
-                       'loginout_url'=> "https://nknedd.51pbnet.com/jthy/api/sdk/game.php/llE/roleOutLine",
-                       'role_block_url'=> "https://nknedd.51pbnet.com/jthy/api/sdk/game.php/llE/playerBan",
-                       'server_list'=> "https://nknedd.51pbnet.com/jthy/api/sdk/game.php/llE/getServerListInfo",
-                       'need_change_uid'=> 1,
-                       'is_direct_game'=>1,
-                       'batch_block'=>1
-                   ],
-
-               'nbcq' =>
-                   [
-                       'id'=> 29,
-                       'name'=> '牛逼传奇',
-                       'type'=> 2,
-                       'key'=> "ExEQePlw2cvCeBeWpXzeN55dr7tMTJqV",
                        'block_url'=> "",
-                       'ip_url'=> "http://ht.xwcq.douquy.com/extapi?action=BanLoginApi&distribute=p93D6qlNQNH0iRIA4FqGBQ==",
-                       'chat_url'=> "http://ht.xwcq.douquy.com/extapi?action=BanLoginApi&distribute=6UwKBL9+WpMYzfxROD0x+Q==",
-                       'loginout_url'=> "",
-                       'role_block_url'=> "http://ht.xwcq.douquy.com/extapi?action=BanLoginApi&distribute=TpVmLnAE4994IxLV7Eqr3w==",
-                       'server_list'=> "",
-                       'need_change_uid'=> 1,
-                       'is_direct_game'=>1,
-                       'batch_block'=>1
-                   ],
-
-               'yscqyy' =>
-                   [
-                       'id'=> 30,
-                       'name'=> '原始传奇-游娱',
-                       'type'=> 2,
-                       'key'=> "ysjsnjlXSgRlHgHlwLyzQ0KqSjSFEBze",
-                       'block_url'=> "http://ht.yssy.baimaniu.com/extapi?action=sqbanUser",
                        'ip_url'=> "",
-                       'chat_url'=> "http://ht.yssy.baimaniu.com//extapi?action=sqbanChat",
+                       'chat_url'=> "",
                        'loginout_url'=> "",
                        'role_block_url'=> "",
                        'server_list'=> "",
-                       'need_change_uid'=> 1,
-                       'is_direct_game'=>1,
+                       'need_change_uid'=> 0,
+                       'is_direct_game'=>0,
                        'batch_block'=>0
                    ],
-               'dxcq' =>
-                   [
-                       'id'=> 31,
-                       'name'=> '大侠传奇',
-                       'type'=> 2,
-                       'key'=> "aynFd4NFnBRotvZDUjmZ3ykkw5Vqiu1a",
-                       'block_url'=> "http://ht.fyws.itunesapplestore.net/channel/mlbanuser",
-                       'ip_url'=> "",
-                       'chat_url'=> "http://ht.fyws.itunesapplestore.net/channel/mlbanchat",
-                       'loginout_url'=> "",
-                       'role_block_url'=> "http://ht.fyws.itunesapplestore.net/channel/Mlbanjuese",
-                       'server_list'=> "",
-                       'need_change_uid'=> 1,
-                       'is_direct_game'=>1,
-                       'batch_block'=>1
-                   ],
-
-               '555xyx' =>
-                   [
-                       'id'=> 32,
-                       'name'=> '555小游戏',
-                       'type'=> 2,
-                       'key'=> "OM5UqpzfDcUZ5YJ2FFDELvOl6EaZZxXF",
-                       'block_url'=> "https://lcwslogpy.guyuncq.com/zwxfbwx/api?m=Player&fn=banUser",
-                       'ip_url'=> "",
-                       'chat_url'=> "https://lcwslogpy.guyuncq.com/zwxfbwx/api?m=Player&fn=banChat",
-                       'loginout_url'=> "",
-                       'role_block_url'=> "https://lcwslogpy.guyuncq.com/zwxfbwx/api?m=Player&fn=banUser",
-                       'server_list'=> "",
-                       'need_change_uid'=> 0,
-                       'is_direct_game'=>1,
-                       'batch_block'=>1
-                   ],
-
-               'xycqyy' =>
-                   [
-                       'id'=> 33,
-                       'name'=> '西游传奇-游娱',
-                       'type'=> 2,
-                       'key'=> "FX6pArxtZVhe1elBjXLr92bjCAM4Jvec",
-                       'block_url'=> "https://ht-api.hlxy.db9x.com/oper/llinfo.php?queryAction=banUser",
-                       'ip_url'=> "https://ht-api.hlxy.db9x.com/oper/llinfo.php?queryAction=banIp",
-                       'chat_url'=> "https://ht-api.hlxy.db9x.com/oper/llinfo.php?queryAction=banChat",
-                       'loginout_url'=> "",
-                       'role_block_url'=> "https://ht-api.hlxy.db9x.com/oper/llinfo.php?queryAction=banRole",
-                       'server_list'=> "https://ht-api.hlxy.db9x.com/oper/zwband.php?queryAction=serverList",
-                       'need_change_uid'=> 0,
-                       'is_direct_game'=>1,
-                       'batch_block'=>0
-                   ],
-
-               'jmxy' =>
-                   [
-                       'id'=> 33,
-                       'name'=> '九梦仙域',
-                       'type'=> 2,
-                       'key'=> "wLovREBpwLBa3MP7MSfKk2PPnBJaLZP3",
-                       'block_url'=> "http://cl3.uc01.huanyuantech.com/agy/lock_user.php",
-                       'ip_url'=> "https://ht-api.hlxy.db9x.com/oper/llinfo.php?queryAction=banIp",
-                       'chat_url'=> "http://cl3.uc01.huanyuantech.com/agy/mute_role.php",
-                       'loginout_url'=> "",
-                       'role_block_url'=> "http://cl3.uc01.huanyuantech.com/agy/lock_role.php",
-                       'server_list'=> "",
-                       'need_change_uid'=> 1,
-                       'is_direct_game'=>1,
-                       'batch_block'=>1
-                   ],
-               'ts' =>
-                   [
-                       'id'=> 34,
-                       'name'=> '通神',
-                       'type'=> 2,
-                       'key'=> "Uf3gRj8y3yI9hp77VTxJpKgjWfCRIRge",
-                       'block_url'=> "https://tongshenht.xinshenghudong.com/index/ban-account",
-                       'ip_url'=> "",
-                       'chat_url'=> "https://tongshenht.xinshenghudong.com/index/shutup",
-                       'loginout_url'=> "",
-                       'role_block_url'=> "https://tongshenht.xinshenghudong.com/index/ban-role",
-                       'server_list'=> "",
-                       'need_change_uid'=> 0,
-                       'is_direct_game'=>1,
-                       'batch_block'=>1
-                   ],
-               'nbcqios' =>
-                   [
-                       'id'=> 35,
-                       'name'=> '牛逼传奇IOS',
-                       'type'=> 2,
-                       'key'=> "kneOHVMTo65DLd2Zb2MPtoTHopsD9HVZ",
-                       'block_url'=> "http://ht.xwcq.douquy.com/extapi?action=BanLoginApi&distribute=+3hr2AevAL8AyQw7QhheTQ==",
-                       'ip_url'=> "http://ht.xwcq.douquy.com/extapi?action=BanLoginApi&distribute=pDsnvUpWl2N96QxbChhuiA==",
-                       'chat_url'=> "http://ht.xwcq.douquy.com/extapi?action=BanLoginApi&distribute=FBwlXsJvnbv6qKELCkpffA==",
-                       'loginout_url'=> "",
-                       'role_block_url'=> "http://ht.xwcq.douquy.com/extapi?action=BanLoginApi&distribute=+3hr2AevAL8AyQw7QhheTQ==",
-                       'server_list'=> "",
-                       'need_change_uid'=> 0,
-                       'is_direct_game'=>1,
-                       'batch_block'=>1
-                   ],
-
-               'nbcq2zw' =>
-                   [
-                       'id'=> 36,
-                       'name'=> '牛逼传奇2-掌玩',
-                       'type'=> 2,
-                       'key'=> "Py3DEFFW1EhaZNSXLln5UhxAtDSc2bdZ",
-                       'block_url'=> "http://ht.nbc2.douquy.com/channel/BanInterfaceApiAdzwRole",
-                       'ip_url'=> "http://ht.nbc2.douquy.com/channel/BanInterfaceApiAdzwIp",
-                       'chat_url'=> "http://ht.nbc2.douquy.com/channel/BanInterfaceApiAdzwChat",
-                       'loginout_url'=> "",
-                       'role_block_url'=> "http://ht.nbc2.douquy.com/channel/BanInterfaceApiAdzwRole",
-                       'server_list'=> "",
-                       'need_change_uid'=> 0,
-                       'is_direct_game'=>1,
-                       'batch_block'=>1
-                   ],
-
-
-               'nbcq2youyu' =>
-                   [
-                       'id'=> 37,
-                       'name'=> '牛逼传奇2-游娱',
-                       'type'=> 2,
-                       'key'=> "gPD0Ghfskd4O4KBEdpeGo8ic0vWlZgQo",
-                       'block_url'=> "http://ht.nbc2.douquy.com/channel/BanInterfaceApiAdyouyRole",
-                       'ip_url'=> "http://ht.nbc2.douquy.com/channel/BanInterfaceApiAdyouyIp",
-                       'chat_url'=> "http://ht.nbc2.douquy.com/channel/BanInterfaceApiAdyouyChat",
-                       'loginout_url'=> "",
-                       'role_block_url'=> "http://ht.nbc2.douquy.com/channel/BanInterfaceApiAdyouyRole",
-                       'server_list'=> "",
-                       'need_change_uid'=> 0,
-                       'is_direct_game'=>1,
-                       'batch_block'=>1
-                   ],
-
-               'xgz' =>
-                   [
-                       'id'=> 38,
-                       'name'=> '新国战',
-                       'type'=> 2,
-                       'key'=> "FVBQNwgbLUtmDJKIp1N5t7zm35cNNBWm",
-                       'block_url'=> "http://pay.lycb.hnzwaa.com/ye/ban/user",
-                       'ip_url'=> "http://pay.lycb.hnzwaa.com/ye/ban/ip",
-                       'chat_url'=> "http://pay.lycb.hnzwaa.com/ye/ban/chat",
-                       'loginout_url'=> "http://pay.lycb.hnzwaa.com/ye/ban/off ",
-                       'role_block_url'=> "http://pay.lycb.hnzwaa.com/ye/ban/role",
-                       'server_list'=> "",
-                       'need_change_uid'=> 1,
-                       'is_direct_game'=>1,
-                       'batch_block'=>1
-                   ],
-
-
-               'gz3' =>
-                   [
-                       'id'=> 39,
-                       'name'=> '国战3.0',
-                       'type'=> 2,
-                       'key'=> "vrXCzGqqiFwK6dSlRSSc8yl6EkMWqS3U",
-                       'block_url'=> "http://pay.lyhj.hnzwaa.com/ye/ban/user",
-                       'ip_url'=> "http://pay.lyhj.hnzwaa.com/ye/ban/ip",
-                       'chat_url'=> "http://pay.lyhj.hnzwaa.com/ye/ban/chat",
-                       'loginout_url'=> "http://pay.lyhj.hnzwaa.com/ye/ban/off",
-                       'role_block_url'=> "http://pay.lyhj.hnzwaa.com/ye/ban/role",
-                       'server_list'=> "",
-                       'need_change_uid'=> 0,
-                       'is_direct_game'=>1,
-                       'batch_block'=>1
-                   ],
-
-               'rxxcx' =>
-                   [
-                       'id'=> 40,
-                       'name'=> '热血小程序',
-                       'type'=> 2,
-                       'key'=> "vrXCzGqqiFwK6dSlRSSc8yl6EkMWqS3U",
-                       'block_url'=> "http://api.4399data.com/?r=banType/BanAct",
-                       'ip_url'=> "",
-                       'chat_url'=> "http://api.4399data.com/?r=banType/BanRoleIdChat",
-                       'loginout_url'=> "",
-                       'role_block_url'=> "http://api.4399data.com/?r=banType/BanRoleId",
-                       'server_list'=> "",
-                       'need_change_uid'=> 0,
-                       'is_direct_game'=>1,
-                       'batch_block'=>1,
-                       'need_cp_deal'=>1
-                   ],
-               'bx555' =>
-                   [
-                       'id'=> 41,
-                       'name'=> '冰雪-555',
-                       'type'=> 2,
-                       'key'=> "Jwex4CaryHf4MBjJdMBHS3EbSdhmN2hX",
-                       'block_url'=> "https://lcwslogpy.guyuncq.com/bingxue2hf/api?m=Player&fn=banUser",
-                       'ip_url'=> "",
-                       'chat_url'=> "https://lcwslogpy.guyuncq.com/bingxue2hf/api?m=Player&fn=banChat",
-                       'loginout_url'=> "",
-                       'role_block_url'=> "https://lcwslogpy.guyuncq.com/bingxue2hf/api?m=Player&fn=banUser",
-                       'server_list'=> "",
-                       'need_change_uid'=> 0,
-                       'is_direct_game'=>1,
-                       'batch_block'=>1,
-
-                   ],
-               'dxcq2' =>
-                   [
-                       'id'=> 42,
-                       'name'=> '大侠传奇2',
-                       'type'=> 2,
-                       'key'=> "rR8fG3RK8c25UT4pnetUVEwqvBFBNsRq",
-                       'block_url'=> "http://ht.dxdzy.shengjuewl.net/channel/Mlbanuser",
-                       'ip_url'=> "",
-                       'chat_url'=> "http://ht.dxdzy.shengjuewl.net/channel/Mlbanchat",
-                       'loginout_url'=> "",
-                       'role_block_url'=> "http://ht.dxdzy.shengjuewl.net/channel/Mlbanjuese",
-                       'server_list'=> "",
-                       'need_change_uid'=> 1,
-                       'is_direct_game'=>1,
-                       'batch_block'=>1,
-
-                   ],
-
-
-
-
-
 
 
        ]

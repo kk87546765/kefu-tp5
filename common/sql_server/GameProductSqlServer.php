@@ -7,53 +7,14 @@
 namespace common\sql_server;
 
 use common\model\db_statistic\GameProduct;
-
 class GameProductSqlServer extends BaseSqlServer
 {
-
-
-    public static function getPlatformProductList($where = '',$limit = 50,$page = 1,$order = 'id desc'){
-        $order = 'a.id desc';
-        $model = new GameProduct();
-        $game_product = $model->where($where)->field('a.*,b.game_name')->alias('a')->join(' db_customer.gamekey b','a.customer_product_code = b.game_code','left')->limit(($page - 1) * $limit.','.$limit)->order($order)->select();
-
-        $ret = empty($game_product) ? [] : $game_product->toArray();
-
-        return $ret;
-    }
-
-    public static function getPlatformProductCount($where = ''){
-        $model = new GameProduct();
-        $count = $model->where($where)->count();
-
-        $ret = empty($count) ? 0 : $count;
-
-        return $ret;
-    }
-
-
     public static function getOne($product_id,$platform_id)
     {
         $model = new GameProduct();
         $res = $model->where("product_id = {$product_id} and platform_id = {$platform_id}")->find();
         $res = isset($res) ? $res->toArray() : [];
         return $res;
-    }
-
-    public static function getCustomerProductOne($gid = 0,$platform_id = 0)
-    {
-        $model = new GameProduct();
-        $where['platform_id'] = $platform_id;
-        $where['gid'] = $gid;
-        $sql = "select a.game_id,b.customer_product_code from platform_game_info a JOIN game_product b on a.platform_id=b.platform_id and a.product_id = b.product_id where  a.platform_id = {$platform_id} and a.game_id = {$gid} and customer_product_code !='' limit 1";
-        $res = $model->query($sql);
-        if(isset($res[0]['customer_product_code'])){
-            $code = $res[0]['customer_product_code'];
-        }else{
-            $code = '';
-        }
-
-        return $code;
     }
 
 
@@ -85,7 +46,7 @@ class GameProductSqlServer extends BaseSqlServer
      * @param $data
      * @return mixed
      */
-    public static function edit($data)
+    public function edit($data)
     {
         $model = new GameProduct();
         $res = $model->isUpdate(true)->save($data,['id'=>$data['id']]);

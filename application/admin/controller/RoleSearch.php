@@ -27,32 +27,31 @@ class RoleSearch extends Oauth
     public function index()
     {
 
-        $account         = $this->request->post('account', '' );
-        $type            = $this->request->post('type/d', 0);
+        $account = $this->request->post('account', '' );
+        $type = $this->request->post('type/d', 0);
 
-        $page            = $this->request->post('page/d', 1);
-        $limit           = $this->request->post('limit/d', 20);
-        $platform_id     = $this->request->post('platform_id/d', 1);
+        $page       = $this->request->post('page/d', 1);
+        $limit      = $this->request->post('limit/d', 20);
+        $platform_id  = $this->request->post('platform_id/d', 1);
 
 //            $product_id  = $this->request->getPost('product_id', 'int', 0);
-        $user_name       = $this->request->post('user_name/s',  '');
-        $uid             = $this->request->post('uid/d',0);
-        $reg_gid         = $this->request->post('reg_gid/s', '');
-        $login_gid       = $this->request->post('login_gid/d', 0);
-        $server_id       = $this->request->post('server_id/d', 0);
-        $role_name       = $this->request->post('role_name/s', '');
-        $role_id         = $this->request->post('role_id/d', 0);
-        $trans_level     = $this->request->post('trans_level/d', 0);
-        $role_level      = $this->request->post('role_level/d', 0);
-        $s_reg_time      = $this->request->post('s_reg_time/s', date('Y-m-d',strtotime(date('Y-m-d H:i:s'))-86400));
-        $e_reg_time      = $this->request->post('e_reg_time/s', date('Y-m-d',strtotime(date('Y-m-d H:i:s'))));
-        $s_money         = $this->request->post('s_money/d', 0);
-        $e_money         = $this->request->post('e_money/d', 0);
-        $s_reg_days      = $this->request->post('s_reg_days/d', 0);
-        $e_reg_days      = $this->request->post('e_reg_days/d', 0);
+        $user_name  = $this->request->post('user_name/s',  '');
+        $uid  = $this->request->post('uid/d',0);
+        $reg_gid  = $this->request->post('reg_gid/s', '');
+        $login_gid  = $this->request->post('login_gid/d', 0);
+        $server_id  = $this->request->post('server_id/d', 0);
+        $role_name  = $this->request->post('role_name/s', '');
+        $role_id  = $this->request->post('role_id/d', 0);
+        $trans_level = $this->request->post('trans_level/d', 0);
+        $role_level = $this->request->post('role_level/d', 0);
+        $s_reg_time = $this->request->post('s_reg_time/s', date('Y-m-d',strtotime(date('Y-m-d H:i:s'))-86400));
+        $e_reg_time = $this->request->post('e_reg_time/s', date('Y-m-d',strtotime(date('Y-m-d H:i:s'))));
+        $s_money = $this->request->post('s_money/d', 0);
+        $e_money = $this->request->post('e_money/d', 0);
+        $s_reg_days = $this->request->post('s_reg_days/d', 0);
+        $e_reg_days = $this->request->post('e_reg_days/d', 0);
         $s_reg_role_days = $this->request->post('s_reg_role_days/d', 0);
         $e_reg_role_days = $this->request->post('e_reg_role_days/d', 0);
-
         $game_arr = explode(',',$reg_gid);
 
         $tmp_game_arr = [];
@@ -100,17 +99,6 @@ class RoleSearch extends Oauth
         $this->rs['count'] = $count;
         return return_json($this->rs);
 
-
-    }
-
-
-    public function changeUname()
-    {
-        $platform_id = $this->request->post('platform_id', 0 );
-        $id          = $this->request->post('uid/d', 0);
-        $platform_info = Common::getPlatformInfoByPlatformIdAndCache($platform_id);
-
-        RoleSearchServer::changeUname($platform_info,$id);
 
     }
 

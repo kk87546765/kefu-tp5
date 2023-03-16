@@ -270,7 +270,8 @@ class SellWorkOrderServer extends BasicServer
             $where[] = getWhereDataArr($param['p_p'],'p_p');
         }
 
-        if($param['status'] !== ''){
+        if(!empty($param['status'])){
+
             $where[] = getWhereDataArr($param['status'],'status');
         }
 
@@ -791,7 +792,7 @@ class SellWorkOrderServer extends BasicServer
                         return ['code'=>4,'msg'=>$code[4]];
                     }
                 }elseif(self::$user_data['position_grade'] == QcConfig::POSITION_GRADE_LEADER){
-                    $ids = SysServer::getAdminListByGroupIds(self::$user_data['group_id'],2);
+                    $ids = AdminServer::getAdminIdsByGroupId(self::$user_data['group_id']);
                     if(!$ids){
                         $ids = [0];
                     }
@@ -846,10 +847,6 @@ class SellWorkOrderServer extends BasicServer
         if($id){
 
             $this_info = $model->where(['id'=>$id])->find();
-
-            if($this_info->update_time !== $p_data['update_time']){
-                return ['code'=>3,'msg'=>'数据已有变动，请刷新页面再次尝试！'];
-            }
 
             if(!$this_info){
                 return ['code'=>2,'msg'=>$code[2]];
@@ -972,7 +969,6 @@ class SellWorkOrderServer extends BasicServer
             if($last_info){
                 $res['server_id'] = $last_info['server_id'];
                 $res['pay_time_last_day'] = strtotime(date('Y-m-d',$last_info['pay_time']+3600*24));//明天凌晨
-                $res['pay_time_first_day'] = strtotime(date('Y-m-d',$last_info['pay_time']));//今天天凌晨
             }
             if($first_info){
                 $res['pay_time_first_day'] = strtotime(date('Y-m-d',$first_info['pay_time']));//今天天凌晨
@@ -1028,7 +1024,7 @@ class SellWorkOrderServer extends BasicServer
         if($list){
             $old_order_o_ids = [];
             foreach ($list as $k => $v) {
-                $old_order_o_ids[] = $v;
+                $old_order_o_ids[] = $v['kpo_id'];
             }
 
             $data = arrMID($old_order_o_ids,$order_o_ids);
@@ -1187,17 +1183,13 @@ class SellWorkOrderServer extends BasicServer
         /*************** kpi & 营销数据 ****************/
         //获取kpi列表
         $where_kpi = getDataByField($param,['group_id','kpi_date'],true);
-        $power_admin_ids = [];
+
         if(self::$user_data['is_admin'] == 0){
-            $param['admin_platform_id'] =self::$user_data['platform_id']?self::$user_data['platform_id']:[0];
+            $p_data['admin_platform_id'] =self::$user_data['platform_id']?self::$user_data['platform_id']:[0];
             if(self::$user_data['position_grade'] == QcConfig::POSITION_GRADE_NORMAL){
-                $param['admin_id'] = self::$user_data['id'];
+                $p_data['admin_id'] = self::$user_data['id'];
             }elseif(self::$user_data['position_grade'] == QcConfig::POSITION_GRADE_LEADER){
-                $param['admin_group_id'] =self::$user_data['group_id_arr']?self::$user_data['group_id_arr']:[0];
-                $power_admin_ids = SysServer::getAdminListByGroupIds(self::$user_data['group_id_arr'],2);
-                if(!$power_admin_ids){
-                    $power_admin_ids = [0];
-                }
+                $p_data['admin_group_id'] =self::$user_data['group_id_arr']?self::$user_data['group_id_arr']:[0];
             }
         }
 
@@ -1211,11 +1203,6 @@ class SellWorkOrderServer extends BasicServer
 
         if(isset($param['p_p']) && $param['p_p'] ){
             $where_kpi['_string'] = "concat(platform_id,'_',product_id) in ('".str_replace(',','\',\'',$param['p_p'])."')";
-        }
-
-        if(isset($param['admin_platform_id']) && $param['admin_platform_id'] ){
-            $where_kpi[] = getWhereDataArr($param['admin_platform_id'],'platform_id');
-
         }
 
         $kpi_list_count = $SellerKpiConfig->where(setWhereSql($where_kpi,''))->count('distinct admin_id');
@@ -1320,8 +1307,6 @@ class SellWorkOrderServer extends BasicServer
         if(isset($param['admin_id']) && $param['admin_id'] ){
             $where[] = getWhereDataArr($param['admin_id'],'admin_id');
         }
-
-
         $where['type'] = 2;
 
         $month_info = $SellWorkOrderStatisticMonth->field(implode(',',$field_arr_new))->where(setWhereSql($where,''))->group('admin_id')->select()->toArray();
@@ -1352,7 +1337,7 @@ class SellWorkOrderServer extends BasicServer
                 $where[] = ['platform_id','in',$param['admin_platform_id']];
             }
             if(isset($param['admin_group_id']) && $param['admin_group_id'] ){
-                $where[] = getWhereDataArr($power_admin_ids,'kf_id');
+                $where[] = getWhereDataArr($param['admin_group_id'],'group_id');
             }
             if(isset($param['platform_id']) && $param['platform_id'] ){
                 $where[] = getWhereDataArr($param['platform_id'],'platform_id');
@@ -1478,22 +1463,14 @@ class SellWorkOrderServer extends BasicServer
         /***************** 数据准备 end ****************/
 
         /****************** kpi & 营销数据 ******************/
-        $where_kpi_product = getDataByField($param,['group_id','kpi_date'],true);
-
-        $where = getDataByField($param,['kpi_date'],true);
-
-        $power_admin_ids = [];
+        $where_kpi_product = $where = getDataByField($param,['group_id','kpi_date'],true);
 
         if(self::$user_data['is_admin'] == 0){
-            $param['admin_platform_id'] =self::$user_data['platform_id']?self::$user_data['platform_id']:[0];
+            $p_data['admin_platform_id'] =self::$user_data['platform_id']?self::$user_data['platform_id']:[0];
             if(self::$user_data['position_grade'] == QcConfig::POSITION_GRADE_NORMAL){
-                $param['admin_id'] = self::$user_data['id'];
+                $p_data['admin_id'] = self::$user_data['id'];
             }elseif(self::$user_data['position_grade'] == QcConfig::POSITION_GRADE_LEADER){
-                $param['admin_group_id'] =self::$user_data['group_id_arr']?self::$user_data['group_id_arr']:[0];
-                $power_admin_ids = SysServer::getAdminListByGroupIds(self::$user_data['group_id_arr'],2);
-                if(!$power_admin_ids){
-                    $power_admin_ids = [0];
-                }
+                $p_data['admin_group_id'] =self::$user_data['group_id_arr']?self::$user_data['group_id_arr']:[0];
             }
         }
 
@@ -1515,9 +1492,7 @@ class SellWorkOrderServer extends BasicServer
             $where[] = ['platform_id','in',$param['admin_platform_id']];
         }
         if(isset($param['admin_group_id']) && $param['admin_group_id'] ){
-
-            $where_kpi_product[] = ['group_id','in',$param['admin_group_id']];
-            $where[] = getWhereDataArr($power_admin_ids,'admin_id');
+            $where[] = ['group_id','in',$param['admin_group_id']];
         }
 
         //查询客服设置营销产品配置
@@ -1526,10 +1501,6 @@ class SellWorkOrderServer extends BasicServer
         $kpi_product_info_new = [];
         $admin_p_p_arr = [];
         if($kpi_product_info){
-
-            $col = array_column($kpi_product_info,'admin_id');
-            $limit_admin_id = array_unique($col);
-
             foreach ( $kpi_product_info as $item){
                 if(!isset($kpi_product_info_new[$item['admin_id']])){
                     $kpi_product_info_new[$item['admin_id']]=['admin_id' => $item['admin_id'],'p_p'=>[]];
@@ -1608,16 +1579,11 @@ class SellWorkOrderServer extends BasicServer
             $this_param[] = ['group_id','in',$param['admin_group_id']];
         }
 
-        if(empty($param['admin_id']) && isset($limit_admin_id) ){
-            $this_param[] = ['admin_id','in',implode(',',$limit_admin_id)];
-        }
-
 
         $statistic_info = array_merge($statistic_info,self::getMonthKfVipUserStatistic($this_param));
 
         if($big_order_limit != StatisticServer::$big_order_limit_def){
             $where = getDataByField($param,['group_id'],true);
-
             if($admin_p_p_str){
                 $where['_string'] = str_replace('admin_id','kf_id',$admin_p_p_str);
             }
@@ -1635,7 +1601,7 @@ class SellWorkOrderServer extends BasicServer
                 $where[] = ['platform_id','in',$param['admin_platform_id']];
             }
             if(isset($param['admin_group_id']) && $param['admin_group_id'] ){
-                $where[] = getWhereDataArr($power_admin_ids,'kf_id');
+                $where[] = ['group_id','in',$param['admin_group_id']];
             }
             if(isset($param['platform_id']) && $param['platform_id'] ){
                 $where[] = getWhereDataArr($param['platform_id'],'platform_id');

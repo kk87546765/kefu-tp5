@@ -29,7 +29,6 @@ class RoleSearchServer extends BasicServer
             $res[$k]['role_reg_time'] = empty($v['role_reg_time']) ? '' : date('Y-m-d H:i:s',$v['role_reg_time']);
             $res[$k]['account_reg_time'] = empty($v['account_reg_time']) ? '' : date('Y-m-d H:i:s',$v['account_reg_time']);
             $res[$k]['account_reg_time'] = empty($v['account_reg_time']) ? '' : date('Y-m-d H:i:s',$v['account_reg_time']);
-            $res[$k]['uname'] = isphone($res[$k]['uname']) ? substr_replace($res[$k]['uname'],'****',4,4) : $res[$k]['uname'];
         }
         return $res;
 
@@ -144,13 +143,6 @@ class RoleSearchServer extends BasicServer
 
         return $data;
 
-    }
-
-    public static function changeUname($platform_info,$uid)
-    {
-        $where = "uid={$uid}";
-        $res = RoleSearch::getList($platform_info['platform_id'],$platform_info['platform_suffix'],$where,'',1,1);
-        var_duMP($res);exit;
     }
 
 

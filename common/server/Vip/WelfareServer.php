@@ -36,7 +36,7 @@ class WelfareServer extends BasicServer
         $VipUserRebateProp = new VipUserRebateProp();
         $sql = "SELECT A.*,B.title,B.content,B.prop_id FROM vip_user_rebate_prop as A INNER JOIN product_prop_config as B ON A.rebate_prop_config_id = B.id where A.date >= '".$start_time."' and A.date <= '".$end_time."'";
         if (!empty($platform_id)) {
-            $sql .= " AND A.platform_id in($platform_id)";
+            $sql .= " AND A.platform_id = ".$platform_id;
         }
 
         $res = $VipUserRebateProp->query($sql);

@@ -21,14 +21,10 @@ class BasicController extends Controller
     public function _initialize()
     {
         $this->time = time();
-        $this->rs = ['data'=>[],'time'=>$this->time,'code'=>0,'msg'=>'ok','time_m'=>[]];
+        $this->rs = ['data'=>[],'time'=>$this->time,'code'=>0,'msg'=>'ok'];
         $this->req = request();
 
         $this->error_code = config('error_code');
 
-    }
-
-    protected function setMicrotime($name){
-        $this->rs['time_m'][microtime()] = $name;
     }
 }

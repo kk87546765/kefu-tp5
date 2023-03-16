@@ -12,139 +12,6 @@ use common\model\db_customer\QcConfig;
 class ListActionServer extends BasicServer
 {
 
-    public static function checkRecallPlanList($data){
-        $action_arr = [
-            'Recall'=>[
-                'planDetail',
-                'planChangeStatus',
-                'planCopy',
-            ],
-        ];
-
-        $this_action = self::getThisActionNew($action_arr);
-
-        $action = [];
-
-        //权限相关逻辑
-        if($this_action){
-
-            foreach ($this_action as $k => $v) {
-
-                if(self::$user_data['is_admin'] == 0){
-
-                }
-
-                $action[] = $v;
-            }
-        }
-
-        return $action;
-    }
-    public static function checkRecallLinkList($data){
-        $action_arr = [
-            'Recall'=>[
-                'linkDetail',
-            ],
-        ];
-
-        $this_action = self::getThisActionNew($action_arr);
-
-        $action = [];
-
-        //权限相关逻辑
-        if($this_action){
-
-            foreach ($this_action as $k => $v) {
-
-                if(self::$user_data['is_admin'] == 0){
-
-                }
-
-                $action[] = $v;
-            }
-        }
-
-        return $action;
-    }
-    public static function checkRecallLinkGroupList($data){
-        $action_arr = [
-            'Recall'=>[
-                'linkGroupDetail',
-            ],
-        ];
-
-        $this_action = self::getThisActionNew($action_arr);
-
-        $action = [];
-
-        //权限相关逻辑
-        if($this_action){
-
-            foreach ($this_action as $k => $v) {
-
-                if(self::$user_data['is_admin'] == 0){
-
-                }
-
-                $action[] = $v;
-            }
-        }
-
-        return $action;
-    }
-    public static function checkRecallCodeGroupList($data){
-        $action_arr = [
-            'Recall'=>[
-                'codeGroupDetail',
-            ],
-        ];
-
-        $this_action = self::getThisActionNew($action_arr);
-
-        $action = [];
-
-        //权限相关逻辑
-        if($this_action){
-
-            foreach ($this_action as $k => $v) {
-
-                if(self::$user_data['is_admin'] == 0){
-
-                }
-
-                $action[] = $v;
-            }
-        }
-
-        return $action;
-    }
-
-    public static function checkRecallCodeList($data){
-        $action_arr = [
-            'Recall'=>[
-                'codeDetail',
-            ],
-        ];
-
-        $this_action = self::getThisActionNew($action_arr);
-
-        $action = [];
-
-        //权限相关逻辑
-        if($this_action){
-
-            foreach ($this_action as $k => $v) {
-
-                if(self::$user_data['is_admin'] == 0){
-
-                }
-
-                $action[] = $v;
-            }
-        }
-
-        return $action;
-    }
 
     public static function checkWorkSheetLogList($data){
         $action_arr = [
@@ -425,9 +292,6 @@ class ListActionServer extends BasicServer
             'Sysmanage'=>[
                 'platformDetail',
                 'platformDel',
-                'gameDetail',
-                'gameAdd',
-                'gameDel',
             ],
         ];
 
@@ -450,8 +314,6 @@ class ListActionServer extends BasicServer
 
         return $action;
     }
-
-
     /**
      * 流失用户
      * @param array $data 数据
@@ -706,8 +568,7 @@ class ListActionServer extends BasicServer
                         continue;
                     }
 
-                    if($v == 'sellWorkOrderEdit' &&($data['status'] > 0 || !$data['id'])){
-
+                    if($v == 'sellWorkOrderEdit' && $data['status'] >= 0){
                         continue;
                     }
 //                }

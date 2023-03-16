@@ -26,8 +26,6 @@ class UserServer extends BasicServer
 
         $platformInfo = $polymerizaInfo = $result = $platformUids = $polymerizaUids =  [];
 
-        $tmp_platform = '';
-
         //筛选出没有接聚合的游戏uid
         foreach ($data as $v) {
 
@@ -41,20 +39,14 @@ class UserServer extends BasicServer
                 continue;
             }
 
-//            $gamkey = common::getConfig('gamekey');
-            $gamkey = Common::getGameKey();
+            $gamkey = common::getConfig('gamekey');
 
-            if(!isset($gamkey[$v['gkey']]) || (isset($gamkey[$v['gkey']]) && $gamkey[$v['gkey']]['is_direct_game'] == 1)){
-
-                $tmp_platform = $v['tkey'];
+            if ( $gamkey[$v['gkey']]['is_direct_game'] == 1){
                 $platformUids[] = $v['uid'];
 
-            }elseif(isset($gamkey[$v['gkey']]) && $gamkey[$v['gkey']]['is_direct_game'] == 0){
+            }else{
                 $polymerizaUids[] = $v['uid'];
             }
-
-
-
         }
 
 
@@ -62,12 +54,9 @@ class UserServer extends BasicServer
         if (!empty($polymerizaUids)){
             $polymerizaInfo = polyUserLogics::getUserInfoByUid($polymerizaUids);
 
-            if(isset($polymerizaInfo['failUid'])){
-                $res['failUid'] = array_merge($res['failUid'], $polymerizaInfo['failUid']);
-                unset($polymerizaInfo['failUid']);
-                unset($polymerizaInfo['fail']);
-            }
-
+            $res['failUid'] = array_merge($res['failUid'], $polymerizaInfo['failUid']);
+            unset($polymerizaInfo['failUid']);
+            unset($polymerizaInfo['fail']);
 
             //获取真正平台的user_name
             foreach ($polymerizaInfo as $k=>$v){
@@ -94,27 +83,11 @@ class UserServer extends BasicServer
 
         //特殊没有进过聚合的游戏轮询去到对应的平台数据库找到对应的平台标识
         if (!empty($platformUids)){
-            $platformInfo = Platform::getCommonMemberInfoByUid($platformUids, $tmp_platform);
 
+            $platformInfo = Platform::getCommonMemberInfoByUid($platformUids);
 
-            //存在用户表找不到的就从角色表查询
-            if(isset($platformInfo['failUid'])){
-
-                $get_uid_by_roleid = Platform::getCommonMemberInfoByUidAndRoleID($data,$platformInfo['failUid'],$tmp_platform);
-
-                if(!empty($get_uid_by_roleid['failUid'])){
-
-                    $res['failUid'] = array_merge($res['failUid'], $get_uid_by_roleid['failUid']);
-                    unset($get_uid_by_roleid['failUid']);
-                }
-
-                unset($platformInfo['failUid']);
-
-                $platformInfo = array_merge_recursive($platformInfo, $get_uid_by_roleid);
-
-
-            }
-
+            $res['failUid'] = array_merge($res['failUid'], $platformInfo['failUid']);
+            unset($platformInfo['failUid']);
         }
 
 
